@@ -1,0 +1,33 @@
+language: php
+addons:
+  apt:
+    update: true
+sudo: required
+php:
+- 7.3
+- 7.4
+env:
+  matrix:
+  - APPLICATION=ojs BRANCH=stable-3_3_0 TEST=mysql ORCID_URL=https://sandbox.orcid.org ORCID_APIPATH=https://api.sandbox.orcid.org  ORCID_APITYPE="Member Sandbox"
+  - APPLICATION=ojs BRANCH=stable-3_3_0 TEST=pgsql ORCID_URL=https://sandbox.orcid.org ORCID_APIPATH=https://api.sandbox.orcid.org  ORCID_APITYPE="Member Sandbox"
+  - APPLICATION=ops BRANCH=stable-3_3_0 TEST=mysql ORCID_URL=https://sandbox.orcid.org ORCID_APIPATH=https://api.sandbox.orcid.org  ORCID_APITYPE="Member Sandbox"
+  - APPLICATION=ops BRANCH=stable-3_3_0 TEST=pgsql ORCID_URL=https://sandbox.orcid.org ORCID_APIPATH=https://api.sandbox.orcid.org  ORCID_APITYPE="Member Sandbox"
+  global:
+  - secure: m+AQsfJZriXSWFqZI0GztPJIGAj4PHvxjrXeNSrk+ew4MMlEeZCvKUtnAY+/C9LXa06Q2s+TpMOfAV+B6qcg3Cy1nP5Lbsj4qdIhJpqj1MxSqEZrJn5JonDthD2pQ4GlltJm6vUnlGF40pPF1JKoUl8vXCXLSgFppBnYP7jw9XSPwdzlK6Wcm1JhFQz2qJ7nojUj7q3mZuie89aSdZG45xMzsi8ndTQI8KlF0uKQ0UgvZMhYO5jd2uRHodcRZr7fPvIjfFAueMqsLuVsnQCl5d+xb+esH4ZhBQcAa1s7Q8ak/XE3zss6d3sx7FEsSTBsurNMIDLKtJtRRyD33sQTSvyHtUta6Hj2NjY6QXDc8lYZUGgLeZ5z9QyQ73oW3tkT1rz82e27MFpSB00TjIIxmUvxdbFTD9vD5yoaRq9O9bXG6IyC7zYggXpYvcbw1j+0z6hp4kAY6iF8EQRG3Vd08noyOH5qtM1LBZ2czqUBeE70PoBX1EfT2kQwFJfhNdp8EuHdiBiP3dTxQMcwBdkDgw/rIY0+yrDzwgRKzB+OqbGdh8Cr9P73tKx3IXdoFngnLIWDGO+CFh84pLbT+PuHj8BlJUFqnNF409ENHNCpW6pBQA3Dc5LJV1q3VokXePVJF3rKfijF9Et/2IfxfC1Wp2soGB8rROQOyvnaj+H1URc=
+  - secure: W6P3TLUdCjDr07U1T/H7ZY7K1aXBvIj9R/s2c0ZuLFyRGW3GIgikLDqorpHQjVRxIT62uhve/JWfdQlbO/USz/WVIJVzb5pd/LMOOssAevRzTP478Hd77h7kXXmQ4xjkCctkIqyaPC++s3+g6emsvPan1gqc2OJ/Hd/iRTVCsU1qqPYNlaNHjeXRuK74y03OF3Jwag+hpdwyCJKlP+WnOHfWnYtmMhsyCIZPTfjzTZ4pEuMlLsJQo2JpS4DUyKxPOM6v+zVw3ugSnUOUYMBH3SZ3MWXn0wDzZ63HZtElDfl2FYrCKjnSCWaeUUQycMK5vqxMbhPgjYmyBPjC8MJQTZh9zJJRSbxlsI3IJ1zDEnxgszi0xxUEcOhwFlO/wjvVdKvQ52hZmqAJhFXsMEX0oyDndHivCH4GdO3DUOQYy57FKXj0jEJiCTyfAn43FOhfAjJBFkqlSbMmOtz6h4XKwLJFdJq0FOjTh/+Jl5BW2mQX45V7mrafLsaN63yuVpkF4djLgn4JcxSSvW6Oq8GCruQZt1OfbUlgB/HWuZuxtR+e+2/9oz7TZQJofjldr+WDu297R1Wbq59suwlezz5I+jcAMcJvSifmCFXOedSzpqd1KmcYiuFQ3S2XWy4VSmlTXDxivHkSMXdoW95TT+9aZBaC2SlJnNFKS/rfPzB2P3o=
+  - secure: SWx2DePFlu5gekwyEiTUswftgVNcpaNNmSw9dnCRE7sS2d8QpCZQiWHLxuIG9E8rrXq1lFYNcqd8PNpEJbttEjBDxAurrrUlvp5saL+2n7jMfOe5BDzIB0IyFM2Wgfk5GFaMgoUFhrSN5xKZCLwOoQhNlDff1SsJcdSSg5HIgRvoKLeIi88K4fyQU30BQNY1MRW56mp0y0RKzDmHmQxhBf5irJl4P5sLs+xNj+Lvfg4MDxHu++0YCyZM9TOdqt628v6KcnZ/g+n6RkUJpOuOMCBRo4lANZywxDcnRUbDSGa3PvvUrC7mXvZrARFtHdzKpOpGNnUu4XEzgJXzJ/aOb6DHG4iSbo+uHhjWxZIz9MjmQ8vOMh5MV34/bVKHjdXiRd2WSkSuudPGnvELg0ziHjJ6OJnKolTvjim/3MFczyONv7UVy2hofOMuw/6UjlOn0WvvCcxJzna/FNfDZR1JWQS77qxPKBMmakdoATwR7H3/MEH52SU28/S27NCItXgIYEPaZQi6F57qbxdU1+SyrmkqLtirES0fOXZI8FVJ6hB1kv3bSHO3mqWimqnBItI4hxaIj5On8kRlmdBL3ASgQC8S3+e4utn6xMBb8X92IDSIZtHMw4HbWemjm/xRPTsvPTQ2rSrxofqpA21Xa2s+zabQUJmZ7cvFoYT3ZUoaGco=
+  - secure: o4fucPUmAkN/T21Aj87hFjO8CllepGRfx7YwIgU6VdsvPShnAdhXEUrT3ayBquFRkZvmMkX5PzlKmEz+hA/vBxXPEJmocv8/8by2JNsgHpDC0HWpfBGFpUEkShsTsixHS5VXfQaUj409D+UzMYXL3L1WV9NPLKPHYEcQJ/5dL/3t3lb/IUENrwBItgGGmgOmM0KTxGsGadKKoP/xwtBLQ7tMNNuHug8ihLO8i/TFQYTaKTorpMHCNLoqz/6mcnAl7XY9ZBQErWagrP43yU6OWChSZkHjkLc/6cYnN7j07bXMdTByKmUrOdryXG1FYlg+V8vbp78qKh0XYvw81d5fjE0GCGb80EZ1HumEfD6c5hxfKnWjz5NQmXSTUlnOvowJrOWyoTiJ4mlWpvIVzyvXheP1B07qPxbk0ottNO24ksf9xrHQePX4QbZV+2oDhnDIe/iEN15P5S7xaJLH2YQrPeT/SKX8RXEMkcA5M/1cw3ILjQPZUoeinKATNJ+jLkjlRZJxnPwmV5kUhHokZ5868F+Liqohydx3wk+4Z6Gx6MzaVPx5BAweMrOffe3kIaXZbwgiBIvYT1nBHBScznnE9HSYANH2gSE8YhMiUMi9Fb14Koys9HtB9p+jGwKeezmk0uO2vii/pRe4RNwHvMZiyekXs93S1Pd6Yts6b9p1xNQ=
+install:
+- git clone -b ${BRANCH} https://github.com/pkp/${APPLICATION} ~/${APPLICATION}
+- cd ~/${APPLICATION}
+- git submodule update --init --recursive
+- source lib/pkp/tools/travis/prepare-tests.sh
+- lib/pkp/tools/travis/prepare-webserver.sh
+- lib/pkp/tools/travis/install-composer-dependencies.sh
+- npm i g -npm && npm install && npm run build
+- rm -rf ~/${APPLICATION}/plugins/generic/orcidProfile
+- ln -s ${TRAVIS_BUILD_DIR} ~/${APPLICATION}/plugins/generic/orcidProfile
+- $(npm bin)/cypress run --spec "cypress/tests/data/10-Installation.spec.js,cypress/tests/data/20-CreateContext.spec.js"
+script:
+- "$(npm bin)/cypress run  --env orcid_url=$ORCID_URL orcid_apiPath=$ORCID_APIPATH,orcid_apiType=$ORCID_APITYPE,orcid_clientId=$ORCID_CLIENTID,orcid_clientSecret=$ORCID_SECRET,orcid_email=$ORCID_EMAIL,orcid_emailPassword=$ORCID_EMAILPASSWORD
+  --config integrationFolder=plugins/generic/orcidProfile/cypress/tests/"

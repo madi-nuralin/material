@@ -1,0 +1,120 @@
+{**
+ * templates/frontend/pages/submissions.tpl
+ *
+ * Copyright (c) 2021 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Display the page to view the editorial team.
+ *
+ * @uses $currentContext Journal|Press The current journal or press
+ * @uses $submissionChecklist array List of requirements for submissions
+ *}
+{include file="frontend/components/header.tpl" pageTitle="about.submissions"}
+
+<div class="page page_submissions">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
+	<h1>
+		{translate key="about.submissions"}
+	</h1>
+
+	<hr class="my-4">
+
+	<div class="note note-warning">
+		{if $sections|@count == 0 || $currentContext->getData('disableSubmissions')}
+			{translate key="author.submit.notAccepting"}
+		{else}
+			{if $isUserLoggedIn}
+				{capture assign="newSubmission"}<a href="{url page="submission" op="wizard"}">{translate key="about.onlineSubmissions.newSubmission"}</a>{/capture}
+				{capture assign="viewSubmissions"}<a href="{url page="submissions"}">{translate key="about.onlineSubmissions.viewSubmissions"}</a>{/capture}
+					{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
+			{else}
+				{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+				{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
+					{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
+			{/if}
+		{/if}
+	</div>
+	
+	<hr class="my-4">
+
+	{if $submissionChecklist}
+		<div class="">
+			<h2>
+				{translate key="about.submissionPreparationChecklist"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
+			</h2>
+			{translate key="about.submissionPreparationChecklist.description"}
+			<ul class=" mt-2 ">
+				{foreach from=$submissionChecklist item=checklistItem}
+					<li class="	d-flex justify-content-between align-items-start">
+						<span class="badge">
+							<i class="fas fa-check text-primary"></i>
+						</span>
+						<div class="ms-2 me-auto">
+							{$checklistItem.content|nl2br}
+						</div>
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	{/if}
+
+	{if $currentContext->getLocalizedData('authorGuidelines')}
+	<hr class="my-4">
+	<div class="author_guidelines" id="authorGuidelines">
+		<h2>
+			{translate key="about.authorGuidelines"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
+		</h2>
+		{$currentContext->getLocalizedData('authorGuidelines')}
+	</div>
+	{/if}
+
+	<hr class="my-4">
+
+	<h2>
+		{translate key="section.sections"}
+	</h2>
+	{foreach from=$sections item="section"}
+		{if $section->getLocalizedPolicy()}
+			<div class="section_policy p-3 shadow-4 rounded-0 mb-3">
+				<h6 style="text-transform: capitalize !important;">{$section->getLocalizedTitle()|escape}</h6>
+				{$section->getLocalizedPolicy()}
+				{if $isUserLoggedIn}
+					{capture assign="sectionSubmissionUrl"}
+						{url page="submission" op="wizard" sectionId=$section->getId()}
+					{/capture}
+					<p>
+						{*translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl*}
+						<a href="{$sectionSubmissionUrl}" class="btn btn-primary">{translate key="plugins.themes.material.makeSubmission"}</a>
+					</p>
+				{/if}
+			</div>
+		{/if}
+	{/foreach}
+
+	{if $currentContext->getLocalizedData('copyrightNotice')}
+		<hr class="my-4">
+		<div class="copyright_notice">
+			<h2>
+				{translate key="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
+			</h2>
+			{$currentContext->getLocalizedData('copyrightNotice')}
+		</div>
+	{/if}
+
+	{if $currentContext->getLocalizedData('privacyStatement')}
+	<hr class="my-4">
+	<div class="privacy_statement" id="privacyStatement">
+		<h2>
+			{translate key="about.privacyStatement"}
+			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/privacy" sectionTitleKey="about.privacyStatement"}
+		</h2>
+		{$currentContext->getLocalizedData('privacyStatement')}
+	</div>
+	{/if}
+
+</div><!-- .page -->
+
+{include file="frontend/components/footer.tpl"}

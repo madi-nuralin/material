@@ -1,0 +1,52 @@
+/**
+ * @file plugins/themes/default/index.less
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Default theme stylesheet
+ *
+ */
+
+// For now we'll inherit a lot of the work from the backend. In the future this
+// could probably be changed to streamline some things. Extra components that
+// could be removed to reduce the CSS file size include:
+//
+// FontAwesome and icon definitions
+// Lots of helpers which may not be needed
+@import "../../../../lib/pkp/styles/fontawesome.less";
+@import "../../../../lib/pkp/styles/normalize.less";
+@import "../../../../lib/pkp/styles/variables.less";
+@import "../../../../lib/pkp/styles/utils.less";
+@import "../../../../lib/pkp/styles/helpers.less";
+
+// Styles unique to this theme
+@import "variables.less";
+@import "components.less";
+@import "body.less";
+@import "head.less";
+@import "main.less";
+@import "components/nav-toggle.less";
+@import "pages/indexSite.less";
+@import "pages/indexJournal.less";
+@import "pages/category.less";
+@import "pages/contact.less";
+@import "pages/issueArchive.less";
+@import "pages/login.less";
+@import "pages/lostPassword.less";
+@import "pages/register.less";
+@import "pages/search.less";
+@import "pages/section.less";
+@import "pages/submissions.less";
+@import "pages/viewPdf.less";
+@import "objects/announcement_full.less";
+@import "objects/announcement_summary.less";
+@import "objects/article_details.less";
+@import "objects/article_summary.less";
+@import "objects/galley_link.less";
+@import "objects/issue_summary.less";
+@import "objects/issue_toc.less";
+@import "sidebar.less";
+@import "footer.less";
+@import "rtl.less";

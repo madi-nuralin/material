@@ -1,0 +1,61 @@
+/**
+ * @file styles/objects/galley_link.less
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles applying to an issue table of contents view
+ * @link templates/frontend/objects/galley_link.tpl
+ */
+.obj_galley_link {
+	&:extend(.cmp_button_wire);
+
+	&:hover,
+	&:focus {
+		&:extend(.cmp_button_wire:hover);
+	}
+
+	&:before {
+		.fa();
+		content: @fa-var-file-text-o;
+		margin-right: 0.25em;
+	}
+
+	&.pdf:before {
+		content: @fa-var-file-pdf-o;
+	}
+
+	&.restricted {
+		border-color: @offset;
+		color: @offset;
+
+		&:before {
+			.fa();
+			content: @fa-var-lock;
+			color: @offset;
+		}
+
+		&:hover,
+		&:focus {
+			background: @offset;
+			color: @lift;
+
+			&:before {
+				color: @lift;
+			}
+		}
+	}
+}
+
+.obj_galley_link_supplementary {
+	.cmp_button_text(@fa-var-file-text-o);
+	padding-right: 0;
+	padding-left: @double;
+
+	&:after {
+		right: auto;
+		left: 0;
+		text-align: left;
+	}
+}

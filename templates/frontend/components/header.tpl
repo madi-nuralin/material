@@ -1,0 +1,96 @@
+{**
+ * lib/pkp/templates/frontend/components/header.tpl
+ *
+ * Copyright (c) 2021 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Common frontend site header.
+ *
+ * @uses $isFullWidth bool Should this page be displayed without sidebars? This
+ *       represents a page-level override, and doesn't indicate whether or not
+ *       sidebars have been configured for thesite.
+ *}
+{strip}
+	{* Determine whether a logo or title string is being displayed *}
+	{assign var="showingLogo" value=true}
+	{if !$displayPageHeaderLogo}
+		{assign var="showingLogo" value=false}
+	{/if}
+{/strip}
+<!DOCTYPE html>
+<html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
+{include file="frontend/components/headerHead.tpl"}
+
+<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
+
+{if $requestedPage !== 'login' && $requestedPage !== 'user'}
+	{* Header *}
+	<header class="_pkp_structure_head" id="_headerNavigationContainer" role="banner">
+		{* Skip to content nav links *}
+		{include file="frontend/components/skipLinks.tpl"}
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container-fluid">
+				{if $displayPageHeaderLogo}
+					<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand is_img">
+						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} class="img-fluid" style="max-width: 180px;"/>
+					</a>
+				{/if}
+
+				<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar0" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse justify-content-between" id="navbar0">
+					
+					{capture assign="primaryMenu"}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary"}
+					{/capture}
+
+					{* Primary navigation menu for current application *}
+					{$primaryMenu}
+
+					{* User navigation *}
+					{assign var="btnClass" value="btn btn-secondary"}
+					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-flex flex-row justify-content-center" liClass="profile"}	
+				</div>
+			</div>
+		</nav>
+
+		{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+			<!-- Background image -->
+			<div class="p-5 text-center bg-image" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
+				<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+					<div class="d-flex justify-content-center align-items-center h-100">
+						<div class="text-white">
+							<h1 class="mb-3">{$displayPageHeaderTitle|escape}</h1>
+							{* Journal Description *}
+							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
+								<h4 class="mb-3">
+									{$currentContext->getLocalizedData('description')}
+								</h4>
+							{/if}
+							<a class="btn btn-primary btn-lg text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px;" 
+							>{translate key="plugins.themes.material.makeSubmission"}</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Background image -->
+		{/if}
+
+	</header><!-- .pkp_structure_head -->
+
+	{* Wrapper for page content and sidebars *}
+	{if $isFullWidth}
+		{assign var=hasSidebar value=0}
+	{/if}
+
+	{* Main *}
+	<main class="container pt-4" role="main">
+		<a id="pkp_content_main"></a>
+{else}
+	<main class="container-fluid" role="main">
+		<a id="pkp_content_main"></a>
+{/if}
