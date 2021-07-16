@@ -25,7 +25,7 @@
 						<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="nav-link  dropdown-toggle" type="button" id="{$id|escape}" data-mdb-toggle="dropdown" aria-expanded="false" >
 							{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 						</a>
-						<ul class="dropdown-menu dropdown-menu-center justify-content-center dropdown-menu-dark" aria-labelledby="{$id|escape}">
+						<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="{$id|escape}">
 							{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 								{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 									<li class="{$liClass|escape}">

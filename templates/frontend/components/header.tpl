@@ -30,7 +30,7 @@
 		{* Skip to content nav links *}
 		{include file="frontend/components/skipLinks.tpl"}
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<nav class="navbar navbar-expand-xl navbar-light bg-white">
 
 			<div class="container-fluid">
 
@@ -42,20 +42,19 @@
 
 				<div class="d-flex flex-row align-items-center">
 					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-light btn-floating mx-2 my-2" data-mdb-toggle="modal" data-mdb-target="#navbarModal">
+					<button type="button" class="btn btn-light btn-floating mx-2 my-2 navbar-toggler2" data-mdb-toggle="modal" data-mdb-target="#navbarModal">
 						<i class="fas fa-home"></i>
 					</button>
 					<!-- Modal -->
 					<div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
-						<div class="modal-dialog mw-100 mt-0">
+						<div class="modal-dialog mw-100 mx-1 my-1 mt-0">
 							<div class="modal-content mt-1">
 								<div class="modal-header" style="border-bottom: 0 none;">
 									<div class="d-flex flex-row align-items-center">
-										<a href="{url page="search"}" class="btn btn-primary mx-1">
-											{translate key="common.search"}<!--i class="fas fa-search"></i-->
-										</a>
+										{include file="frontend/components/navigationMenu2.tpl"}
+
 										{* User navigation *}
-										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user align-items-center flex-row" liClass="profile"}
+										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row" liClass="profile text-uppercase"}
 									</div>
 									<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
 								</div>
@@ -68,14 +67,20 @@
 					</button>
 				</div>
 
-				<div class="collapse navbar-collapse justify-content-between" id="navbar0">
+				<div class="collapse navbar-collapse justify-content-between flex-wrap" id="navbar0">
 					
 					{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary"}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass="text-uppercase"}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
 					{$primaryMenu}
+
+					<div class="navbar-collapse2 align-items-center">
+						{include file="frontend/components/navigationMenu2.tpl"}
+						{* User navigation *}
+						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile text-uppercase"}
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -104,6 +109,7 @@
 		{/if}
 
 	</header><!-- .pkp_structure_head -->
+
 
 	{* Wrapper for page content and sidebars *}
 	{if $isFullWidth}

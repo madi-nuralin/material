@@ -40,7 +40,5 @@
 />
 <!-- Google Fonts -->
 
-<style type="text/css">
-	
-</style>
+
 </head>
