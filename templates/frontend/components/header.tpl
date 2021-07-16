@@ -30,7 +30,7 @@
 		{* Skip to content nav links *}
 		{include file="frontend/components/skipLinks.tpl"}
 
-		<nav class="navbar navbar-expand-xl navbar-light bg-white">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 
 			<div class="container-fluid">
 
