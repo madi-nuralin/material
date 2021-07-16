@@ -31,16 +31,43 @@
 		{include file="frontend/components/skipLinks.tpl"}
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+
 			<div class="container-fluid">
+
 				{if $displayPageHeaderLogo}
 					<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand is_img">
 						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} class="img-fluid" style="max-width: 180px;"/>
 					</a>
 				{/if}
 
-				<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar0" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="fas fa-bars"></i>
-				</button>
+				<div class="d-flex flex-row align-items-center">
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-light btn-floating mx-2 my-2" data-mdb-toggle="modal" data-mdb-target="#navbarModal">
+						<i class="fas fa-home"></i>
+					</button>
+					<!-- Modal -->
+					<div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
+						<div class="modal-dialog mw-100 mt-0">
+							<div class="modal-content mt-1">
+								<div class="modal-header" style="border-bottom: 0 none;">
+									<div class="d-flex flex-row align-items-center">
+										<a href="{url page="search"}" class="btn btn-primary mx-1">
+											{translate key="common.search"}<!--i class="fas fa-search"></i-->
+										</a>
+										{* User navigation *}
+										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user align-items-center flex-row" liClass="profile"}
+									</div>
+									<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button class="navbar-toggler btn btn-light btn-floating" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar0" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fas fa-th-large"></i>
+					</button>
+				</div>
+
 				<div class="collapse navbar-collapse justify-content-between" id="navbar0">
 					
 					{capture assign="primaryMenu"}
@@ -49,10 +76,6 @@
 
 					{* Primary navigation menu for current application *}
 					{$primaryMenu}
-
-					{* User navigation *}
-					{assign var="btnClass" value="btn btn-secondary"}
-					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-flex flex-row justify-content-center" liClass="profile"}	
 				</div>
 			</div>
 		</nav>
