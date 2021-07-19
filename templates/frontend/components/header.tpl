@@ -85,18 +85,18 @@
 			</div>
 		</nav>
 
-		{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+		{if $activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 			<!-- Background image -->
 			<div class="p-5 text-center bg-image" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
 				<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
 					<div class="d-flex justify-content-center align-items-center h-100">
 						<div class="text-white">
-							<h1 class="mb-3">{$displayPageHeaderTitle|escape}</h1>
+							<h1 class="mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
 							{* Journal Description *}
 							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-								<h4 class="mb-3">
+								<h5 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 400">
 									{$currentContext->getLocalizedData('description')}
-								</h4>
+								</h5>
 							{/if}
 							<a class="btn btn-primary btn-lg text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px;" 
 							>{translate key="plugins.themes.material.makeSubmission"}</a
@@ -106,6 +106,20 @@
 				</div>
 			</div>
 			<!-- Background image -->
+		{else}
+		<div class="row d-flex justify-content-center align-items-center p-5" style="background-color: #f3f2ef;">
+			<div class="col-12 text-center p-5">
+				<h1 class="mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 600">{$displayPageHeaderTitle|escape}</h1>
+				{* Journal Description *}
+				{if $activeTheme->getOption('showDescriptionInJournalIndex')}
+					<h5 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 400">
+						{$currentContext->getLocalizedData('description')}
+					</h5>
+				{/if}
+				<a class="btn btn-primary btn-lg text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px;" 
+				>{translate key="plugins.themes.material.makeSubmission"}</a>
+			</div>
+		</div>
 		{/if}
 
 	</header><!-- .pkp_structure_head -->

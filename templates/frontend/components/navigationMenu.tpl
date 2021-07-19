@@ -22,7 +22,7 @@
 			<li class="{$liClass|escape} nav-item m-1">
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<div class="dropdown">
-						<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="nav-link  dropdown-toggle" type="button" id="{$id|escape}" data-mdb-toggle="dropdown" aria-expanded="false" >
+						<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="dropdown-toggle nav-link" type="button" id="{$id|escape}" data-mdb-toggle="dropdown" aria-expanded="false" >
 							{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="{$id|escape}">

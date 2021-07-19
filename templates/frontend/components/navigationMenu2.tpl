@@ -19,7 +19,7 @@
 		{if $sidebarCode}
 			<li class="{$liClass|escape} nav-item mx-1 text-uppercase" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				<div class="dropdown">
-					<a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+					<a href="#" class="dropdown-toggle nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
 						<!--i class="fas fa-globe"></i-->
 						{translate key="common.language"}
 					</a>
