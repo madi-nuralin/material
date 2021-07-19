@@ -85,13 +85,13 @@
 			</div>
 		</nav>
 
-		{if $activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+		{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 			<!-- Background image -->
 			<div class="p-5 text-center bg-image" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
 				<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
 					<div class="d-flex justify-content-center align-items-center h-100">
 						<div class="text-white">
-							<h1 class="mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
+							<h1 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
 							{* Journal Description *}
 							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
 								<h5 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 400">
