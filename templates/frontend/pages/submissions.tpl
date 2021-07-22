@@ -44,15 +44,10 @@
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
 			</h2>
 			{translate key="about.submissionPreparationChecklist.description"}
-			<ul class=" mt-2 ">
+			<ul class="">
 				{foreach from=$submissionChecklist item=checklistItem}
-					<li class="	d-flex justify-content-between align-items-start">
-						<span class="badge">
-							<i class="fas fa-check text-primary"></i>
-						</span>
-						<div class="ms-2 me-auto">
-							{$checklistItem.content|nl2br}
-						</div>
+					<li class="">
+						{$checklistItem.content|nl2br}
 					</li>
 				{/foreach}
 			</ul>
@@ -75,9 +70,10 @@
 	<h2>
 		{translate key="section.sections"}
 	</h2>
+	<ol>
 	{foreach from=$sections item="section"}
 		{if $section->getLocalizedPolicy()}
-			<div class="section_policy p-3 shadow-4 rounded-0 mb-3">
+			<li class="section_policy">
 				<h6 style="text-transform: capitalize !important;">{$section->getLocalizedTitle()|escape}</h6>
 				{$section->getLocalizedPolicy()}
 				{if $isUserLoggedIn}
@@ -89,9 +85,10 @@
 						<a href="{$sectionSubmissionUrl}" class="btn btn-primary">{translate key="plugins.themes.material.makeSubmission"}</a>
 					</p>
 				{/if}
-			</div>
+			</li>
 		{/if}
 	{/foreach}
+</ol>
 
 	{if $currentContext->getLocalizedData('copyrightNotice')}
 		<hr class="my-4">

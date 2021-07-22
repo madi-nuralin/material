@@ -27,7 +27,7 @@
 {elseif $heading == "h5"}
 	{assign var="articleHeading" value="h6"}
 {/if}
-<div class="obj_issue_toc">
+<div class="obj_issue_toc pb-1">
 
 	{* Indicate if this is only a preview *}
 	{if !$issue->getPublished()}
