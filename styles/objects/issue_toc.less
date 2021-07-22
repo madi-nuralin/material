@@ -49,23 +49,23 @@
 	}
 
 	.articles {
-		&:extend(.pkp_unstyled_list);
+		//&:extend(.pkp_unstyled_list);
 
 		// Prevent articles from moving up into section divider
 		// if the title of a section is omitted from the table of contents
-		margin-top: calc(~"@{triple} + @{double}");
+		//margin-top: calc(~"@{triple} + @{double}");
 	}
 
 	h2 + .articles {
-		margin-top: 0;
+		//margin-top: 0;
 	}
 
 	.sections:not(:first-child) {
-		margin-top: @triple * 2;
+		//margin-top: @triple * 2;
 	}
 
 	.section:last-child .articles > li:last-child {
-		margin-bottom: 0;
+		//margin-bottom: 0;
 	}
 
 	.galleys_links {
@@ -97,7 +97,7 @@
 		}
 
 		.galleys,
-		.section {
+		/*.section*/ {
 			position: relative;
 			margin: @triple -@double;
 			padding: @triple;
@@ -130,7 +130,7 @@
 	@media(min-width: @screen-desktop) {
 
 		.galleys,
-		.section {
+		/*.section*/ {
 			margin: @triple -@triple;
 		}
 
