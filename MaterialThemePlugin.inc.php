@@ -104,7 +104,6 @@ class MaterialThemePlugin extends ThemePlugin {
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/index.less');
-		$this->addStyle('pkpLib', 'styles/pkpLib/index.less', array('contexts' => 'backend'));
 
 		// Store additional LESS variables to process based on options
 		$additionalLessVariables = array();
