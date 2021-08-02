@@ -23,7 +23,7 @@
 						<!--i class="fas fa-globe"></i-->
 						{translate key="common.language"}
 					</a>
-					<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownSidebar">
+					<ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark" aria-labelledby="dropdownSidebar">
 						{$sidebarCode}
 					</ul>
 				</div>
