@@ -29,7 +29,7 @@
 {/if*}
 
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
-	<footer class="_pkp_structure_footer_wrapper bg-dark text-light text-center text-lg-start" role="contentinfo">
+	<footer class="_pkp_structure_footer_wrapper bg-light text-dark text-center text-lg-start" role="contentinfo">
 		<a id="_pkp_content_footer"></a>
 		<div class="_pkp_structure_footer">
 			{if $pageFooter}
@@ -40,8 +40,8 @@
 
 			<!-- Copyright -->
 			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-				© 2021 Copyright:
-				<a class="text-white" href="{url page="about" op="aboutThisPublishingSystem"}">Open Journal Systems</a>
+				© Copyright:
+				<a class="" href="{url page="about" op="aboutThisPublishingSystem"}">Open Journal Systems</a>
 			</div>
 			<!-- Copyright -->
 		</div>
