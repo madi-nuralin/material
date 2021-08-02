@@ -12,7 +12,7 @@
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
 
-<ul class="navbar-nav mr-auto flex-row">
+<ul class="{$ulClass|escape} navbar-nav mr-auto flex-row text-uppercase">
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
@@ -23,14 +23,14 @@
 						<!--i class="fas fa-globe"></i-->
 						{translate key="common.language"}
 					</a>
-					<ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark" aria-labelledby="dropdownSidebar">
+					<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-dark" aria-labelledby="dropdownSidebar">
 						{$sidebarCode}
 					</ul>
 				</div>
 			</li><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
-	<li class="nav-item">
+	<li class="{$liClass|escape} nav-item text-uppercase">
 		<a href="{url page="search"}" class="nav-link mx-1">
 			{translate key="common.search"}<!--i class="fas fa-search"></i-->
 		</a>

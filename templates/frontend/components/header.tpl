@@ -30,7 +30,7 @@
 		{* Skip to content nav links *}
 		{include file="frontend/components/skipLinks.tpl"}
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<nav class="navbar navbar-expand-xxl2 navbar-light bg-white">
 
 			<div class="container-fluid">
 
@@ -70,7 +70,7 @@
 				<div class="collapse navbar-collapse justify-content-between flex-wrap" id="navbar0">
 					
 					{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass="text-uppercase"}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
@@ -79,7 +79,7 @@
 					<div class="navbar-collapse2 align-items-center">
 						{include file="frontend/components/navigationMenu2.tpl"}
 						{* User navigation *}
-						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile"}
+						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2 text-uppercase" liClass="profile text-uppercase"}
 					</div>
 				</div>
 			</div>
@@ -91,14 +91,14 @@
 				<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
 					<div class="d-flex justify-content-center align-items-center h-100">
 						<div class="text-white">
-							<h1 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
+							<h1 class="mb-3 text-uppercase" style="font-family: 'Montserrat', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
 							{* Journal Description *}
 							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
 								<h5 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 400">
 									{$currentContext->getLocalizedData('description')}
 								</h5>
 							{/if}
-							<a class="btn btn-primary btn-lg text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px;" 
+							<a class="btn btn-primary btn-lg btn-rounded text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px; font-family: 'Montserrat', sans-serif;" 
 							>{translate key="plugins.themes.material.makeSubmission"}</a
 							>
 						</div>
