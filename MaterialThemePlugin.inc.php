@@ -208,6 +208,9 @@ class MaterialThemePlugin extends ThemePlugin {
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
 
+		// Backend
+		$this->addStyle('backend-stylesheet', 'backend/index.less', array('contexts' => 'backend'));
+
 	}
 
 	/**

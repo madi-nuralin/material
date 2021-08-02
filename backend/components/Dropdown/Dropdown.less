@@ -1,0 +1,112 @@
+
+.pkpDropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.pkpDropdown__content {
+	position: absolute;
+	top: 100%;
+	margin-top: 2px;
+	min-width: 100%;
+	max-width: 20em;
+	/*border: @bg-border-light;*/
+	border-radius: 0;
+	padding: 0;
+	/*background: @lift;*/
+	box-shadow: none;
+	font-size: @font-sml;
+	line-height: 1.5rem;
+	z-index: 9999;
+	background: transparent;
+	border: none;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.pkpDropdown__section:last-child {
+		ul:last-child {
+			li:last-child {
+				.pkpDropdown__action {
+					border-bottom-left-radius: 0.5rem;
+					border-bottom-right-radius: 0.5rem;
+					box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+				}
+			}
+		}
+	}
+	.pkpDropdown__section:first-child {
+		ul:first-child {
+			li:first-child {
+				.pkpDropdown__action {
+					border-top-left-radius: 0.5rem;
+					border-top-right-radius: 0.5rem;
+					//box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+				}
+			}
+		}
+	}
+}
+
+.pkpDropdown__section {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+
+	&:not(:first-child) {
+		padding-top: 0;
+	}
+
+	&:not(:last-child) {
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 0;
+	}
+}
+
+.pkpDropdown__action {
+	display: block;
+	padding: 0.25rem 0.5rem;
+	max-width: 100%;
+	border: none;
+	background: white;
+	line-height: 1.5rem;
+	color: none;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	//!
+	color: #212529;
+
+	&:hover,
+	&:focus {
+		border-color: transparent;
+		outline: 0;
+		//!
+		background-color: #eee;
+
+	}
+
+	&[disabled] {
+		border-color: transparent;
+		color: @text-light;
+	}
+}
+
+.pkpDropdown__caret {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-top: 10px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	/*border-bottom: 10px solid @lift;*/
+	transform: translateX(-50%) translateY(-9px);
+	z-index: 9999;
+}
