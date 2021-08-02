@@ -70,7 +70,7 @@
 				<div class="collapse navbar-collapse justify-content-between flex-wrap" id="navbar0">
 					
 					{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass="text-uppercase"}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
@@ -79,7 +79,7 @@
 					<div class="navbar-collapse2 align-items-center">
 						{include file="frontend/components/navigationMenu2.tpl"}
 						{* User navigation *}
-						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile text-uppercase"}
+						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile"}
 					</div>
 				</div>
 			</div>

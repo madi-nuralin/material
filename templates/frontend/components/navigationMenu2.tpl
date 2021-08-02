@@ -17,7 +17,7 @@
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
-			<li class="{$liClass|escape} nav-item mx-1 text-uppercase" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+			<li class="{$liClass|escape} nav-item mx-1" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				<div class="dropdown">
 					<a href="#" class="dropdown-toggle nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
 						<!--i class="fas fa-globe"></i-->
@@ -30,7 +30,7 @@
 			</li><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
-	<li class="nav-item text-uppercase">
+	<li class="nav-item">
 		<a href="{url page="search"}" class="nav-link mx-1">
 			{translate key="common.search"}<!--i class="fas fa-search"></i-->
 		</a>
