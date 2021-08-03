@@ -2,7 +2,7 @@
 .app__header {
 	position: sticky;
 	top: 0;
-	display: flex;
+	display: block;
 	align-items: center;
 	min-height: 3rem;
 	background: white;/*@bg-anchor;*/
@@ -25,6 +25,7 @@
 	text-decoration: none;
 	border: 1px solid transparent;
 	border-radius: @radius;
+	text-transform: uppercase;
 
 	&:hover {
 		color: #000;
@@ -219,13 +220,13 @@
 }
 
 .app__navGroup {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .app__navItem {
 	display: inline-block;
-	padding: 0.25rem 0.5rem;
+	padding: 0;
 	/*color: @bg-anchor;*/
 
 	.app__navItem {
@@ -235,38 +236,39 @@
 }
 
 .app__navItem--hasSubmenu {
-	font-weight: bold;
+	font-weight: normal;
 }
 
 a.app__navItem {
 	text-decoration: none;
 
 	&:hover {
-		color: @primary;
+		color: inherit;
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 1px @primary;
-		border-radius: @radius;
+		box-shadow: inherit;
+		border-radius: inherit;
 		outline: 0;
-		/*color: @bg-anchor;*/
+		color: inherit;
 	}
 }
 
 a.app__navItem--isCurrent {
-	/*background: @bg-anchor;*/
-	border-radius: @radius;
-	font-weight: bold;
-	color: #fff;
+	border-radius: 2px;
+	font-weight: normal;
+	color: inherit;
+	color:#fff;
+	background-color:hsla(0,0%,100%,.15);
 
 	&:hover {
-		color: #fff;
+		color: inherit;
 	}
 
 	&:focus {
 		box-shadow: none;
-		background: @primary;
-		color: #fff;
+		background: inherit;
+		color: inherit;
 	}
 }
 

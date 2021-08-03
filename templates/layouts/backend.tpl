@@ -31,112 +31,139 @@
 
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}">
 		<header class="app__header" role="banner">
-			{if $availableContexts}
-				<dropdown class="app__headerAction app__contexts" v-cloak>
-					<template slot="button">
-						<icon icon="sitemap"></icon>
-						<span class="-screenReader">{translate key="context.contexts"}</span>
-					</template>
-					<ul>
-						{foreach from=$availableContexts item=$availableContext}
-							{if !$currentContext || $availableContext->name !== $currentContext->getLocalizedData('name')}
-								<li>
-									<a href="{$availableContext->url|escape}" class="pkpDropdown__action">
-										{$availableContext->name|escape}
-									</a>
-								</li>
-							{/if}
-						{/foreach}
-					</ul>
-				</dropdown>
-			{/if}
-			{if $currentContext}
-				<a class="app__contextTitle" href="{url page="index"}">
-					{$currentContext->getLocalizedData('name')}
-				</a>
-			{elseif $siteTitle}
-				<a class="app__contextTitle" href="{$baseUrl}">
-					{$siteTitle}
-				</a>
-			{else}
-				<div class="app__contextTitle">
-					{translate key="common.software"}
-				</div>
-			{/if}
+			<nav class="navbar navbar-expand-xxl navbar-light bg-white">
+				<div class="container-fluid flex-wrap">
 
-			{if $currentUser}
-				<div class="app__headerActions" v-cloak>
-					{call_hook name="Template::Layout::Backend::HeaderActions"}
-					<div class="app__headerAction app__tasks">
-						<button ref="tasksButton" @click="openTasks">
-							<icon icon="bell"></icon>
-							<span class="-screenReader">{translate key="common.tasks"}</span>
-							<span v-if="unreadTasksCount" class="app__tasksCount">{{ unreadTasksCount }}</span>
-						</button>
-					</div>
-					<dropdown class="app__headerAction app__userNav">
-						<template slot="button">
-							<icon icon="user-circle-o"></icon>
-							{if $isUserLoggedInAs}
-								<icon icon="user-circle" class="app__userNav__isLoggedInAsWarning"></icon>
-							{/if}
-							<span class="-screenReader">{$currentUser->getData('username')}</span>
-						</template>
-						<nav aria-label="{translate key="common.navigation.user"}">
-							{if $supportedLocales|@count > 1}
-								<div class="pkpDropdown__section">
-									<!--div class="app__userNav__changeLocale">Change Language</div-->
-									<ul>
+					{if $availableContexts}
+						<dropdown class="app__headerAction app__contexts" v-cloak>
+							<template slot="button">
+								<icon icon="sitemap"></icon>
+								<span class="-screenReader">{translate key="context.contexts"}</span>
+							</template>
+							<ul>
+								{foreach from=$availableContexts item=$availableContext}
+									{if !$currentContext || $availableContext->name !== $currentContext->getLocalizedData('name')}
+										<li>
+											<a href="{$availableContext->url|escape}" class="pkpDropdown__action">
+												{$availableContext->name|escape}
+											</a>
+										</li>
+									{/if}
+								{/foreach}
+							</ul>
+						</dropdown>
+					{/if}
+					{if $currentContext}
+						<a class="app__contextTitle" href="{url page="index"}">
+							{$currentContext->getLocalizedData('name')}
+						</a>
+					{elseif $siteTitle}
+						<a class="app__contextTitle" href="{$baseUrl}">
+							{$siteTitle}
+						</a>
+					{else}
+						<div class="app__contextTitle">
+							{translate key="common.software"}
+						</div>
+					{/if}
+
+					<div class="app__headerActions" v-cloak>
+
+						{block name="menu"}
+							<nav v-if="!!menu && Object.keys(menu).length > 1" class="_app__nav" aria-label="{translate key="common.navigation.site"}">
+								<div class="dropdown">
+									<a class="nav-link text-dark dropdown-toggle  hidden-arrow" type="button" id="dropdownMenuButton2"  data-mdb-toggle="dropdown" aria-expanded="false">
+										<i class="fas fa-grip-vertical"></i>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+										<li v-for="(menuItem, key) in menu" :key="key" :class="!!menuItem.submenu ? '_app__navGroup' : ''">
+											<hr v-if="!!menuItem.submenu" class="dropdown-divider">
+											<a v-else class="dropdown-item" :class="menuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="menuItem.url">
+												{{ menuItem.name }}
+											</a>
+											<ul v-if="!!menuItem.submenu" class="list-unstyled">
+												<li v-for="(submenuItem, submenuKey) in menuItem.submenu" :key="submenuKey">
+													<a class="dropdown-item" :class="submenuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="submenuItem.url">
+														{{ submenuItem.name }}
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</nav>
+						{/block}
+
+						{if $currentUser}
+							{call_hook name="Template::Layout::Backend::HeaderActions"}
+							<div class="_app__headerAction _app__tasks">
+								<a class="nav-link nav-link text-dark " ref="tasksButton" @click="openTasks">
+									<i class="fa fa-bell"></i>
+									<span class="-screenReader">{translate key="common.tasks"}</span>
+									<span v-if="unreadTasksCount" class="badge rounded-pill badge-notification bg-danger">{{ unreadTasksCount }}</span>
+								</a>
+							</div>
+							<div class="dropdown">
+								<a class="nav-link nav-link text-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+									<i class="fa fa-user"></i>
+									{*if $isUserLoggedInAs}
+										<icon icon="user-circle" class="app__userNav__isLoggedInAsWarning"></icon>
+									{/if}
+									<span class="-screenReader">{$currentUser->getData('username')}</span>*}
+								</a>
+								<ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+									{if $supportedLocales|@count > 1}
 										{foreach from=$supportedLocales item="locale" key="localeKey"}
 											<li>
-												<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
+												<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="dropdown-item">
 													{if $localeKey == $currentLocale}
-														<icon icon="check" :inline="true"></icon>
+														<!--icon icon="check" :inline="true"></icon-->
+														<input type="checkbox" class="form-check-input" checked="" disabled="">
+														{$locale|escape}
+													{else}
+														<input type="checkbox" class="form-check-input" disabled="">
+														{$locale|escape}
 													{/if}
-													{$locale|escape}
 												</a>
 											</li>
 										{/foreach}
-									</ul>
-								</div>
-							{/if}
-							{if $isUserLoggedInAs}
-								<div class="pkpDropdown__section">
-									<div class="app__userNav__loggedInAs">
-										{translate key="manager.people.signedInAs" username=$currentUser->getData('username')}
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('username')}</a>.
-									</div>
-								</div>
-							{/if}
-							<div class="pkpDropdown__section">
-								<ul>
+										<li>
+											<hr class="dropdown-divider" />
+										</li>
+									{/if}
+									{if $isUserLoggedInAs}
+										<li>
+											{translate key="manager.people.signedInAs" username=$currentUser->getData('username')}
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('username')}</a>.
+										</li>
+									{/if}
 									<li v-if="backToDashboardLink">
-										<a :href="backToDashboardLink.url" class="pkpDropdown__action">
+										<a :href="backToDashboardLink.url" class="dropdown-item">
 											{{ backToDashboardLink.name }}
 										</a>
 									</li>
 									<li>
-										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
+										<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}" class="dropdown-item">
 											{translate key="user.profile.editProfile"}
 										</a>
 									</li>
 									<li>
 										{if $isUserLoggedInAs}
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOutAsUser"}" class="dropdown-item">
 												{translate key="user.logOutAs" username=$currentUser->getData('username')}
 											</a>
 										{else}
-											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
+											<a href="{url router=$smarty.const.ROUTE_PAGE page="login" op="signOut"}" class="dropdown-item">
 												{translate key="user.logOut"}
 											</a>
 										{/if}
 									</li>
 								</ul>
 							</div>
-						</nav>
-					</dropdown>
+						{/if}
+					</div>
 				</div>
-			{/if}
+			</nav>
 		</header>
 
 		{* Swap the navigation menu for a back-to-dashboard link when only one item exists *}
@@ -147,27 +174,6 @@
 		</nav>
 
 		<div class="app__body">
-			{block name="menu"}
-				<nav v-if="!!menu && Object.keys(menu).length > 1" class="app__nav" aria-label="{translate key="common.navigation.site"}">
-					<ul>
-						<li v-for="(menuItem, key) in menu" :key="key" :class="!!menuItem.submenu ? 'app__navGroup' : ''">
-							<div v-if="!!menuItem.submenu" class="app__navItem app__navItem--hasSubmenu">
-								{{ menuItem.name }}
-							</div>
-							<a v-else class="app__navItem" :class="menuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="menuItem.url">
-								{{ menuItem.name }}
-							</a>
-							<ul v-if="!!menuItem.submenu">
-								<li v-for="(submenuItem, submenuKey) in menuItem.submenu" :key="submenuKey">
-									<a class="app__navItem" :class="submenuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="submenuItem.url">
-										{{ submenuItem.name }}
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			{/block}
 
 			<main class="app__main">
 				<div class="app__page{if $pageWidth} app__page--{$pageWidth}{/if}">
@@ -253,4 +259,5 @@
 	</div>
 
 </body>
+{load_script context="backend2"}
 </html>

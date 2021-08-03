@@ -1,0 +1,109 @@
+.pkpSearch {
+	position: relative;
+	width: 18rem;
+	max-width: 100%;
+}
+
+.pkpSearch__input,
+/* Override legacy form styles for: .pkp_form input[type="search"] */
+.pkp_form .pkpSearch .pkpSearch__input {
+	/*display: block;
+	box-sizing: border-box;
+	padding: 0 0.5em 0 3.5em;
+	width: 100%;
+	height: auto;
+	border: @bg-border-light;
+	border-radius: @radius;
+	font-size: @font-sml;
+	line-height: 2rem;*/
+
+	-webkit-appearance: none; /* Override Safari search input styles */
+	display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    padding: .32rem 0.9em .32rem 2.5em;
+    font-size: 1rem;
+    line-height: 180%;
+    color: #212121;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    font-weight: 400;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.13) inset, 0 1px 3px 0 rgba(0, 0, 0, 0.05) inset;
+    outline: none;
+
+	&:hover {
+		border-color: transparent;
+
+		+ .pkpSearch__icons {
+			border-color: #5889fa;
+		}
+	}
+
+	&:focus {
+		outline: 0;
+		border-color: #5889fa;
+
+		+ .pkpSearch__icons {
+			color: #5889fa;
+			background: transparent;
+
+			.pkpSearch__icons--search:before {
+				color: #5889fa;
+			}
+		}
+	}
+
+	&:focus {
+		outline: none;
+		border-color: #5889fa;
+		box-shadow: 0 0 0 0.2rem rgba(6, 66, 205, 0.25);
+	}
+}
+/*
+.pkpSearch__clear {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2rem;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border-top-right-radius: @radius;
+	border-bottom-right-radius: @radius;
+	vertical-align: middle;
+	text-align: center;
+	color: @offset;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		outline: 0;
+		background: @offset;
+		color: #fff;
+	}
+}
+*/
+.pkpSearch__icons {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 2.5em;
+	height: 100%;
+	color: #212121;
+	border-right: transparent;
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+
+.pkpSearch__icons--search {
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);*/
+	color: #717171;
+}

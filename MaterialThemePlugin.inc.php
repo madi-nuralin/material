@@ -208,8 +208,28 @@ class MaterialThemePlugin extends ThemePlugin {
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
 
+
+
 		// Backend
 		$this->addStyle('backend-stylesheet', 'backend/index.less', array('contexts' => 'backend'));
+		// Load MDB library (Material Design for Bootstrap)
+		$this->addStyle(
+			'backend-mdb',
+			'vendor/mdb/css/mdb.min.css',
+			array('contexts' => 'backend')
+		);
+		// Load MDB library (Material Design for Bootstrap)
+		$this->addScript(
+			'backend-mdb',
+			'vendor/mdb/js/mdb.min.js',
+			array('contexts' => 'backend2')
+		);
+		// Load icon font FontAwesome
+		$this->addStyle(
+			'fontawesome',
+			'vendor/fontawesome/css/all.min.css',
+			array('contexts' => 'backend')
+		);
 
 	}
 
