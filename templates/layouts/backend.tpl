@@ -32,7 +32,7 @@
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}">
 		<header class="app__header" role="banner">
 			<nav class="navbar navbar-expand-xxl navbar-light bg-white">
-				<div class="container-fluid flex-wrap">
+				<div class="container-fluid flex-nowrap">
 
 					{if $availableContexts}
 						<dropdown class="app__headerAction app__contexts" v-cloak>
