@@ -21,7 +21,7 @@
 	display: inline-block;
     width: 100%;
     max-width: 100%;
-    padding: .32rem 0.9em .32rem 2.5em;
+    padding: .3rem 0.9em .3rem 2.5em;
     font-size: 1rem;
     line-height: 180%;
     color: #212121;
@@ -106,4 +106,16 @@
 	left: 50%;
 	transform: translate(-50%, -50%);*/
 	color: #717171;
+}
+
+@media (max-width: @break-width) {
+	.pkpSearch {
+		width: 100%;
+		label {
+			width: 100%;
+		}
+	}
+	.pkpHeader__actions>:first-child {
+		margin-left: 0;
+	}
 }

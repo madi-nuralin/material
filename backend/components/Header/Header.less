@@ -96,3 +96,39 @@
 .pkpDropdown__caret {
 	display: none !important;
 }
+
+//@media (max-width: @break-width) {
+	.pkpHeader {
+		flex-direction: column;
+	}
+
+	.pkpHeader__actions {
+		width: 100%;
+		flex-direction: column;
+		.pkpButton {
+			width: 100%;
+			margin: 4px 2px 4px 2px;
+		}
+
+		.pkpSearch {
+			width: 100%;
+			margin: 4px 2px 4px 2px;
+			label {
+				width: 100%;
+				.pkpSearch__input {
+					/*text-align: center;*/
+					padding: 0.5rem 1.6em 0.5rem 1.6em;
+					font-size: 0.8rem;
+					/*text-transform: uppercase;*/
+				}
+				span {
+					display: none;
+				}
+			}
+		}
+		& >:first-child {
+			margin-left: 0;
+		}
+	}
+
+//}
