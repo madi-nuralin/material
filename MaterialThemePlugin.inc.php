@@ -101,6 +101,28 @@ class MaterialThemePlugin extends ThemePlugin {
 			],
 			'default' => false,
 		]);
+		$this->addOption('disablePrefixAndTitle', 'FieldOptions', [
+			'label' => __('plugins.themes.material.option.disablePrefixAndTitle.label'),
+			'description' => __('plugins.themes.material.option.disablePrefixAndTitle.description'),
+				'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.material.option.disablePrefixAndTitle.option')
+				],
+			],
+			'default' => false,
+		]);
+		$this->addOption('disableArticleSubtitle', 'FieldOptions', [
+			'label' => __('plugins.themes.material.option.disableArticleSubtitle.label'),
+			'description' => __('plugins.themes.material.option.disableArticleSubtitle.description'),
+				'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.material.option.disableArticleSubtitle.option')
+				],
+			],
+			'default' => false,
+		]);
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/index.less');

@@ -65,3 +65,21 @@ msgstr "Show the homepage image as the header background."
 
 msgid "plugins.themes.material.makeSubmission"
 msgstr "Send article"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Disable article title prefix"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Disable article title prefix."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Disable article title prefix."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Disable article subtitle"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Disable article subtitle."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Disable article subtitle."

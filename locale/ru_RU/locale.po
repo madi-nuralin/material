@@ -68,3 +68,21 @@ msgstr "Показывать изображение главной страни�
 
 msgid "plugins.themes.material.makeSubmission"
 msgstr "Отправить статью"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Отключить префикс заголовка статьи"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Отключить префикс заголовка статьи."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Отключить префикс заголовка статьи."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Отключить подзаголовок статьи"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Отключить подзаголовок статьи."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Отключить подзаголовок статьи."
