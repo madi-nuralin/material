@@ -211,7 +211,11 @@ class MaterialThemePlugin extends ThemePlugin {
 
 
 		// Backend
-		$this->addStyle('backend-stylesheet', 'backend/index.less', array('contexts' => 'backend'));
+		$this->addStyle(
+			'backend-stylesheet',
+			'styles/backend/index.less',
+			array('contexts' => 'backend')
+		);
 		// Load MDB library (Material Design for Bootstrap)
 		$this->addStyle(
 			'backend-mdb',

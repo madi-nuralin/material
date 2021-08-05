@@ -1,0 +1,128 @@
+
+@import "variables.less";
+@import "media.less";
+@import "fonts/monsterrat.less";
+
+* {
+	font-family: @font;
+}
+
+body {
+	overflow-y: scroll;
+}
+
+header {
+	nav {
+		width: 100%;
+	}
+}
+
+.app__contextTitle {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	padding: 0.5rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	min-width: 1px;
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1;
+	color: #000;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: @radius;
+	text-transform: uppercase;
+
+	&:hover {
+		color: #000;
+		border-color: transparent;
+	}
+
+	&:focus {
+		outline: none;
+		border-color: transparent;
+		color: #000;
+	}
+}
+
+.pkpPublication__header {
+	margin: 0;
+}
+
+input[type="date"],
+input[type="email"],
+input[type="file"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="week"],
+textarea,
+select,
+.tagit {
+	-webkit-appearance: none !important; /* Override Safari search input styles */
+	//display: inline-block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	//padding:.1rem .75rem !important;
+	font-size: 0.9rem !important;
+	/*line-height: 180%;*/
+	color: #212121 !important;
+	vertical-align: middle !important;
+	background-color: #fff !important;
+	border: 1px solid #e8e8e8 !important;
+	font-weight: 400 !important;
+	border-radius: 5px !important;
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.13) inset, 0 1px 3px 0 rgba(0, 0, 0, 0.05) inset !important;
+	outline: none !important;
+
+	&:focus {
+		outline: none !important;
+		border-color: #5889fa !important;
+		box-shadow: 0 0 0 0.2rem rgba(6, 66, 205, 0.25) !important;
+	}
+}	
+
+.border, .pkpFormField--options, .pkpFormField--upload__preview {
+	padding: 10px !important;
+	border-radius: 8px !important;
+	border-color: #ddd !important;
+}
+
+.pkp_helpers_half, .pkp_helpers_quarters, .pkp_helpers_quarter, .pkp_helpers_threeQuarter {
+	width: 100% !important;
+}
+
+.pkp_form .inline {
+	padding-right: 0;
+}
+
+.ui-helper-hidden-accessible, .ui-datepicker {
+	display: none !important;
+}
+
+.pkpFormField--color, .vc-chrome {
+	border-radius: 8px !important;
+	border-color: #ddd !important;
+	width: 100% !important;
+}
+
+.pkp_modal_panel {
+	border-radius: 8px !important;
+	.close.pkpModalCloseButton {
+		&:hover, &:focus, &:active {
+			border-color: transparent;
+		}
+	}
+}
+
+.pkpFormGroup {
+	padding: 1rem !important;
+}
