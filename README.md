@@ -1,5 +1,5 @@
 # Material Theme
-A theme for [OJS 3.3.7](https://pkp.sfu.ca/ojs/)
+A Material theme for [OJS 3.3.7](https://pkp.sfu.ca/ojs/)
 
 ## Description
 The Material theme is designed based on MDB (Material Theme for Bootstrap) library (https://mdbootstrap.com/).
