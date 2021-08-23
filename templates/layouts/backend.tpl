@@ -259,5 +259,5 @@
 	</div>
 
 </body>
-{load_script context="backend2"}
+{load_script context="backend-onload"}
 </html>

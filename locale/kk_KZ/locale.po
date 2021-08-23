@@ -70,3 +70,21 @@ msgstr "Material дизайн безендірілуі."
 
 msgid "plugins.themes.material.name"
 msgstr "\"Material безендіру\" модулі"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Мақала тақырыбының префиксін өшіру"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Мақала тақырыбының префиксін өшіру."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Мақала тақырыбының префиксін өшіру."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Мақаланың қосымша атауын өшіру"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Мақаланың қосымша атауын өшіру."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Мақаланың қосымша атауын өшіру."

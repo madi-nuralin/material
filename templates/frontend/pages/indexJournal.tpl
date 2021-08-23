@@ -21,12 +21,6 @@
 
 	{call_hook name="Templates::Index::journal"}
 
-	{*if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
-		<div class="homepage_image">
-			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
-		</div>
-	{/if*}
-
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
 		<section class="cmp_announcements highlight_first">

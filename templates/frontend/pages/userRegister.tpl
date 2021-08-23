@@ -1,8 +1,7 @@
 {**
  * templates/frontend/pages/userRegister.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2021 Ьфвш Тгкфдшт
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * User registration form.

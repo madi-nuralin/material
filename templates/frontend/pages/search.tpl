@@ -1,8 +1,7 @@
 {**
  * templates/frontend/pages/search.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2021 Madi Nuralin
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to search and view search results.
@@ -48,13 +47,6 @@
 			{/block}
 		</div>
 
-		<div class="d-flex mt-4">
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-light btn-lg col-12" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-				{translate key="search.advancedFilters"}
-			</button>
-		</div>
-
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-xl">
@@ -98,8 +90,12 @@
 			</div>
 		</div>
 
-		<div class="d-flex mt-4">
-			<button class="btn btn-primary btn-lg col-12" type="submit">{translate key="common.search"}</button>
+		<div class="d-flex justify-content-end mt-4">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-light btn-lg mx-1" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+				{translate key="search.advancedFilters"}
+			</button>
+			<button class="btn btn-primary btn-lg" type="submit">{translate key="common.search"}</button>
 		</div>
 	</form>
 

@@ -1,8 +1,7 @@
 {**
  * templates/frontend/components/footer.tpl
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2021 Madi Nuralin
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Common site frontend footer.
@@ -38,12 +37,9 @@
 				</div>
 			{/if}
 
-			<!-- Copyright -->
 			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-				© Copyright:
-				<a class="" href="{url page="about" op="aboutThisPublishingSystem"}">Open Journal Systems</a>
+				<a class="text-dark" href="{url page="about" op="aboutThisPublishingSystem"}">Platform & Workflow by: Open Journal Systems</a>
 			</div>
-			<!-- Copyright -->
 		</div>
 	</footer><!-- _pkp_structure_footer_wrapper -->
 {/if}

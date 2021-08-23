@@ -12,7 +12,7 @@
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
 
-<ul class="{$ulClass|escape} navbar-nav mr-auto flex-row text-uppercase">
+<ul class="{$ulClass|escape} navbar-nav mr-auto flex-row">
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
@@ -30,7 +30,7 @@
 			</li><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}
-	<li class="{$liClass|escape} nav-item text-uppercase">
+	<li class="{$liClass|escape} nav-item">
 		<a href="{url page="search"}" class="nav-link mx-1">
 			{translate key="common.search"}<!--i class="fas fa-search"></i-->
 		</a>

@@ -54,7 +54,7 @@
 										{include file="frontend/components/navigationMenu2.tpl"}
 
 										{* User navigation *}
-										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row" liClass="profile text-uppercase"}
+										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row" liClass="profile"}
 									</div>
 									<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
 								</div>
@@ -70,7 +70,7 @@
 				<div class="collapse navbar-collapse justify-content-between flex-wrap" id="navbar0">
 					
 					{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass="text-uppercase"}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
@@ -79,18 +79,28 @@
 					<div class="navbar-collapse2 align-items-center">
 						{include file="frontend/components/navigationMenu2.tpl"}
 						{* User navigation *}
-						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2 text-uppercase" liClass="profile text-uppercase"}
+						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile"}
 					</div>
 				</div>
 			</div>
 		</nav>
 
-		{if $activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
-			<!-- Background image -->
-			<div class="p-5 text-center bg-image parallax" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
-				<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-					<div class="d-flex justify-content-center align-items-center h-100">
-						<div class="text-white">
+		{if $homepageImage}
+			{if $activeTheme->getOption('useHomepageImageAsHeader')}
+				<!-- Background image -->
+				<div class="p-5 text-center bg-image parallax" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
+					<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+						<div class="d-flex justify-content-center align-items-center h-100">
+							<div class="text-white">
+				<!-- Background image -->
+			{else}
+				<!-- No background image -->
+				<div class="p-5 text-center bg-light">
+					<div class="">
+						<div class="d-flex justify-content-center align-items-center">
+							<div class="text-dark">
+				<!-- No background image -->
+			{/if}
 							<h1 class="mb-3 text-uppercase" style="font-family: 'Montserrat', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
 							{* Journal Description *}
 							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
@@ -105,7 +115,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- Background image -->
 		{/if}
 
 	</header><!-- .pkp_structure_head -->

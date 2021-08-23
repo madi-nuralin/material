@@ -1,7 +1,19 @@
+/**
+ * @file plugins/themes/material/styles/backend/index.less
+ *
+ * Copyright (c) 2021 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Material backend theme stylesheet
+ *
+ */
 
 @import "variables.less";
-@import "media.less";
-@import "fonts/monsterrat.less";
+@import "../fonts/montserrat.less";
+
+/**
+ * Generic improvement on backend stylesheet
+ */
 
 * {
 	font-family: @font;
@@ -125,4 +137,150 @@ select,
 
 .pkpFormGroup {
 	padding: 1rem !important;
+}
+
+
+/**
+ * Adaptive stylesheet
+ */
+
+@media (max-width: @break-width) {
+
+	.listPanel__itemSummary {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.listPanel__itemIdentity {
+		flex-direction: column;
+		width: 100%;
+		padding: 0;
+	}
+
+	.listPanel__item--submission__id {
+		position: relative;
+	}
+
+	.listPanel__itemActions {
+		flex-direction: column;
+		width: 100%;
+
+		.pkpButton, .expander {
+			width: 100%;
+			margin: 4px 2px 4px 2px;
+		}
+
+	}
+
+	// Header
+	.pkpHeader {
+		flex-direction: column;
+	}
+
+	.pkpHeader__actions {
+		width: 100%;
+		flex-direction: column;
+		justify-content: space-around;
+
+		.pkpButton {
+			width: 100%;
+			margin: 4px 2px 4px 2px;
+		}
+
+		.pkpSearch {
+			width: 100%;
+			margin: 4px 2px 4px 2px;
+			label {
+				width: 100%;
+				.pkpSearch__input {
+					width: 100%;
+				}
+			}
+		}
+		& >:first-child {
+			margin-left: 0;
+		}
+	}
+
+	.pkpPagination {
+		display: flex;
+		justify-content: center;
+	}
+
+	.pkpButton, .pkp_button, .cancelButton, .cancel, .ok, .pkpModalConfirmButton, .pkpModalCloseButton {
+		width: 100%;
+		margin: 4px 2px 4px 2px;
+		text-align: center;
+	}
+
+	.pkpFormPage__buttons {
+		width: 100%;
+	}
+
+	.pkp_workflow_sidebar {
+		width: 100% !important;
+	}
+
+	.pkp_workflow_content {
+		width: 100% !important;	
+	}
+
+	table {
+		tbody, thead, tr, colgroup col, th, td {
+			display: block;
+			width: 100% !important;
+		}
+	}
+
+	.pkp_uploader_drop_zone {
+		.pkp_uploader_button {
+			margin-top: 16px;
+		}
+	}
+
+	.pkp_helpers_half, .pkp_helpers_quarters, .pkp_helpers_quarter, .pkp_helpers_threeQuarter {
+		width: 100% !important;
+	}
+
+	.pkp_form .inline {
+		padding-right: 0;
+	}
+
+	.pkpFormGroup__heading, .pkpFormGroup__fields {
+		width: 100% !important;
+		padding-left: 0 !important;
+		float: left !important;
+	}
+
+	.pkpFormGroup__locale {
+		padding: 0 !important;
+		width: 100% !important;
+		margin-top: 5px;
+	}
+
+	.pkpStats__graphSelectors {
+		flex-direction: column;
+
+		.pkpStats__graphSelector {
+			flex-direction: column;
+			margin-left: 0 !important;
+		}
+	}
+
+	.pkpStats--editorial__stageWrapper {
+		.pkpStats--editorial__stageChartWrapper {
+			float: none !important;
+			width: 100% !important;
+		}
+		.pkpStats--editorial__stageList {
+			position: unset !important;
+			width: 100% !important;
+			-webkit-transform: none !important;
+    		transform: none !important;
+    		display: flex !important;
+    		flex-direction: column !important;
+    		align-items: center !important;
+    		text-align: center !important;
+		}
+	}
 }

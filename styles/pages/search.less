@@ -104,24 +104,28 @@
 		}
 	}
 
-	@media (min-width: @screen-tablet) {
+	//@media (max-width: 1400px) {
 
 		.search_advanced {
 			.pkp_helpers_clear;
 		}
 
-		.date_range {
-			float: left;
-			width: 50%;
+		.search_advanced {
+			display: flex;
+			flex-direction: column;
+		}
 
-			.to fieldset {
-				margin-bottom: 0;
-			}
+		.date_range {
+			width: 100%;
 		}
 
 		.author {
-			float: right;
-			width: 50%;
+			width: 100%;
 		}
-	}
+
+		select {
+			width: 100% !important;
+			margin: 2px 0 !important;
+		}
+	//}
 }
