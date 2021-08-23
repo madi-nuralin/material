@@ -8,3 +8,9 @@ This theme implements adaptive stylesheet for both fronted and backend templates
 
 ## Installation
 This theme can be installed through the **Plugin Gallery** in Open Journal Systems. If it's not available in the plugin gallery, you may need to update Open Journal Systems to a compatible version.
+
+## Contribution
+
+This theme was developed by:
+* Madi Nuralin ([madi-nuralin](https://github.com/madi-nuralin))
+* ...
