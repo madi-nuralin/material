@@ -11,7 +11,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
 <div class="row d-flex justify-content-center">
-	<div class="col-lg-5 col-md-12 bg-white">
+	<div class="col-lg-7 col-md-12 bg-white">
 		<div class="page page_register p-4">
 
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
@@ -99,7 +99,7 @@
 									{/foreach}
 								</div>
 								<div id="reviewerInterests" class="reviewer_interests row mb-4 align-items-center">
-									<label class="col-sm-3 col-form-label label text-end" for="interests">
+									<label class="col-sm-3 col-form-label label text-sm-end text-start" for="interests">
 										{translate key="user.interests"}
 									</label> 
 									<div class="col-sm-9">

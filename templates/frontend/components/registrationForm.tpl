@@ -22,7 +22,7 @@
 	</legend>*}
 	<div class="fields collapse show" id="user_profile_collapse">
 		<div class="given_name row mb-4 align-items-center">
-			<label for="givenName" class="col-sm-3 col-form-label label text-end">
+			<label for="givenName" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.givenName"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="family_name row mb-4 align-items-center">
-			<label for="familyName" class="col-sm-3 col-form-label label text-end">
+			<label for="familyName" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.familyName"}
 			</label>
 			<div class="col-sm-9">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="affiliation row mb-4 align-items-center">
-			<label for="affiliation" class="col-sm-3 col-form-label label text-end">
+			<label for="affiliation" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.affiliation"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="country row mb-4 align-items-center">
-			<label for="country" class="col-sm-3 col-form-label label text-end">
+			<label for="country" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="common.country"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -83,7 +83,7 @@
 	</legend>*}
 	<div class="fields collapse show" id="user_login_collapse">
 		<div class="email row mb-4 align-items-center">
-			<label for="email" class="col-sm-3 col-form-label label text-end">
+			<label for="email" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.email"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -98,7 +98,7 @@
 			</div>
 		</div>
 		<div class="username row mb-4 align-items-center">
-			<label for="username" class="col-sm-3 col-form-label label text-end">
+			<label for="username" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.username"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -116,7 +116,7 @@
 			</div>
 		</div>
 		<div class="password row mb-4 align-items-center">
-			<label for="password" class="col-sm-3 col-form-label label text-end">
+			<label for="password" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.password"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -134,7 +134,7 @@
 			</div>
 		</div>
 		<div class="password row mb-4 align-items-center">
-			<label for="password2" class="col-sm-3 col-form-label label text-end">
+			<label for="password2" class="col-sm-3 col-form-label label text-sm-end text-start">
 				{translate key="user.repeatPassword"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->

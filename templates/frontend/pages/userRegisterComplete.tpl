@@ -8,7 +8,7 @@
  *}
 {include file="frontend/components/header.tpl"}
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
+	<div class="col-lg-7 col-md-12 bg-white overflow-auto">
 		<div class="page page_register_complete">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
 

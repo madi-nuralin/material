@@ -10,7 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
+	<div class="col-lg-7 col-md-12 bg-white overflow-auto">
 		
 		<div class="page page_login p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}

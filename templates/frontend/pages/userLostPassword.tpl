@@ -10,7 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
 <div class="row d-flex justify-content-center">
-	<div class="col-lg-5 col-md-12 bg-white">
+	<div class="col-lg-7 col-md-12 bg-white">
 		<div class="page page_lost_password p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login.resetPassword"}
 			<h1>
@@ -29,7 +29,7 @@
 
 				<div class="fields">
 					<div class="_email row mb-4 align-items-center">
-						<label for="email" class="col-sm-3 col-form-label label text-end">
+						<label for="email" class="col-12 col-form-label label text-end">
 							<span class="label">
 								{translate key="user.login.registeredEmail"}
 								<span class="required" aria-hidden="true">*</span>
@@ -38,7 +38,7 @@
 								</span>
 							</span>
 						</label>
-						<div class="col-sm-9">
+						<div class="col-12">
 							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="form-control">
 						</div>
 					</div>
