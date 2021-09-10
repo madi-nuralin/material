@@ -115,7 +115,7 @@
 		{if $section.articles}
 			{if $section.title}
 				<h2 class="accordion-header" id="accordion-header-{$sectionCounter}">
-					<button class="accordion-button collapsed px-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#accordion-collapse-{$sectionCounter}" aria-expanded="false" aria-controls="accordion-collapse-{$sectionCounter}">
+					<button class="accordion-button collapsed px-0 text-md-start text-center" type="button" data-mdb-toggle="collapse" data-mdb-target="#accordion-collapse-{$sectionCounter}" aria-expanded="false" aria-controls="accordion-collapse-{$sectionCounter}">
 						{$section.title|escape}
 					</button>
 				</h2>
