@@ -12,8 +12,8 @@
 <version>
 	<application>material</application>
 	<type>plugins.themes</type>
-	<release>1.0.0.0</release>
-	<date>2021-08-26</date>
+	<release>1.0.0.1</release>
+	<date>2021-09-10</date>
 	<lazy-load>1</lazy-load>
 	<class>MaterialThemePlugin</class>
 </version>
