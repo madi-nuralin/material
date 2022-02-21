@@ -30,57 +30,58 @@
 		{* Skip to content nav links *}
 		{include file="frontend/components/skipLinks.tpl"}
 
-		<nav class="navbar navbar-expand-xxl2 navbar-light bg-white">
-
-			<div class="container-fluid">
-
+		<nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column" id="navbar">
+			<div class="container">
+				
 				{if $displayPageHeaderLogo}
-					<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand is_img">
-						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} class="img-fluid" style="max-width: 180px;"/>
+					<a 
+						href="{url page="index" router=$smarty.const.ROUTE_PAGE}"
+						class="navbar-brand is_img">
+						<img
+							src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
+							width="{$displayPageHeaderLogo.width|escape}"
+							height="{$displayPageHeaderLogo.height|escape}"
+							{if $displayPageHeaderLogo.altText != ''}
+								alt="{$displayPageHeaderLogo.altText|escape}"
+							{/if}
+							class="img-fluid"
+							style="max-width: 180px;"/>
+					</a>
+				{else}
+					<a class="navbar-brand" href="#">
+						<strong>OJS App</strong>
 					</a>
 				{/if}
 
-				<div class="d-flex flex-row align-items-center">
-					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-light btn-floating mx-2 my-2 navbar-toggler2" data-mdb-toggle="modal" data-mdb-target="#navbarModal">
-						<i class="fas fa-home"></i>
-					</button>
-					<!-- Modal -->
-					<div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
-						<div class="modal-dialog mw-100 mx-1 my-1 mt-0">
-							<div class="modal-content mt-1">
-								<div class="modal-header" style="border-bottom: 0 none;">
-									<div class="d-flex flex-row align-items-center">
-										{include file="frontend/components/navigationMenu2.tpl"}
+				<button 
+					class="navbar-toggler"
+					type="button"
+					data-mdb-toggle="collapse"
+					data-mdb-target="#navbarContent"
+					aria-controls="navbarContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="fas fa-bars"></span>
+				</button>
 
-										{* User navigation *}
-										{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row" liClass="profile"}
-									</div>
-									<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<button class="navbar-toggler btn btn-light btn-floating" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbar0" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-						<i class="fas fa-th-large"></i>
-					</button>
-				</div>
-
-				<div class="collapse navbar-collapse justify-content-between flex-wrap" id="navbar0">
-					
+				<div class="collapse navbar-collapse justify-content-end" id="navbarContent">
 					{capture assign="primaryMenu"}
 						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
 					{$primaryMenu}
+				</div>
+			</div>
+			
+		</nav>
 
-					<div class="navbar-collapse2 align-items-center">
-						{include file="frontend/components/navigationMenu2.tpl"}
-						{* User navigation *}
-						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user navbar-collapse2" liClass="profile"}
-					</div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark scrolling-navbar d-flex flex-column">
+			<div class="container">
+				<div class="navbar-collapse d-flex justify-content-end">
+					{include file="frontend/components/navigationMenu2.tpl"}
+					{* User navigation *}
+					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row justify-content-end" liClass="profile px-2 px-md-0"}
 				</div>
 			</div>
 		</nav>
@@ -116,6 +117,8 @@
 				</div>
 			</div>
 		{/if}
+
+		
 
 	</header><!-- .pkp_structure_head -->
 

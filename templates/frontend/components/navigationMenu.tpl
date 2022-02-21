@@ -13,23 +13,39 @@
  *}
 
 {if $navigationMenu}
-	<ul id="{$id|escape}" class="{$ulClass|escape} navbar-nav mr-auto">
+	<ul id="{$id|escape}" class="{$ulClass|escape} navbar-nav ml-auto">
 
-		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+		{foreach
+			key=field
+			item=navigationMenuItemAssignment
+			from=$navigationMenu->menuTree}
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
-			<li class="{$liClass|escape} nav-item m-1">
+			<li class="{$liClass|escape} nav-item">
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<div class="dropdown">
-						<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="dropdown-toggle nav-link" type="button" id="{$id|escape}" data-mdb-toggle="dropdown" aria-expanded="false" >
+						<a
+							href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"
+							class="dropdown-toggle nav-link"
+							type="button"
+							id="{$id|escape}"
+							data-mdb-toggle="dropdown"
+							aria-expanded="false" >
 							{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 						</a>
-						<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-dark" aria-labelledby="{$id|escape}">
-							{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+						<ul
+							class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-dark"
+							aria-labelledby="{$id|escape}">
+							{foreach
+								key=childField
+								item=childNavigationMenuItemAssignment
+								from=$navigationMenuItemAssignment->children}
 								{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 									<li class="{$liClass|escape}">
-										<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="dropdown-item">
+										<a
+											href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}"
+											class="dropdown-item">
 											{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 										</a>
 									</li>

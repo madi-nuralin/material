@@ -146,6 +146,7 @@ class MaterialThemePlugin extends ThemePlugin {
 
 		// Load MDB library (Material Design for Bootstrap)
 		$this->addScript('mdb-js', 'vendor/mdb/js/mdb.min.js');
+		$this->addScript('wow-js', 'vendor/wow.min.js');
 
 		// Load custom JavaScript for this theme
 		$this->addScript('material', 'js/main.js');
