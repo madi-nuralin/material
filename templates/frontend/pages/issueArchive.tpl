@@ -42,10 +42,10 @@
 				</li>
 			{/foreach*}
 		</ul-->
-		 <ul class="issues_archive">
+		 <ul class="issues_archive row">
 	  	{foreach from=$issues item="issue"}
 	  		{if $issue->getYear() != $lastYear}
-	  			<li class="col-2 offset-10"><h3>{$issue->getYear()|escape}</h3></li>
+	  			<li><h3>{$issue->getYear()|escape}</h3></li><br/>
 	  			{assign var=lastYear value=$issue->getYear()}
 	  		{/if}
 	  		<li class="col-2">
