@@ -42,8 +42,8 @@
 				</li>
 			{/foreach*}
 		</ul-->
-		 <ul class="issues_archive row-md border border-0">
-	  	{foreach from=$issues item="issue"}
+		 <ul class="issues_archive row border border-0">
+	  	{foreach from=$issues|@array_reverse:true item="issue"}
 	  		{if $issue->getYear() != $lastYear}
 	  			<li><h3>{$issue->getYear()|escape}</h3></li><br/>
 	  			{assign var=lastYear value=$issue->getYear()}
