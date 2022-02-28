@@ -48,7 +48,7 @@
 	  			<li><h3>{$issue->getYear()|escape}</h3></li><br/>
 	  			{assign var=lastYear value=$issue->getYear()}
 	  		{/if}
-	  		<li class="col-2 border border-0">
+	  		<li class="col-md-2 border border-0">
 	  			{include file="frontend/objects/issue_summary.tpl"}
 	  		</li>
 	  	{/foreach}
