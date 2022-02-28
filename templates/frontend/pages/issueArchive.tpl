@@ -45,10 +45,10 @@
 		 <ul class="issues_archive grid">
 	  	{foreach from=$issues item="issue"}
 	  		{if $issue->getYear() != $lastYear}
-	  			<li class="g-start-1"><h3>{$issue->getYear()|escape}</h3></li>
+	  			<li class="g-col-3 g-start-1"><h3>{$issue->getYear()|escape}</h3></li>
 	  			{assign var=lastYear value=$issue->getYear()}
 	  		{/if}
-	  		<li>
+	  		<li class="g-col-2">
 	  			{include file="frontend/objects/issue_summary.tpl"}
 	  		</li>
 	  	{/foreach}
