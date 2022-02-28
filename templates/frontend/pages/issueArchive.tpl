@@ -42,19 +42,15 @@
 				</li>
 			{/foreach*}
 		</ul-->
-		 <ul class="issues_archive">
+		 <ul class="issues_archive grid">
 	  	{foreach from=$issues item="issue"}
 	  		{if $issue->getYear() != $lastYear}
-	  			<ul class="grid">
-		  			<li class="g-col-5"><h3>{$issue->getYear()|escape}</h3></li>
-		  			{assign var=lastYear value=$issue->getYear()}
+	  			<li class="g-start-1"><h3>{$issue->getYear()|escape}</h3></li>
+	  			{assign var=lastYear value=$issue->getYear()}
 	  		{/if}
-	  		<li class="g-col-5">
+	  		<li>
 	  			{include file="frontend/objects/issue_summary.tpl"}
 	  		</li>
-	  		{if $issue->getYear() != $lastYear}
-	  			</ul>
-	  		{/if}
 	  	{/foreach}
 	  </ul>
 
