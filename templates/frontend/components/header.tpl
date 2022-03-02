@@ -30,7 +30,7 @@
 		{* Skip to content nav links *}
 		{include file="frontend/components/skipLinks.tpl"}
 
-		<nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column" id="navbar">
+		<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column" id="navbar" style="background-color: #860d14;">
 			<div class="container">
 				
 				{if $displayPageHeaderLogo}
@@ -76,7 +76,7 @@
 			
 		</nav>
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark scrolling-navbar d-flex flex-column">
+		<nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column">
 			<div class="container">
 				<div class="navbar-collapse d-flex justify-content-end">
 					{include file="frontend/components/navigationMenu2.tpl"}
