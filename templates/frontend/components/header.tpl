@@ -26,14 +26,14 @@
 
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
 	{* Header *}
-	<header class="_pkp_structure_head" id="_headerNavigationContainer" role="banner">
-		{* Skip to content nav links *}
-		{include file="frontend/components/skipLinks.tpl"}
+	<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+  	{* Skip to content nav links *}
+		{*include file="frontend/components/skipLinks.tpl"*}
+    <div class="container d-flex justify-content-between align-items-center">
 
-		<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column" id="navbar" style="background-color: #860d14;">
-			<div class="container">
-				
-				{if $displayPageHeaderLogo}
+      <div class="logo">
+      	{if $displayPageHeaderLogo}
 					<a 
 						href="{url page="index" router=$smarty.const.ROUTE_PAGE}"
 						class="navbar-brand is_img">
@@ -52,31 +52,21 @@
 						<strong>OJS App</strong>
 					</a>
 				{/if}
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
 
-				<button 
-					class="navbar-toggler"
-					type="button"
-					data-mdb-toggle="collapse"
-					data-mdb-target="#navbarContent"
-					aria-controls="navbarContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="fas fa-bars"></span>
-				</button>
+      <nav id="navbar" class="navbar shadow-0">
+        {capture assign="primaryMenu"}
+					{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
+				{/capture}
 
-				<div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-					{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
-					{/capture}
+				{* Primary navigation menu for current application *}
+				{$primaryMenu}
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-					{* Primary navigation menu for current application *}
-					{$primaryMenu}
-				</div>
-			</div>
-			
-		</nav>
-
-		<nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column">
+      <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column shadow-0">
 			<div class="container">
 				<div class="navbar-collapse d-flex justify-content-end">
 					{include file="frontend/components/navigationMenu2.tpl"}
@@ -86,41 +76,68 @@
 			</div>
 		</nav>
 
-		{if $homepageImage}
-			{if $activeTheme->getOption('useHomepageImageAsHeader')}
-				<!-- Background image -->
-				<div class="p-5 text-center bg-image parallax" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg'); min-height: 1000px;">
-					<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-						<div class="d-flex justify-content-center align-items-center h-100">
-							<div class="text-white">
-				<!-- Background image -->
-			{else}
-				<!-- No background image -->
-				<div class="p-5 text-center bg-light">
-					<div class="">
-						<div class="d-flex justify-content-center align-items-center">
-							<div class="text-dark">
-				<!-- No background image -->
-			{/if}
-							<h1 class="mb-3 text-uppercase" style="font-family: 'Montserrat', sans-serif; font-weight: 500">{$displayPageHeaderTitle|escape}</h1>
-							{* Journal Description *}
-							{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-								<h5 class="mb-3" style="font-family: 'Montserrat', sans-serif; font-weight: 400">
-									{$currentContext->getLocalizedData('description')}
-								</h5>
-							{/if}
-							<a class="btn btn-primary btn-lg btn-rounded text-uppercase pt-4 pb-4" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button" style="font-size: 16px; font-family: 'Montserrat', sans-serif;" 
-							>{translate key="plugins.themes.material.makeSubmission"}</a
-							>
-						</div>
-					</div>
-				</div>
-			</div>
-		{/if}
+    </div>
+  </header><!-- End Header -->
 
-		
+  {if $homepageImage}
+	  <!-- ======= Hero Section ======= -->
+	  <section class="hero-section" id="hero">
+	  {*if $activeTheme->getOption('useHomepageImageAsHeader')}
+	  <section class="hero-section" id="hero" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg');">
+	  {/if*}
 
-	</header><!-- .pkp_structure_head -->
+	    <div class="wave">
+
+	      <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+	          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
+	            <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
+	          </g>
+	        </g>
+	      </svg>
+
+	    </div>
+
+	    <div class="container">
+	      <div class="row align-items-center">
+	        <div class="col-12 hero-text-image">
+	          <div class="row">
+	            <div class="col-lg-8 text-center text-lg-start">
+	              <h1 data-aos="fade-right">
+	              	{$displayPageHeaderTitle|escape}
+	              </h1>
+	              {if $activeTheme->getOption('showDescriptionInJournalIndex')}
+	              	<p class="mb-5" data-aos="fade-right" data-aos-delay="100">
+	              		{$currentContext->getLocalizedData('description')}
+	              	</p>
+	              {/if}
+	              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
+	              	<a
+	              		class="btn btn-outline-white text-uppercase pt-4 pb-4"
+	              		href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}"
+	              		role="button">
+	              		{translate key="plugins.themes.material.makeSubmission"}
+	              	</a>
+	              </p>
+	            </div>
+	            <div class="col-lg-4 iphone-wrap">
+
+									{assign var="thumb" value=$currentJournal->getLocalizedSetting('journalThumbnail')}
+									{if $thumb}
+										<img class="phone-2" data-aos="fade-right" src="{$publicFilesDir}{*$currentJournal->getId()*}/{$thumb.uploadName|escape:"url"}">
+									{/if}
+																
+	              <!--img src="assets/img/phone_1.png" alt="Image" class="phone-1" data-aos="fade-right"-->
+	              <!--img src="assets/img/phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200"-->
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+
+	  </section><!-- End Hero -->
+	{/if}
+
 
 
 	{* Wrapper for page content and sidebars *}

@@ -13,7 +13,7 @@
  *}
 
 {if $navigationMenu}
-	<ul id="{$id|escape}" class="{$ulClass|escape} navbar-nav ml-auto">
+	<ul id="{$id|escape}" class="{$ulClass|escape}">
 
 		{foreach
 			key=field
@@ -22,7 +22,7 @@
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
-			<li class="{$liClass|escape} nav-item">
+			<li class="{$liClass|escape}">
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<div class="dropdown">
 						<a

@@ -106,6 +106,14 @@ class MaterialThemePlugin extends ThemePlugin {
 			'mdb-css','vendor/mdb/css/mdb.min.css'
 		);
 
+		$this->addStyle(
+			'aos-css','vendor/aos/aos.css'
+		);
+
+		$this->addStyle(
+			'swiper-css', 'vendor/swiper/swiper-bundle.min.css'
+		);
+
 		// Store additional LESS variables to process based on options
 		$additionalLessVariables = array();
 
@@ -146,7 +154,8 @@ class MaterialThemePlugin extends ThemePlugin {
 
 		// Load MDB library (Material Design for Bootstrap)
 		$this->addScript('mdb-js', 'vendor/mdb/js/mdb.min.js');
-		$this->addScript('wow-js', 'vendor/wow.min.js');
+		$this->addScript('aos-js', 'vendor/aos/aos.js');
+		$this->addScript('swiper-js', 'vendor/swiper/swiper-bundle.min.js');
 
 		// Load custom JavaScript for this theme
 		$this->addScript('material', 'js/main.js');
