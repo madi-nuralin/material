@@ -13,9 +13,7 @@
 	<div class="col-lg-5 col-md-12 bg-white">
 		<div class="page page_message p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
-			<h1>
-				{translate key=$pageTitle}
-			</h1>
+			
 			<div class="description">
 				{if $messageTranslated}
 					{$messageTranslated}

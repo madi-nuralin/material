@@ -17,10 +17,16 @@
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
-			<li class="{$liClass|escape} nav-item mx-1 d-flex align-items-center" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				<ul class="d-flex align-items-center list-unstyled" aria-labelledby="dropdownSidebar">
-					{$sidebarCode}
-				</ul>
+			<li class="{$liClass|escape} nav-item mx-1" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+				<div class="dropdown">
+					<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+						<i class="fas fa-globe"></i>
+						{*translate key="common.language"*}
+					</a>
+					<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-light" aria-labelledby="dropdownSidebar">
+						{$sidebarCode}
+					</ul>
+				</div>
 			</li><!-- pkp_sidebar.left -->
 		{/if}
 	{/if}

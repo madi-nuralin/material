@@ -13,7 +13,7 @@
  *}
 
 {if $navigationMenu}
-	<ul id="{$id|escape}" class="{$ulClass|escape}">
+	<ul id="{$id|escape}" class="{$ulClass|escape} navbar-nav ml-auto">
 
 		{foreach
 			key=field
@@ -22,7 +22,7 @@
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
-			<li class="{$liClass|escape}">
+			<li class="{$liClass|escape} nav-item">
 				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 					<div class="dropdown">
 						<a
@@ -35,7 +35,7 @@
 							{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 						</a>
 						<ul
-							class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-dark"
+							class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-light"
 							aria-labelledby="{$id|escape}">
 							{foreach
 								key=childField

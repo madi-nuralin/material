@@ -56,7 +56,7 @@
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
-      <nav id="navbar" class="navbar shadow-0">
+      <nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
         {capture assign="primaryMenu"}
 					{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
 				{/capture}
@@ -66,7 +66,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <nav class="navbar navbar-expand-lg navbar-light scrolling-navbar d-flex flex-column shadow-0">
+      <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
 			<div class="container">
 				<div class="navbar-collapse d-flex justify-content-end">
 					{include file="frontend/components/navigationMenu2.tpl"}

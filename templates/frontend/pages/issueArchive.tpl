@@ -25,10 +25,7 @@
 
 <div class="page page_issue_archive container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
-	<h1>
-		{$pageTitle|escape}
-	</h1>
-
+	
 	{* No issues have been published *}
 	{if empty($issues)}
 		<p>{translate key="current.noCurrentIssueDesc"}</p>

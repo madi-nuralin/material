@@ -24,9 +24,7 @@
 <div class="page page_search container">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
-	<h1>
-		{translate key="common.search"}
-	</h1>
+	
 
 	{capture name="searchFormUrl"}{url escape=false}{/capture}
 	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}

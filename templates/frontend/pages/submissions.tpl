@@ -13,9 +13,7 @@
 
 <div class="page page_submissions container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
-	<h1>
-		{translate key="about.submissions"}
-	</h1>
+	
 
 	<hr class="my-4">
 

@@ -13,9 +13,7 @@
 
 <div class="page page_about container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
-	<h1>
-		{translate key="about.aboutContext"}
-	</h1>
+	
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
 
 	{$currentContext->getLocalizedData('about')}
