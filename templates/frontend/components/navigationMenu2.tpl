@@ -26,7 +26,7 @@
 	{/if}
 	<li class="{$liClass|escape} nav-item">
 		<a href="{url page="search"}" class="nav-link mx-1">
-			{translate key="common.search"}<!--i class="fas fa-search"></i-->
+			{*translate key="common.search"*}<i class="fas fa-search"></i>
 		</a>
 	</li>
 </ul>

@@ -23,7 +23,7 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<div class="page page_issue_archive">
+<div class="page page_issue_archive container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
 	<h1>
 		{$pageTitle|escape}

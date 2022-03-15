@@ -21,7 +21,7 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-<div class="page page_search">
+<div class="page page_search container">
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
 	<h1>

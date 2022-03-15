@@ -17,9 +17,16 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
-<div class="page_index_journal">
+<div class="page_index_journal container">
 
 	{call_hook name="Templates::Index::journal"}
+
+	{* Additional Homepage Content *}
+	{if $additionalHomeContent}
+		<div class="additional_content">
+			{$additionalHomeContent}
+		</div>
+	{/if}
 
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
@@ -54,7 +61,7 @@
 
 	{* Latest issue *}
 	{if $issue}
-		<section class="current_issue">
+		<section class="current_issue section">
 			<a id="homepageIssue"></a>
 			<h2>
 				{translate key="journal.currentIssue"}
@@ -69,12 +76,6 @@
 		</section>
 	{/if}
 
-	{* Additional Homepage Content *}
-	{if $additionalHomeContent}
-		<div class="additional_content">
-			{$additionalHomeContent}
-		</div>
-	{/if}
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

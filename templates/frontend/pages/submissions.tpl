@@ -11,7 +11,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.submissions"}
 
-<div class="page page_submissions">
+<div class="page page_submissions container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.submissions"}
 	<h1>
 		{translate key="about.submissions"}
