@@ -10,7 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
 
 <div class="page container">
-	<h2>{$title|escape}</h2>
+	<!--h2>{$title|escape}</h2-->
 	{$content}
 </div>
 
