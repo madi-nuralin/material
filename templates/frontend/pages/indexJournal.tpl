@@ -61,9 +61,9 @@
 
 	{* Latest issue *}
 	{if $issue}
-		<section class="current_issue section">
+		<section class="current_issue section border-top pt-5">
 			<a id="homepageIssue"></a>
-			<h2>
+			<h2 class="">
 				{translate key="journal.currentIssue"}
 			</h2>
 			<div class="current_issue_title">

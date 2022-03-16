@@ -29,6 +29,12 @@ main {
 	}
 
 	.page {
+		width: 100%;
+	    //padding-right: var(--mdb-gutter-x,.75rem);
+	    //padding-left: var(--mdb-gutter-x,.75rem);
+	    margin-right: auto;
+	    margin-left: auto;
+
 		.about_section {
 			.pkp_helpers_clear;
 			color: @text-light;
@@ -45,6 +51,32 @@ main {
 					margin: 0 auto;
 				}
 			}
+		}
+	}
+
+	@media(min-width:576px) {
+		.page {
+			max-width:540px
+		}
+	}
+	@media(min-width:768px) {
+		.page {
+			max-width:720px
+		}
+	}
+	@media(min-width:992px) {
+		.page {
+			max-width:960px
+		}
+	}
+	@media(min-width:1200px){
+		.page {
+			max-width:1140px
+		}
+	}
+	@media(min-width:1400px){
+		.page {
+			max-width:1320px
 		}
 	}
 }

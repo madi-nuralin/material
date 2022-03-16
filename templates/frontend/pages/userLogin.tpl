@@ -10,7 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
 <div class="row d-flex justify-content-center align-items-center">
-	<div class="col-lg-7 col-md-12 bg-white overflow-auto">
+	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
 		
 		<div class="page page_login p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
@@ -37,7 +37,7 @@
 			{/if}
 
 			
-			<form class="cmp_form" id="login" method="post" action="{$loginUrl}">
+			<form class="cmp_form rounded p-4" id="login" method="post" action="{$loginUrl}">
 				{csrf}
 
 				{if $error}
@@ -49,12 +49,17 @@
 				<input type="hidden" name="source" value="{$source|escape}" />
 
 				<fieldset class="fields">
-					<legend class="pkp_screen_reader">{translate key="user.login"}</legend>
 					<div class="username form-group mb-4">
-						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" class="form-control" placeholder="{translate key="user.username"}">
+						<label class="form-check-label" for="username">
+							{translate key="user.username"}
+						</label>
+						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" class="form-control">
 					</div>
 					<div class="password form-group mb-4">
-						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true" class="form-control" placeholder="{translate key="user.password"}">
+						<label class="form-check-label" for="password">
+							{translate key="user.password"}
+						</label>
+						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true" class="form-control">
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>
@@ -71,13 +76,13 @@
 							{translate key="user.login.rememberUsernameAndPassword"}
 						</label>
 					</div>
-					<div class="d-flex flex-column justify-content-center align-items-center">
-						<button class="btn btn-primary btn-lg col-12 mb-4" type="submit">
+					<div class="d-flex flex-column justify-content-end align-items-center">
+						<button class="btn btn-primary btn-md mb-3 w-100" type="submit">
 							{translate key="user.login"}
 						</button>
 						{if !$disableUserReg}
 							{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-							<a href="{$registerUrl}" class="register btn btn-lg btn-light col-12 mb-3">
+							<a href="{$registerUrl}" class="register btn btn-md btn-light w-100">
 								{translate key="user.login.registerNewAccount"}
 							</a>
 						{/if}

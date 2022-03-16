@@ -11,7 +11,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
 <div class="row d-flex justify-content-center">
-	<div class="col-lg-7 col-md-12 bg-white">
+	<div class="col-lg-5 col-md-12 bg-white">
 		<div class="page page_register p-4">
 
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
