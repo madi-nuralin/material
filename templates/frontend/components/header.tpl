@@ -150,6 +150,7 @@
 		<a id="pkp_content_main"></a>
 
 		{if $requestedPage != 'index'}
+		
 			<section class="hero-section inner-page">
 			  <div class="wave">
 
