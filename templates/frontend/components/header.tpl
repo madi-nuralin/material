@@ -79,7 +79,7 @@
     </div>
   </header><!-- End Header -->
 
-  {if $requestedPage == 'index'}
+  {if $requestedPage == 'index' || $requestedPage == ''}
 	  <!-- ======= Hero Section ======= -->
 	  <section class="hero-section" id="hero">
 	  {*if $activeTheme->getOption('useHomepageImageAsHeader')}
@@ -149,7 +149,7 @@
 	<main class="" role="main">
 		<a id="pkp_content_main"></a>
 
-		{if $requestedPage != 'index'}
+		{if $requestedPage != 'index' && $requestedPage != ''}
 		
 			<section class="hero-section inner-page">
 			  <div class="wave">
