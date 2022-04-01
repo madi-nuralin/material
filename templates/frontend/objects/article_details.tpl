@@ -239,7 +239,7 @@
 
 			{* Article/Issue cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
-				<div class="item cover_image ps-0 pe-2">
+				<div class="item cover_image">
 					<div class="sub_item">
 						{if $publication->getLocalizedData('coverImage')}
 							{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
