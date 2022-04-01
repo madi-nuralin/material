@@ -28,7 +28,7 @@
 				{translate key="user.register"}
 			</h1>
 
-			<form class="cmp_form register needs-validation" id="register" method="post" action="{url op="register"}">
+			<form class="_cmp_form register needs-validation" id="register" method="post" action="{url op="register"}">
 				{csrf}
 
 				{if $source}

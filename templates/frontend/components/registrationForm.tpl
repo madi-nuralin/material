@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="family_name mb-4 align-items-center">
-			<label for="familyName" class="col-form-label label text-sm-end text-start">
+			<label for="familyName" class="col-form-label label">
 				{translate key="user.familyName"}
 			</label>
 			<div class="">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="affiliation mb-4 align-items-center">
-			<label for="affiliation" class="col-form-label label text-sm-end text-start">
+			<label for="affiliation" class="col-form-label label">
 				{translate key="user.affiliation"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="country mb-4 align-items-center">
-			<label for="country" class="col-sm-3 col-form-label label text-sm-end text-start">
+			<label for="country" class="col-form-label label">
 				{translate key="common.country"}
 				<span class="required" aria-hidden="true">
 					<!--i class="fas fa-link fa-sm"></i-->

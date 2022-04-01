@@ -37,7 +37,7 @@
 			{/if}
 
 			
-			<form class="cmp_form rounded p-4" id="login" method="post" action="{$loginUrl}">
+			<form class="_cmp_form rounded" id="login" method="post" action="{$loginUrl}">
 				{csrf}
 
 				{if $error}
@@ -77,12 +77,12 @@
 						</label>
 					</div>
 					<div class="d-flex flex-column justify-content-end align-items-center">
-						<button class="btn btn-primary btn-md mb-3 w-100" type="submit">
+						<button class="btn btn-lg btn-primary btn-md mb-3 w-100" type="submit">
 							{translate key="user.login"}
 						</button>
 						{if !$disableUserReg}
 							{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-							<a href="{$registerUrl}" class="register btn btn-md btn-light w-100">
+							<a href="{$registerUrl}" class="register btn btn-lg btn-md btn-light w-100">
 								{translate key="user.login.registerNewAccount"}
 							</a>
 						{/if}
