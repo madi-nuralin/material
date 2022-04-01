@@ -45,56 +45,34 @@
 			{/block}
 		</div>
 
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-xl">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							{translate key="search.advancedFilters"}
-						</h5>
-						<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<fieldset class="search_advanced">
-							<legend>
-								{*translate key="search.advancedFilters"*}
-							</legend>
-							<div class="date_range">
-								<div class="from">
-									{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
-									{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
-								</div>
-								<div class="to">
-									{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
-									{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
-								</div>
-							</div>
-							<div class="author">
-								<label class="label" for="authors">
-									{translate key="search.author"}
-								</label>
-								{block name=searchAuthors}
-									<input type="text" id="authors" name="authors" value="{$authors|escape}" class="form-control">
-								{/block}
-							</div>
-							{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
-						</fieldset>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-primary btn-lg" data-mdb-dismiss="modal">{translate key="common.applyAction"}</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="d-flex justify-content-end mt-4">
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-light btn-lg mx-1" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-				{translate key="search.advancedFilters"}
-			</button>
 			<button class="btn btn-primary btn-lg" type="submit">{translate key="common.search"}</button>
 		</div>
+
+		<fieldset class="search_advanced cmp_form">
+			<legend>
+				{translate key="search.advancedFilters"}
+			</legend>
+			<div class="date_range">
+				<div class="from">
+					{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
+					{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+				</div>
+				<div class="to">
+					{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
+					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+				</div>
+			</div>
+			<div class="author">
+				<label class="label" for="authors">
+					{translate key="search.author"}
+				</label>
+				{block name=searchAuthors}
+					<input type="text" id="authors" name="authors" value="{$authors|escape}">
+				{/block}
+			</div>
+			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
+		</fieldset>
 	</form>
 
 	{call_hook name="Templates::Search::SearchResults::PreResults"}
