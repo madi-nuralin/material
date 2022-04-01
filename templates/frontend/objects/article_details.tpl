@@ -97,7 +97,7 @@
 		</h2>
 	{/if}
 
-	<div class="d-flex my-5">
+	<div class="d-md-flex my-5">
 		<div class="_main_entry">
 
 			{if $publication->getData('authors')}
