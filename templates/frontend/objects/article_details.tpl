@@ -101,7 +101,7 @@
 		<div class="_main_entry">
 
 			{if $publication->getData('authors')}
-				<section class="item authors px-0">
+				<section class="item authors ps-0 pe-2">
 					<h2 class="pkp_screen_reader">{translate key="article.authors"}</h2>
 					<ul class="authors">
 					{foreach from=$publication->getData('authors') item=author}
@@ -139,7 +139,7 @@
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
 					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<section class="item doi px-0">
+					<section class="item doi ps-0 pe-2">
 						<h2 class="label">
 							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
 							{translate key="semicolon" label=$translatedDOI}
@@ -155,7 +155,7 @@
 
 			{* Keywords *}
 			{if !empty($publication->getLocalizedData('keywords'))}
-			<section class="item keywords px-0">
+			<section class="item keywords ps-0 pe-2">
 				<h2 class="label">
 					{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
 					{translate key="semicolon" label=$translatedKeywords}
@@ -170,7 +170,7 @@
 
 			{* Abstract *}
 			{if $publication->getLocalizedData('abstract')}
-				<section class="item abstract px-0">
+				<section class="item abstract ps-0 pe-2">
 					<h2 class="label">{translate key="article.abstract"}</h2>
 					{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 				</section>
@@ -186,7 +186,7 @@
 				{/if}
 			{/foreach}
 			{if $hasBiographies}
-				<section class="item author_bios px-0">
+				<section class="item author_bios ps-0 pe-2">
 					<h2 class="label">
 						{if $hasBiographies > 1}
 							{translate key="submission.authorBiographies"}
@@ -217,7 +217,7 @@
 
 			{* References *}
 			{if $parsedCitations || $publication->getData('citationsRaw')}
-				<section class="item references px-0">
+				<section class="item references ps-0 pe-2">
 					<h2 class="label">
 						{translate key="submission.citations"}
 					</h2>
@@ -239,7 +239,7 @@
 
 			{* Article/Issue cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
-				<div class="item cover_image px-0">
+				<div class="item cover_image ps-0 pe-2">
 					<div class="sub_item">
 						{if $publication->getLocalizedData('coverImage')}
 							{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
