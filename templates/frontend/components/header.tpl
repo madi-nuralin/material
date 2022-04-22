@@ -25,48 +25,43 @@
 <body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
-	{* Header *}
+
 	<!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
+	<header id="header" class="fixed-top d-flex align-items-center">
   	{* Skip to content nav links *}
-		{*include file="frontend/components/skipLinks.tpl"*}
+	{* include file="frontend/components/skipLinks.tpl"*}
     <div class="container d-flex justify-content-between align-items-center">
+    	<div class="logo">
+    		{if $displayPageHeaderLogo}
+				<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand _is_img">
+					<img
+						src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
+						width="{$displayPageHeaderLogo.width|escape}"
+						height="{$displayPageHeaderLogo.height|escape}"
+						{if $displayPageHeaderLogo.altText != ''}
+							alt="{$displayPageHeaderLogo.altText|escape}"
+						{/if}
+						class="img-fluid"
+						style="max-width: 180px;"/>
+				</a>
+			{else}
+				<!--a class="navbar-brand text-white" href="#">
+					<strong>OJS App</strong>
+				</a-->
+			{/if}
+		</div>
 
-      <div class="logo">
-      	{if $displayPageHeaderLogo}
-					<a 
-						href="{url page="index" router=$smarty.const.ROUTE_PAGE}"
-						class="navbar-brand is_img">
-						<img
-							src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
-							width="{$displayPageHeaderLogo.width|escape}"
-							height="{$displayPageHeaderLogo.height|escape}"
-							{if $displayPageHeaderLogo.altText != ''}
-								alt="{$displayPageHeaderLogo.altText|escape}"
-							{/if}
-							class="img-fluid"
-							style="max-width: 180px;"/>
-					</a>
-				{else}
-					<a class="navbar-brand" href="#">
-						<strong>OJS App</strong>
-					</a>
-				{/if}
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
+		<nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
+			{capture assign="primaryMenu"}
+				{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
+			{/capture}
 
-      <nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
-        {capture assign="primaryMenu"}
-					{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
-				{/capture}
+			{* Primary navigation menu for current application *}
+			{$primaryMenu}
+			<i class="bi bi-list mobile-nav-toggle"></i>
+      	</nav><!-- .navbar -->
 
-				{* Primary navigation menu for current application *}
-				{$primaryMenu}
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
+      	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
 			<div class="container">
 				<div class="navbar-collapse d-flex justify-content-end">
 					{include file="frontend/components/navigationMenu2.tpl"}
@@ -75,7 +70,6 @@
 				</div>
 			</div>
 		</nav>
-
     </div>
   </header><!-- End Header -->
 

@@ -25,31 +25,20 @@
 
 <div class="page page_issue_archive container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
-	
+
 	{* No issues have been published *}
 	{if empty($issues)}
 		<p>{translate key="current.noCurrentIssueDesc"}</p>
 
 	{* List issues *}
 	{else}
-		<!--ul class="issues_archive">
-			{*foreach from=$issues item="issue"}
+		<ul class="issues_archive">
+			{foreach from=$issues item="issue"}
 				<li>
 					{include file="frontend/objects/issue_summary.tpl"}
 				</li>
-			{/foreach*}
-		</ul-->
-		 <ul class="issues_archive row border border-0">
-	  	{foreach from=$issues item="issue"}
-	  		{if $issue->getYear() != $lastYear}
-	  			<li><h3>{$issue->getYear()|escape}</h3></li><br/>
-	  			{assign var=lastYear value=$issue->getYear()}
-	  		{/if}
-	  		<li class="col-md-2 border border-0">
-	  			{include file="frontend/objects/issue_summary.tpl"}
-	  		</li>
-	  	{/foreach}
-	  </ul>
+			{/foreach}
+		</ul>
 
 		{* Pagination *}
 		{if $prevPage > 1}

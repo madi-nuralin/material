@@ -15,6 +15,7 @@
 				<span class="visually-hidden">Loading...</span>
 			</div>
 		</div>
+
 	</main><!-- _pkp_structure_main -->
 
 {* Sidebars *}
@@ -28,20 +29,68 @@
 {/if*}
 
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
-	<footer class="_pkp_structure_footer_wrapper bg-light text-dark text-center text-lg-start" role="contentinfo">
-		<a id="_pkp_content_footer"></a>
-		<div class="_pkp_structure_footer">
-			{if $pageFooter}
-				<div class="_pkp_footer_content">
-					{$pageFooter}
-				</div>
-			{/if}
+	<!-- ======= Footer ======= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+    {if $pageFooter}
+    	{$pageFooter}
+    {else}
+      <!--div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h3>About SoftLand</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam aperiam
+            dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi.</p>
+          <p class="social">
+            <a href="#"><span class="bi bi-twitter"></span></a>
+            <a href="#"><span class="bi bi-facebook"></span></a>
+            <a href="#"><span class="bi bi-instagram"></span></a>
+            <a href="#"><span class="bi bi-linkedin"></span></a>
+          </p>
+        </div>
+        <div class="col-md-7 ms-auto">
+          <div class="row site-section pt-0">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Navigation</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Services</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Collaboration</a></li>
+                <li><a href="#">Todos</a></li>
+                <li><a href="#">Events</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Downloads</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Get from the App Store</a></li>
+                <li><a href="#">Get from the Play Store</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div-->
+    {/if}
 
-			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-				<a class="text-dark" href="{url page="about" op="aboutThisPublishingSystem"}">Platform & Workflow by: Open Journal Systems</a>
-			</div>
-		</div>
-	</footer><!-- _pkp_structure_footer_wrapper -->
+      <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+          <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}"> Open Journal Systems</a></p>
+
+          <div class="credits">
+            Designed by <a href="https://github.com/madi-nuralin/material">Material Theme</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
 {/if}
 
 {load_script context="frontend"}

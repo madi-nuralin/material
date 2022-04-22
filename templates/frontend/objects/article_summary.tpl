@@ -26,7 +26,7 @@
 {assign var=publication value=$article->getCurrentPublication()}
 <div class="obj_article_summary">
 	{if $publication->getLocalizedData('coverImage')}
-		<div class="cover d-flex justify-content-center">
+		<div class="cover d-flex">
 			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="file">
 				{assign var="coverImage" value=$article->getCurrentPublication()->getLocalizedData('coverImage')}
 				<img 
@@ -38,7 +38,7 @@
 		</div>
 	{/if}
 
-	<{$heading} class="title text-center text-md-start">
+	<{$heading} class="title text-start text-md-start">
 		<a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
 			{$article->getLocalizedTitle()|strip_unsafe_html}
 			{if $article->getLocalizedSubtitle()}
@@ -50,7 +50,7 @@
 	</{$heading}>
 
 	{if $showAuthor || $article->getPages() || ($article->getDatePublished() && $showDatePublished)}
-	<div class="meta text-center text-md-start">
+	<div class="meta text-start text-md-start">
 		{if $showAuthor}
 		<div class="authors">
 			{$article->getAuthorString()|escape}
@@ -74,7 +74,7 @@
 	{/if}
 
 	{if !$hideGalleys}
-		<ul class="galleys_links list-unstyled d-flex flex-wrap justify-content-md-start justify-content-center">
+		<ul class="galleys_links list-unstyled d-flex flex-wrap justify-content-start">
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}

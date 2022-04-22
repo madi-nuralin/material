@@ -167,21 +167,21 @@ class MaterialThemePlugin extends ThemePlugin {
 		/**
 		 *  Backend stylesheet 
 		 */
-		$this->addStyle(
-			'backend-stylesheet', 'styles/backend/index.less', array('contexts' => 'backend')
-		);
+		//$this->addStyle(
+		//	'backend-stylesheet', 'styles/backend/index.less', array('contexts' => 'backend')
+		//);
 		// Load Backend MDB library (Material Design for Bootstrap)
-		$this->addStyle(
-			'backend-mdb-css', 'vendor/mdb/css/mdb.min.css', array('contexts' => 'backend')
-		);
+		//$this->addStyle(
+		//	'backend-mdb-css', 'vendor/mdb/css/mdb.min.css', array('contexts' => 'backend')
+		//);
 		// Load Backend MDB library (Material Design for Bootstrap)
-		$this->addScript(
-			'backend-mdb-js', 'vendor/mdb/js/mdb.min.js', array('contexts' => 'backend-onload')
-		);
+		//$this->addScript(
+		//	'backend-mdb-js', 'vendor/mdb/js/mdb.min.js', array('contexts' => 'backend-onload')
+		//);
 		// Load Backend icon font FontAwesome
-		$this->addStyle(
-			'backend-fontAwesome', 'vendor/fontawesome/css/all.min.css', array('contexts' => 'backend')
-		);
+		//$this->addStyle(
+		//	'backend-fontAwesome', 'vendor/fontawesome/css/all.min.css', array('contexts' => 'backend')
+		//);
 	}
 
 	/**

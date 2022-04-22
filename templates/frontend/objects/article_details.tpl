@@ -87,21 +87,20 @@
 		</div>
 	{/if}
 
-	<h1 class="page_title">
-		{$publication->getLocalizedTitle()|escape}
-	</h1>
-
-	{if $publication->getLocalizedData('subtitle')}
-		<h2 class="subtitle">
-			{$publication->getLocalizedData('subtitle')|escape}
-		</h2>
-	{/if}
-
-	<div class="d-md-flex my-5">
-		<div class="_main_entry">
+	<div class="d-md-flex">
+		<div class="main_entry">
 
 			{if $publication->getData('authors')}
 				<section class="item authors p-0 pe-4">
+					<h3 class="page_title">
+						{$publication->getLocalizedTitle()|escape}
+					</h3>
+
+					{if $publication->getLocalizedData('subtitle')}
+						<h4 class="subtitle">
+							{$publication->getLocalizedData('subtitle')|escape}
+						</h4>
+					{/if}
 					<h2 class="pkp_screen_reader">{translate key="article.authors"}</h2>
 					<ul class="authors">
 					{foreach from=$publication->getData('authors') item=author}
@@ -235,8 +234,7 @@
 
 		</div><!-- .main_entry -->
 
-		<div class="entry_details">
-
+		<div class="entry_details"> 
 			{* Article/Issue cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
 				<div class="item cover_image">

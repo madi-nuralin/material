@@ -27,87 +27,101 @@
 {elseif $heading == "h5"}
 	{assign var="articleHeading" value="h6"}
 {/if}
-<div class="obj_issue_toc pb-1">
 
-	{* Indicate if this is only a preview *}
-	{if !$issue->getPublished()}
-		{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
-	{/if}
+{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
+{assign var="horizontalRule" value="<hr/>"}
 
-	{* Issue introduction area above articles *}
-	<div class="heading">
-
+<div class="_obj_issue_toc">
+	<div class="row align-items-start">
 		{* Issue cover image *}
-		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
-			<a class="cover d-flex justify-content-center" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-				{capture assign="defaultAltText"}
-					{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()|escape}
-				{/capture}
-				<img class="img-fluid" src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
-			</a>
-		{/if}
-
-		{* Description *}
-		{if $issue->hasDescription()}
-			<div class="description">
-				{$issue->getLocalizedDescription()|strip_unsafe_html}
+			<div class="col-md-3 mb-4 mb-md-0">
+				<a class="cover d-flex justify-content-center" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+					{capture assign="defaultAltText"}
+						{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()|escape}
+					{/capture}
+					<img class="img-fluid" src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
+				</a>
 			</div>
 		{/if}
 
-		{* PUb IDs (eg - DOI) *}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type">
-						{$pubIdPlugin->getPubIdDisplayType()|escape}:
+		{if $issueCover}
+			<div class="col-md-9 me-auto">
+		{else}
+			<div class="col-md-12 me-auto">
+		{/if}
+			<div class="title">
+				{$issue->getIssueIdentification()|strip_unsafe_html}
+			</div>
+
+			{* Indicate if this is only a preview *}
+			{if !$issue->getPublished()}
+				{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
+			{/if}
+            
+            {* Description *}
+			{if $issue->hasDescription()}
+				<div class="description">
+					{$issue->getLocalizedDescription()|strip_unsafe_html}
+				</div>
+			{/if}
+
+			{* PUb IDs (eg - DOI) *}
+			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+				{if $pubId}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+						<span class="type">
+							{$pubIdPlugin->getPubIdDisplayType()|escape}:
+						</span>
+						<span class="id">
+							{if $doiUrl}
+								<a href="{$doiUrl|escape}">
+									{$doiUrl}
+								</a>
+							{else}
+								{$pubId}
+							{/if}
+						</span>
+					</div>
+				{/if}
+			{/foreach}
+
+			{* Published date *}
+			{if $issue->getDatePublished()}
+				<div class="published">
+					<span class="label">
+						{translate key="submissions.published"}:
 					</span>
-					<span class="id">
-						{if $doiUrl}
-							<a href="{$doiUrl|escape}">
-								{$doiUrl}
-							</a>
-						{else}
-							{$pubId}
-						{/if}
+					<span class="value">
+						{$issue->getDatePublished()|date_format:$dateFormatShort}
 					</span>
 				</div>
 			{/if}
-		{/foreach}
 
-		{* Published date *}
-		{if $issue->getDatePublished()}
-			<div class="published">
-				<span class="label">
-					{translate key="submissions.published"}:
-				</span>
-				<span class="value">
-					{$issue->getDatePublished()|date_format:$dateFormatShort}
-				</span>
-			</div>
-		{/if}
+			{* Full-issue galleys *}
+			{if $issueGalleys}
+				{$horizontalRule}
+				<div class="galleys">
+					<!--span id="issueTocGalleyLabel">
+						{translate key="issue.fullIssue"}:
+					<span-->
+					<ul class="galleys_links list-unstyled d-flex">
+						{foreach from=$issueGalleys item=galley}
+							<li class="me-2">
+								{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+				{$horizontalRule}
+			{/if}
+		</div>
 	</div>
 
-	{* Full-issue galleys *}
-	{if $issueGalleys}
-		<div class="galleys">
-			<{$heading} id="issueTocGalleyLabel">
-				{translate key="issue.fullIssue"}
-			</{$heading}>
-			<ul class="galleys_links">
-				{foreach from=$issueGalleys item=galley}
-					<li>
-						{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
-					</li>
-				{/foreach}
-			</ul>
-		</div>
-	{/if}
-
 	{* Articles *}
-	<div class="sections accordion accordion-flush" id="section_accordion">
+	<div class="sections accordion accordion-flush mt-2" id="section_accordion">
 	{assign var=sectionCounter value=0}
 	{foreach name=sections from=$publishedSubmissions item=section}
 		<div class="section accordion-item">
@@ -115,7 +129,7 @@
 		{if $section.articles}
 			{if $section.title}
 				<h2 class="accordion-header" id="accordion-header-{$sectionCounter}">
-					<button class="accordion-button collapsed px-0 text-md-start text-center" type="button" data-mdb-toggle="collapse" data-mdb-target="#accordion-collapse-{$sectionCounter}" aria-expanded="false" aria-controls="accordion-collapse-{$sectionCounter}">
+					<button class="accordion-button collapsed px-0 text-start" type="button" data-mdb-toggle="collapse" data-mdb-target="#accordion-collapse-{$sectionCounter}" aria-expanded="false" aria-controls="accordion-collapse-{$sectionCounter}">
 						{$section.title|escape}
 					</button>
 				</h2>

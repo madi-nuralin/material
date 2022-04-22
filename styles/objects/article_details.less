@@ -22,7 +22,7 @@
 	}
 
 	.row {
-		margin-top: @triple;
+		margin-top: 0px;//@triple;
 	}
 
 	.item {
@@ -48,10 +48,12 @@
 
 	.main_entry {
 
+		width: 100%;
+
 		.item {
 
 			.label {
-				margin: 0 0 @double;
+				margin: 0px;
 				font-family: @font-heading;
 				font-size: @font-bump;
 				font-weight: @bold;
@@ -61,6 +63,10 @@
 			&.keywords .label {
 				display: inline;
 				font-size: @font-base;
+				margin: 0 0 @double;
+				font-family: @font-heading;
+				font-size: @font-bump;
+				font-weight: @bold;
 			}
 		}
 
@@ -148,9 +154,10 @@
 	}
 
 	.entry_details {
-		margin-left: -@double;
-		margin-right: -@double;
+		margin-left: 0px;
+		margin-right: 0px;
 		border-top: @bg-border;
+		width: 100%;
 
 		.item {
 			padding: @double;
@@ -279,8 +286,9 @@
 	@media(min-width: @screen-phone) {
 
 		.entry_details {
-			margin-left: -@triple;
-			margin-right: -@triple;
+			width: 100%;
+			margin-left: 0px;//-@triple;
+			margin-right: 0px;//-@triple;
 		}
 
 	}
@@ -288,15 +296,15 @@
 	@media(min-width: @screen-tablet) {
 
 		.row {
-			margin-left: -@double;
-			margin-right: -@double;
-			border-top: @bg-border;
-			border-bottom: @bg-border;
+			margin-left: 0px;//-@double;
+			margin-right: 0px;//-@double;
+			border-top: none;
+			border-bottom: none;
 		}
 
 		.main_entry {
 			float: left;
-			width: @screen-tablet-container - @sidebar-width;
+			width: 100%;//@screen-tablet-container - @sidebar-width;
 			border-right: @bg-border;
 		}
 
@@ -304,7 +312,7 @@
 			padding: @double;
 
 			.label {
-				margin: 0 0 @double;
+				margin: 0;
 				font-family: @font-heading;
 				font-size: @font-bump;
 				font-weight: @bold;
@@ -319,8 +327,8 @@
 
 		.entry_details {
 			float: left;
-			width: @sidebar-width;
-			margin: 0 0 0 -1px; // border overlap with main content
+			width: 30%;
+			margin: 0px; // border overlap with main content
 			border-top: none;
 			border-left: @bg-border;
 
@@ -338,12 +346,12 @@
 	@media(min-width: @screen-desktop) {
 
 		.row {
-			margin-left: -@triple;
-			margin-right: -@triple;
+			margin-left: 0px;//-@triple;
+			margin-right: 0px;//-@triple;
 		}
 
 		.main_entry {
-			width: @screen-desktop-container - (@sidebar-width * 2);
+			width: 70%;//@screen-desktop-container - (@sidebar-width * 2);
 		}
 
 		.item {
@@ -355,7 +363,7 @@
 	@media(min-width: @screen-lg-desktop) {
 
 		.main_entry {
-			width: @screen-lg-desktop-container - (@sidebar-width * 2);
+			width: 70%;
 		}
 	}
 }

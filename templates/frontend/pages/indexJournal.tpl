@@ -30,7 +30,7 @@
 
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
-		<section class="cmp_announcements highlight_first">
+		<section class="cmp_announcements highlight_first mx-0" data-aos="fade-up" data-aos-delay="200" >
 			<a id="homepageAnnouncements"></a>
 			<h2>
 				{translate key="announcement.announcements"}
@@ -61,14 +61,14 @@
 
 	{* Latest issue *}
 	{if $issue}
-		<section class="current_issue section border-top pt-5">
+		<section class="current_issue section pt-4" data-aos="fade-up" data-aos-delay="200">
 			<a id="homepageIssue"></a>
-			<h2 class="">
+			<h3 class="pb-3">
 				{translate key="journal.currentIssue"}
-			</h2>
-			<div class="current_issue_title">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
-			</div>
+			</h3>
+			<!--div class="current_issue_title">
+				{*$issue->getIssueIdentification()|strip_unsafe_html*}
+			</div-->
 			{include file="frontend/objects/issue_toc.tpl" heading="h3"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more">
 				{translate key="journal.viewAllIssues"}
