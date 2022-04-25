@@ -70,7 +70,7 @@
 
 	.galleys_links {
 		&:extend(.pkp_unstyled_list);
-		margin-top: @base;
+		//margin-top: @base;
 
 		li {
 			display: inline-block;
@@ -98,7 +98,10 @@
 
 		.galleys,
 		/*.section*/ {
-			position: relative;
+			padding: @double 0;
+			border-top: @bg-border;
+			border-bottom: @bg-border;
+			/*position: relative;
 			margin: @triple -@double;
 			padding: @triple;
 
@@ -112,7 +115,8 @@
 			}
 
 			> h2,
-			> h3 {
+			> h3,
+			> h6 {
 				display: inline-block;
 				position: relative;
 				left: -15px;
@@ -123,7 +127,7 @@
 				font-weight: @normal;
 				line-height: @triple;
 				color: @text-light;
-			}
+			}*/
 		}
 	}
 
@@ -131,7 +135,7 @@
 
 		.galleys,
 		/*.section*/ {
-			margin: @triple -@triple;
+			/*margin: @triple -@triple;*/
 		}
 
 		.cover {

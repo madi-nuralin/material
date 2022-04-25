@@ -16,14 +16,6 @@
 
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 
-			<div class="d-flex justify-content-center mb-3">
-				{if $displayPageHeaderLogo}
-					<a href="{$homeUrl}" class="navbar-brand is_img">
-						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} class="img-fluid" style="max-width: 180px;"/>
-					</a>
-				{/if}
-			</div>
-
 			<h1 class="text-center">
 				{translate key="user.register"}
 			</h1>
@@ -98,11 +90,11 @@
 										{/if}
 									{/foreach}
 								</div>
-								<div id="reviewerInterests" class="reviewer_interests row mb-4 align-items-center">
-									<label class="col-sm-3 col-form-label label text-sm-end text-start" for="interests">
+								<div id="reviewerInterests" class="reviewer_interests mb-4 align-items-center">
+									<label class="form-check-label label text-sm-end text-start" for="interests">
 										{translate key="user.interests"}
 									</label> 
-									<div class="col-sm-9">
+									<div class="">
 										<input type="text" name="interests" id="interests" value="{$interests|escape}" class="form-control">
 									</div>
 								</div>

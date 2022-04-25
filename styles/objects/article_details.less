@@ -51,6 +51,9 @@
 		width: 100%;
 
 		.item {
+			border-bottom: @bg-border;
+			margin-right: 0;
+			padding: @double 0;
 
 			.label {
 				margin: 0px;
@@ -68,6 +71,10 @@
 				font-size: @font-bump;
 				font-weight: @bold;
 			}
+		}
+
+		.item:last-child {
+			border-bottom: none;
 		}
 
 		.sub_item {
@@ -128,7 +135,7 @@
 
 	.item.doi,
 	.item.keywords {
-		padding-top: 0;
+		padding-top: none;
 	}
 
 	.galleys_links {
@@ -291,6 +298,12 @@
 			margin-right: 0px;//-@triple;
 		}
 
+		.main_entry {
+			.item {
+				margin-right: @double;
+			}
+		}
+
 	}
 
 	@media(min-width: @screen-tablet) {
@@ -306,6 +319,9 @@
 			float: left;
 			width: 100%;//@screen-tablet-container - @sidebar-width;
 			border-right: @bg-border;
+			.item {
+				margin-right: @double;
+			}
 		}
 
 		.item {

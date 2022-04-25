@@ -41,38 +41,54 @@
 				{translate key="search.searchFor"}
 			</label>
 			{block name=searchQuery}
-				<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.search"}">
+				<div class="d-flex">
+					<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.searchQuery"}">
+					<a
+					  class="btn ms-2 btn-light border shadow-0 d-flex justify-content-center align-items-center"
+					  data-mdb-toggle="collapse"
+					  href="#collapseExample"
+					  role="button"
+					  aria-expanded="false"
+					  aria-controls="collapseExample"
+					>
+						<i class="fa fa-filter fa-lg"></i>
+					</a>
+				</div>
 			{/block}
 		</div>
+
+		<fieldset class="search_advanced _cmp_form collapse rounded-3 mt-4" id="collapseExample">
+			<legend>
+				<p class="text-center">
+					{translate key="search.advancedFilters"}
+				</p>
+			</legend>
+			<div>
+				<div class="date_range">
+					<div class="from">
+						{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
+						{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+					</div>
+					<div class="to">
+						{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
+						{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+					</div>
+				</div>
+				<div class="author">
+					<label class="label" for="authors">
+						{translate key="search.author"}
+					</label>
+					{block name=searchAuthors}
+						<input type="text" id="authors" name="authors" class="" value="{$authors|escape}">
+					{/block}
+				</div>
+			</div>
+			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
+		</fieldset>
 
 		<div class="d-flex justify-content-end mt-4">
 			<button class="btn btn-primary btn-lg" type="submit">{translate key="common.search"}</button>
 		</div>
-
-		<fieldset class="search_advanced cmp_form">
-			<legend>
-				{translate key="search.advancedFilters"}
-			</legend>
-			<div class="date_range">
-				<div class="from">
-					{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
-					{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
-				</div>
-				<div class="to">
-					{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
-					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
-				</div>
-			</div>
-			<div class="author">
-				<label class="label" for="authors">
-					{translate key="search.author"}
-				</label>
-				{block name=searchAuthors}
-					<input type="text" id="authors" name="authors" value="{$authors|escape}">
-				{/block}
-			</div>
-			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
-		</fieldset>
 	</form>
 
 	{call_hook name="Templates::Search::SearchResults::PreResults"}

@@ -1,7 +1,8 @@
 {**
  * templates/frontend/objects/issue_toc.tpl
  *
- * Copyright (c) 2021 Madi Nuralin
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a full table of contents.
@@ -28,97 +29,85 @@
 	{assign var="articleHeading" value="h6"}
 {/if}
 
-{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 {assign var="horizontalRule" value="<hr/>"}
 
-<div class="_obj_issue_toc">
-	<div class="row align-items-start">
+<div class="obj_issue_toc">
+
+	{* Indicate if this is only a preview *}
+	{if !$issue->getPublished()}
+		{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
+	{/if}
+
+	{* Issue introduction area above articles *}
+	<div class="heading">
+
 		{* Issue cover image *}
+		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
-			<div class="col-md-3 mb-4 mb-md-0">
-				<a class="cover d-flex justify-content-center" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-					{capture assign="defaultAltText"}
-						{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()|escape}
-					{/capture}
-					<img class="img-fluid" src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
-				</a>
+			<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+				{capture assign="defaultAltText"}
+					{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()|escape}
+				{/capture}
+				<img class="img-fluid"
+					src="{$issueCover|escape}"
+					alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
+			</a>
+		{/if}
+
+		{* Description *}
+		{if $issue->hasDescription()}
+			<div class="description text-muted">
+				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
 		{/if}
 
-		{if $issueCover}
-			<div class="col-md-9 me-auto">
-		{else}
-			<div class="col-md-12 me-auto">
-		{/if}
-			<div class="title">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
+		{* PUb IDs (eg - DOI) *}
+		{foreach from=$pubIdPlugins item=pubIdPlugin}
+			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+			{if $pubId}
+				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+					<span class="type text-muted">
+						{$pubIdPlugin->getPubIdDisplayType()|escape}:
+					</span>
+					<span class="id">
+						{if $doiUrl}
+							<a href="{$doiUrl|escape}">
+								{$doiUrl}
+							</a>
+						{else}
+							{$pubId}
+						{/if}
+					</span>
+				</div>
+			{/if}
+		{/foreach}
+
+		{* Published date *}
+		{if $issue->getDatePublished()}
+			<div class="published">
+				<span class="label text-muted">
+					{translate key="submissions.published"}:
+				</span>
+				<span class="value base">
+					{$issue->getDatePublished()|date_format:$dateFormatShort}
+				</span>
 			</div>
-
-			{* Indicate if this is only a preview *}
-			{if !$issue->getPublished()}
-				{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
-			{/if}
-            
-            {* Description *}
-			{if $issue->hasDescription()}
-				<div class="description">
-					{$issue->getLocalizedDescription()|strip_unsafe_html}
-				</div>
-			{/if}
-
-			{* PUb IDs (eg - DOI) *}
-			{foreach from=$pubIdPlugins item=pubIdPlugin}
-				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
-				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-						<span class="type">
-							{$pubIdPlugin->getPubIdDisplayType()|escape}:
-						</span>
-						<span class="id">
-							{if $doiUrl}
-								<a href="{$doiUrl|escape}">
-									{$doiUrl}
-								</a>
-							{else}
-								{$pubId}
-							{/if}
-						</span>
-					</div>
-				{/if}
-			{/foreach}
-
-			{* Published date *}
-			{if $issue->getDatePublished()}
-				<div class="published">
-					<span class="label">
-						{translate key="submissions.published"}:
-					</span>
-					<span class="value">
-						{$issue->getDatePublished()|date_format:$dateFormatShort}
-					</span>
-				</div>
-			{/if}
-
-			{* Full-issue galleys *}
-			{if $issueGalleys}
-				{$horizontalRule}
-				<div class="galleys">
-					<!--span id="issueTocGalleyLabel">
-						{translate key="issue.fullIssue"}:
-					<span-->
-					<ul class="galleys_links list-unstyled d-flex">
-						{foreach from=$issueGalleys item=galley}
-							<li class="me-2">
-								{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
-							</li>
-						{/foreach}
-					</ul>
-				</div>
-				{$horizontalRule}
-			{/if}
-		</div>
+		{/if}
 	</div>
+
+	{* Full-issue galleys *}
+	{if $issueGalleys}
+		<div class="galleys">
+			<ul class="galleys_links">
+				{foreach from=$issueGalleys item=galley}
+					<li>
+						{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	{/if}
 
 	{* Articles *}
 	<div class="sections accordion accordion-flush mt-2" id="section_accordion">

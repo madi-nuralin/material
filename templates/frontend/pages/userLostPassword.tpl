@@ -9,8 +9,9 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
-<div class="row d-flex justify-content-center">
-	<div class="col-lg-7 col-md-12 bg-white">
+<div class="row d-flex justify-content-center align-items-center">
+	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
+
 		<div class="page page_lost_password p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login.resetPassword"}
 			<h1>
@@ -19,7 +20,7 @@
 
 			<p>{translate key="user.login.resetPasswordInstructions"}</p>
 
-			<form class="cmp_form _lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+			<form class="_cmp_form _lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
 				{csrf}
 				{if $error}
 					<div class="pkp_form_error text-danger">
@@ -29,7 +30,7 @@
 
 				<div class="fields">
 					<div class="_email row mb-4 align-items-center">
-						<label for="email" class="col-12 col-form-label label text-end">
+						<label for="email" class="col-12 form-check-label label">
 							<span class="label">
 								{translate key="user.login.registeredEmail"}
 								<span class="required" aria-hidden="true">*</span>

@@ -14,14 +14,6 @@
 		
 		<div class="page page_login p-4">
 			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
-			
-			<div class="d-flex justify-content-center mb-3">
-				{if $displayPageHeaderLogo}
-					<a href="{$homeUrl}" class="navbar-brand is_img">
-						<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if} class="img-fluid" style="max-width: 180px;"/>
-					</a>
-				{/if}
-			</div>
 
 			<h1 class="text-center">
 				{translate key="user.login"}

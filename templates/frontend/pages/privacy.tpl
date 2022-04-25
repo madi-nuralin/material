@@ -13,9 +13,6 @@
 
 <div class="page page_privacy container">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="manager.setup.privacyStatement"}
-	<h1>
-		{translate key="manager.setup.privacyStatement"}
-	</h1>
 	{$privacyStatement}
 </div><!-- .page -->
 

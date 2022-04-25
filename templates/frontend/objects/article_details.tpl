@@ -89,18 +89,20 @@
 
 	<div class="d-md-flex">
 		<div class="main_entry">
+			<section class="item">
+				<h3 class="page_title">
+					{$publication->getLocalizedTitle()|escape}
+				</h3>
+
+				{if $publication->getLocalizedData('subtitle')}
+					<h4 class="subtitle">
+						{$publication->getLocalizedData('subtitle')|escape}
+					</h4>
+				{/if}
+			</section> 
 
 			{if $publication->getData('authors')}
-				<section class="item authors p-0 pe-4">
-					<h3 class="page_title">
-						{$publication->getLocalizedTitle()|escape}
-					</h3>
-
-					{if $publication->getLocalizedData('subtitle')}
-						<h4 class="subtitle">
-							{$publication->getLocalizedData('subtitle')|escape}
-						</h4>
-					{/if}
+				<section class="item authors">
 					<h2 class="pkp_screen_reader">{translate key="article.authors"}</h2>
 					<ul class="authors">
 					{foreach from=$publication->getData('authors') item=author}
@@ -138,7 +140,7 @@
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
 					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<section class="item doi p-0 pe-4">
+					<section class="item doi">
 						<h2 class="label">
 							{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
 							{translate key="semicolon" label=$translatedDOI}
@@ -154,11 +156,11 @@
 
 			{* Keywords *}
 			{if !empty($publication->getLocalizedData('keywords'))}
-			<section class="item keywords p-0 pe-4">
-				<h2 class="label">
+			<section class="item keywords">
+				<h4 class="_label">
 					{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
 					{translate key="semicolon" label=$translatedKeywords}
-				</h2>
+				</h4>
 				<span class="value">
 					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
 						{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
@@ -169,8 +171,8 @@
 
 			{* Abstract *}
 			{if $publication->getLocalizedData('abstract')}
-				<section class="item abstract p-0 pe-4">
-					<h2 class="label">{translate key="article.abstract"}</h2>
+				<section class="item abstract">
+					<h4 class="_label">{translate key="article.abstract"}</h4>
 					{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 				</section>
 			{/if}
@@ -185,14 +187,14 @@
 				{/if}
 			{/foreach}
 			{if $hasBiographies}
-				<section class="item author_bios p-0 pe-4">
-					<h2 class="label">
+				<section class="item author_bios">
+					<h4 class="_label">
 						{if $hasBiographies > 1}
 							{translate key="submission.authorBiographies"}
 						{else}
 							{translate key="submission.authorBiography"}
 						{/if}
-					</h2>
+					</h4>
 					{foreach from=$publication->getData('authors') item=author}
 						{if $author->getLocalizedData('biography')}
 							<section class="sub_item">
@@ -216,7 +218,7 @@
 
 			{* References *}
 			{if $parsedCitations || $publication->getData('citationsRaw')}
-				<section class="item references p-0 pe-4">
+				<section class="item references">
 					<h2 class="label">
 						{translate key="submission.citations"}
 					</h2>

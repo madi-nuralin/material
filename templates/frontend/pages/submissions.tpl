@@ -37,10 +37,10 @@
 
 	{if $submissionChecklist}
 		<div class="">
-			<h2>
+			<h4>
 				{translate key="about.submissionPreparationChecklist"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/submissionChecklist" sectionTitleKey="about.submissionPreparationChecklist"}
-			</h2>
+			</h4>
 			{translate key="about.submissionPreparationChecklist.description"}
 			<ul class="">
 				{foreach from=$submissionChecklist item=checklistItem}
@@ -55,19 +55,19 @@
 	{if $currentContext->getLocalizedData('authorGuidelines')}
 	<hr class="my-4">
 	<div class="author_guidelines" id="authorGuidelines">
-		<h2>
+		<h4>
 			{translate key="about.authorGuidelines"}
 			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.authorGuidelines"}
-		</h2>
+		</h4>
 		{$currentContext->getLocalizedData('authorGuidelines')}
 	</div>
 	{/if}
 
 	<hr class="my-4">
 
-	<h2>
+	<h4>
 		{translate key="section.sections"}
-	</h2>
+	</h4>
 	<ol>
 	{foreach from=$sections item="section"}
 		{if $section->getLocalizedPolicy()}
@@ -91,10 +91,10 @@
 	{if $currentContext->getLocalizedData('copyrightNotice')}
 		<hr class="my-4">
 		<div class="copyright_notice">
-			<h2>
+			<h4>
 				{translate key="about.copyrightNotice"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
-			</h2>
+			</h4>
 			{$currentContext->getLocalizedData('copyrightNotice')}
 		</div>
 	{/if}
@@ -102,10 +102,10 @@
 	{if $currentContext->getLocalizedData('privacyStatement')}
 	<hr class="my-4">
 	<div class="privacy_statement" id="privacyStatement">
-		<h2>
+		<h4>
 			{translate key="about.privacyStatement"}
 			{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/privacy" sectionTitleKey="about.privacyStatement"}
-		</h2>
+		</h4>
 		{$currentContext->getLocalizedData('privacyStatement')}
 	</div>
 	{/if}
