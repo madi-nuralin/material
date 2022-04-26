@@ -57,11 +57,11 @@
 			{/block}
 		</div>
 
-		<fieldset class="search_advanced _cmp_form collapse rounded-3 mt-4" id="collapseExample">
+		<fieldset class="search_advanced cmp_form collapse rounded-3 mt-4" id="collapseExample">
 			<legend>
-				<p class="text-center">
+				<h5 class="text-start">
 					{translate key="search.advancedFilters"}
-				</p>
+				</h5>
 			</legend>
 			<div>
 				<div class="date_range">
@@ -69,12 +69,12 @@
 						{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
 						{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
 					</div>
-					<div class="to">
+					<div class="to mt-2">
 						{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
 						{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
 					</div>
 				</div>
-				<div class="author">
+				<div class="author mt-2 mt-md-0">
 					<label class="label" for="authors">
 						{translate key="search.author"}
 					</label>
