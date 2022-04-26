@@ -6,6 +6,7 @@
  *
  * Common site header.
  *}
+
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 <head>
@@ -31,7 +32,7 @@
 
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}">
 		<header class="app__header" role="banner">
-			<nav class="navbar navbar-expand-xxl navbar-light bg-white">
+			<nav class="navbar navbar-expand-xxl navbar-light border-bottom bg-white shadow-0">
 				<div class="container-fluid flex-nowrap">
 
 					{if $availableContexts}

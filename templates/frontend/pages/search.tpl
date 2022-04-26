@@ -41,40 +41,28 @@
 				{translate key="search.searchFor"}
 			</label>
 			{block name=searchQuery}
-				<div class="d-flex">
-					<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.searchQuery"}">
-					<a
-					  class="btn ms-2 btn-light border shadow-0 d-flex justify-content-center align-items-center"
-					  data-mdb-toggle="collapse"
-					  href="#collapseExample"
-					  role="button"
-					  aria-expanded="false"
-					  aria-controls="collapseExample"
-					>
-						<i class="fa fa-filter fa-lg"></i>
-					</a>
-				</div>
+				<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.searchQuery"}">
 			{/block}
 		</div>
 
-		<fieldset class="search_advanced cmp_form collapse rounded-3 mt-4" id="collapseExample">
+		<fieldset class="search_advanced cmp_form rounded-3 pt-5" id="collapseExample">
 			<legend>
-				<h5 class="text-start">
+				<h5 class="text-center">
 					{translate key="search.advancedFilters"}
 				</h5>
 			</legend>
-			<div>
+			<div class="pt-4">
 				<div class="date_range">
 					<div class="from">
 						{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
 						{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
 					</div>
-					<div class="to mt-2">
+					<div class="to mt-3">
 						{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
 						{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
 					</div>
 				</div>
-				<div class="author mt-2 mt-md-0">
+				<div class="author mt-3 mt-md-0">
 					<label class="label" for="authors">
 						{translate key="search.author"}
 					</label>

@@ -35,12 +35,28 @@ class MaterialThemePlugin extends ThemePlugin {
 		/**
 		 *  Register theme options
 		 */
-		$this->addOption('baseColour', 'FieldColor', [
+		/*$this->addOption('baseColour', 'FieldText', [
 			'label' => __('plugins.themes.material.option.colour.label'),
 			'description' => __('plugins.themes.material.option.colour.description'),
-			'default' => '#1E6292',
+			'default' => 'rgba(39, 70, 133, 0.8)',//rgba(39, 70, 133, 0.8);
 		]);
 
+		$this->addOption('gradient', 'FieldText', [
+			'label' => __('plugins.themes.material.option.colour.label'),
+			'description' => __('plugins.themes.material.option.colour.description'),
+			'default' => 'linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%)',//rgba(39, 70, 133, 0.8);
+		]);*/
+
+		/*$this->addOption('backendStylesheet', 'FieldOptions', [
+			'label' => __('manager.setup.contextSummary'),
+				'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.material.option.showDescriptionInJournalIndex.option'),
+				],
+			],
+			'default' => false,
+		]);*/
 		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
 			'label' => __('manager.setup.contextSummary'),
 				'options' => [
@@ -117,12 +133,22 @@ class MaterialThemePlugin extends ThemePlugin {
 		// Store additional LESS variables to process based on options
 		$additionalLessVariables = array();
 
-		// Pass additional LESS variables based on options
-		if (!empty($additionalLessVariables)) {
-			$this->modifyStyle(
-				'stylesheet', array('addLessVariables' => join("\n", $additionalLessVariables))
+		// Update colour based on theme option
+		/*if ($this->getOption('baseColour') !== 'rgba(39, 70, 133, 0.8)') {
+				$this->getOption('baseColour')
 			);
+			var_dump($match);
+
+			$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
+			if (!$this->isColourDark($this->getOption('baseColour'))) {
+				$additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
+				$additionalLessVariables[] = '@bg-base-border-color:rgba(0,0,0,0.2);';
+			}
 		}
+
+		if ($this->getOption('gradient') !== 'linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%)') {
+			$additionalLessVariables[] = '@bg-gradient:' . $this->getOption('gradient') . ';';
+		}*/
 
 		// Get homepage image and use as header background if useAsHeader is true
 		$context = Application::get()->getRequest()->getContext();
@@ -139,6 +165,15 @@ class MaterialThemePlugin extends ThemePlugin {
 				'homepageImage',
 				'.pkp_structure_head { background: center / cover no-repeat url("' . $homepageImageUrl . '");}',
 				['inline' => true]
+			);
+
+			$additionalLessVariables[] = '@bg-image-url:"' . $homepageImageUrl . '";';
+		}
+
+		// Pass additional LESS variables based on options
+		if (!empty($additionalLessVariables)) {
+			$this->modifyStyle(
+				'stylesheet', array('addLessVariables' => join("\n", $additionalLessVariables))
 			);
 		}
 
@@ -167,21 +202,23 @@ class MaterialThemePlugin extends ThemePlugin {
 		/**
 		 *  Backend stylesheet 
 		 */
-		//$this->addStyle(
-		//	'backend-stylesheet', 'styles/backend/index.less', array('contexts' => 'backend')
-		//);
-		// Load Backend MDB library (Material Design for Bootstrap)
-		//$this->addStyle(
-		//	'backend-mdb-css', 'vendor/mdb/css/mdb.min.css', array('contexts' => 'backend')
-		//);
-		// Load Backend MDB library (Material Design for Bootstrap)
-		//$this->addScript(
-		//	'backend-mdb-js', 'vendor/mdb/js/mdb.min.js', array('contexts' => 'backend-onload')
-		//);
-		// Load Backend icon font FontAwesome
-		//$this->addStyle(
-		//	'backend-fontAwesome', 'vendor/fontawesome/css/all.min.css', array('contexts' => 'backend')
-		//);
+		/*if ($this->getOption('backendStylesheet')) {
+			$this->addStyle(
+				'backend-stylesheet', 'styles/backend/index.less', array('contexts' => 'backend')
+			);
+			// Load Backend MDB library (Material Design for Bootstrap)
+			$this->addStyle(
+				'backend-mdb-css', 'vendor/mdb/css/mdb.min.css', array('contexts' => 'backend')
+			);
+			// Load Backend MDB library (Material Design for Bootstrap)
+			$this->addScript(
+				'backend-mdb-js', 'vendor/mdb/js/mdb.min.js', array('contexts' => 'backend-onload')
+			);
+			// Load Backend icon font FontAwesome
+			$this->addStyle(
+				'backend-fontAwesome', 'vendor/fontawesome/css/all.min.css', array('contexts' => 'backend')
+			);
+		}*/
 	}
 
 	/**
