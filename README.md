@@ -1,4 +1,7 @@
 # Material Theme
+
+![к](https://user-images.githubusercontent.com/77335604/165313181-70bf2f56-a007-4825-83bf-a45eba47eaa1.jpg)
+
 A Material theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)
 
 ## Description
