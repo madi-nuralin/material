@@ -65,6 +65,9 @@ msgstr "Осы журналға сәйкес келетін қаріптерді
 msgid "plugins.themes.material.option.typography.label"
 msgstr "Типографика"
 
+msgid "plugins.themes.material.makeSubmission"
+msgstr "Мақала жіберу"
+
 msgid "plugins.themes.material.description"
 msgstr "Material дизайн безендірілуі."
 
