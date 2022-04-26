@@ -58,7 +58,6 @@
 
 			{* Primary navigation menu for current application *}
 			{$primaryMenu}
-			<i class="bi bi-list mobile-nav-toggle"></i>
       	</nav><!-- .navbar -->
 
       	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
@@ -70,6 +69,7 @@
 				</div>
 			</div>
 		</nav>
+      	{include file="frontend/components/navigationMenuMobile.tpl"}
     </div>
   </header><!-- End Header -->
 

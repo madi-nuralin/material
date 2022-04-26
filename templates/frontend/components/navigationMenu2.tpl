@@ -12,17 +12,22 @@
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
 
-<ul class="{$ulClass|escape} navbar-nav mr-auto flex-row">
+<ul class="navbar-nav mr-auto flex-row {$ulClass|escape}">
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
-			<li class="{$liClass|escape} nav-item mx-1" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+			<li class="nav-item {$liClass|escape}" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				<div class="dropdown">
-					<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
-						<i class="fas fa-globe"></i>
-						{*translate key="common.language"*}
-					</a>
+					{if !$showIcons}
+						<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+							<i class="fas fa-globe"></i>
+						</a>
+					{else}
+						<a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+							{translate key="common.language"}
+						</a>
+					{/if}
 					<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-light" aria-labelledby="dropdownSidebar">
 						{$sidebarCode}
 					</ul>
@@ -31,8 +36,14 @@
 		{/if}
 	{/if}
 	<li class="{$liClass|escape} nav-item">
-		<a href="{url page="search"}" class="nav-link mx-1">
-			{*translate key="common.search"*}<i class="fas fa-search"></i>
-		</a>
+		{if !$showIcons}
+			<a href="{url page="search"}" class="nav-link mx-1">
+				<i class="fas fa-search"></i>
+			</a>
+		{else}
+			<a href="{url page="search"}" class="nav-link">
+				{translate key="common.search"}
+			</a>
+		{/if}
 	</li>
 </ul>
