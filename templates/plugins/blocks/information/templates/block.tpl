@@ -10,6 +10,9 @@
 
 {**}
 {if !empty($forReaders) || !empty($forAuthors) || !empty($forLibrarians)}
+	<li>
+		<hr class="dropdown-divider" />
+	</li>
 	{if !empty($forReaders)}
 		<li>
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="readers"}" class="dropdown-item">
