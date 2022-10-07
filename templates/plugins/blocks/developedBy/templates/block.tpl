@@ -7,7 +7,7 @@
  * Common site sidebar menu -- "Developed By" block.
  *}
 
-{*
+{**}
 <li>
 	<a href="http://pkp.sfu.ca/ojs/" class="dropdown-item">
 		{translate key="common.software"}
@@ -16,4 +16,4 @@
 <li>
 	<hr class="dropdown-divider" />
 </li>
-*}
+{**}

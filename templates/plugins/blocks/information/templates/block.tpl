@@ -8,7 +8,7 @@
  *
  *}
 
-{*
+{**}
 {if !empty($forReaders) || !empty($forAuthors) || !empty($forLibrarians)}
 	{if !empty($forReaders)}
 		<li>
@@ -35,4 +35,4 @@
 		<hr class="dropdown-divider" />
 	</li>
 {/if}
-*}
+{**}

@@ -7,10 +7,10 @@
  * Common site sidebar menu -- "Make a Submission" block.
  *}
  
-{*
+{**}
 <li>
 	<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" class="dropdown-item">
 		{translate key="plugins.block.makeSubmission.linkLabel"}
 	</a>
 </li>
-*}
+{**}

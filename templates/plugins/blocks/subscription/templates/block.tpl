@@ -12,7 +12,7 @@
 	{assign var=individualSubscriptionValid value=$individualSubscription->isValid()}
 	{assign var=subscriptionStatus value=$individualSubscription->getStatus()}
 {/if}
-{*
+{**}
 <div class="pkp_block block_subscription">
 	<h2 class="title">{translate key="plugins.block.subscription.blockTitle"}</h2>
 	<div class="content">
@@ -56,4 +56,4 @@
 		{/if}
 	</div>
 </div>
-*}
+{**}

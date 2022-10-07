@@ -16,7 +16,7 @@
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-		{if $sidebarCode}
+		{*if $sidebarCode}
 			<li class="nav-item {$liClass|escape}" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				<div class="dropdown">
 					{if !$showIcons}
@@ -33,7 +33,7 @@
 					</ul>
 				</div>
 			</li><!-- pkp_sidebar.left -->
-		{/if}
+		{/if*}
 	{/if}
 	<li class="{$liClass|escape} nav-item">
 		{if !$showIcons}
