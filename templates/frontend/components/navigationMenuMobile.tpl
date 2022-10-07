@@ -34,9 +34,9 @@
 				<hr/>
 
 				<div>
-					{include file="frontend/components/navigationMenu2.tpl" ulClass="d-block" liClass="mx-0" showIcons=true}
+					{include file="frontend/components/navigationMenu2.tpl" ulClass="d-block" liClass="mx-0 font-monospace" showIcons=true}
 					{* User navigation *}
-					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-block" liClass="profile text-dark font-monospace"}
+					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-block" liClass="profile text-dark"}
 				</div>
 			</div>
 			<div class="modal-footer">
