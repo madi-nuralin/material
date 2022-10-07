@@ -34,10 +34,13 @@
 		@media(min-width: @screen-desktop) {
 			margin-left: 0px;
 			margin-right: 0px;
+			display: flex;
+			flex-wrap: wrap;
 
 			> li {
 				padding-left: 0px;
 				padding-right: 0px;
+				flex: calc(100/@issue-archive-columns);
 			}
 		}
 	}
