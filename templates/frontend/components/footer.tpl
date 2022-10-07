@@ -24,7 +24,7 @@
   	{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
   	{if $sidebarCode}
       <div class="pt-2" data-aos="fade-up" data-aos-delay="200">
-    		<ul class="_pkp_structure_sidebar list-unstyled container" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}" style="font-size: 14px !important;">
+    		<ul class="_pkp_structure_sidebar list-unstyled container" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
     			{$sidebarCode}
     		</ul><!-- pkp_sidebar.left -->
       </div>

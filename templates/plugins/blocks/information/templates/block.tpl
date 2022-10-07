@@ -15,21 +15,21 @@
 	</li-->
 	{if !empty($forReaders)}
 		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="readers"}" class="text-white">
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="readers"}" class="">
 				{translate key="navigation.infoForReaders"}
 			</a>
 		</li>
 	{/if}
 	{if !empty($forAuthors)}
 		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="authors"}" class="text-white">
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="authors"}" class="">
 				{translate key="navigation.infoForAuthors"}
 			</a>
 		</li>
 	{/if}
 	{if !empty($forLibrarians)}
 		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="librarians"}" class="text-white">
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="librarians"}" class="">
 				{translate key="navigation.infoForLibrarians"}
 			</a>
 		</li>
