@@ -8,9 +8,12 @@
  *}
 
 {**}
-<li class="list-group-item">
+<li>
 	<a href="http://pkp.sfu.ca/ojs/" class="dropdown-item">
 		{translate key="common.software"}
 	</a>
+</li>
+<li>
+	<hr class="dropdown-divider" />
 </li>
 {**}

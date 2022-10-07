@@ -8,7 +8,7 @@
  *}
  
 {**}
-<li class="list-group-item">
+<li>
 	<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" class="dropdown-item">
 		{translate key="plugins.block.makeSubmission.linkLabel"}
 	</a>

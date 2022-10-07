@@ -31,5 +31,8 @@
 			</a>
 		</li>
 	{/if}
+	<li>
+		<hr class="dropdown-divider" />
+	</li>
 {/if}
 {**}
