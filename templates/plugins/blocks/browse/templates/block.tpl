@@ -16,7 +16,7 @@
 {**}
 <li>
 	<div class="dropdown">
-		<a href="#" class="dropdown-toggle justify-content-center" type="button" id="dropdown{translate|escape key="plugins.block.browse"}" data-mdb-toggle="dropdown" aria-expanded="false">
+		<a href="#" class="dropdown-toggle justify-content-center text-white" type="button" id="dropdown{translate|escape key="plugins.block.browse"}" data-mdb-toggle="dropdown" aria-expanded="false">
 			{translate key="plugins.block.browse"}
 		</a>
 		<ul class="dropdown-menu" aria-labelledby="dropdown{translate|escape key="plugins.block.browse"}">
