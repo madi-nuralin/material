@@ -24,7 +24,7 @@
 			<div class="modal-body">
 	      		<div>
 		      		{capture assign="primaryMenu"}
-						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary d-block" liClass="text-dark"}
+						{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary d-block" liClass="text-dark font-monospace"}
 					{/capture}
 
 					{* Primary navigation menu for current application *}
@@ -36,7 +36,7 @@
 				<div>
 					{include file="frontend/components/navigationMenu2.tpl" ulClass="d-block" liClass="mx-0" showIcons=true}
 					{* User navigation *}
-					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-block" liClass="profile text-dark"}
+					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user d-block" liClass="profile text-dark font-monospace"}
 				</div>
 			</div>
 			<div class="modal-footer">
