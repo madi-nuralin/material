@@ -18,6 +18,7 @@
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
 			<li class="nav-item {$liClass|escape}" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+				{$locales}
 				<div class="dropdown">
 					{if !$showIcons}
 						<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
