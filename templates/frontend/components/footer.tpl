@@ -23,7 +23,7 @@
   {if empty($isFullWidth)}
   	{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
   	{if $sidebarCode}
-  		<ul class="list-unstyled container" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}" data-aos="fade-up" data-aos-delay="200">
+  		<ul class="pkp_structure_sidebar list-unstyled container" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}" data-aos="fade-up" data-aos-delay="200">
   			{$sidebarCode}
   		</ul><!-- pkp_sidebar.left -->
   	{/if}

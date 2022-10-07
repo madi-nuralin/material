@@ -9,7 +9,7 @@
 
 {**}
 <li>
-	<a href="http://pkp.sfu.ca/ojs/" class="pkp_page_index current_issue read_more">
+	<a href="http://pkp.sfu.ca/ojs/" class="">
 		{translate key="common.software"}
 	</a>
 </li>
