@@ -9,7 +9,7 @@
 {if $enableLanguageToggle}
 	{foreach from=$languageToggleLocales item=localeName key=localeKey}
 		<li class="locale_{$localeKey|escape}{if $localeKey == $currentLocale} current{/if}" lang="{$localeKey|replace:"_":"-"}">
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" class="">
+			<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" class="font-monospace">
 				{$localeName}
 			</a>
 		</li>

@@ -9,7 +9,7 @@
  
 {**}
 <li>
-	<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" class="">
+	<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" class="font-monospace">
 		{translate key="plugins.block.makeSubmission.linkLabel"}
 	</a>
 </li>
