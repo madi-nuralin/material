@@ -11,31 +11,34 @@
  * @uses ulClass string Class name(s) to assign the outer <ul>
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
+{assign var="locales" value=$currentJournal->getSupportedLocaleNames()}
 
 <ul class="navbar-nav mr-auto flex-row {$ulClass|escape}">
-	{* Sidebars *}
-	{if empty($isFullWidth)}
-		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-		{if $sidebarCode}
-			<li class="nav-item {$liClass|escape}" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-				{$locales}
-				<div class="dropdown">
-					{if !$showIcons}
-						<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
-							<i class="fas fa-globe"></i>
+	{* Locales *}
+	<li class="nav-item {$liClass|escape}">
+		<div class="dropdown">
+			{if !$showIcons}
+				<a href="#" class="nav-link" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+					<i class="fas fa-globe"></i>
+				</a>
+			{else}
+				<a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
+					{translate key="common.language"}
+				</a>
+			{/if}
+			<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-light" aria-labelledby="dropdownSidebar">
+				{foreach from=$locales item=localeName key=localeKey}
+					<li class="locale_{$localeKey|escape}{if $localeKey == $currentLocale} current{/if}" lang="{$localeKey|replace:"_":"-"}">
+						<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}" class="dropdown-item">
+							{$localeName}
 						</a>
-					{else}
-						<a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownSidebar" data-mdb-toggle="dropdown" aria-expanded="false">
-							{translate key="common.language"}
-						</a>
-					{/if}
-					<ul class="dropdown-menu dropdown-menu-xxl-end dropdown-menu-light" aria-labelledby="dropdownSidebar">
-						{$locales}
-					</ul>
-				</div>
-			</li><!-- pkp_sidebar.left -->
-		{/if}
-	{/if}
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	</li>
+
+	{* Search *}
 	<li class="{$liClass|escape} nav-item">
 		{if !$showIcons}
 			<a href="{url page="search"}" class="nav-link mx-1">
