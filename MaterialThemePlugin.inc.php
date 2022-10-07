@@ -254,22 +254,4 @@ class MaterialThemePlugin extends ThemePlugin {
 	function getDescription() {
 		return __('plugins.themes.material.description');
 	}
-
-	/**
-	 * Get the contents of this plugin
-	 * @return
-	 */
-	function getContents($templateMgr, $request = null) {
-		$journal = $request->getJournal();
-
-		if (isset($journal)) {
-			$locales = $journal->getSupportedLocaleNames();
-		} else {
-			$site = $request->getSite();
-			$locales = $site->getSupportedLocaleNames();
-		}
-
-		$templateMgr->assign('locales', $locales);
-		return parent::getContents($templateMgr, $request);
-	}
 }
