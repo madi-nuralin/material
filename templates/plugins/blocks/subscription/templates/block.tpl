@@ -15,7 +15,7 @@
 {**}
 <div class="pkp_block block_subscription">
 	<h2 class="title">{translate key="plugins.block.subscription.blockTitle"}</h2>
-	<div class="content">
+	<div class="content font-monospace">
 		{if $institutionalSubscription}
 			<p>
 				{translate key="plugins.block.subscription.providedBy" institutionName=$institutionalSubscription->getInstitutionName()|escape}

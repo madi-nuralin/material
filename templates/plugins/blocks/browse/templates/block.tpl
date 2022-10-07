@@ -26,7 +26,7 @@
 					<ul>
 						{foreach from=$browseCategories item=browseCategory}
 							<li class="category_{$browseCategory->getId()}{if $browseCategory->getParentId()} is_sub{/if}{if $browseBlockSelectedCategory == $browseCategory->getPath()} current{/if}">
-								<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$browseCategory->getPath()|escape}">
+								<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$browseCategory->getPath()|escape}" class="font-monospace">
 									{$browseCategory->getLocalizedTitle()|escape}
 								</a>
 							</li>
