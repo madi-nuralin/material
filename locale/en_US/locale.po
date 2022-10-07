@@ -83,3 +83,9 @@ msgstr "Disable article subtitle."
 
 msgid "plugins.themes.material.option.disableArticleSubtitle.option"
 msgstr "Disable article subtitle."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Number of columns in Issue Archive page"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Insert number of columns, the value should be positive number"

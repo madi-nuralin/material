@@ -104,3 +104,9 @@ msgstr "Отключить подзаголовок статьи."
 
 msgid "plugins.themes.material.option.disableArticleSubtitle.option"
 msgstr "Отключить подзаголовок статьи."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Количество столбцов на странице архива задач"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Вставьте количество столбцов, значение должно быть положительным числом"

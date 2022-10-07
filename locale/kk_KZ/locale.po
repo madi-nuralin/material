@@ -91,3 +91,9 @@ msgstr "Мақаланың қосымша атауын өшіру."
 
 msgid "plugins.themes.material.option.disableArticleSubtitle.option"
 msgstr "Мақаланың қосымша атауын өшіру."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Мұрағат бетіндегі бағандар саны"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Бағандар санын енгізіңіз, мән оң сан болуы керек"
