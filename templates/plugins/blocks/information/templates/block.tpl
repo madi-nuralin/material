@@ -11,28 +11,25 @@
 {**}
 {if !empty($forReaders) || !empty($forAuthors) || !empty($forLibrarians)}
 	{if !empty($forReaders)}
-		<li>
+		<li class="list-group-item">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="readers"}" class="dropdown-item">
 				{translate key="navigation.infoForReaders"}
 			</a>
 		</li>
 	{/if}
 	{if !empty($forAuthors)}
-		<li>
+		<li class="list-group-item">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="authors"}" class="dropdown-item">
 				{translate key="navigation.infoForAuthors"}
 			</a>
 		</li>
 	{/if}
 	{if !empty($forLibrarians)}
-		<li>
+		<li class="list-group-item">
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="librarians"}" class="dropdown-item">
 				{translate key="navigation.infoForLibrarians"}
 			</a>
 		</li>
 	{/if}
-	<li>
-		<hr class="dropdown-divider" />
-	</li>
 {/if}
 {**}
