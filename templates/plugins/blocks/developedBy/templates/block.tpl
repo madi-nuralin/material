@@ -9,11 +9,11 @@
 
 {**}
 <li>
-	<a href="http://pkp.sfu.ca/ojs/" class="dropdown-item">
+	<a href="http://pkp.sfu.ca/ojs/" class="">
 		{translate key="common.software"}
 	</a>
 </li>
-<li>
+<!--li>
 	<hr class="dropdown-divider" />
-</li>
+</li-->
 {**}
