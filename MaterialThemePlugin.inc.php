@@ -35,9 +35,9 @@ class MaterialThemePlugin extends ThemePlugin {
 		/**
 		 *  Register theme options
 		 */
-		$this->addOption('baseColour', 'FieldText', [
+		$this->addOption('issueArchiveColumns', 'FieldText', [
 			'label' => __('plugins.themes.material.option.issueArchiveColumns.label'),
-			'description' => __('plugins.themes.material.option.colour.description'),
+			'description' => __('plugins.themes.material.option.issueArchiveColumns.description'),
 			'default' => 1
 		]);
 
@@ -140,9 +140,9 @@ class MaterialThemePlugin extends ThemePlugin {
 		// Store additional LESS variables to process based on options
 		$additionalLessVariables = array();
 
-		if ($this->getOption('issueArchiveColumns') !== 'rgba(39, 70, 133, 0.8)') {
+		if ($this->getOption('issueArchiveColumns') > 0) {
+			$additionalLessVariables[] = '@issue-archive-columns:' . $this->getOption('issueArchiveColumns') . ';';
 		}
-		$additionalLessVariables[] = '@issue-archive-columns:' . $this->getOption('issueArchiveColumns') . ';';
 
 		// Update colour based on theme option
 		/*if ($this->getOption('baseColour') !== 'rgba(39, 70, 133, 0.8)') {
