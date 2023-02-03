@@ -17,3 +17,6 @@ This theme can be installed through the **Plugin Gallery** in Open Journal Syste
 
 This theme was developed by:
 * Madi Nuralin ([madi-nuralin](https://github.com/madi-nuralin))
+
+### Contribution list:
+* If you have any suggestions or improvements you are welcome!
