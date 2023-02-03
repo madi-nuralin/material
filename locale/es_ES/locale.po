@@ -95,3 +95,31 @@ msgstr ""
 
 msgid "plugins.themes.default.displayStats.noStats"
 msgstr ""
+
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "Enviar artículo"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Deshabilitar el prefijo del título del artículo"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Deshabilitar el prefijo del título del artículo."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Deshabilitar el prefijo del título del artículo."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Deshabilitar el subtítulo del artículo"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Deshabilitar el subtítulo del artículo."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Deshabilitar el subtítulo del artículo."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Número de columnas en la página Archivo de problemas"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Inserte el número de columnas, el valor debe ser un número positivo"
