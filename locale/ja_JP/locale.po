@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-03 11:25+0000\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/ojs/themes-"
+"material/ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.themes.material.name"
+msgstr "マテリアル テーマ"
+
+msgid "plugins.themes.material.description"
+msgstr "このテーマは、デフォルトのテーマを実装しています。"
+
+msgid "plugins.themes.material.option.typography.label"
+msgstr "タイポグラフィ"
+
+msgid "plugins.themes.material.option.typography.description"
+msgstr "この雑誌に適したフォントの組み合わせを選択してください。"
+
+msgid "plugins.themes.material.option.typography.notoSans"
+msgstr ""
+"Noto Sans: 広範な言語サポートのためにGoogleによって設計されたデジタルネイティ"
+"ブフォント。"
+
+msgid "plugins.themes.material.option.typography.notoSerif"
+msgstr "Noto Serif: Googleのデジタルネイティブフォントのセリフバリアント。"
+
+msgid "plugins.themes.material.option.typography.notoSerif_notoSans"
+msgstr ""
+"Noto Serif/Noto Sans: セリフの見出しとサンセリフの本文テキストとの補完的な組"
+"み合わせ。"
+
+msgid "plugins.themes.material.option.typography.notoSans_notoSerif"
+msgstr ""
+"Noto Sans/Noto Serif: サンスセリフの見出しとセリフの本文テキストとの補完的な"
+"組み合わせ。"
+
+msgid "plugins.themes.material.option.typography.lato"
+msgstr "Lato: 人気のあるモダンなサンセリフフォント。"
+
+msgid "plugins.themes.material.option.typography.lora"
+msgstr "Lora: オンラインで読むのに適した幅広いセリフフォント。"
+
+msgid "plugins.themes.material.option.typography.lora_openSans"
+msgstr ""
+"Lora/Open Sans: セリフの見出しとサンセリフの本文テキストとの補完的な組み合わ"
+"せ。"
+
+msgid "plugins.themes.material.option.colour.label"
+msgstr "色"
+
+msgid "plugins.themes.material.option.colour.description"
+msgstr "ヘッダーの色を選択してください。"
+
+msgid "plugins.themes.material.option.showDescriptionInJournalIndex.option"
+msgstr "ホームページに雑誌の概要を表示します。"
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.label"
+msgstr "ヘッダーの背景画像"
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.description"
+msgstr ""
+"ホームページの画像をアップロードしたら、ホームページの通常の位置ではなく、"
+"ヘッダーの背景に表示します。"
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.option"
+msgstr "ホームページの画像をヘッダーの背景として表示します。"
+
+msgid "plugins.themes.material.option.displayStats.label"
+msgstr ""
+
+msgid "plugins.themes.material.option.displayStats.none"
+msgstr ""
+
+msgid "plugins.themes.material.option.displayStats.bar"
+msgstr ""
+
+msgid "plugins.themes.material.option.displayStats.line"
+msgstr ""
+
+msgid "plugins.themes.material.displayStats.monthInitials"
+msgstr ""
+
+msgid "plugins.themes.material.displayStats.downloads"
+msgstr ""
+
+msgid "plugins.themes.material.displayStats.noStats"
+msgstr ""
+
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "記事を送る"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "記事タイトルのプレフィックスを無効にする"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "記事タイトルのプレフィックスを無効にする."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "記事タイトルのプレフィックスを無効にする."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "記事のサブタイトルを無効にする"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "記事のサブタイトルを無効にする."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "記事のサブタイトルを無効にする."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "課題アーカイブ ページの列数"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "列数を挿入します。値は正の数でなければなりません"
