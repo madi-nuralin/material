@@ -86,3 +86,31 @@ msgstr "التنزيلات"
 
 msgid "plugins.themes.default.displayStats.noStats"
 msgstr "تنزيل البيانات ليس متاحًا بعد."
+
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "إرسال المقال"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "تعطيل بادئة عنوان المقالة"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "تعطيل بادئة عنوان المقالة."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "تعطيل بادئة عنوان المقالة."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "تعطيل العنوان الفرعي للمقالة"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "تعطيل العنوان الفرعي للمقالة."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "تعطيل العنوان الفرعي للمقالة."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "عدد الأعمدة في صفحة أرشيف المشاكل"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "أدخل عدد الأعمدة ، يجب أن تكون القيمة رقمًا موجبًا"
