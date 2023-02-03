@@ -95,3 +95,31 @@ msgstr ""
 
 msgid "plugins.themes.default.displayStats.noStats"
 msgstr ""
+
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "Artikel senden"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Titelpräfix des Artikels deaktivieren."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Titelpräfix des Artikels deaktivieren."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Titelpräfix des Artikels deaktivieren."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Artikeluntertitel deaktivieren"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Artikeluntertitel deaktivieren."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Artikeluntertitel deaktivieren."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Anzahl der Spalten auf der Seite „Problemarchiv“."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Geben Sie die Anzahl der Spalten ein, der Wert sollte eine positive Zahl sein"
