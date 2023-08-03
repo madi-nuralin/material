@@ -7,34 +7,37 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MaterialThemePlugin
- * @ingroup plugins_themes_material
  *
  * @brief Material theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+namespace APP\plugins\themes\material;
 
-class MaterialThemePlugin extends ThemePlugin {
+use APP\core\Application;
+use APP\file\PublicFileManager;
+use PKP\config\Config;
+use PKP\session\SessionManager;
+
+class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
+{
 	/**
 	 * @copydoc ThemePlugin::isActive()
 	 */
 	public function isActive() {
-		if (defined('SESSION_DISABLE_INIT')) return true;
-		return parent::isActive();
+        if (SessionManager::isDisabled()) {
+            return true;
+        }
+        return parent::isActive();
 	}
 
-	/**
-	 * Initialize the theme's styles, scripts and hooks. This is run on the
-	 * currently active theme and it's parent themes.
-	 *
-	 * @return null
-	 */
+    /**
+     * Initialize the theme's styles, scripts and hooks. This is run on the
+     * currently active theme and it's parent themes.
+     *
+     */
 	public function init() {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
 
-		/**
-		 *  Register theme options
-		 */
+		// Register theme options
 		$this->addOption('issueArchiveColumns', 'FieldText', [
 			'label' => __('plugins.themes.material.option.issueArchiveColumns.label'),
 			'description' => __('plugins.themes.material.option.issueArchiveColumns.description'),
@@ -74,6 +77,7 @@ class MaterialThemePlugin extends ThemePlugin {
 			],
 			'default' => false,
 		]);
+
 		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
 			'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.label'),
 			'description' => __('plugins.themes.material.option.useHomepageImageAsHeader.description'),
@@ -85,6 +89,7 @@ class MaterialThemePlugin extends ThemePlugin {
 			],
 			'default' => false,
 		]);
+
 		$this->addOption('disablePrefixAndTitle', 'FieldOptions', [
 			'label' => __('plugins.themes.material.option.disablePrefixAndTitle.label'),
 			'description' => __('plugins.themes.material.option.disablePrefixAndTitle.description'),
@@ -96,6 +101,7 @@ class MaterialThemePlugin extends ThemePlugin {
 			],
 			'default' => false,
 		]);
+
 		$this->addOption('disableArticleSubtitle', 'FieldOptions', [
 			'label' => __('plugins.themes.material.option.disableArticleSubtitle.label'),
 			'description' => __('plugins.themes.material.option.disableArticleSubtitle.description'),
@@ -110,20 +116,23 @@ class MaterialThemePlugin extends ThemePlugin {
 
 		$request = Application::get()->getRequest();
 
-		/**
-		 *  Load primary stylesheet
-		 */
+		// Load primary stylesheet
 		$this->addStyle(
 			'stylesheet', 'styles/index.less'
 		);
+
 		// Load icon font FontAwesome - http://fontawesome.io/
 		$this->addStyle(
-			'fontAwesome', $request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css', array('baseUrl' => '')
+			'fontAwesome',
+			$request->getBaseUrl() . '/lib/pkp/styles/fontawesome/fontawesome.css',
+			['baseUrl' => '']
 		);
+
 		// Load icon font FontAwesome
 		$this->addStyle(
 			'fontAwesome-5.15', 'vendor/fontawesome/css/all.min.css'
 		);
+
 		// Load MDB library (Material Design for Bootstrap)
 		$this->addStyle(
 			'mdb-css','vendor/mdb/css/mdb.min.css'
@@ -164,12 +173,10 @@ class MaterialThemePlugin extends ThemePlugin {
 		// Get homepage image and use as header background if useAsHeader is true
 		$context = Application::get()->getRequest()->getContext();
 		if ($context && $this->getOption('useHomepageImageAsHeader')) {
-
 			$publicFileManager = new PublicFileManager();
 			$publicFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
 			$homepageImage = $context->getLocalizedData('homepageImage');
-
 			$homepageImageUrl = $publicFilesDir . '/' . $homepageImage['uploadName'];
 
 			$this->addStyle(
@@ -235,34 +242,43 @@ class MaterialThemePlugin extends ThemePlugin {
 	/**
 	 * Get the name of the settings file to be installed on new journal
 	 * creation.
+	 *
 	 * @return string
 	 */
-	function getContextSpecificPluginSettingsFile() {
+	public function getContextSpecificPluginSettingsFile() {
 		return $this->getPluginPath() . '/settings.xml';
 	}
 
 	/**
 	 * Get the name of the settings file to be installed site-wide when
 	 * OJS is installed.
+	 *
 	 * @return string
 	 */
-	function getInstallSitePluginSettingsFile() {
+	public function getInstallSitePluginSettingsFile() {
 		return $this->getPluginPath() . '/settings.xml';
 	}
 
 	/**
+	 *
 	 * Get the display name of this plugin
+	 *
 	 * @return string
 	 */
-	function getDisplayName() {
+	public function getDisplayName() {
 		return __('plugins.themes.material.name');
 	}
 
 	/**
 	 * Get the description of this plugin
+	 *
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 		return __('plugins.themes.material.description');
 	}
+}
+
+if (!PKP_STRICT_MODE) {
+	class_alias('\APP\plugins\themes\material\MaterialThemePlugin', '\MaterialThemePlugin');
 }
