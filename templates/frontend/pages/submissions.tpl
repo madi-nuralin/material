@@ -32,7 +32,7 @@
 			{/if}
 		{/if}
 	</div>
-	
+
 	<hr class="my-4">
 
 	{if $submissionChecklist}
@@ -45,10 +45,11 @@
 			<ul class="">
 				{foreach from=$submissionChecklist item=checklistItem}
 					<li class="">
-						{$checklistItem.content|nl2br}
+						{$checklistItem}{*.content|nl2br*}
 					</li>
 				{/foreach}
 			</ul>
+
 		</div>
 	{/if}
 
@@ -68,25 +69,26 @@
 	<h4>
 		{translate key="section.sections"}
 	</h4>
+
 	<ol>
-	{foreach from=$sections item="section"}
-		{if $section->getLocalizedPolicy()}
-			<li class="section_policy">
-				<h6 style="text-transform: capitalize !important;">{$section->getLocalizedTitle()|escape}</h6>
-				{$section->getLocalizedPolicy()}
-				{if $isUserLoggedIn}
-					{capture assign="sectionSubmissionUrl"}
-						{url page="submission" op="wizard" sectionId=$section->getId()}
-					{/capture}
-					<p>
-						{*translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl*}
-						<a href="{$sectionSubmissionUrl}" class="btn btn-primary">{translate key="plugins.themes.material.makeSubmission"}</a>
-					</p>
-				{/if}
-			</li>
-		{/if}
-	{/foreach}
-</ol>
+		{foreach from=$sections item="section"}
+			{if $section->getLocalizedPolicy()}
+				<li class="section_policy">
+					<h6 style="text-transform: capitalize !important;">{$section->getLocalizedTitle()|escape}</h6>
+					{$section->getLocalizedPolicy()}
+					{if $isUserLoggedIn}
+						{capture assign="sectionSubmissionUrl"}
+							{url page="submission" op="wizard" sectionId=$section->getId()}
+						{/capture}
+						<p>
+							{*translate key="about.onlineSubmissions.submitToSection" name=$section->getLocalizedTitle() url=$sectionSubmissionUrl*}
+							<a href="{$sectionSubmissionUrl}" class="btn btn-primary">{translate key="plugins.themes.material.makeSubmission"}</a>
+						</p>
+					{/if}
+				</li>
+			{/if}
+		{/foreach}
+	</ol>
 
 	{if $currentContext->getLocalizedData('copyrightNotice')}
 		<hr class="my-4">

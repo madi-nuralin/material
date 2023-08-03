@@ -12,25 +12,32 @@
  * @brief Material theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+namespace APP\plugins\themes\material;
 
-class MaterialThemePlugin extends ThemePlugin {
+use APP\core\Application;
+use APP\file\PublicFileManager;
+use PKP\config\Config;
+use PKP\session\SessionManager;
+
+class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
+{
 	/**
 	 * @copydoc ThemePlugin::isActive()
 	 */
 	public function isActive() {
-		if (defined('SESSION_DISABLE_INIT')) return true;
-		return parent::isActive();
+        if (SessionManager::isDisabled()) {
+            return true;
+        }
+        return parent::isActive();
 	}
 
-	/**
-	 * Initialize the theme's styles, scripts and hooks. This is run on the
-	 * currently active theme and it's parent themes.
-	 *
-	 * @return null
-	 */
+    /**
+     * Initialize the theme's styles, scripts and hooks. This is run on the
+     * currently active theme and it's parent themes.
+     *
+     */
 	public function init() {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);
+		/*AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_APP_MANAGER);*/
 
 		/**
 		 *  Register theme options
@@ -232,37 +239,49 @@ class MaterialThemePlugin extends ThemePlugin {
 		}*/
 	}
 
-	/**
-	 * Get the name of the settings file to be installed on new journal
-	 * creation.
-	 * @return string
-	 */
-	function getContextSpecificPluginSettingsFile() {
-		return $this->getPluginPath() . '/settings.xml';
-	}
+    /**
+     * Get the name of the settings file to be installed on new journal
+     * creation.
+     *
+     * @return string
+     */
+    public function getContextSpecificPluginSettingsFile()
+    {
+        return $this->getPluginPath() . '/settings.xml';
+    }
 
-	/**
-	 * Get the name of the settings file to be installed site-wide when
-	 * OJS is installed.
-	 * @return string
-	 */
-	function getInstallSitePluginSettingsFile() {
-		return $this->getPluginPath() . '/settings.xml';
-	}
+    /**
+     * Get the name of the settings file to be installed site-wide when
+     * OJS is installed.
+     *
+     * @return string
+     */
+    public function getInstallSitePluginSettingsFile()
+    {
+        return $this->getPluginPath() . '/settings.xml';
+    }
 
-	/**
-	 * Get the display name of this plugin
-	 * @return string
-	 */
-	function getDisplayName() {
-		return __('plugins.themes.material.name');
-	}
+    /**
+     * Get the display name of this plugin
+     *
+     * @return string
+     */
+    public function getDisplayName()
+    {
+        return __('plugins.themes.material.name');
+    }
 
-	/**
-	 * Get the description of this plugin
-	 * @return string
-	 */
-	function getDescription() {
-		return __('plugins.themes.material.description');
-	}
+    /**
+     * Get the description of this plugin
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return __('plugins.themes.material.description');
+    }
+}
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\APP\plugins\themes\material\MaterialThemePlugin', '\MaterialThemePlugin');
 }
