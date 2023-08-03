@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-03T06:56:49-07:00\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/ojs/themes-"
+"material/de/>\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.themes.material.name"
+msgstr "Material Tema"
+
+msgid "plugins.themes.material.description"
+msgstr "Este tema implementa o tema material."
+
+msgid "plugins.themes.material.option.typography.label"
+msgstr "Tipografia"
+
+msgid "plugins.themes.material.option.typography.description"
+msgstr "Escolha uma combinação de fontes adequada a esta revista."
+
+msgid "plugins.themes.material.option.typography.notoSans"
+msgstr "Noto Sans: Uma fonte nativa digital projetada pelo Google para amplo suporte a idiomas."
+
+msgid "plugins.themes.material.option.typography.notoSerif"
+msgstr "Noto Serif: Uma variante com serifa da fonte nativa digital do Google."
+
+msgid "plugins.themes.material.option.typography.notoSerif_notoSans"
+msgstr "Noto Serif/Noto Sans: Um par complementar com cabeçalhos serifados e corpo do texto sem serifa."
+
+msgid "plugins.themes.material.option.typography.notoSans_notoSerif"
+msgstr "Noto Sans/Noto Serif: Um emparelhamento complementar com cabeçalhos sem serifa e corpo do texto com serifa."
+
+msgid "plugins.themes.material.option.typography.lato"
+msgstr "Lato: Uma fonte popular sem serifa moderna."
+
+msgid "plugins.themes.material.option.typography.lora"
+msgstr "Lora: Uma fonte com serifa ampla boa para leitura online."
+
+msgid "plugins.themes.material.option.typography.lora_openSans"
+msgstr "Lora/Open Sans: Uma combinação complementar com cabeçalhos serifados e corpo do texto sem serifa."
+
+msgid "plugins.themes.material.option.colour.label"
+msgstr "Cor"
+
+msgid "plugins.themes.material.option.colour.description"
+msgstr "Escolha uma cor para o cabeçalho."
+
+msgid "plugins.themes.material.option.showDescriptionInJournalIndex.option"
+msgstr "Mostre o resumo do diário na página inicial."
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.label"
+msgstr "Imagem de fundo do cabeçalho"
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.description"
+msgstr "Quando uma imagem da página inicial for carregada, exiba-a no plano de fundo do cabeçalho, em vez de sua posição normal na página inicial."
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.option"
+msgstr "Mostre a imagem da página inicial como plano de fundo do cabeçalho."
+
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "Enviar artigo"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Desativar o prefixo do título do artigo"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Desative o prefixo do título do artigo."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Desative o prefixo do título do artigo."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Desativar subtítulo do artigo"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Desative o subtítulo do artigo."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Desative o subtítulo do artigo."
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr "Número de colunas na página Arquivo de problemas"
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr "Insira o número de colunas, o valor deve ser um número positivo"
