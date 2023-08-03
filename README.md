@@ -3,7 +3,8 @@
 ![к](https://user-images.githubusercontent.com/77335604/165313181-70bf2f56-a007-4825-83bf-a45eba47eaa1.jpg)
 
 
-A Material theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)
+A Material theme for [PKP/OJS](https://pkp.sfu.ca/ojs/)
+
 
 ## Description
 The Material theme is designed based on MDB (Material Theme for Bootstrap) library (https://mdbootstrap.com/).
@@ -20,3 +21,15 @@ This theme was developed by:
 
 ### Contribution list:
 * If you have any suggestions or improvements you are welcome!
+
+## Version compatibility with OJS:
+
+*OJS 3.4.0:*
+* v2_2_0-0
+
+*OJS 3.3.0:*
+* v2_1_0-0
+* v2_0_1-0
+* v2_0_0-0
+* v1_0_0-1
+* v1_0_0-0
