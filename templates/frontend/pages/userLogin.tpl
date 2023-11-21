@@ -43,13 +43,21 @@
 				<fieldset class="fields">
 					<div class="username form-group mb-4">
 						<label class="form-check-label" for="username">
-							{translate key="user.username"}
+							{translate key="user.usernameOrEmail"}
+							<span class="required" aria-hidden="true">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
 						</label>
 						<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" class="form-control">
 					</div>
 					<div class="password form-group mb-4">
 						<label class="form-check-label" for="password">
 							{translate key="user.password"}
+							<span class="required" aria-hidden="true">*</span>
+							<span class="pkp_screen_reader">
+								{translate key="common.required"}
+							</span>
 						</label>
 						<input type="password" name="password" id="password" value="{$password|escape}" password="true" maxlength="32" required aria-required="true" class="form-control">
 						<span class="pkp_screen_reader">
