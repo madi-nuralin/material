@@ -10,11 +10,11 @@
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
  *}
-		<div class="html-preloader bg-light">
+		<!--div class="html-preloader bg-light">
 			<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
 				<span class="visually-hidden">Loading...</span>
 			</div>
-		</div>
+		</div-->
 
 	</main><!-- _pkp_structure_main -->
 
