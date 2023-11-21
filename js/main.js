@@ -12,7 +12,7 @@
 	// Window onload functions
 	window.onload = function () {
 		// Display preloader animation while HTML page is parsing
-		document.querySelectorAll('.html-preloader')[0].setAttribute('class', 'no-html-preloader');
+		// document.querySelectorAll('.html-preloader')[0].setAttribute('class', 'no-html-preloader');
 	}
 	
 	/*
