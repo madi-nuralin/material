@@ -25,6 +25,7 @@ This theme was developed by:
 ## Version compatibility with OJS:
 
 *OJS 3.4.0:*
+* v2_2_1-0
 * v2_2_0-0
 
 *OJS 3.3.0:*
