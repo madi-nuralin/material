@@ -26,6 +26,15 @@
 
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
 
+	<div class="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+	{include file="frontend/components/ui/systemIcon.tpl"}
+</div>
+<div class="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+	{include file="frontend/components/ui/lightIcon.tpl"}
+</div>
+<div class="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
+	{include file="frontend/components/ui/darkIcon.tpl"}
+</div>
 	<!-- ======= Header ======= -->
 	<header id="header" class="fixed-top d-flex align-items-center">
   	{* Skip to content nav links *}
@@ -49,6 +58,7 @@
 					<strong>OJS App</strong>
 				</a-->
 			{/if}
+
 		</div>
 
 		<nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
@@ -58,6 +68,7 @@
 
 			{* Primary navigation menu for current application *}
 			{$primaryMenu}
+			
       	</nav><!-- .navbar -->
 
       	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
