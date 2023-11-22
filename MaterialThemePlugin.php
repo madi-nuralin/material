@@ -44,29 +44,6 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			'default' => 1
 		]);
 
-		/*$this->addOption('baseColour', 'FieldText', [
-			'label' => __('plugins.themes.material.option.colour.label'),
-			'description' => __('plugins.themes.material.option.colour.description'),
-			'default' => 'rgba(39, 70, 133, 0.8)',//rgba(39, 70, 133, 0.8);
-		]);
-
-		$this->addOption('gradient', 'FieldText', [
-			'label' => __('plugins.themes.material.option.colour.label'),
-			'description' => __('plugins.themes.material.option.colour.description'),
-			'default' => 'linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%)',//rgba(39, 70, 133, 0.8);
-		]);*/
-
-		/*$this->addOption('backendStylesheet', 'FieldOptions', [
-			'label' => __('manager.setup.contextSummary'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.material.option.showDescriptionInJournalIndex.option'),
-				],
-			],
-			'default' => false,
-		]);*/
-
 		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
 			'label' => __('manager.setup.contextSummary'),
 				'options' => [
@@ -118,9 +95,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		// Load primary stylesheet
 		$this->addStyle(
-			'stylesheet', 'styles/index.less'
+			'stylesheet', 'styles/dist/output.css'
 		);
-
+/*
 		// Load icon font FontAwesome - http://fontawesome.io/
 		$this->addStyle(
 			'fontAwesome',
@@ -153,22 +130,6 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			$additionalLessVariables[] = '@issue-archive-columns:' . $this->getOption('issueArchiveColumns') . ';';
 		}
 
-		// Update colour based on theme option
-		/*if ($this->getOption('baseColour') !== 'rgba(39, 70, 133, 0.8)') {
-				$this->getOption('baseColour')
-			);
-			var_dump($match);
-
-			$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
-			if (!$this->isColourDark($this->getOption('baseColour'))) {
-				$additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
-				$additionalLessVariables[] = '@bg-base-border-color:rgba(0,0,0,0.2);';
-			}
-		}
-
-		if ($this->getOption('gradient') !== 'linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%)') {
-			$additionalLessVariables[] = '@bg-gradient:' . $this->getOption('gradient') . ';';
-		}*/
 
 		// Get homepage image and use as header background if useAsHeader is true
 		$context = Application::get()->getRequest()->getContext();
@@ -215,7 +176,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
-
+*/
 
 		/**
 		 *  Backend stylesheet 
