@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\file\PublicFileManager;
 use PKP\config\Config;
 use PKP\session\SessionManager;
+use APP\template\TemplateManager;
 
 class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 {
@@ -92,6 +93,13 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		]);
 
 		$request = Application::get()->getRequest();
+
+		$templateManager = TemplateManager::getManager($request);
+		$templateManager->assign('themes', array(
+			array('name' => 'System', 'path' => 'frontend/components/ui/systemIcon.tpl'),
+			array('name' => 'Light', 'path' => 'frontend/components/ui/lightIcon.tpl'),
+			array('name' => 'Dark', 'path' => 'frontend/components/ui/darkIcon.tpl')
+		));
 
 		// Load primary stylesheet
 		$this->addStyle(
