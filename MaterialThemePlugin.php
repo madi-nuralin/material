@@ -181,31 +181,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		// Load custom JavaScript for this theme
 		$this->addScript('material', 'js/main.js');
-
-		// Add navigation menu areas for this theme
-		$this->addMenuArea(array('primary', 'user'));
 */
-
-		/**
-		 *  Backend stylesheet 
-		 */
-		/*if ($this->getOption('backendStylesheet')) {
-			$this->addStyle(
-				'backend-stylesheet', 'styles/backend/index.less', array('contexts' => 'backend')
-			);
-			// Load Backend MDB library (Material Design for Bootstrap)
-			$this->addStyle(
-				'backend-mdb-css', 'vendor/mdb/css/mdb.min.css', array('contexts' => 'backend')
-			);
-			// Load Backend MDB library (Material Design for Bootstrap)
-			$this->addScript(
-				'backend-mdb-js', 'vendor/mdb/js/mdb.min.js', array('contexts' => 'backend-onload')
-			);
-			// Load Backend icon font FontAwesome
-			$this->addStyle(
-				'backend-fontAwesome', 'vendor/fontawesome/css/all.min.css', array('contexts' => 'backend')
-			);
-		}*/
+		// Add navigation menu areas for this theme
+		$this->addMenuArea(['primary', 'user']);
 	}
 
 	/**
