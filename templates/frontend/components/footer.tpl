@@ -10,6 +10,7 @@
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
  *}
+      </div>
     </article>
 
 	</main><!-- _pkp_structure_main -->

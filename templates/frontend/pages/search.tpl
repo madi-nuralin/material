@@ -23,7 +23,7 @@
 
 <div class="page page_search container">
 
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
+	{*include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"*}
 	
 
 	{capture name="searchFormUrl"}{url escape=false}{/capture}

@@ -12,7 +12,7 @@
 {include file="frontend/components/header.tpl" pageTitle="manager.setup.privacyStatement"}
 
 <div class="page page_privacy container">
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="manager.setup.privacyStatement"}
+	{*include file="frontend/components/breadcrumbs.tpl" currentTitleKey="manager.setup.privacyStatement"*}
 	{$privacyStatement}
 </div><!-- .page -->
 

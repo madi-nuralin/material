@@ -11,8 +11,8 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutContext"}
 
-<div class="page page_about container">
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
+<div class="">
+	{*include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"*}
 	
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
 
