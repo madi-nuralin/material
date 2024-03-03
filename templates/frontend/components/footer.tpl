@@ -18,20 +18,6 @@
 
 	</main><!-- _pkp_structure_main -->
 
-{* Sidebars *}
-{if $requestedPage !== 'login' && $requestedPage !== 'user'}
-  {if empty($isFullWidth)}
-  	{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-  	{if $sidebarCode}
-      <div class="mt-5 pt-4" data-aos="fade-up" data-aos-delay="200">
-    		<ul class="_pkp_structure_sidebar list-unstyled container" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
-    			{$sidebarCode}
-    		</ul><!-- pkp_sidebar.left -->
-      </div>
-  	{/if}
-  {/if}
-{/if}
-
 {if $requestedPage !== 'login' && $requestedPage !== 'user'}
 	<!-- ======= Footer ======= -->
   <footer class="footer" role="contentinfo">

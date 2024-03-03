@@ -8,34 +8,35 @@
  *
  *}
 
-{**}
 {if !empty($forReaders) || !empty($forAuthors) || !empty($forLibrarians)}
-	<!--li>
-		<hr class="dropdown-divider" />
-	</li-->
-	{if !empty($forReaders)}
-		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="readers"}" class="font-monospace">
-				{translate key="navigation.infoForReaders"}
+	<li>
+		<h3>
+			<a class="font-normal text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300">
+				{translate key="plugins.block.information.link"}
 			</a>
-		</li>
-	{/if}
-	{if !empty($forAuthors)}
-		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="authors"}" class="font-monospace">
-				{translate key="navigation.infoForAuthors"}
-			</a>
-		</li>
-	{/if}
-	{if !empty($forLibrarians)}
-		<li>
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="information" op="librarians"}" class="font-monospace">
-				{translate key="navigation.infoForLibrarians"}
-			</a>
-		</li>
-	{/if}
-	<!--li>
-		<hr class="dropdown-divider" />
-	</li-->
+		</h3>
+		<ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+			{if !empty($forReaders)}
+				<li>
+					<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="information" op="readers"}">
+						{translate key="navigation.infoForReaders"}
+					</a>
+				</li>
+			{/if}
+			{if !empty($forAuthors)}
+				<li>
+					<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="information" op="authors"}">
+						{translate key="navigation.infoForAuthors"}
+					</a>
+				</li>
+			{/if}
+			{if !empty($forLibrarians)}
+				<li>
+					<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="information" op="librarians"}">
+						{translate key="navigation.infoForLibrarians"}
+					</a>
+				</li>
+			{/if}
+		</ol>
+	</li>
 {/if}
-{**}
