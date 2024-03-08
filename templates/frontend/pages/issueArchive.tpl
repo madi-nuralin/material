@@ -24,7 +24,7 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
 <div class="page page_issue_archive container">
-	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
+	{*include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle*}
 
 	{* No issues have been published *}
 	{if empty($issues)}
@@ -32,13 +32,13 @@
 
 	{* List issues *}
 	{else}
-		<ul class="issues_archive">
+		<div class="_issues_archive">
 			{foreach from=$issues item="issue"}
-				<li>
+				<div>
 					{include file="frontend/objects/issue_summary.tpl"}
-				</li>
+				</div>
 			{/foreach}
-		</ul>
+		</div>
 
 		{* Pagination *}
 		{if $prevPage > 1}

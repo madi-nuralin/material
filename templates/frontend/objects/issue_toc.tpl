@@ -28,9 +28,6 @@
 {elseif $heading == "h5"}
 	{assign var="articleHeading" value="h6"}
 {/if}
-
-{assign var="horizontalRule" value="<hr/>"}
-
 <div class="obj_issue_toc">
 
 	{* Indicate if this is only a preview *}
@@ -44,36 +41,34 @@
 		{* Issue cover image *}
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
-			<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+			<div class="cover">
 				{capture assign="defaultAltText"}
 					{translate key="issue.viewIssueIdentification" identification=$issue->getIssueIdentification()|escape}
 				{/capture}
-				<img class="img-fluid"
-					src="{$issueCover|escape}"
-					alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
-			</a>
+				<img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:$defaultAltText}">
+			</div>
 		{/if}
 
 		{* Description *}
 		{if $issue->hasDescription()}
-			<div class="description text-muted">
+			<div class="description">
 				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
 		{/if}
 
-		{* PUb IDs (eg - DOI) *}
+		{* PUb IDs (eg - URN) *}
 		{foreach from=$pubIdPlugins item=pubIdPlugin}
 			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				{assign var="resolvingUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type text-muted">
+					<span class="type">
 						{$pubIdPlugin->getPubIdDisplayType()|escape}:
 					</span>
 					<span class="id">
-						{if $doiUrl}
-							<a href="{$doiUrl|escape}">
-								{$doiUrl}
+						{if $resolvingUrl}
+							<a href="{$resolvingUrl|escape}">
+								{$resolvingUrl}
 							</a>
 						{else}
 							{$pubId}
@@ -83,13 +78,29 @@
 			{/if}
 		{/foreach}
 
+		{* DOI *}
+		{assign var=doiObject value=$issue->getData('doiObject')}
+		{if $doiObject}
+			{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+			<div class="pub_id doi">
+				<span class="type">
+					DOI:
+				</span>
+				<span class="id">
+					<a href="{$doiUrl|escape}">
+						{$doiUrl}
+					</a>
+				</span>
+			</div>
+		{/if}
+
 		{* Published date *}
 		{if $issue->getDatePublished()}
 			<div class="published">
-				<span class="label text-muted">
+				<span class="label">
 					{translate key="submissions.published"}:
 				</span>
-				<span class="value base">
+				<span class="value">
 					{$issue->getDatePublished()|date_format:$dateFormatShort}
 				</span>
 			</div>
@@ -99,6 +110,9 @@
 	{* Full-issue galleys *}
 	{if $issueGalleys}
 		<div class="galleys">
+			<{$heading} id="issueTocGalleyLabel">
+				{translate key="issue.fullIssue"}
+			</{$heading}>
 			<ul class="galleys_links">
 				{foreach from=$issueGalleys item=galley}
 					<li>
@@ -110,28 +124,22 @@
 	{/if}
 
 	{* Articles *}
-	<div class="sections accordion accordion-flush mt-2" id="section_accordion">
-	{assign var=sectionCounter value=0}
+	<div class="sections">
 	{foreach name=sections from=$publishedSubmissions item=section}
-		<div class="section accordion-item">
-		{assign var=sectionCounter value=$sectionCounter+1}
+		<div class="section">
 		{if $section.articles}
 			{if $section.title}
-				<h2 class="accordion-header" id="accordion-header-{$sectionCounter}">
-					<button class="accordion-button collapsed px-0 text-start" type="button" data-mdb-toggle="collapse" data-mdb-target="#accordion-collapse-{$sectionCounter}" aria-expanded="false" aria-controls="accordion-collapse-{$sectionCounter}">
-						{$section.title|escape}
-					</button>
-				</h2>
+				<{$heading}>
+					{$section.title|escape}
+				</{$heading}>
 			{/if}
-			<div id="accordion-collapse-{$sectionCounter}" class="accordion-collapse collapse show" aria-labelledby="accordion-header-{$sectionCounter}">
-				<ul class="cmp_article_list articles accordion-body px-0">
-					{foreach from=$section.articles item=article}
-						<li>
-							{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
-						</li>
-					{/foreach}
-				</ul>
-			</div>
+			<ul class="cmp_article_list articles">
+				{foreach from=$section.articles item=article}
+					<li>
+						{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
+					</li>
+				{/foreach}
+			</ul>
 		{/if}
 		</div>
 	{/foreach}

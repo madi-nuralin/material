@@ -13,6 +13,28 @@
       </div>
     </article>
 
+    {*if $requestedPage !== 'login' && $requestedPage !== 'user'}
+      <!-- ======= Footer ======= -->
+      <footer class="footer pt-5 bottom-0" role="contentinfo">
+        <div class="container">
+          {if $pageFooter}
+            {$pageFooter}
+          {/if}
+
+          <div class="row justify-content-center text-center">
+            <div class="col-md-7">
+              <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}"> Open Journal Systems</a></p>
+
+              <div class="credits">
+                Designed by <a href="https://github.com/madi-nuralin/material">Material Theme</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+    {/if*}
+
 	</main><!-- _pkp_structure_main -->
   <div class="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
       <nav aria-labelledby="on-this-page-title" class="w-56">
@@ -32,28 +54,6 @@
       </nav>
     </div>
 </div>
-
-{if $requestedPage !== 'login' && $requestedPage !== 'user'}
-	<!-- ======= Footer ======= -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      {if $pageFooter}
-      	{$pageFooter}
-      {/if}
-
-      <div class="row justify-content-center text-center">
-        <div class="col-md-7">
-          <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}"> Open Journal Systems</a></p>
-
-          <div class="credits">
-            Designed by <a href="https://github.com/madi-nuralin/material">Material Theme</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-{/if}
 
 {load_script context="frontend"}
 

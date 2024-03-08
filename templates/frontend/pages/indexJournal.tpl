@@ -57,11 +57,12 @@
 			{/foreach}
 			</div><!-- .more -->
 		</section>
+		<hr/>
 	{/if}
 
 	{* Latest issue *}
 	{if $issue}
-		<section class="current_issue pt-5" data-aos="fade-up" data-aos-delay="200">
+		<section class="current_issue">
 			<a id="homepageIssue"></a>
 			<h2>
 				{translate key="journal.currentIssue"}

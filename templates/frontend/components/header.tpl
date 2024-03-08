@@ -102,9 +102,9 @@
 			<a id="pkp_content_main"></a>
 			<article>
 				<header class="mb-7 space-y-1">
-					{*<p class="font-display text-sm font-medium text-sky-500">
+					<p class="font-display text-sm font-medium text-sky-500">
 						{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
-					</p>*}
+					</p>
 					<h1 class="font-display text-3xl tracking-tight text-slate-900 dark:text-white">
 						{$pageTitleTranslated}
 					</h1>
