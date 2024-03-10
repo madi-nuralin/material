@@ -103,9 +103,9 @@
 			{if $publication->getData('authors')}
 				<section class="item authors">
 					<h3 class="pkp_screen_reader">{translate key="article.authors"}</h3>
-					<ul class="authors">
+					<div class="authors">
 					{foreach from=$publication->getData('authors') item=author}
-						<li>
+						<div>
 							<span class="name">
 								{$author->getFullName()|escape}
 							</span>
@@ -133,9 +133,9 @@
 									</a>
 								</span>
 							{/if}
-						</li>
+						</div>
 					{/foreach}
-					</ul>
+					</div>
 				</section>
 			{/if}
 
@@ -143,7 +143,7 @@
 			{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
 			{if $doiObject}
 				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
-				<section class="item doi">
+				<section class="">
 					<h3 class="label">
 						{capture assign=translatedDOI}{translate key="doi.readerDisplayName"}{/capture}
 						{translate key="semicolon" label=$translatedDOI}
@@ -159,17 +159,17 @@
 
 			{* Keywords *}
 			{if !empty($publication->getLocalizedData('keywords'))}
-			<section class="item keywords">
-				<h3 class="label">
-					{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
-					{translate key="semicolon" label=$translatedKeywords}
-				</h3>
-				<span class="value">
-					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
-						{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
-					{/foreach}
-				</span>
-			</section>
+				<section class="item keywords">
+					<h3 class="label">
+						{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
+						{translate key="semicolon" label=$translatedKeywords}
+					</h3>
+					<span class="value">
+						{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
+							{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
+						{/foreach}
+					</span>
+				</section>
 			{/if}
 
 			{* Abstract *}

@@ -21,8 +21,8 @@
                 <a class="rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button">
                   {translate key="plugins.themes.material.makeSubmission"}
                 </a>
-                <a class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400" href="/">
-                  View on GitHub
+                <a class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
+                  {translate key="archive.archives"}
                 </a>
               </div>
             </div>
@@ -68,7 +68,7 @@
                <div class="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">
                   <div class="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-sky-300/0 via-sky-300/70 to-sky-300/0"></div>
                   <div class="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-blue-400/0 via-blue-400 to-blue-400/0"></div>
-                  <div class="pl-4 pt-4">
+                  <!--div class="pl-4 pt-4">
                      <svg aria-hidden="true" viewBox="0 0 42 10" fill="none" class="h-2.5 w-auto stroke-slate-500/30">
                         <circle cx="5" cy="5" r="4.5"></circle>
                         <circle cx="21" cy="5" r="4.5"></circle>
@@ -86,7 +86,7 @@
                         <div aria-hidden="true" class="select-none border-r border-slate-300/5 pr-4 font-mono text-slate-600">01<br>02<br>03<br>04<br>05<br>06<br>07<br></div>
                         <pre class="prism-code language-javascript flex overflow-x-auto pb-6"><code class="px-4"><div class="token-line"><span class="token keyword module">export</span><span class="token plain"> </span><span class="token keyword module">default</span><span class="token plain"> </span><span class="token punctuation"></span><span class="token plain"></span></div><div class="token-line"><span class="token plain">  </span><span class="token literal-property property">strategy</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string">'predictive'</span><span class="token punctuation">,</span><span class="token plain"></span></div><div class="token-line"><span class="token plain">  </span><span class="token literal-property property">engine</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation"></span><span class="token plain"></span></div><div class="token-line"><span class="token plain">    </span><span class="token literal-property property">cpus</span><span class="token operator">:</span><span class="token plain"> </span><span class="token number">12</span><span class="token punctuation">,</span><span class="token plain"></span></div><div class="token-line"><span class="token plain">    </span><span class="token literal-property property">backups</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation">[</span><span class="token string">'./storage/cache.wtf'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token plain"></span></div><div class="token-line"><span class="token plain">  </span><span class="token punctuation"></span><span class="token punctuation">,</span><span class="token plain"></span></div><div class="token-line"><span class="token plain"></span><span class="token punctuation"></span></div></code></pre>
                      </div>
-                  </div>
+                  </div-->
                </div>
             </div>
          </div>

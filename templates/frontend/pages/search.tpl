@@ -1,7 +1,8 @@
 {**
  * templates/frontend/pages/search.tpl
  *
- * Copyright (c) 2021 Madi Nuralin
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page to search and view search results.
@@ -21,15 +22,15 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-<div class="page page_search container">
+<div class="page page_search">
 
-	{*include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"*}
-	
-
-	{capture name="searchFormUrl"}{url escape=false}{/capture}
-	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
-	<form class="_cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
+	{capture name="searchFormUrl"}
+		{url escape=false}
+	{/capture}
+	{assign var=formUrlParameters value=[]}
+	{* Prevent Smarty warning *}
+	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
+	<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
 		{foreach from=$formUrlParameters key=paramKey item=paramValue}
 			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
 		{/foreach}
@@ -41,41 +42,51 @@
 				{translate key="search.searchFor"}
 			</label>
 			{block name=searchQuery}
-				<input type="text" id="query" name="query" value="{$query|escape}" class="query form-control" placeholder="{translate|escape key="common.searchQuery"}">
+				<input type="text" id="query" name="query" value="{$query|escape}" class="query" placeholder="{translate|escape key="common.search"}">
 			{/block}
 		</div>
 
-		<fieldset class="search_advanced cmp_form rounded-3 pt-5" id="collapseExample">
+		<fieldset class="search_advanced">
 			<legend>
-				<h5 class="text-center">
-					{translate key="search.advancedFilters"}
-				</h5>
+				{translate key="search.advancedFilters"}
 			</legend>
-			<div class="pt-4">
-				<div class="date_range">
-					<div class="from">
-						{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
-						{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
-					</div>
-					<div class="to mt-3">
-						{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
-						{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
-					</div>
+			<div class="date_range">
+				<div class="from">
+					{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
+					{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
 				</div>
-				<div class="author mt-3 mt-md-0">
-					<label class="label" for="authors">
-						{translate key="search.author"}
+				<div class="to">
+					{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
+					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+				</div>
+			</div>
+			<div class="author">
+				<label class="label" for="authors">
+					{translate key="search.author"}
+				</label>
+				{block name=searchAuthors}
+					<input type="text" id="authors" name="authors" value="{$authors|escape}">
+				{/block}
+
+				{if $searchableContexts}
+					<label class="label label_contexts" for="searchJournal">
+						{translate key="context.context"}
 					</label>
-					{block name=searchAuthors}
-						<input type="text" id="authors" name="authors" class="" value="{$authors|escape}">
-					{/block}
-				</div>
+					<select name="searchJournal" id="searchJournal">
+						<option></option>
+						{foreach from=$searchableContexts item="searchableContext"}
+							<option value="{$searchableContext->id}" {if $searchJournal == $searchableContext->id}selected{/if}>
+								{$searchableContext->name|escape}
+							</option>
+						{/foreach}
+					</select>
+				{/if}
 			</div>
 			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
 		</fieldset>
 
-		<div class="d-flex justify-content-end mt-4">
-			<button class="btn btn-primary btn-lg" type="submit">{translate key="common.search"}</button>
+		<div class="submit">
+			<button class="submit" type="submit">{translate key="common.search"}</button>
 		</div>
 	</form>
 
