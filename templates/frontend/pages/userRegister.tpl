@@ -144,15 +144,16 @@
 				{/if}
 
 				{* recaptcha spam blocker *}
-				{if $reCaptchaHtml}
-					<fieldset class="recaptcha_wrapper">
-						<div class="fields">
-							<div class="recaptcha">
-								{$reCaptchaHtml}
-							</div>
+		{if $recaptchaPublicKey}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="recaptcha">
+						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
 						</div>
-					</fieldset>
-				{/if}
+					</div>
+				</div>
+			</fieldset>
+		{/if}
 
 				<div class="d-flex flex-column align-items-center justify-content-center">
 					<button class="btn btn-primary btn-lg col-12 mb-4" type="submit">
