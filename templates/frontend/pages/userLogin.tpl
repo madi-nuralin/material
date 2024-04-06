@@ -76,6 +76,7 @@
 							{translate key="user.login.rememberUsernameAndPassword"}
 						</label>
 					</div>
+				{* recaptcha spam blocker *} {if $recaptchaPublicKey} <fieldset class="recaptcha_wrapper"> <div class="fields"> <div class="recaptcha"> <div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}"> </div> </div> </div> </fieldset> {/if}
 					<div class="d-flex flex-column justify-content-end align-items-center">
 						<button class="btn btn-lg btn-primary btn-md mb-3 w-100" type="submit">
 							{translate key="user.login"}
