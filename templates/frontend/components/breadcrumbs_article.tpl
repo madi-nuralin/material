@@ -16,28 +16,28 @@
  *}
 
 <nav class="cmp_breadcrumbs" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
-	<ol class="not-prose flex space-x-1 list none">
-		<li>
-			<a href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
+	<ol class="not-prose flex space-x-1 list-none">
+		<li class="flex space-x-1">
+			<a class="hover:text-slate-700" href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
-		<li>
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
+		<li class="flex space-x-1">
+			<a class="hover:text-slate-700" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
 				{translate key="navigation.archives"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		{if $issue}
-			<li>
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+			<li class="flex space-x-1">
+				<a class="hover:text-slate-700" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
 					{$issue->getIssueIdentification()}
 				</a>
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current" aria-current="page">
+		<li class="current text-sky-500" aria-current="page">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}

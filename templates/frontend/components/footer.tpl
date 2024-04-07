@@ -36,23 +36,17 @@
     {/if*}
 
 	</main><!-- _pkp_structure_main -->
-  <div class="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+
+  {if $requestedPage !== 'login' && $requestedPage !== 'user'}
+    <div class="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
       <nav aria-labelledby="on-this-page-title" class="w-56">
         <!--h2 id="on-this-page-title" class="font-display text-sm font-medium text-slate-900 dark:text-white">On this page</h2-->
 
-        {* Sidebars *}
-        {if $requestedPage !== 'login' && $requestedPage !== 'user'}
-          {if empty($isFullWidth)}
-            {capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-            {if $sidebarCode}
-              <ol class="mt-4 space-y-3 text-sm" role="list" aria-label="{translate|escape key="common.navigation.sidebar"}">
-                {$sidebarCode}
-              </ol><!-- pkp_sidebar.left -->
-            {/if}
-          {/if}
-        {/if}
+        {include file="frontend/components/sidebar.tpl"}
       </nav>
     </div>
+  {/if}
+
 </div>
 
 {load_script context="frontend"}

@@ -40,7 +40,7 @@
 							</span>
 						</label>
 						<div class="col-12">
-							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="form-control">
+							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="form-control border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-1/2">
 						</div>
 					</div>
 					<div class="d-flex flex-column align-items-center justify-content-center">

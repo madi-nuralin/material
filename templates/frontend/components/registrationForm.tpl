@@ -21,8 +21,8 @@
 		{translate key="user.profile"}
 	</legend>
 	<div class="fields space-y-2">
-		<div class="given_name flex">
-			<label class="block w-1/2">
+		<div class="given_name">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.givenName"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -34,10 +34,10 @@
 				maxlength="255"
 				required
 				aria-required="true"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
-		<div class="family_name flex">
-			<label class="block w-1/2">
+		<div class="family_name">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.familyName"}
 			</label>
 			<input type="text"
@@ -46,11 +46,11 @@
 				id="familyName"
 				value="{$familyName|default:""|escape}"
 				maxlength="255"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
-		<div class="affiliation flex">
-			<label class="block w-1/2">
+		<div class="affiliation">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.affiliation"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -61,11 +61,11 @@
 				value="{$affiliation|default:""|escape}"
 				required
 				aria-required="true"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
-		<div class="country flex">
-			<label class="block w-1/2">
+		<div class="country">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="common.country"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -74,7 +74,7 @@
 				autocomplete="country-name"
 				required
 				aria-required="true"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 				<option></option>
 				{html_options options=$countries selected=$country}
 			</select>
@@ -87,8 +87,8 @@
 		{translate key="user.login"}
 	</legend>
 	<div class="fields space-y-2">
-		<div class="email flex">
-			<label class="block w-1/2">
+		<div class="email">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.email"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -100,10 +100,10 @@
 				required
 				aria-required="true"
 				autocomplete="email"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
-		<div class="username flex">
-			<label class="block w-1/2">
+		<div class="username">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.username"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -115,11 +115,11 @@
 				required
 				aria-required="true"
 				autocomplete="username"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
-		<div class="password flex">
-			<label class="block w-1/2">
+		<div class="password">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.password"}
 				<span class="required" aria-hidden="true">*</span>
 			</label>
@@ -131,10 +131,10 @@
 				required
 				aria-required="true"
 				autocomplete="new-password"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
-		<div class="password flex">
-			<label class="block w-1/2">
+		<div class="password">
+			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
 				{translate key="user.repeatPassword"}
 				<span class="required" aria-hidden="true">*</span>
 				</span>
@@ -147,7 +147,7 @@
 				required
 				aria-required="true"
 				autocomplete="new-password"
-				class="block w-1/2">
+				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
 	</div>
 </fieldset>

@@ -10,7 +10,11 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
-<div class="page page_register space-y-2">
+<div>
+	{include file="frontend/components/logo.tpl"}
+</div>
+
+<div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_register">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.register"}
 	<h1 class="text-2xl">
 		{translate key="user.register"}
@@ -40,8 +44,8 @@
 					<legend class="pkp_screen_reader">{translate key="user.register.form.privacyConsentLabel"}</legend>
 					<div class="fields">
 						<div class="optin optin-privacy">
-							<label>
-								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+							<label class="label ml-2 text-sm text-gray-600">
+								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 								{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
@@ -51,8 +55,8 @@
 				{* Ask the user to opt into public email notifications *}
 				<div class="fields">
 					<div class="optin optin-email">
-						<label>
-							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+						<label class="label ml-2 text-sm text-gray-600">
+							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 							{translate key="user.register.form.emailConsent"}
 						</label>
 					</div>
@@ -81,9 +85,9 @@
 						<div id="reviewerOptinGroup" class="optin">
 							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 								{if $userGroup->getPermitSelfRegistration()}
-									<label>
+									<label class="label ml-2 text-sm text-gray-600">
 										{assign var="userGroupId" value=$userGroup->getId()}
-										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
 									</label>
 								{/if}
@@ -91,10 +95,10 @@
 						</div>
 						<div id="reviewerInterests" class="reviewer_interests">
 							<label>
-								<span class="label">
+								<span class="label block font-medium text-sm text-gray-700 dark:text-gray-400">
 									{translate key="user.interests"}
 								</span>
-								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
+								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 							</label>
 						</div>
 					</div>

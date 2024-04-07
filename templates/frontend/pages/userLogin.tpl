@@ -10,7 +10,11 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
-<div class="page page_login space-y-2">
+<div>
+	{include file="frontend/components/logo.tpl"}
+</div>
+
+<div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_login space-y-2">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
 	<h1 class="text-2xl">
 		{translate key="user.login"}
@@ -28,20 +32,20 @@
 		</p>
 	{/if}
 
-	<form class="space-y-2" id="login" method="post" action="{$loginUrl}" role="form">
+	<form id="login" method="post" action="{$loginUrl}" role="form">
 		{csrf}
 
 		{if $error}
-			<div class="pkp_form_error text-red">
+			<div class="pkp_form_error font-medium text-red-600 mb-2">
 				{translate key=$error reason=$reason}
 			</div>
 		{/if}
 
 		<input type="hidden" name="source" value="{$source|default:""|escape}" />
 
-		<fieldset class="space-y-2">
-			<div class="username flex">
-				<label class="block w-1/2">
+		<fieldset class="space-y-4">
+			<div class="username">
+				<label class="block font-medium text-sm text-gray-700 dark:text-gray-400">
 					{translate key="user.usernameOrEmail"}
 					<span class="required" aria-hidden="true">*</span>
 				</label>
@@ -53,11 +57,11 @@
 					required
 					aria-required="true"
 					autocomplete="username"
-					class="block w-1/2">
+					class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</div>
 
-			<div class="password flex">
-				<label class="block w-1/2">
+			<div class="password">
+				<label class="block font-medium text-sm text-gray-700 dark:text-gray-400">
 					{translate key="user.password"}
 					<span class="required" aria-hidden="true">*</span>
 				</label>
@@ -70,7 +74,7 @@
 					required
 					aria-required="true"
 					autocomplete="current-password"
-					class="block w-1/2">
+					class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</div>
 
 			<div>
@@ -80,13 +84,14 @@
 			</div>
 
 			<div class="remember checkbox">
-				<label>
+				<label class="flex items-center">
 					<input type="checkbox"
 						name="remember"
 						id="remember"
 						value="1"
-						checked="$remember">
-					<span class="label">
+						checked="$remember"
+						class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+					<span class="label ml-2 text-sm text-gray-600">
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
 				</label>
