@@ -28,57 +28,54 @@
 
 	<!-- ======= Header ======= -->
 	<header id="header" class="fixed-top d-flex align-items-center">
-  	{* Skip to content nav links *}
-	{* include file="frontend/components/skipLinks.tpl"*}
-    <div class="container d-flex justify-content-between align-items-center">
-    	<div class="logo">
-    		{if $displayPageHeaderLogo}
-				<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand _is_img">
-					<img
-						src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
-						width="{$displayPageHeaderLogo.width|escape}"
-						height="{$displayPageHeaderLogo.height|escape}"
-						{if $displayPageHeaderLogo.altText != ''}
-							alt="{$displayPageHeaderLogo.altText|escape}"
-						{/if}
-						class="img-fluid"
-						style="max-width: 180px;"/>
-				</a>
-			{else}
-				<!--a class="navbar-brand text-white" href="#">
-					<strong>OJS App</strong>
-				</a-->
-			{/if}
-		</div>
-
-		<nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
-			{capture assign="primaryMenu"}
-				{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
-			{/capture}
-
-			{* Primary navigation menu for current application *}
-			{$primaryMenu}
-      	</nav><!-- .navbar -->
-
-      	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
-			<div class="container">
-				<div class="navbar-collapse d-flex justify-content-end">
-					{include file="frontend/components/navigationMenu2.tpl"}
-					{* User navigation *}
-					{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row justify-content-end" liClass="profile px-2 px-md-0"}
-				</div>
+	  	{* Skip to content nav links *}
+		{* include file="frontend/components/skipLinks.tpl"*}
+	    <div class="container d-flex justify-content-between align-items-center">
+	    	<div class="logo">
+	    		{if $displayPageHeaderLogo}
+					<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}" class="navbar-brand _is_img">
+						<img
+							src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
+							width="{$displayPageHeaderLogo.width|escape}"
+							height="{$displayPageHeaderLogo.height|escape}"
+							{if $displayPageHeaderLogo.altText != ''}
+								alt="{$displayPageHeaderLogo.altText|escape}"
+							{/if}
+							class="img-fluid"
+							style="max-width: 180px;"/>
+					</a>
+				{else}
+					<!--a class="navbar-brand text-white" href="#">
+						<strong>OJS App</strong>
+					</a-->
+				{/if}
 			</div>
-		</nav>
-      	{include file="frontend/components/navigationMenuMobile.tpl"}
-    </div>
-  </header><!-- End Header -->
+
+			<nav id="navbar" class="navbar navbar-dark flex-row shadow-0">
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="_navigationPrimary" ulClass="_pkp_navigation_primary" liClass=""}
+				{/capture}
+
+				{* Primary navigation menu for current application *}
+				{$primaryMenu}
+	      	</nav><!-- .navbar -->
+
+	      	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar d-flex flex-column shadow-0">
+				<div class="container">
+					<div class="navbar-collapse d-flex justify-content-end">
+						{include file="frontend/components/navigationMenu2.tpl"}
+						{* User navigation *}
+						{load_menu name="user" id="_navigationUser" ulClass="_pkp_navigation_user flex-row justify-content-end" liClass="profile px-2 px-md-0"}
+					</div>
+				</div>
+			</nav>
+	      	{include file="frontend/components/navigationMenuMobile.tpl"}
+	    </div>
+  	</header><!-- End Header -->
 
   {if $requestedPage == 'index' || $requestedPage == ''}
 	  <!-- ======= Hero Section ======= -->
 	  <section class="hero-section" id="hero">
-	  {*if $activeTheme->getOption('useHomepageImageAsHeader')}
-	  <section class="hero-section" id="hero" style="background-image: url('{$publicFilesDir}/homepageImage_ru_RU.jpg');">
-	  {/if*}
 
 	    <div class="wave">
 
@@ -97,33 +94,37 @@
 	        <div class="col-12 hero-text-image">
 	          <div class="row">
 	            <div class="col-lg-8 text-center text-lg-start">
-	              <h1 data-aos="fade-right">
-	              	{$displayPageHeaderTitle|escape}
-	              </h1>
-	              {if $activeTheme->getOption('showDescriptionInJournalIndex')}
-	              	<div class="mb-5" data-aos="fade-right" data-aos-delay="100">
-	              		{$currentContext->getLocalizedData('description')}
-	              	</div>
-	              {/if}
-	              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
-	              	<a
-	              		class="btn btn-outline-white text-uppercase pt-4 pb-4"
-	              		href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}"
-	              		role="button">
-	              		{translate key="plugins.themes.material.makeSubmission"}
-	              	</a>
-	              </p>
+	            	{if $currentContext}
+			              <h1 data-aos="fade-right">
+			              	{$displayPageHeaderTitle|escape}
+			              </h1>
+			              {if $activeTheme->getOption('showDescriptionInJournalIndex')}
+			              	<div class="mb-5" data-aos="fade-right" data-aos-delay="100">
+			              		{$currentContext->getLocalizedData('description')}
+			              	</div>
+			              {/if}
+			              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
+			              	<a
+			              		class="btn btn-outline-white text-uppercase pt-4 pb-4"
+			              		href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}"
+			              		role="button">
+			              		{translate key="plugins.themes.material.makeSubmission"}
+			              	</a>
+			              </p>
+			        {else}
+			        	<h1 data-aos="fade-right">
+			              	{translate key="context.contexts"}
+			            </h1>
+			        {/if}
 	            </div>
-	            <div class="col-lg-4 iphone-wrap">
-
-									{assign var="thumb" value=$currentJournal->getLocalizedSetting('journalThumbnail')}
-									{if $thumb}
-										<img class="phone-2" data-aos="fade-right" src="{$publicFilesDir}{*$currentJournal->getId()*}/{$thumb.uploadName|escape:"url"}">
-									{/if}
-																
-	              <!--img src="assets/img/phone_1.png" alt="Image" class="phone-1" data-aos="fade-right"-->
-	              <!--img src="assets/img/phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200"-->
-	            </div>
+	            {if $requestedPage !== ''}
+		            <div class="col-lg-4 iphone-wrap">
+						{assign var="thumb" value=$currentJournal->getLocalizedSetting('journalThumbnail')}
+						{if $thumb}
+							<img class="phone-2" data-aos="fade-right" src="{$publicFilesDir}{*$currentJournal->getId()*}/{$thumb.uploadName|escape:"url"}">
+						{/if}
+		            </div>
+		        {/if}
 	          </div>
 	        </div>
 	      </div>
