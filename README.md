@@ -12,7 +12,7 @@ This theme can be installed through the **Plugin Gallery** in Open Journal Syste
 
 ## Contribution
 
-This theme was developed by Madi Nuralin ([madi-nuralin](https://github.com/madi-nuralin))
+This theme was developed by _Madi Nuralin_ ([@madi-nuralin](https://github.com/madi-nuralin))
 
 ## Version compatibility with OJS:
 
