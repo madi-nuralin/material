@@ -21,6 +21,10 @@
 {include file="frontend/components/header.tpl" pageTitle="about.contact"}
 
 <div class="page page_contact">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.contact"}
+	<h1>
+		{translate key="about.contact"}
+	</h1>
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="contact" sectionTitleKey="about.contact"}
 
 	{* Contact section *}

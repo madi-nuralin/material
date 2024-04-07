@@ -10,9 +10,9 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
 
-<div class="page page_login">
+<div class="page page_login space-y-2">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login"}
-	<h1>
+	<h1 class="text-2xl">
 		{translate key="user.login"}
 	</h1>
 
@@ -28,49 +28,64 @@
 		</p>
 	{/if}
 
-	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}" role="form">
+	<form class="space-y-2" id="login" method="post" action="{$loginUrl}" role="form">
 		{csrf}
 
 		{if $error}
-			<div class="pkp_form_error">
+			<div class="pkp_form_error text-red">
 				{translate key=$error reason=$reason}
 			</div>
 		{/if}
 
 		<input type="hidden" name="source" value="{$source|default:""|escape}" />
 
-		<fieldset class="fields">
-			<legend class="pkp_screen_reader">{translate key="user.login"}</legend>
-			<div class="username">
-				<label>
-					<span class="label">
-						{translate key="user.usernameOrEmail"}
-						<span class="required" aria-hidden="true">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+		<fieldset class="space-y-2">
+			<div class="username flex">
+				<label class="block w-1/2">
+					{translate key="user.usernameOrEmail"}
+					<span class="required" aria-hidden="true">*</span>
 				</label>
+				<input type="text"
+					name="username"
+					id="username"
+					value="{$username|default:""|escape}"
+					maxlength="32"
+					required
+					aria-required="true"
+					autocomplete="username"
+					class="block w-1/2">
 			</div>
-			<div class="password">
-				<label>
-					<span class="label">
-						{translate key="user.password"}
-						<span class="required" aria-hidden="true">*</span>
-						<span class="pkp_screen_reader">
-							{translate key="common.required"}
-						</span>
-					</span>
-					<input type="password" name="password" id="password" value="{$password|default:""|escape}" password="true" maxlength="32" required aria-required="true" autocomplete="current-password">
-					<a href="{url page="login" op="lostPassword"}">
-						{translate key="user.login.forgotPassword"}
-					</a>
+
+			<div class="password flex">
+				<label class="block w-1/2">
+					{translate key="user.password"}
+					<span class="required" aria-hidden="true">*</span>
 				</label>
+				<input type="password"
+					name="password"
+					id="password"
+					value="{$password|default:""|escape}"
+					password="true"
+					maxlength="32"
+					required
+					aria-required="true"
+					autocomplete="current-password"
+					class="block w-1/2">
 			</div>
+
+			<div>
+				<a href="{url page="login" op="lostPassword"}">
+					{translate key="user.login.forgotPassword"}
+				</a>
+			</div>
+
 			<div class="remember checkbox">
 				<label>
-					<input type="checkbox" name="remember" id="remember" value="1" checked="$remember">
+					<input type="checkbox"
+						name="remember"
+						id="remember"
+						value="1"
+						checked="$remember">
 					<span class="label">
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
@@ -89,8 +104,8 @@
 				</fieldset>
 			{/if}
 
-			<div class="buttons">
-				<button class="submit" type="submit">
+			<div class="buttons space-x-2">
+				<button class="rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" type="submit">
 					{translate key="user.login"}
 				</button>
 

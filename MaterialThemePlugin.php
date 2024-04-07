@@ -182,6 +182,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		// Load custom JavaScript for this theme
 		$this->addScript('material', 'js/main.js');
 */
+		$this->addScript('alpinejs', 'js/alpinejs@3.x.x/dist/cdn.min.js');
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(['primary', 'user']);
 	}

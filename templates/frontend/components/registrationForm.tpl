@@ -16,136 +16,138 @@
  * @uses $username string Username input entry if available
  *}
 
-<fieldset class="mt-1">
-	{*<legend class="btn btn-light btn-lg mb-4 text-end" type="button" data-mdb-toggle="collapse" data-mdb-target="#user_profile_collapse" aria-expanded="true" aria-controls="user_profile_collapse">
+<fieldset class="identity space-y-2">
+	<legend>
 		{translate key="user.profile"}
-	</legend>*}
-	<div class="fields collapse show" id="user_profile_collapse">
-		<div class="given_name mb-4 align-items-center">
-			<label for="givenName" class="form-check-label label text-sm-end text-start">
+	</legend>
+	<div class="fields space-y-2">
+		<div class="given_name flex">
+			<label class="block w-1/2">
 				{translate key="user.givenName"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<input type="text" name="givenName" autocomplete="given-name" id="givenName" value="{$givenName|escape}" maxlength="255" required aria-required="true" class="form-control">
-			</div>
+			<input type="text"
+				name="givenName"
+				autocomplete="given-name"
+				id="givenName"v
+				alue="{$givenName|default:""|escape}"
+				maxlength="255"
+				required
+				aria-required="true"
+				class="block w-1/2">
 		</div>
-		<div class="family_name mb-4 align-items-center">
-			<label for="familyName" class="form-check-label label">
+		<div class="family_name flex">
+			<label class="block w-1/2">
 				{translate key="user.familyName"}
 			</label>
-			<div class="">
-				<input type="text" name="familyName" autocomplete="family-name" id="familyName" value="{$familyName|escape}" maxlength="255" class="form-control">
-			</div>
+			<input type="text"
+				name="familyName"
+				autocomplete="family-name"
+				id="familyName"
+				value="{$familyName|default:""|escape}"
+				maxlength="255"
+				class="block w-1/2">
+			</label>
 		</div>
-		<div class="affiliation mb-4 align-items-center">
-			<label for="affiliation" class="form-check-label label">
+		<div class="affiliation flex">
+			<label class="block w-1/2">
 				{translate key="user.affiliation"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<input type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required aria-required="true" class="form-control">
-			</div>
+			<input type="text"
+				name="affiliation"
+				autocomplete="organization"
+				id="affiliation"
+				value="{$affiliation|default:""|escape}"
+				required
+				aria-required="true"
+				class="block w-1/2">
+			</label>
 		</div>
-		<div class="country mb-4 align-items-center">
-			<label for="country" class="form-check-label label">
+		<div class="country flex">
+			<label class="block w-1/2">
 				{translate key="common.country"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<select name="country" id="country" required aria-required="true" class="form-control">
-					<option></option>
-					{html_options options=$countries selected=$country}
-				</select>
-			</div>
+			<select name="country"
+				id="country"
+				autocomplete="country-name"
+				required
+				aria-required="true"
+				class="block w-1/2">
+				<option></option>
+				{html_options options=$countries selected=$country}
+			</select>
 		</div>
 	</div>
 </fieldset>
 
-<fieldset class="">
-	{*<legend class="btn btn-light btn-lg mb-4 text-end" type="button" data-mdb-toggle="collapse" data-mdb-target="#user_login_collapse" aria-expanded="true" aria-controls="user_login_collapse">
+<fieldset class="login space-y-2">
+	<legend>
 		{translate key="user.login"}
-	</legend>*}
-	<div class="fields collapse show" id="user_login_collapse">
-		<div class="email mb-4 align-items-center">
-			<label for="email" class="form-check-label label text-sm-end text-start">
+	</legend>
+	<div class="fields space-y-2">
+		<div class="email flex">
+			<label class="block w-1/2">
 				{translate key="user.email"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<input type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required aria-required="true" autocomplete="email" class="form-control">
-				<small class="form-helper"></small>
-			</div>
+			<input type="email"
+				name="email"
+				id="email"
+				value="{$email|default:""|escape}"
+				maxlength="90"
+				required
+				aria-required="true"
+				autocomplete="email"
+				class="block w-1/2">
 		</div>
-		<div class="username mb-4 align-items-center">
-			<label for="username" class="form-check-label label text-sm-end text-start">
+		<div class="username flex">
+			<label class="block w-1/2">
 				{translate key="user.username"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true" autocomplete="username" class="form-control">
-				<small class="form-helper">
-					<i class="fas fa-info-circle"></i>
-					{translate key="user.register.usernameRestriction"}
-				</small>
-			</div>
+			<input type="text"
+				name="username"
+				id="username"
+				value="{$username|default:""|escape}"
+				maxlength="32"
+				required
+				aria-required="true"
+				autocomplete="username"
+				class="block w-1/2">
+			</label>
 		</div>
-		<div class="password mb-4 align-items-center">
-			<label for="password" class="form-check-label label text-sm-end text-start">
+		<div class="password flex">
+			<label class="block w-1/2">
 				{translate key="user.password"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
-				</span>
+				<span class="required" aria-hidden="true">*</span>
 			</label>
-			<div class="">
-				<input type="password" name="password" id="password" password="true" maxlength="32" required aria-required="true" class="form-control">
-				<small class="form-helper">
-					<i class="fas fa-info-circle"></i>
-					{str_replace('{$length}', $minPasswordLength, {translate key="user.register.form.passwordLengthRestriction"})}
-				</small>
-			</div>
+			<input type="password"
+				name="password"
+				id="password"
+				password="true"
+				maxlength="32"
+				required
+				aria-required="true"
+				autocomplete="new-password"
+				class="block w-1/2">
 		</div>
-		<div class="password mb-4 align-items-center">
-			<label for="password2" class="form-check-label label text-sm-end text-start">
+		<div class="password flex">
+			<label class="block w-1/2">
 				{translate key="user.repeatPassword"}
-				<span class="required" aria-hidden="true">
-					<!--i class="fas fa-link fa-sm"></i-->
-				</span>
-				<span class="pkp_screen_reader">
-					{translate key="common.required"}
+				<span class="required" aria-hidden="true">*</span>
 				</span>
 			</label>
-			<div class="">
-				<input type="password" name="password2" id="password2" password="true" maxlength="32" required aria-required="true" class="form-control">
-			</div>
+			<input type="password"
+				name="password2"
+				id="password2"
+				password="true"
+				maxlength="32"
+				required
+				aria-required="true"
+				autocomplete="new-password"
+				class="block w-1/2">
 		</div>
 	</div>
 </fieldset>

@@ -18,7 +18,7 @@
 		{translate key="plugins.block.browse"}
 	</h3>
 
-	<ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400" aria-label="{translate|escape key="plugins.block.browse"}">
+	<ol role="list" class="dark:text-slate-400" aria-label="{translate|escape key="plugins.block.browse"}">
 		{if $browseCategories}
 			<li class="has_submenu">
 				<a class="hover:text-slate-600 dark:hover:text-slate-300">

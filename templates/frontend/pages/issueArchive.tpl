@@ -23,8 +23,11 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<div class="page page_issue_archive container">
-	{*include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle*}
+<div class="page page_issue_archive">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
+	<h1>
+		{$pageTitle|escape}
+	</h1>
 
 	{* No issues have been published *}
 	{if empty($issues)}
@@ -32,22 +35,22 @@
 
 	{* List issues *}
 	{else}
-		<div class="_issues_archive">
+		<ul class="issues_archive">
 			{foreach from=$issues item="issue"}
-				<div>
+				<li>
 					{include file="frontend/objects/issue_summary.tpl"}
-				</div>
+				</li>
 			{/foreach}
-		</div>
+		</ul>
 
 		{* Pagination *}
 		{if $prevPage > 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
 		{elseif $prevPage === 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}{/capture}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}{/capture}
 		{/if}
 		{if $nextPage}
-			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
+			{capture assign=nextUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
 		{/if}
 		{include
 			file="frontend/components/pagination.tpl"

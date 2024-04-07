@@ -1,7 +1,8 @@
 {**
  * templates/frontend/objects/announcement_summary.tpl
  *
- * Copyright (c) 2024 Madi Nuralin
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display a summary view of an announcement
@@ -28,9 +29,9 @@
 			<span aria-hidden="true" role="presentation">
 				{translate key="common.readMore"}
 			</span>
-			{*<span class="pkp_screen_reader">
+			<span class="pkp_screen_reader">
 				{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
-			</span>*}
+			</span>
 		</a>
 	</div>
 </article><!-- .obj_announcement_summary -->

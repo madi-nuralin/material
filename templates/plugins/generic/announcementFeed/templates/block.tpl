@@ -16,7 +16,7 @@
 		</a>
 	</h3>
 
-	<ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+	<ol role="list" class="dark:text-slate-400">
 		<li>
 			<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="gateway" op="plugin" path="AnnouncementFeedGatewayPlugin"|to_array:"atom"}">
 				<img src="{$baseUrl}/lib/pkp/templates/images/atom.svg" alt="{translate key="plugins.generic.announcementfeed.atom.altText"}">

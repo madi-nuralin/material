@@ -9,9 +9,10 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
 
-<div class="page container">
-	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$title}
+{include file="frontend/components/breadcrumbs.tpl" currentTitle=$title}
 
+<div class="page">
+	<h1 class="page_title">{$title|escape}</h1>
 	{$content}
 </div>
 

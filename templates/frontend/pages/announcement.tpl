@@ -1,7 +1,8 @@
 {**
  * templates/frontend/pages/announcements.tpl
  *
- * Copyright (c) 2024 Madi Nuralin
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Display the page which represents a single announcement
@@ -12,7 +13,7 @@
 
 <div class="page page_announcement">
 
-	{*include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedTitle()|escape*}
+	{include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedTitle()|escape}
 
 	{* Display book details *}
 	{include file="frontend/objects/announcement_full.tpl"}

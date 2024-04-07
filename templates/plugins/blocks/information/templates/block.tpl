@@ -15,7 +15,7 @@
 				{translate key="plugins.block.information.link"}
 			</a>
 		</h3>
-		<ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+		<ol role="list" class="dark:text-slate-400">
 			{if !empty($forReaders)}
 				<li>
 					<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="information" op="readers"}">

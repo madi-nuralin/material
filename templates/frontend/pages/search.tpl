@@ -24,11 +24,13 @@
 
 <div class="page page_search">
 
-	{capture name="searchFormUrl"}
-		{url escape=false}
-	{/capture}
-	{assign var=formUrlParameters value=[]}
-	{* Prevent Smarty warning *}
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
+	<h1>
+		{translate key="common.search"}
+	</h1>
+
+	{capture name="searchFormUrl"}{url escape=false}{/capture}
+	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
 	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
 	<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
 		{foreach from=$formUrlParameters key=paramKey item=paramValue}

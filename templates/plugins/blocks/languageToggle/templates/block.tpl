@@ -14,7 +14,7 @@
 			</a>
 		</h3>
 
-		<ol role="list" class="mt-2 space-y-3 pl-5 text-slate-500 dark:text-slate-400">
+		<ol role="list" class="dark:text-slate-400">
 			{foreach from=$languageToggleLocales item=localeName key=localeKey}
 				<li class="locale_{$localeKey|escape}{if $localeKey == $currentLocale} current{/if}" lang="{$localeKey|replace:"_":"-"}">
 					<a class="hover:text-slate-600 dark:hover:text-slate-300" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}">

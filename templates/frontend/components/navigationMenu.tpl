@@ -46,8 +46,10 @@
 					{continue}
 				{/if}
 				<li class="{$liClass|escape}">
-					<div class="relative inline-block text-left">
-						<div>
+					{literal}
+					<div class="relative inline-block text-left" x-data="{ open: false }">
+						<div @mouseover="open = true" @mouseleave="open = false">
+					{/literal}
 							<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="flex h-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 px-3 text-sm dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300">
 								{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 								<!--svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -68,17 +70,18 @@
 							      From: "transform opacity-100 scale-100"
 							      To: "transform opacity-0 scale-95"
 							-->
-
-							<div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-			    				<ul class="py-1" role="list">
+							{literal}
+							<div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-slate-800" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" @mouseover="open = true" @mouseleave="open = false">
+							{/literal}
+					    		<ul class="py-1" role="list">
 									{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-										{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-											<li class="{$liClass|escape}">
-												<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
-													{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-												</a>
-											</li>
-										{/if}
+											{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+												<li class="{$liClass|escape}">
+													<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="text-gray-700  dark:text-gray-400 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
+														{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+													</a>
+												</li>
+											{/if}
 									{/foreach}
 								</ul>
 							</div>
