@@ -39,12 +39,6 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	public function init() {
 
 		// Register theme options
-		$this->addOption('issueArchiveColumns', 'FieldText', [
-			'label' => __('plugins.themes.material.option.issueArchiveColumns.label'),
-			'description' => __('plugins.themes.material.option.issueArchiveColumns.description'),
-			'default' => 1
-		]);
-
 		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
 			'label' => __('manager.setup.contextSummary'),
 				'options' => [
@@ -56,7 +50,13 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			'default' => false,
 		]);
 
-		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
+		$this->addOption('baseColour', 'FieldColor', [
+            'label' => __('plugins.themes.material.option.colour.label'),
+            'description' => __('plugins.themes.material.option.colour.description'),
+            'default' => '#1E6292',
+        ]);
+
+		/*$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
 			'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.label'),
 			'description' => __('plugins.themes.material.option.useHomepageImageAsHeader.description'),
 				'options' => [
@@ -66,39 +66,10 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 				],
 			],
 			'default' => false,
-		]);
-
-		$this->addOption('disablePrefixAndTitle', 'FieldOptions', [
-			'label' => __('plugins.themes.material.option.disablePrefixAndTitle.label'),
-			'description' => __('plugins.themes.material.option.disablePrefixAndTitle.description'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.material.option.disablePrefixAndTitle.option')
-				],
-			],
-			'default' => false,
-		]);
-
-		$this->addOption('disableArticleSubtitle', 'FieldOptions', [
-			'label' => __('plugins.themes.material.option.disableArticleSubtitle.label'),
-			'description' => __('plugins.themes.material.option.disableArticleSubtitle.description'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.material.option.disableArticleSubtitle.option')
-				],
-			],
-			'default' => false,
-		]);
+		]);*/
 
 		$request = Application::get()->getRequest();
-		$templateManager = TemplateManager::getManager($request);
-		/*$templateManager->assign('themes', array(
-			array('name' => 'System', 'path' => 'frontend/components/ui/systemIcon.tpl'),
-			array('name' => 'Light', 'path' => 'frontend/components/ui/lightIcon.tpl'),
-			array('name' => 'Dark', 'path' => 'frontend/components/ui/darkIcon.tpl')
-		));*/
+		$templateManager = TemplateManager::getManager($request); // ->assign('', obj);
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/dist/output.css');
@@ -109,23 +80,14 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			$additionalLessVariables[] = '@issue-archive-columns:' . $this->getOption('issueArchiveColumns') . ';';
 		}
 
-		// Get homepage image and use as header background if useAsHeader is true
-		/*$context = Application::get()->getRequest()->getContext();
-		if ($context && $this->getOption('useHomepageImageAsHeader')) {
-			$publicFileManager = new PublicFileManager();
-			$publicFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
-
-			$homepageImage = $context->getLocalizedData('homepageImage');
-			$homepageImageUrl = $publicFilesDir . '/' . $homepageImage['uploadName'];
-
-			$this->addStyle(
-				'homepageImage',
-				'.pkp_structure_head { background: center / cover no-repeat url("' . $homepageImageUrl . '");}',
-				['inline' => true]
-			);
-
-			$additionalLessVariables[] = '@bg-image-url:"' . $homepageImageUrl . '";';
-		}*/
+		// Update colour based on theme option
+        if ($this->getOption('baseColour') !== '#1E6292') {
+            $additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
+            if (!$this->isColourDark($this->getOption('baseColour'))) {
+                $additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
+                $additionalLessVariables[] = '@bg-base-border-color:rgba(0,0,0,0.2);';
+            }
+        }
 
 		// Pass additional LESS variables based on options
 		if (!empty($additionalLessVariables)) {

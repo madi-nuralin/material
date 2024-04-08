@@ -1,13 +1,9 @@
-{*assign var="thumb" value=$currentJournal->getLocalizedSetting('journalThumbnail')}
-  {if $thumb}
-    <img class="phone-2" data-aos="fade-right" src="{$publicFilesDir}{*$currentJournal->getId()}/{$thumb.uploadName|escape:"url"}">
-{/if*}
 
 <div class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.75rem] dark:pb-32 dark:pt-[4.75rem]">
    <div class="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
       <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
          <div class="relative z-10 md:text-center lg:text-left">
-            <img alt="" fetchpriority="high" width="530" height="530" decoding="async" data-nimg="1" class="absolute bottom-full right-full -mb-56 -mr-72 opacity-50" style="color:transparent" src="/_next/static/media/blur-cyan.d28a5585.png">
+            <img alt="" fetchpriority="high" width="530" height="530" decoding="async" data-nimg="1" class="absolute bottom-full right-full -mb-56 -mr-72 opacity-50" style="color:transparent" src="https://syntax.tailwindui.com/_next/static/media/blur-cyan.d28a5585.png">
             <div class="relative">
               <p class="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
                 {$displayPageHeaderTitle|escape}
@@ -28,7 +24,7 @@
             </div>
          </div>
          <div class="relative lg:static xl:pl-10">
-            <div class="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
+            <!--div class="absolute inset-x-[-50vw] -bottom-48 -top-32 [mask-image:linear-gradient(transparent,white,white)] lg:-bottom-32 lg:-top-32 lg:left-[calc(50%+14rem)] lg:right-0 lg:[mask-image:none] dark:[mask-image:linear-gradient(transparent,white,transparent)] lg:dark:[mask-image:linear-gradient(white,white,transparent)]">
                <svg aria-hidden="true" viewBox="0 0 668 1069" width="668" height="1069" fill="none" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:left-0 lg:translate-x-0 lg:translate-y-[-60%]">
                   <defs>
                      <clipPath id=":Rqla:-clip-path">
@@ -60,9 +56,9 @@
                      <circle cx="384.1" cy="256.763" r="10.438" transform="rotate(-180 384.1 256.763)" stroke="#334155"></circle>
                   </g>
                </svg>
-            </div>
+            </div-->
             <div class="relative">
-               <img alt="" fetchpriority="high" width="530" height="530" decoding="async" data-nimg="1" class="absolute -right-64 -top-64" style="color:transparent" src="/_next/static/media/blur-cyan.d28a5585.png"><img alt="" fetchpriority="high" width="567" height="567" decoding="async" data-nimg="1" class="absolute -bottom-40 -right-44" style="color:transparent" src="/_next/static/media/blur-indigo.b752cf77.png">
+               <img alt="" fetchpriority="high" width="530" height="530" decoding="async" data-nimg="1" class="absolute -right-64 -top-64" style="color:transparent" src="https://syntax.tailwindui.com/_next/static/media/blur-cyan.d28a5585.png"><img alt="" fetchpriority="high" width="567" height="567" decoding="async" data-nimg="1" class="absolute -bottom-40 -right-44" style="color:transparent" src="https://syntax.tailwindui.com/_next/static/media/blur-cyan.d28a5585.png">
                <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg"></div>
                <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10"></div>
                <div class="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">

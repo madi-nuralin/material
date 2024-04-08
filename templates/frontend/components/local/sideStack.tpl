@@ -1,12 +1,3 @@
-{**
- * templates/frontend/components/mobileNavigation.tpl
- *
- * Copyright (c) 2024 Madi Nuralin
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @brief mobile navigation list for OJS
- *
- *}
 
 <div class="mr-6 flex xl:hidden" {literal}x-data="{ open: false }"{/literal}>
 	<button type="button"
@@ -55,8 +46,8 @@
 					{/capture}
 					{$primaryMenu}
 				</div>
-				<div class="mt-5 lg:mt-0">
-					{include file="frontend/components/sidebar.tpl"}
+				<div class="mt-5">
+					{include file="frontend/components/local/sidebar.tpl"}
 				</div>
 			</div>
 		</div>

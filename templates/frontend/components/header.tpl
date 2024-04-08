@@ -42,10 +42,10 @@
 		{* Skip to content nav links *}
 		{*include file="frontend/components/skipLinks.tpl"*}
 
-		{include file="frontend/components/mobileNavigation.tpl"}
+		{include file="frontend/components/local/sideStack.tpl"}
 
 		<div class="relative flex flex-grow basis-0 items-center">
-			{include file="frontend/components/logo.tpl"}
+			{include file="frontend/components/local/logo.tpl"}
 		</div>
 		<div class="flex items-center space-x-2">
 			{* Search form *}
