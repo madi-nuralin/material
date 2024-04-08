@@ -32,7 +32,7 @@
 	{capture name="searchFormUrl"}{url escape=false}{/capture}
 	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
 	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
-	<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
+	<form class="cmp_form space-y-4" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
 		{foreach from=$formUrlParameters key=paramKey item=paramValue}
 			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
 		{/foreach}
@@ -40,11 +40,16 @@
 		{* Repeat the label text just so that screen readers have a clear
 		   label/input relationship *}
 		<div class="search_input">
-			<label class="pkp_screen_reader" for="query">
+			<label class="pkp_screen_reader block font-medium text-sm text-gray-700 dark:text-gray-400" for="query">
 				{translate key="search.searchFor"}
 			</label>
 			{block name=searchQuery}
-				<input type="text" id="query" name="query" value="{$query|escape}" class="query" placeholder="{translate|escape key="common.search"}">
+				<input type="text"
+					id="query"
+					name="query"
+					value="{$query|escape}"
+					class="query border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full"
+					placeholder="{translate|escape key="common.search"}">
 			{/block}
 		</div>
 
@@ -54,20 +59,32 @@
 			</legend>
 			<div class="date_range">
 				<div class="from">
-					{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
-					{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+					{capture assign="dateFromLegend"}
+						{translate key="search.dateFrom"}
+					{/capture}
+					{html_select_date_a11y legend=$dateFromLegend
+						prefix="dateFrom"
+						time=$dateFrom
+						start_year=$yearStart
+						end_year=$yearEnd}
 				</div>
 				<div class="to">
-					{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
-					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+					{capture assign="dateFromTo"}
+						{translate key="search.dateTo"}
+					{/capture}
+					{html_select_date_a11y legend=$dateFromTo
+						prefix="dateTo"
+						time=$dateTo
+						start_year=$yearStart
+						end_year=$yearEnd}
 				</div>
 			</div>
 			<div class="author">
-				<label class="label" for="authors">
+				<label class="label block font-medium text-sm text-gray-700 dark:text-gray-400" for="authors">
 					{translate key="search.author"}
 				</label>
 				{block name=searchAuthors}
-					<input type="text" id="authors" name="authors" value="{$authors|escape}">
+					<input type="text" id="authors" name="authors" value="{$authors|escape}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 				{/block}
 
 				{if $searchableContexts}
@@ -88,7 +105,7 @@
 		</fieldset>
 
 		<div class="submit">
-			<button class="submit" type="submit">{translate key="common.search"}</button>
+			<button class="submit rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" type="submit">{translate key="common.search"}</button>
 		</div>
 	</form>
 
