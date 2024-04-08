@@ -55,7 +55,9 @@
 					{/capture}
 					{$primaryMenu}
 				</div>
-				{include file="frontend/components/sidebar.tpl"}
+				<div class="mt-5 lg:mt-0">
+					{include file="frontend/components/sidebar.tpl"}
+				</div>
 			</div>
 		</div>
 	</div>

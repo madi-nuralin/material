@@ -12,29 +12,6 @@
  *}
       </div>
     </article>
-
-    {*if $requestedPage !== 'login' && $requestedPage !== 'user'}
-      <!-- ======= Footer ======= -->
-      <footer class="footer pt-5 bottom-0" role="contentinfo">
-        <div class="container">
-          {if $pageFooter}
-            {$pageFooter}
-          {/if}
-
-          <div class="row justify-content-center text-center">
-            <div class="col-md-7">
-              <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}"> Open Journal Systems</a></p>
-
-              <div class="credits">
-                Designed by <a href="https://github.com/madi-nuralin/material">Material Theme</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </footer>
-    {/if*}
-
 	</main><!-- _pkp_structure_main -->
 
   {if $requestedPage !== 'login' && $requestedPage !== 'user'}
@@ -48,6 +25,27 @@
   {/if}
 
 </div>
+
+{if $requestedPage !== 'login' && $requestedPage !== 'user'}
+  <!-- ======= Footer ======= -->
+  <footer class="footer bg-slate-50 py-5 bottom-0 text-slate-400 dark:bg-transparent" role="contentinfo">
+    <div>
+      {if $pageFooter}
+        {$pageFooter}
+      {/if}
+    </div>
+
+    <div class="w-full flex justify-center items-center text-center">
+      <div>
+        <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}" class="hover:text-slate-500"> Open Journal Systems</a></p>
+
+        <div class="credits">
+          Designed by <a href="https://github.com/madi-nuralin/material" class="hover:text-slate-500">Material Theme</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+{/if}
 
 {load_script context="frontend"}
 
