@@ -1789,12 +1789,6 @@ input:focus {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2009,10 +2003,6 @@ input:focus {
   fill: #94a3b8;
 }
 
-.fill-slate-700 {
-  fill: #334155;
-}
-
 .stroke-slate-500 {
   stroke: #64748b;
 }
@@ -2183,10 +2173,6 @@ input:focus {
 
 .font-medium {
   font-weight: 500;
-}
-
-.font-normal {
-  font-weight: 400;
 }
 
 .font-semibold {
@@ -2660,10 +2646,6 @@ input:focus {
   background-color: rgb(15 23 42 / 0.95);
 }
 
-:is(.dark .dark\:fill-sky-100) {
-  fill: #e0f2fe;
-}
-
 :is(.dark .dark\:fill-slate-500) {
   fill: #64748b;
 }
@@ -2845,6 +2827,10 @@ input:focus {
 
   .lg\:right-0 {
     right: 0px;
+  }
+
+  .lg\:mt-0 {
+    margin-top: 0px;
   }
 
   .lg\:mt-4 {

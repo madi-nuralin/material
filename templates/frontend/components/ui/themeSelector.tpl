@@ -9,18 +9,9 @@
 {/foreach*}
 
 {literal}
-  <div x-data="{ theme: $store.darkMode }">
-    <button class="flex h-8 w-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5" aria-label="Theme" id="headlessui-listbox-button-:r1:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" aria-labelledby="headlessui-listbox-label-:r0: headlessui-listbox-button-:r1:" @click="(theme === 'Dark') ? (theme = 'Light',document.documentElement.classList.remove('dark')) : (theme = 'Dark',document.documentElement.classList.add('dark'))">
-      <!--div x-show="theme=='System'">
-        <svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-slate-400">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M1 4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-1.5l.31 1.242c.084.333.36.573.63.808.091.08.182.158.264.24A1 1 0 0 1 11 15H5a1 1 0 0 1-.704-1.71c.082-.082.173-.16.264-.24.27-.235.546-.475.63-.808L5.5 11H4a3 3 0 0 1-3-3V4Zm3-1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z"
-          />
-        </svg>
-      </div-->
-      <div x-show="theme=='Light'">
+  <div>
+    <button class="flex h-8 w-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5" aria-label="Theme" id="headlessui-listbox-button-:r1:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="" aria-labelledby="headlessui-listbox-label-:r0: headlessui-listbox-button-:r1:" @click="darkMode = darkMode == 'light' ? 'dark' : 'light'">
+      <div x-show="darkMode == 'light'">
         <svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-slate-400">
           <path
               fillRule="evenodd"
@@ -29,7 +20,7 @@
           />
       </svg>
       </div>
-      <div x-show="theme=='Dark'">
+      <div x-show="darkMode == 'dark'">
         <svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-slate-400">
           <path
             fillRule="evenodd"
@@ -39,10 +30,5 @@
         </svg>
       </div>
     </button>
-    <script>
-      document.addEventListener('alpine:init', () => {
-          Alpine.store('darkMode', 'Light')
-      })
-  </script>
   </div>
 {/literal}

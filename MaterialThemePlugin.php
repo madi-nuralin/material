@@ -136,6 +136,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		// Load alpinejs for this theme
 		$this->addScript('alpinejs', 'js/alpinejs@3.x.x/dist/cdn.min.js');
+		$this->addScript('mainjs', 'js/main.js');
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(['primary', 'user']);
 	}
