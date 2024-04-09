@@ -6,51 +6,63 @@
    bg-blue-300
    bg-sky-300
    bg-indigo-300
+   bg-orange-300
    focus-visible:outline-green-300/50
    focus-visible:outline-blue-300/5
    focus-visible:outline-sky-300/5
    focus-visible:outline-indigo-300/5
+   focus-visible:outline-orange-300/5
    active:bg-green-500
    active:bg-blue-500
    active:bg-sky-500
    active:bg-indigo-500
+   active:bg-orange-500
    hover:bg-green-200
    hover:bg-blue-200
    hover:bg-sky-200
    hover:bg-indigo-200
+   hover:bg-orange-200
    prose-a:text-green-400
    prose-a:text-blue-400
    prose-a:text-sky-400
    prose-a:text-indigo-400
+   prose-a:text-orange-400
    dark:prose-a:text-green-400
    dark:prose-a:text-blue-400
    dark:prose-a:text-sky-400
    dark:prose-a:text-indigo-400
+   dark:prose-a:text-orange-400
    text-green-500
    text-blue-500
    text-sky-500
    text-indigo-500
+   text-orange-500
    before:bg-green-500
    before:bg-blue-500
    before:bg-sky-500
    before:bg-indigo-500
+   before:bg-orange-500
    focus:border-green-300
    focus:border-blue-300
    focus:border-sky-300
    focus:border-indigo-300
+   focus:border-orange-300
    focus:ring-green-200
    focus:ring-blue-200
    focus:ring-sky-200
    focus:ring-indigo-200
+   focus:ring-orange-200
    text-green-600
    text-blue-600
    text-sky-600
    text-indigo-600
+   text-orange-600
    text-green-300
    text-sky-300
    text-indigo-300
    text-blue-300
    text-sky-300
+   text-orange-300
    "></div>
 
 

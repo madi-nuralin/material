@@ -71,6 +71,10 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
                     'value' => 'sky',
                     'label' => 'Sky',
                 ],
+                [
+                    'value' => 'orange',
+                    'label' => 'Orange',
+                ],
             ],
             'default' => 'sky',
         ]);

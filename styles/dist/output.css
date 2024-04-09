@@ -1891,6 +1891,11 @@ input:focus {
   background-color: rgb(165 180 252 / var(--tw-bg-opacity));
 }
 
+.bg-orange-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 186 116 / var(--tw-bg-opacity));
+}
+
 .bg-sky-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
@@ -2246,6 +2251,21 @@ input:focus {
   color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 
+.text-orange-300 {
+  --tw-text-opacity: 1;
+  color: rgb(253 186 116 / var(--tw-text-opacity));
+}
+
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
+.text-orange-600 {
+  --tw-text-opacity: 1;
+  color: rgb(234 88 12 / var(--tw-text-opacity));
+}
+
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -2483,6 +2503,12 @@ input:focus {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
+.before\:bg-orange-500::before {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
+}
+
 .before\:bg-sky-500::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -2508,6 +2534,11 @@ input:focus {
 .hover\:bg-indigo-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(199 210 254 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-orange-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-sky-200:hover {
@@ -2555,6 +2586,11 @@ input:focus {
   border-color: rgb(165 180 252 / var(--tw-border-opacity));
 }
 
+.focus\:border-orange-300:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(253 186 116 / var(--tw-border-opacity));
+}
+
 .focus\:border-sky-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(125 211 252 / var(--tw-border-opacity));
@@ -2586,6 +2622,11 @@ input:focus {
   --tw-ring-color: rgb(199 210 254 / var(--tw-ring-opacity));
 }
 
+.focus\:ring-orange-200:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(254 215 170 / var(--tw-ring-opacity));
+}
+
 .focus\:ring-sky-200:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(186 230 253 / var(--tw-ring-opacity));
@@ -2615,6 +2656,10 @@ input:focus {
   outline-color: rgb(165 180 252 / 0.05);
 }
 
+.focus-visible\:outline-orange-300\/5:focus-visible {
+  outline-color: rgb(253 186 116 / 0.05);
+}
+
 .focus-visible\:outline-sky-300\/5:focus-visible {
   outline-color: rgb(125 211 252 / 0.05);
 }
@@ -2636,6 +2681,11 @@ input:focus {
 .active\:bg-indigo-500:active {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
+.active\:bg-orange-500:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
 
 .active\:bg-sky-500:active {
@@ -2677,6 +2727,11 @@ input:focus {
 .prose-a\:text-indigo-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
   --tw-text-opacity: 1;
   color: rgb(129 140 248 / var(--tw-text-opacity));
+}
+
+.prose-a\:text-orange-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity));
 }
 
 .prose-a\:text-sky-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
@@ -2857,6 +2912,11 @@ input:focus {
 :is(.dark .dark\:prose-a\:text-indigo-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {
   --tw-text-opacity: 1;
   color: rgb(129 140 248 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:prose-a\:text-orange-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:prose-a\:text-sky-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {
