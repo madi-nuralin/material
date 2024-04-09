@@ -1,8 +1,9 @@
-# Material Theme
 
+<img src="https://github.com/madi-nuralin/material/assets/77335604/a172d88f-a0d3-4b89-902b-b9e37ce74212" height="75px"/>
 
-A Material theme for [PKP/OJS](https://pkp.sfu.ca/ojs/)
+---
 
+**A Material Theme plugin for [PKP/OJS](https://pkp.sfu.ca/ojs/)**
 
 ## Description
 This theme implements adaptive stylesheet for fronted templates which allows to fit any size of device screens.
