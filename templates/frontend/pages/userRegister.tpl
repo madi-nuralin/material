@@ -9,6 +9,7 @@
  * @uses $primaryLocale string The primary locale for this journal/press
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
+
 {assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 <div>
 	{include file="frontend/components/local/logo.tpl" small=false}
