@@ -1,6 +1,12 @@
 # Material Theme
-
 A theme plugin for [PKP/OJS](https://pkp.sfu.ca/ojs/)
+
+![version](https://img.shields.io/badge/version-3.0.0.0-blue.svg)
+![license](https://img.shields.io/badge/license-GPL3-blue.svg) 
+<a href="https://github.com/madi-nuralin/material/issues?q=is%3Aopen+is%3Aissue" target="_blank">![GitHub issues open](https://img.shields.io/github/issues/madi-nuralin/material.svg)</a>
+<a href="https://github.com/madi-nuralin/material/issues?q=is%3Aissue+is%3Aclosed" target="_blank">![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/madi-nuralin/material.svg)</a>
+
+![Снимок экрана 2024-04-09 170703](https://github.com/madi-nuralin/material/assets/77335604/589baa7a-91d1-49e6-a880-de2343e070bc)
 
 
 ## Description
