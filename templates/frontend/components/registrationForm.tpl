@@ -15,6 +15,7 @@
  * @uses $email string Email input entry if available
  * @uses $username string Username input entry if available
  *}
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 
 <fieldset class="identity space-y-2">
 	<legend>
@@ -34,7 +35,7 @@
 				maxlength="255"
 				required
 				aria-required="true"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
 		<div class="family_name">
 			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
@@ -46,7 +47,7 @@
 				id="familyName"
 				value="{$familyName|default:""|escape}"
 				maxlength="255"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
 		<div class="affiliation">
@@ -61,7 +62,7 @@
 				value="{$affiliation|default:""|escape}"
 				required
 				aria-required="true"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
 		<div class="country">
@@ -74,7 +75,7 @@
 				autocomplete="country-name"
 				required
 				aria-required="true"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 				<option></option>
 				{html_options options=$countries selected=$country}
 			</select>
@@ -100,7 +101,7 @@
 				required
 				aria-required="true"
 				autocomplete="email"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
 		<div class="username">
 			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
@@ -115,7 +116,7 @@
 				required
 				aria-required="true"
 				autocomplete="username"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</label>
 		</div>
 		<div class="password">
@@ -131,7 +132,7 @@
 				required
 				aria-required="true"
 				autocomplete="new-password"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
 		<div class="password">
 			<label class="block font-medium text-sm text-gray-700 dark:text-gray-400 w-full">
@@ -147,7 +148,7 @@
 				required
 				aria-required="true"
 				autocomplete="new-password"
-				class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+				class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 		</div>
 	</div>
 </fieldset>

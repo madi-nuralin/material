@@ -9,9 +9,10 @@
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 
 <div>
-	{include file="frontend/components/local/logo.tpl"}
+	{include file="frontend/components/local/logo.tpl" small=false}
 </div>
 
 <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_login space-y-2">
@@ -57,7 +58,7 @@
 					required
 					aria-required="true"
 					autocomplete="username"
-					class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+					class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</div>
 
 			<div class="password">
@@ -74,7 +75,7 @@
 					required
 					aria-required="true"
 					autocomplete="current-password"
-					class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+					class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 			</div>
 
 			<div>
@@ -90,7 +91,7 @@
 						id="remember"
 						value="1"
 						checked="$remember"
-						class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+						class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
 					<span class="label ml-2 text-sm text-gray-600">
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
@@ -110,7 +111,7 @@
 			{/if}
 
 			<div class="buttons space-x-2">
-				<button class="rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" type="submit">
+				<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
 					{translate key="user.login"}
 				</button>
 

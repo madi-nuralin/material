@@ -22,8 +22,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        display: ['Lexend', ...defaultTheme.fontFamily.sans],
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        //display: ['Lexend', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '8xl': '88rem',

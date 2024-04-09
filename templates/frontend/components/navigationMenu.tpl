@@ -11,6 +11,7 @@
  * @uses ulClass string Class name(s) to assign the outer <ul>
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 
 {if $navigationMenu}
 	{if $id == "navigationPrimary"}
@@ -28,7 +29,7 @@
 							{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 								{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 									<li class="{$liClass|escape} relative">
-										<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-sky-500 before:bg-sky-500">
+										<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$baseColour2}-500 before:bg-{$baseColour2}-500">
 											{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 										</a>
 									</li>
@@ -66,11 +67,11 @@
 				</svg>
 			</button>
 			<div x-show="open">
-				<div class="fixed inset-0 z-50" id="headlessui-dialog-:Rmdla:" role="dialog" aria-modal="true" data-headlessui-state="open">
-					<div class="fixed inset-0 bg-slate-900/50 backdrop-blur">
+				<div class="h-screen fixed inset-0 z-50" id="headlessui-dialog-:Rmdla:" role="dialog" aria-modal="true" data-headlessui-state="open">
+					<div class="h-screen fixed inset-0 bg-slate-900/50 backdrop-blur">
 					</div>
-					<div class="fixed inset-0 overflow-y-auto px-4 py-4 sm:px-6 sm:py-20 md:py-32 lg:px-8 lg:py-[15vh]">
-						<div class="mx-auto transform-gpu overflow-hidden rounded-xl bg-white shadow-xl sm:max-w-xl dark:bg-slate-800 dark:ring-1 dark:ring-slate-700 rounded-lg p-4">
+					<div class="h-screen fixed inset-0 overflow-y-auto px-4 py-4 sm:px-6 sm:py-20 md:py-32 lg:px-8 lg:py-[15vh]">
+						<div class="mx-auto transform-gpu overflow-hidden rounded-xl bg-white shadow-xl sm:max-w-xl dark:bg-slate-800 dark:ring-1 dark:ring-slate-700 rounded-lg p-4 text-slate-500">
 							<div class="flex justify-end pb-4">
 								<button type="button"
 									class="relative"

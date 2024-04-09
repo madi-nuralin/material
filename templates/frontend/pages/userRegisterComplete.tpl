@@ -7,7 +7,7 @@
  * @brief A landing page displayed to users upon successful registration
  *}
 {include file="frontend/components/header.tpl"}
-
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 <div class="page page_register_complete">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey=$pageTitle}
 	<h1>

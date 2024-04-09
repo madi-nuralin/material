@@ -50,51 +50,36 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			'default' => false,
 		]);
 
-		$this->addOption('baseColour', 'FieldColor', [
-            'label' => __('plugins.themes.material.option.colour.label'),
-            'description' => __('plugins.themes.material.option.colour.description'),
-            'default' => '#1E6292',
+		// Add usage stats display options
+        $this->addOption('baseColour2', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => 'Base colour',
+            'options' => [
+                [
+                    'value' => 'green',
+                    'label' => 'Green',
+                ],
+                [
+                    'value' => 'indigo',
+                    'label' => 'Indigo',
+                ],
+                [
+                    'value' => 'blue',
+                    'label' => 'Blue',
+                ],
+                [
+                    'value' => 'sky',
+                    'label' => 'Sky',
+                ],
+            ],
+            'default' => 'sky',
         ]);
-
-		/*$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
-			'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.label'),
-			'description' => __('plugins.themes.material.option.useHomepageImageAsHeader.description'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.option')
-				],
-			],
-			'default' => false,
-		]);*/
 
 		$request = Application::get()->getRequest();
 		$templateManager = TemplateManager::getManager($request); // ->assign('', obj);
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/dist/output.css');
-
-		// Store additional LESS variables to process based on options
-		$additionalLessVariables = array();
-		if ($this->getOption('issueArchiveColumns') > 0) {
-			$additionalLessVariables[] = '@issue-archive-columns:' . $this->getOption('issueArchiveColumns') . ';';
-		}
-
-		// Update colour based on theme option
-        if ($this->getOption('baseColour') !== '#1E6292') {
-            $additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
-            if (!$this->isColourDark($this->getOption('baseColour'))) {
-                $additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
-                $additionalLessVariables[] = '@bg-base-border-color:rgba(0,0,0,0.2);';
-            }
-        }
-
-		// Pass additional LESS variables based on options
-		if (!empty($additionalLessVariables)) {
-			$this->modifyStyle(
-				'stylesheet', array('addLessVariables' => join("\n", $additionalLessVariables))
-			);
-		}
 
 		// Load alpinejs for this theme
 		$this->addScript('alpinejs', 'js/alpinejs@3.x.x/dist/cdn.min.js');

@@ -9,9 +9,9 @@
  * @uses $primaryLocale string The primary locale for this journal/press
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
-
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 <div>
-	{include file="frontend/components/local/logo.tpl"}
+	{include file="frontend/components/local/logo.tpl" small=false}
 </div>
 
 <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_register">
@@ -45,7 +45,7 @@
 					<div class="fields">
 						<div class="optin optin-privacy">
 							<label class="label ml-2 text-sm text-gray-600">
-								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
 								{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
@@ -56,7 +56,7 @@
 				<div class="fields">
 					<div class="optin optin-email">
 						<label class="label ml-2 text-sm text-gray-600">
-							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
 							{translate key="user.register.form.emailConsent"}
 						</label>
 					</div>
@@ -87,7 +87,7 @@
 								{if $userGroup->getPermitSelfRegistration()}
 									<label class="label ml-2 text-sm text-gray-600">
 										{assign var="userGroupId" value=$userGroup->getId()}
-										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if} class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
 										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
 									</label>
 								{/if}
@@ -98,7 +98,7 @@
 								<span class="label block font-medium text-sm text-gray-700 dark:text-gray-400">
 									{translate key="user.interests"}
 								</span>
-								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}" class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 							</label>
 						</div>
 					</div>
@@ -159,7 +159,7 @@
 		{/if}
 
 		<div class="buttons space-x-2">
-			<button class="rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" type="submit">
+			<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
 				{translate key="user.register"}
 			</button>
 

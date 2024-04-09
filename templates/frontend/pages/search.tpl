@@ -16,6 +16,7 @@
  * @uses $yearStart Earliest year that can be used in from/to filters
  * @uses $yearEnd Latest year that can be used in from/to filters
  *}
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
 {if !$heading}
@@ -48,7 +49,7 @@
 					id="query"
 					name="query"
 					value="{$query|escape}"
-					class="query border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full"
+					class="query border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full"
 					placeholder="{translate|escape key="common.search"}">
 			{/block}
 		</div>
@@ -84,7 +85,7 @@
 					{translate key="search.author"}
 				</label>
 				{block name=searchAuthors}
-					<input type="text" id="authors" name="authors" value="{$authors|escape}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+					<input type="text" id="authors" name="authors" value="{$authors|escape}" class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
 				{/block}
 
 				{if $searchableContexts}
@@ -105,7 +106,7 @@
 		</fieldset>
 
 		<div class="submit">
-			<button class="submit rounded-full bg-sky-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-sky-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300/50 active:bg-sky-500" type="submit">{translate key="common.search"}</button>
+			<button class="submit rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">{translate key="common.search"}</button>
 		</div>
 	</form>
 

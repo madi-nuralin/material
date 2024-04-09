@@ -14,7 +14,7 @@
 		</svg>
 	</button>
 
-	<div class="fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur xl:hidden"
+	<div class="h-screen fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur xl:hidden"
 		aria-label="Navigation"
 		id="headlessui-dialog-:R35la:"
 		role="dialog"

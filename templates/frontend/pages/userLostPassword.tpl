@@ -8,7 +8,7 @@
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
-
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 <div class="row d-flex justify-content-center align-items-center">
 	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
 
@@ -40,11 +40,11 @@
 							</span>
 						</label>
 						<div class="col-12">
-							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="form-control border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-1/2">
+							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full w-1/2">
 						</div>
 					</div>
 					<div class="d-flex flex-column align-items-center justify-content-center">
-						<button class="btn btn-primary btn-lg col-12 mb-4" type="submit">
+						<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
 							{translate key="user.login.resetPassword"}
 						</button>
 

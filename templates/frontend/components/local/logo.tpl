@@ -12,6 +12,6 @@
 	</a>
 {else}
 	<a aria-label="Home page" href="/">
-		{include file="frontend/components/ui/logo.tpl"}
+		{include file="frontend/components/ui/logo.tpl" small=$small}
 	</a>
 {/if}

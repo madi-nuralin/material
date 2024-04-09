@@ -1,15 +1,4 @@
-<svg class="h-9 w-9" 
-	viewBox="0 0 48 48"
-	id="b"
-	xmlns="http://www.w3.org/2000/svg">
-	<defs>
-{literal}
-		<style>
-			.g{fill:none;stroke:#38BDFF;stroke-linecap:round;stroke-linejoin:round;}
-		</style>
-{/literal}
-	</defs>
-	<path id="c" class="g" d="m14.8333,6.1421l9.2911,6.5382,8.9469-6.5382,9.4287,6.4693-18.3757,13.0763L5.5,12.6115l9.3333-6.4693Z"/><path id="d" class="g" d="m24.1243,25.6878v16.1701L5.5,29.3266V12.6115"/>
-	<path id="e" class="g" d="m42.5,12.6115v16.7151l-18.3757,12.5312"/>
-	<path id="f" class="g" d="m33.3122,35.5922v-16.4426l-9.1878-6.4693-9.3122,6.4693v16.4426"/>
-</svg>
+{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
+
+<svg class="{if $small===true}w-8 h-8{else}w-12 h-12{/if} text-{$baseColour2}-300" fill="currentColor" stroke-width="2" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+	<path d="M3.34 0h17.32C22.49 0 24 1.51 24 3.34v17.32c0 1.83-1.51 3.34-3.34 3.34H3.34C1.51 24 0 22.49 0 20.66V3.34A3.331 3.331 0 0 1 .976.978 3.341 3.341 0 0 1 3.34 0zM23 11c-1.444 2.883-3.548 5.621-7.078 5.64-4.44 0-13.995-10.235-14.922-.127v3.946c-.001.674.263 1.32.735 1.797A2.5 2.5 0 0 0 3.514 23h16.972a2.5 2.5 0 0 0 1.78-.744A2.547 2.547 0 0 0 23 20.46zM3.53 1C2.158 1 1.018 2.145 1 3.522V13c1.46-2.862 3.563-5.67 7.072-5.67 4.472 0 14.144 10.463 14.928-.017V3.522A2.514 2.514 0 0 0 20.488 1z"/></svg>
