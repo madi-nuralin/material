@@ -24,16 +24,16 @@
       value="{$value|default:""|escape}"
     {/if}
     {if isset($maxlength)}
-		  maxlength="{$maxlength|escape}"
+      maxlength="{$maxlength|escape}"
     {/if}
     {if isset($required)}
-		  required
+      required
     {/if}
     {if isset($ariaRequired)}
-		  aria-required="{$ariaRequired}"
+      aria-required="{$ariaRequired}"
     {/if}
     {if isset($autocomplete)}
-		  autocomplete="{$autocomplete}"
+      autocomplete="{$autocomplete}"
     {/if}
     {if isset($placeholder)}
       placeholder="{$placeholder|escape}">
