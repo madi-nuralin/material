@@ -35,6 +35,7 @@
       autocomplete="{$autocomplete}"
     {/if}
     {if isset($placeholder)}
-      placeholder="{$placeholder|escape}">
+      placeholder="{$placeholder|escape}"
     {/if}
+  />
 {/function}
