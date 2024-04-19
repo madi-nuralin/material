@@ -7,10 +7,35 @@
  * Smarty function to generate a custom input component
  * Usage: {material_input name="inputName" placeholder="Enter text..."}
  *}
+{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
+
 {function material_input id name class type placeholder}
-  <input class="{$class} shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-    id="{$id}"
-    name="{$name}"
-    type="{$type}"
-    placeholder="{$placeholder}">
+  <input class="{$class} border-gray-300 focus:border-{$materialBaseColour}-300 focus:ring focus:ring-{$materialBaseColour}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white"
+    {if isset($id)}
+      id="{$id}"
+    {/if}
+    {if isset($name)}
+      name="{$name}"
+    {/if}
+    {if isset($type)}
+      type="{$type}"
+    {/if}
+    {if isset($value)}
+      value="{$value|default:""|escape}"
+    {/if}
+    {if isset($maxlength)}
+		  maxlength="{$maxlength|escape}"
+    {/if}
+    {if isset($required)}
+		  required
+    {/if}
+    {if isset($ariaRequired)}
+		  aria-required="{$ariaRequired}"
+    {/if}
+    {if isset($autocomplete)}
+		  autocomplete="{$autocomplete}"
+    {/if}
+    {if isset($placeholder)}
+      placeholder="{$placeholder|escape}">
+    {/if}
 {/function}
