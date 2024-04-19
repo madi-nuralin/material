@@ -7,9 +7,8 @@
  * Smarty function to generate a custom input component
  * Usage: {material_input name="inputName" placeholder="Enter text..."}
  *}
-{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
-
 {function material_input id name class type value maxlength required ariaRequired autocomplete placeholder}
+  {assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
   <input class="{$class} border-gray-300 focus:border-{$materialBaseColour}-300 focus:ring focus:ring-{$materialBaseColour}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white"
     {if isset($id)}
       id="{$id}"
