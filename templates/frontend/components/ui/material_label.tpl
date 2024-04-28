@@ -1,4 +1,4 @@
- * @file /templates/frontend/components/ui/materialLabel.tpl
+{* @file /templates/frontend/components/ui/material_label.tpl
  *
  * Copyright (c) 2024 Madi Nuralin
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.

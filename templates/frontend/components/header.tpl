@@ -61,7 +61,7 @@
 				</div>
 			{/if}
 			{*include file="frontend/components/ui/localeSelector.tpl"*}
-			{include file="frontend/components/ui/themeSelector.tpl"}
+			{include file="frontend/components/ui/material_theme_selector.tpl"}
 			{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 		</div>
 	</header>
