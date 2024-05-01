@@ -1492,6 +1492,10 @@ input:focus {
   margin-left: 0.5rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .mr-6 {
   margin-right: 1.5rem;
 }
@@ -1815,10 +1819,6 @@ input:focus {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.rounded {
-  border-radius: 0.25rem;
 }
 
 .rounded-2xl {

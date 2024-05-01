@@ -9,7 +9,6 @@
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login"}
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 
 <div>
 	{include file="frontend/components/local/logo.tpl" small=false}
@@ -46,36 +45,38 @@
 
 		<fieldset class="space-y-4">
 			<div class="username">
-				<label class="block font-medium text-sm text-gray-700 dark:text-gray-400">
+				{material_label for="username"}
 					{translate key="user.usernameOrEmail"}
 					<span class="required" aria-hidden="true">*</span>
-				</label>
-				<input type="text"
+				{/material_label}
+
+				{material_input type="text"
 					name="username"
 					id="username"
-					value="{$username|default:""|escape}"
+					value="{$username|default:''|escape}"
 					maxlength="32"
-					required
+					required="true"
 					aria-required="true"
 					autocomplete="username"
-					class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+					class="mt-1 block w-full"}
 			</div>
 
 			<div class="password">
-				<label class="block font-medium text-sm text-gray-700 dark:text-gray-400">
+				{material_label for="password"}
 					{translate key="user.password"}
 					<span class="required" aria-hidden="true">*</span>
-				</label>
-				<input type="password"
+				{/material_label}
+
+				{material_input type="password"
 					name="password"
 					id="password"
-					value="{$password|default:""|escape}"
+					value="{$password|default:''|escape}"
 					password="true"
 					maxlength="32"
-					required
+					required="true"
 					aria-required="true"
 					autocomplete="current-password"
-					class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
+					class="mt-1 block w-full"}
 			</div>
 
 			<div>
@@ -86,12 +87,10 @@
 
 			<div class="remember checkbox">
 				<label class="flex items-center">
-					<input type="checkbox"
-						name="remember"
+					{material_checkbox name="remember"
 						id="remember"
 						value="1"
-						checked="$remember"
-						class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
+						checked="$remember"}
 					<span class="label ml-2 text-sm text-gray-600">
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
@@ -111,9 +110,9 @@
 			{/if}
 
 			<div class="buttons space-x-2">
-				<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
+				{material_button_primary type="submit"}
 					{translate key="user.login"}
-				</button>
+				{/material_button_primary}
 
 				{if !$disableUserReg}
 					{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
