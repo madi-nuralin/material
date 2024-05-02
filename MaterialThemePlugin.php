@@ -138,77 +138,190 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	}
 
 	public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {
-		$class = "rounded-full bg-{$this->getOption('baseColour2')}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$this->getOption('baseColour2')}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$this->getOption('baseColour2')}-300/50 active:bg-{$this->getOption('baseColour2')}-500";
+		$default = "";
+		$default .= " rounded-full";
+		$default .= " bg-{$this->getOption('baseColour2')}-300";
+		$default .= " py-2";
+		$default .= " px-4";
+		$default .= " text-sm";
+		$default .= " font-semibold";
+		$default .= " text-slate-900";
+		$default .= " hover:bg-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:outline-none";
+		$default .= " focus-visible:outline-2";
+		$default .= " focus-visible:outline-offset-2";
+		$default .= " focus-visible:outline-{$this->getOption('baseColour2')}-300/50";
+		$default .= " active:bg-{$this->getOption('baseColour2')}-500";
 
-		$id = isset($params['id']) ? "id=\"{$params['id']}\"" : '';
-		$type = isset($params['type']) ? "type=\"{$params['type']}\"" : '';
-		$class = isset($params['class']) ? "class=\"$class {$params['class']}\"" : "class=\"$class\"";
+		$attributes = array();
+		array_push($attributes, 'id');
+		array_push($attributes, 'name');
+		array_push($attributes, 'type');
+
+		$sa = '';
+		foreach ($attributes as $attribute) {
+			if (isset($params[$attribute])) {
+				$sa .= ' ';
+				$sa .= "$attribute=\"{$params[$attribute]}\"";
+			}
+		}
+
+		$sa .= isset($params['class'])
+			? " class=\"$default {$params['class']}\""
+			: " class=\"$default\"";
 
 		if (!$repeat) {
 			return "$content</button>";
 		} else {
-			return "<button $class $id $type>";
+			return "<button $sa>";
 		}
 	}
 
 	public function smartyMaterialLabel($params, $content, $smarty, &$repeat) {
-		$class = 'leading-none font-medium text-sm text-gray-700 dark:text-gray-400';
-		$for = isset($params['for']) ? "for=\"{$params['for']}\"" : '';
-		$class = isset($params['class']) ? "class=\"$class {$params['class']}\"" : "class=\"$class\"";
+		$default = "";
+		$default .= " leading-none";
+		$default .= " font-medium";
+		$default .= " text-sm";
+		$default .= " text-gray-700";
+		$default .= " dark:text-gray-400";
+
+		$attributes = array();
+		array_push($attributes, 'id');
+		array_push($attributes, 'name');
+		array_push($attributes, 'for');
+
+		$sa = '';
+		foreach ($attributes as $attribute) {
+			if (isset($params[$attribute])) {
+				$sa .= ' ';
+				$sa .= "$attribute=\"{$params[$attribute]}\"";
+			}
+		}
+
+		$sa .= isset($params['class'])
+			? " class=\"$default {$params['class']}\""
+			: " class=\"$default\"";
 
 		if (!$repeat) {
 			return "$content</label>";
 		} else {
-			return "<label $class $for>";
+			return "<label $sa>";
 		}
 	}
 
 	public function smartyMaterialSelect($params, $content, $smarty, &$repeat) {
-		$id = isset($params['id']) ? "id=\"{$params['id']}\"" : '';
-		$type = isset($params['type']) ? "type=\"{$params['type']}\"" : '';
-		$name = isset($params['name']) ? "name=\"{$params['name']}\"" : '';
-		$value = isset($params['value']) ? "value=\"{$params['value']}\"" : '';
-		$required = isset($params['required']) ? "required=\"{$params['required']}\"" : '';
-		$maxlength = isset($params['maxlength']) ? "maxlength=\"{$params['maxlength']}\"" : '';
-		$autocomplete = isset($params['autocomplete']) ? "autocomplete=\"{$params['autocomplete']}\"" : '';
-		$ariaRequired = isset($params['aria-required']) ? "aria-required=\"{$params['aria-required']}\"" : '';
-		$class = "border-gray-300 focus:border-{$this->getOption('baseColour2')}-300 focus:ring focus:ring-{$this->getOption('baseColour2')}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white";
-		$class = isset($params['class']) ? "class=\"$class {$params['class']}\"" : "class=\"$class\"";
+		$default = "";
+		$default .= " border-gray-300";
+		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:ring";
+		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-opacity-50";
+		$default .= " rounded-md";
+		$default .= " shadow-sm";
+		$default .= " dark:bg-gray-800";
+		$default .= " dark:border-gray-500";
+		$default .= " dark:text-white";
+
+		$attributes = array();
+		array_push($attributes, 'id');
+		array_push($attributes, 'type');
+		array_push($attributes, 'name');
+		array_push($attributes, 'checked');
+		array_push($attributes, 'required');
+		array_push($attributes, 'maxlength');
+		array_push($attributes, 'autocomplete');
+		array_push($attributes, 'aria-required');
+
+		$sa = '';
+		foreach ($attributes as $attribute) {
+			if (isset($params[$attribute])) {
+				$sa .= ' ';
+				$sa .= "$attribute=\"{$params[$attribute]}\"";
+			}
+		}
+
+		$sa .= isset($params['class'])
+			? " class=\"$default {$params['class']}\""
+			: " class=\"$default\"";
 
 		if (!$repeat) {
 			return "$content</select>";
 		} else {
-			return "<select $class $type $name $id $maxlength $required $autocomplete $ariaRequired>";
+			return "<select $sa>";
 		}
 	}
 
 	public function smartyMaterialInput($params, $smarty) {
-		$id = isset($params['id']) ? "id=\"{$params['id']}\"" : '';
-		$type = isset($params['type']) ? "type=\"{$params['type']}\"" : '';
-		$name = isset($params['name']) ? "name=\"{$params['name']}\"" : '';
-		$value = isset($params['value']) ? "value=\"{$params['value']}\"" : '';
-		$checked = isset($params['checked']) ? "checked=\"{$params['checked']}\"" : '';
-		$required = isset($params['required']) ? "required=\"{$params['required']}\"" : '';
-		$maxlength = isset($params['maxlength']) ? "maxlength=\"{$params['maxlength']}\"" : '';
-		$autocomplete = isset($params['autocomplete']) ? "autocomplete=\"{$params['autocomplete']}\"" : '';
-		$ariaRequired = isset($params['aria-required']) ? "aria-required=\"{$params['aria-required']}\"" : '';
-		$class = "border-gray-300 focus:border-{$this->getOption('baseColour2')}-300 focus:ring focus:ring-{$this->getOption('baseColour2')}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white";
-		$class = isset($params['class']) ? "class=\"$class {$params['class']}\"" : "class=\"$class\"";
+		$default = "";
+		$default .= " border-gray-300";
+		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:ring";
+		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-opacity-50";
+		$default .= " rounded-md";
+		$default .= " shadow-sm";
+		$default .= " dark:bg-gray-800";
+		$default .= " dark:border-gray-500";
+		$default .= " dark:text-white";
 
-		return "<input $class $type $name $id $maxlength $required $autocomplete $ariaRequired $checked>";
+		$attributes = array();
+		array_push($attributes, 'id');
+		array_push($attributes, 'type');
+		array_push($attributes, 'name');
+		array_push($attributes, 'checked');
+		array_push($attributes, 'required');
+		array_push($attributes, 'maxlength');
+		array_push($attributes, 'autocomplete');
+		array_push($attributes, 'aria-required');
+
+		$sa = '';
+		foreach ($attributes as $attribute) {
+			if (isset($params[$attribute])) {
+				$sa .= ' ';
+				$sa .= "$attribute=\"{$params[$attribute]}\"";
+			}
+		}
+
+		$sa .= isset($params['class'])
+			? " class=\"$default {$params['class']}\""
+			: " class=\"$default\"";
+
+		return "<input $sa>";
 	}
 
 	public function smartyMaterialCheckbox($params, $smarty) {
-		$id = isset($params['id']) ? "id=\"{$params['id']}\"" : '';
-		$name = isset($params['name']) ? "name=\"{$params['name']}\"" : '';
-		$value = isset($params['value']) ? "value=\"{$params['value']}\"" : '';
-		$checked = isset($params['checked']) ? "checked=\"{$params['checked']}\"" : '';
-		$required = isset($params['required']) ? "required=\"{$params['required']}\"" : '';
+		$default = "";
+		$default .= " rounded-md";
+		$default .= " border-gray-300";
+		$default .= " text-{$this->getOption('baseColour2')}-600";
+		$default .= " shadow-sm";
+		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:ring";
+		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-opacity-50";
+		$default .= " dark:bg-gray-800";
 
-		$class = "rounded-md border-gray-300 text-{$this->getOption('baseColour2')}-600 shadow-sm focus:border-{$this->getOption('baseColour2')}-300 focus:ring focus:ring-{$this->getOption('baseColour2')}-200 focus:ring-opacity-50 dark:bg-gray-800";
-		$class = isset($params['class']) ? "class=\"$class {$params['class']}\"" : "class=\"$class\"";
+		$attributes = array();
+		array_push($attributes, 'id');
+		array_push($attributes, 'name');
+		array_push($attributes, 'value');
+		array_push($attributes, 'checked');
+		array_push($attributes, 'required');
 
-		return "<input $class type=\"checkbox\" $name $id $maxlength $required $autocomplete $ariaRequired $checked>";
+		$sa = '';
+
+		foreach ($attributes as $attribute) {
+			if (isset($params[$attribute])) {
+				$sa .= ' ';
+				$sa .= "$attribute=\"{$params[$attribute]}\"";
+			}
+		}
+
+		$sa .= isset($params['class'])
+			? " class=\"$default {$params['class']}\""
+			: " class=\"$default\"";
+
+		return "<input type=\"checkbox\" $sa>";
 	}
 }
 
