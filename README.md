@@ -10,7 +10,7 @@ A theme plugin for [PKP/OJS](https://pkp.sfu.ca/ojs/)
 
 
 ## Description
-This theme implements adaptive stylesheet for fronted templates which allows to fit any size of device screens.
+A custom theme for the OJS
 
 ## Installation
 This theme can be installed through the **Plugin Gallery** in Open Journal Systems. If it's not available in the plugin gallery, you may need to update Open Journal Systems to a compatible version.
