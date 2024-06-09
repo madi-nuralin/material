@@ -24,7 +24,7 @@
 		{translate key="common.requiredField"}
 	</p>
 
-	<form class="cmp_form register" id="register" method="post" action="{url op="register"}" role="form">
+	<form class="cmp_form register space-y-4" id="register" method="post" action="{url op="register"}" role="form">
 		{csrf}
 
 		{if $source}
@@ -38,7 +38,7 @@
 		{* When a user is registering with a specific journal *}
 		{if $currentContext}
 
-			<fieldset class="consent mt-4">
+			<fieldset class="consent">
 				{if $currentContext->getData('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
 					<legend class="pkp_screen_reader">{translate key="user.register.form.privacyConsentLabel"}</legend>
@@ -97,10 +97,10 @@
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
+					<legend>
+						{translate key="user.reviewerPrompt"}
+					</legend>
 					{if $userCanRegisterReviewer > 1}
-						<legend>
-							{translate key="user.reviewerPrompt"}
-						</legend>
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
 					{else}
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.optin{/capture}
@@ -188,7 +188,7 @@
 			{/if}
 
 			{* Ask the user to opt into public email notifications *}
-			<div class="fields">
+			<div class="fields mt-2">
 				<div class="optin optin-email">
 					{material_label class="flex"}
 						<span>
@@ -221,7 +221,7 @@
 			</fieldset>
 		{/if}
 
-		<div class="buttons mt-4 space-x-2">
+		<div class="buttons space-x-2">
 			{material_button_primary type="submit"}
 				{translate key="user.register"}
 			{/material_button_primary}

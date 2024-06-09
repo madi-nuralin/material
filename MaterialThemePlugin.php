@@ -51,7 +51,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		]);
 
 		// Add usage stats display options
-        $this->addOption('baseColour2', 'FieldOptions', [
+        $this->addOption('materialBaseColour', 'FieldOptions', [
             'type' => 'radio',
             'label' => 'Base colour',
             'options' => [
@@ -81,12 +81,24 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		$request = Application::get()->getRequest();
 		$templateManager = TemplateManager::getManager($request);
-		//$templateManager->assign('', obj);
+
+		$templateManager->unregisterPlugin('block', 'material_button_primary');
 		$templateManager->registerPlugin('block', 'material_button_primary', [$this, 'smartyMaterialButtonPrimary'], false);
+
+		$templateManager->unregisterPlugin('block', 'material_label');
 		$templateManager->registerPlugin('block', 'material_label', [$this, 'smartyMaterialLabel'], false);
+
+		$templateManager->unregisterPlugin('block', 'material_select');
 		$templateManager->registerPlugin('block', 'material_select', [$this, 'smartyMaterialSelect'], false);
+
+		$templateManager->unregisterPlugin('function', 'material_input');
 		$templateManager->registerPlugin('function', 'material_input', [$this, 'smartyMaterialInput']);
+
+		$templateManager->unregisterPlugin('function', 'material_checkbox');
 		$templateManager->registerPlugin('function', 'material_checkbox', [$this, 'smartyMaterialCheckbox']);
+
+		$templateManager->unregisterPlugin('function', 'material_select_date_a11y');
+		$templateManager->registerPlugin('function', 'material_select_date_a11y', [$this, 'smartyMaterialSelectDateA11y']);
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/dist/output.css');
@@ -140,18 +152,18 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {
 		$default = "";
 		$default .= " rounded-full";
-		$default .= " bg-{$this->getOption('baseColour2')}-300";
+		$default .= " bg-{$this->getOption('materialBaseColour')}-300";
 		$default .= " py-2";
 		$default .= " px-4";
 		$default .= " text-sm";
 		$default .= " font-semibold";
 		$default .= " text-slate-900";
-		$default .= " hover:bg-{$this->getOption('baseColour2')}-200";
+		$default .= " hover:bg-{$this->getOption('materialBaseColour')}-200";
 		$default .= " focus:outline-none";
 		$default .= " focus-visible:outline-2";
 		$default .= " focus-visible:outline-offset-2";
-		$default .= " focus-visible:outline-{$this->getOption('baseColour2')}-300/50";
-		$default .= " active:bg-{$this->getOption('baseColour2')}-500";
+		$default .= " focus-visible:outline-{$this->getOption('materialBaseColour')}-300/50";
+		$default .= " active:bg-{$this->getOption('materialBaseColour')}-500";
 
 		$attributes = array();
 		array_push($attributes, 'id');
@@ -212,9 +224,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	public function smartyMaterialSelect($params, $content, $smarty, &$repeat) {
 		$default = "";
 		$default .= " border-gray-300";
-		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
 		$default .= " focus:ring";
-		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
 		$default .= " focus:ring-opacity-50";
 		$default .= " rounded-md";
 		$default .= " shadow-sm";
@@ -254,9 +266,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	public function smartyMaterialInput($params, $smarty) {
 		$default = "";
 		$default .= " border-gray-300";
-		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
 		$default .= " focus:ring";
-		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
 		$default .= " focus:ring-opacity-50";
 		$default .= " rounded-md";
 		$default .= " shadow-sm";
@@ -273,6 +285,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		array_push($attributes, 'maxlength');
 		array_push($attributes, 'autocomplete');
 		array_push($attributes, 'aria-required');
+		array_push($attributes, 'placeholder');
 
 		$sa = '';
 		foreach ($attributes as $attribute) {
@@ -293,11 +306,11 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		$default = "";
 		$default .= " rounded-md";
 		$default .= " border-gray-300";
-		$default .= " text-{$this->getOption('baseColour2')}-600";
+		$default .= " text-{$this->getOption('materialBaseColour')}-600";
 		$default .= " shadow-sm";
-		$default .= " focus:border-{$this->getOption('baseColour2')}-300";
+		$default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
 		$default .= " focus:ring";
-		$default .= " focus:ring-{$this->getOption('baseColour2')}-200";
+		$default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
 		$default .= " focus:ring-opacity-50";
 		$default .= " dark:bg-gray-800";
 
@@ -323,6 +336,91 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
 		return "<input type=\"checkbox\" $sa>";
 	}
+
+	public function smartyMaterialSelectDateA11y($params, $smarty)
+    {
+    	$default = "";
+		$default .= " border-gray-300";
+		$default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
+		$default .= " focus:ring";
+		$default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
+		$default .= " focus:ring-opacity-50";
+		$default .= " rounded-md";
+		$default .= " shadow-sm";
+		$default .= " dark:bg-gray-800";
+		$default .= " dark:border-gray-500";
+		$default .= " dark:text-white";
+
+        if (!isset($params['prefix'], $params['legend'], $params['start_year'], $params['end_year'])) {
+            throw new Exception('You must provide a prefix, legend, start_year and end_year when using html_select_date_a11y.');
+        }
+        $prefix = $params['prefix'];
+        $legend = $params['legend'];
+        $time = $params['time'] ?? '';
+        $startYear = $params['start_year'];
+        $endYear = $params['end_year'];
+        $yearEmpty = $params['year_empty'] ?? '';
+        $monthEmpty = $params['month_empty'] ?? '';
+        $dayEmpty = $params['day_empty'] ?? '';
+        $yearLabel = $params['year_label'] ?? __('common.year');
+        $monthLabel = $params['month_label'] ?? __('common.month');
+        $dayLabel = $params['day_label'] ?? __('common.day');
+
+        $years = [];
+        $i = $startYear;
+        while ($i <= $endYear) {
+            $years[$i] = $i;
+            $i++;
+        }
+
+        $months = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $months[$i] = date('M', strtotime('2020-' . $i . '-01'));
+        }
+
+        $days = [];
+        for ($i = 1; $i <= 31; $i++) {
+            $days[$i] = $i;
+        }
+
+        $currentYear = $currentMonth = $currentDay = '';
+        if ($time) {
+            $currentYear = (int) substr($time, 0, 4);
+            $currentMonth = (int) substr($time, 5, 2);
+            $currentDay = (int) substr($time, 8, 2);
+        }
+
+        $output = '<fieldset><legend>' . $legend . '</legend>';
+        $output .= '<div class="space-x-2">';
+        //$output .= '<label for="' . $prefix . 'Year">' . $yearLabel . '</label>';
+        $output .= '<select id="' . $prefix . 'Year" name="' . $prefix . 'Year" class="' . $default . '">';
+        $output .= '<option>' . $yearEmpty . '</option>';
+        foreach ($years as $value => $label) {
+            $selected = $currentYear === $value ? ' selected' : '';
+            $output .= '<option value="' . $value . '"' . $selected . '>' . $label . '</option>';
+        }
+        $output .= '</select>';
+        //$output .= '<label for="' . $prefix . 'Month">' . $monthLabel . '</label>';
+        $output .= '<select id="' . $prefix . 'Month" name="' . $prefix . 'Month" class="' . $default . '">';
+        $output .= '<option>' . $monthEmpty . '</option>';
+        foreach ($months as $value => $label) {
+            $selected = $currentMonth === $value ? ' selected' : '';
+            $output .= '<option value="' . $value . '"' . $selected . '>' . $label . '</option>';
+        }
+        $output .= '</select>';
+        //$output .= '<label for="' . $prefix . 'Day">' . $dayLabel . '</label>';
+        $output .= '<select id="' . $prefix . 'Day" name="' . $prefix . 'Day" class="' . $default . '">';
+        $output .= '<option>' . $dayEmpty . '</option>';
+        foreach ($days as $value => $label) {
+            $selected = $currentDay === $value ? ' selected' : '';
+            $output .= '<option value="' . $value . '"' . $selected . '>' . $label . '</option>';
+        }
+        $output .= '</select>';
+        $output .= '</div>';
+        $output .= '</fieldset>';
+
+        return $output;
+    }
 }
 
 if (!PKP_STRICT_MODE) {
