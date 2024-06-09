@@ -1,3 +1,10 @@
+{* @file /templates/frontend/components/ui/material_icon_system.tpl
+ *
+ * Copyright (c) 2024 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Svg system icon
+ *}
 <svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-slate-400">
   <path
     fillRule="evenodd"

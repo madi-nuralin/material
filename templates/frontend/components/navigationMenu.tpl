@@ -11,7 +11,7 @@
  * @uses ulClass string Class name(s) to assign the outer <ul>
  * @uses liClass string Class name(s) to assign all <li> elements
  *}
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
+{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 {if $navigationMenu}
 	{if $id == "navigationPrimary"}
@@ -29,7 +29,7 @@
 							{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 								{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 									<li class="{$liClass|escape} relative">
-										<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$baseColour2}-500 before:bg-{$baseColour2}-500">
+										<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$materialBaseColour}-500 before:bg-{$materialBaseColour}-500">
 											{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 										</a>
 									</li>

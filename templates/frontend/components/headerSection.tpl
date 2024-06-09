@@ -1,4 +1,4 @@
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
+{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 <div class="
    hidden
@@ -82,7 +82,7 @@
                 </div>
               {/if}
               <div class="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <a class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button">
+                <a class="rounded-full bg-{$materialBaseColour}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$materialBaseColour}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$materialBaseColour}-300/50 active:bg-{$materialBaseColour}-500" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button">
                   {translate key="plugins.themes.material.makeSubmission"}
                 </a>
                 <a class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">

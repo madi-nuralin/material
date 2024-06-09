@@ -10,7 +10,6 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.register"}
 
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
 <div>
 	{include file="frontend/components/local/logo.tpl" small=false}
 </div>
@@ -25,7 +24,7 @@
 		{translate key="common.requiredField"}
 	</p>
 
-	<form class="cmp_form register space-y-2" id="register" method="post" action="{url op="register"}" role="form">
+	<form class="cmp_form register space-y-4" id="register" method="post" action="{url op="register"}" role="form">
 		{csrf}
 
 		{if $source}
@@ -45,21 +44,45 @@
 					<legend class="pkp_screen_reader">{translate key="user.register.form.privacyConsentLabel"}</legend>
 					<div class="fields">
 						<div class="optin optin-privacy">
-							<label class="label ml-2 text-sm text-gray-600">
-								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
-								{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
-								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
-							</label>
+							{material_label class="flex"}
+								<span>
+									{if $privacyConsent}
+										{material_checkbox name="privacyConsent"
+											value="1"
+											checked="checked"}
+									{else}
+										{material_checkbox name="privacyConsent"
+											value="1"}
+									{/if}
+								</span>
+								<span class="ml-2">
+									{capture assign="privacyUrl"}
+										{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}
+									{/capture}
+									{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+								</span>
+							{/material_label}
 						</div>
 					</div>
 				{/if}
 				{* Ask the user to opt into public email notifications *}
 				<div class="fields">
 					<div class="optin optin-email">
-						<label class="label ml-2 text-sm text-gray-600">
-							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
-							{translate key="user.register.form.emailConsent"}
-						</label>
+						{material_label class="flex"}
+							<span>
+								{if $emailConsent}
+									{material_checkbox name="emailConsent"
+										value="1"
+										checked="checked"}
+								{else}
+									{material_checkbox name="emailConsent"
+										value="1"}
+								{/if}
+							</span>
+							<span class="ml-2">
+								{translate key="user.register.form.emailConsent"}
+							</span>
+						{/material_label}
 					</div>
 				</div>
 			</fieldset>
@@ -74,10 +97,10 @@
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
+					<legend>
+						{translate key="user.reviewerPrompt"}
+					</legend>
 					{if $userCanRegisterReviewer > 1}
-						<legend>
-							{translate key="user.reviewerPrompt"}
-						</legend>
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
 					{else}
 						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.optin{/capture}
@@ -86,21 +109,36 @@
 						<div id="reviewerOptinGroup" class="optin">
 							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 								{if $userGroup->getPermitSelfRegistration()}
-									<label class="label ml-2 text-sm text-gray-600">
+									{material_label class="flex"}
 										{assign var="userGroupId" value=$userGroup->getId()}
-										<input type="checkbox" name="reviewerGroup[{$userGroupId}]" value="1"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if} class="rounded border-gray-300 text-{$baseColour2}-600 shadow-sm focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50">
-										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
-									</label>
+										<span>
+											{if in_array($userGroupId, $userGroupIds)} 
+												{material_checkbox
+													name="reviewerGroup[{$userGroupId}]"
+													value="1"
+													checked="checked"}
+											{else}
+												{material_checkbox
+													name="reviewerGroup[{$userGroupId}]"
+													value="1"}
+											{/if}
+										</span>
+										<span class="ml-2">
+											{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
+										</span>
+									{/material_label}
 								{/if}
 							{/foreach}
 						</div>
 						<div id="reviewerInterests" class="reviewer_interests">
-							<label>
-								<span class="label block font-medium text-sm text-gray-700 dark:text-gray-400">
-									{translate key="user.interests"}
-								</span>
-								<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}" class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full">
-							</label>
+							{material_label for="interests"}
+								{translate key="user.interests"}
+							{/material_label}
+							{material_input type="text"
+								name="interests"
+								id="interests"
+								value="{$interests|default:''|escape}"
+								class="mt-1 block w-full"}
 						</div>
 					</div>
 				</fieldset>
@@ -114,12 +152,14 @@
 		{if !$currentContext}
 			<div class="fields">
 				<div class="reviewer_nocontext_interests">
-					<label>
-						<span class="label">
-							{translate key="user.register.noContextReviewerInterests"}
-						</span>
-						<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
-					</label>
+					{material_label}
+						{translate key="user.register.noContextReviewerInterests"}
+					{/material_label}
+					{material_input type="text"
+						name="interests"
+						id="interests"
+						value="{$interests|default:''|escape}"
+						class="mt-1 block w-full"}
 				</div>
 			</div>
 
@@ -128,7 +168,18 @@
 				<div class="fields">
 					<div class="optin optin-privacy">
 						<label>
-							<input type="checkbox" name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[\PKP\core\PKPApplication::CONTEXT_ID_NONE]} checked="checked"{/if}>
+							{if $privacyConsent[\PKP\core\PKPApplication::CONTEXT_ID_NONE]} 
+								{material_checkbox
+									name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]"
+									id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]"
+									value="1"
+									checked="checked"}
+							{else}
+								{material_checkbox
+									name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]"
+									id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]"
+									value="1"}
+							{/if}
 							{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>
@@ -137,12 +188,23 @@
 			{/if}
 
 			{* Ask the user to opt into public email notifications *}
-			<div class="fields">
+			<div class="fields mt-2">
 				<div class="optin optin-email">
-					<label>
-						<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
-						{translate key="user.register.form.emailConsent"}
-					</label>
+					{material_label class="flex"}
+						<span>
+							{if $emailConsent} 
+								{material_checkbox name="emailConsent"
+									value="1"
+									checked="checked"}
+							{else}
+								{material_checkbox name="emailConsent"
+									value="1"}
+							{/if}
+						</span>
+						<span class="ml-2">
+							{translate key="user.register.form.emailConsent"}
+						</span>
+					{/material_label}
 				</div>
 			</div>
 		{/if}
@@ -160,9 +222,9 @@
 		{/if}
 
 		<div class="buttons space-x-2">
-			<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
+			{material_button_primary type="submit"}
 				{translate key="user.register"}
-			</button>
+			{/material_button_primary}
 
 			{capture assign="rolesProfileUrl"}{url page="user" op="profile" path="roles"}{/capture}
 			<a href="{url page="login" source=$rolesProfileUrl}" class="login">{translate key="user.login"}</a>

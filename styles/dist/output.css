@@ -1464,6 +1464,11 @@ input:focus {
   margin-right: auto;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .-mb-56 {
   margin-bottom: -14rem;
 }
@@ -1488,8 +1493,16 @@ input:focus {
   margin-bottom: 1rem;
 }
 
+.ml-0 {
+  margin-left: 0px;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
 }
 
 .mr-6 {
@@ -1598,10 +1611,6 @@ input:focus {
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-12 {
@@ -1791,10 +1800,6 @@ input:focus {
   margin-bottom: calc(2.25rem * var(--tw-space-y-reverse));
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1817,12 +1822,12 @@ input:focus {
   white-space: nowrap;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-2xl {
   border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-full {
@@ -1869,6 +1874,11 @@ input:focus {
 
 .bg-\[\#0A101F\]\/80 {
   background-color: rgb(10 16 31 / 0.8);
+}
+
+.bg-amber-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity));
 }
 
 .bg-blue-300 {
@@ -2017,6 +2027,10 @@ input:focus {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .p-px {
@@ -2816,6 +2830,10 @@ input:focus {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-slate-800\/60) {
+  background-color: rgb(30 41 59 / 0.6);
+}
+
 :is(.dark .dark\:bg-slate-900) {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -2862,6 +2880,10 @@ input:focus {
 
 :is(.dark .dark\:ring-inset) {
   --tw-ring-inset: inset;
+}
+
+:is(.dark .dark\:ring-slate-300\/10) {
+  --tw-ring-color: rgb(203 213 225 / 0.1);
 }
 
 :is(.dark .dark\:ring-slate-700) {

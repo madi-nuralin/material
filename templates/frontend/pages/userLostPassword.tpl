@@ -8,59 +8,58 @@
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
-<div class="row d-flex justify-content-center align-items-center">
-	<div class="col-lg-5 col-md-12 bg-white overflow-auto">
 
-		<div class="page page_lost_password p-4">
-			{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login.resetPassword"}
-			<h1>
-				{translate key="user.login.resetPassword"}
-			</h1>
-
-			<p>{translate key="user.login.resetPasswordInstructions"}</p>
-
-			<form class="_cmp_form _lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
-				{csrf}
-				{if $error}
-					<div class="pkp_form_error text-danger">
-						{translate key=$error}
-					</div>
-				{/if}
-
-				<div class="fields">
-					<div class="_email row mb-4 align-items-center">
-						<label for="email" class="col-12 form-check-label label">
-							<span class="label">
-								{translate key="user.login.registeredEmail"}
-								<span class="required" aria-hidden="true">*</span>
-								<span class="pkp_screen_reader">
-									{translate key="common.required"}
-								</span>
-							</span>
-						</label>
-						<div class="col-12">
-							<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" class="border-gray-300 focus:border-{$baseColour2}-300 focus:ring focus:ring-{$baseColour2}-200 focus:ring-opacity-50 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-500 dark:text-white mt-1 block w-full w-1/2">
-						</div>
-					</div>
-					<div class="d-flex flex-column align-items-center justify-content-center">
-						<button class="rounded-full bg-{$baseColour2}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$baseColour2}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$baseColour2}-300/50 active:bg-{$baseColour2}-500" type="submit">
-							{translate key="user.login.resetPassword"}
-						</button>
-
-						{if !$disableUserReg}
-							{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-							<a href="{$registerUrl}" class="login btn btn-lg btn-light text-dark col-12 mb-4">
-								{translate key="user.login.registerNewAccount"}
-							</a>
-						{/if}
-					</div>
-				</div>
-
-			</form>
-
-		</div><!-- .page -->
-	</div>
+<div>
+	{include file="frontend/components/local/logo.tpl" small=false}
 </div>
+
+<div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_login space-y-2">
+	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="user.login.resetPassword"}
+	<h1>
+		{translate key="user.login.resetPassword"}
+	</h1>
+
+	<p>{translate key="user.login.resetPasswordInstructions"}</p>
+
+	<form class="_cmp_form _lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+		{csrf}
+		{if $error}
+			<div class="pkp_form_error text-danger">
+				{translate key=$error}
+			</div>
+		{/if}
+
+		<div class="fields">
+			<div class="_email row mb-4 align-items-center">
+				{material_label for="email"}
+					{translate key="user.login.registeredEmail"}
+					<span class="required" aria-hidden="true">*</span>
+				{/material_label}
+
+				{material_input type="email"
+					name="email"
+					id="email"
+					value="{$email|escape}"
+					required="true"
+					aria-required="true"
+					class="mt-1 block w-full"}
+			</div>
+			<div class="buttons space-x-2">
+				{material_button_primary type="submit"}
+					{translate key="user.login.resetPassword"}
+				{/material_button_primary}
+
+				{if !$disableUserReg}
+					{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
+					<a href="{$registerUrl}" class="login btn btn-lg btn-light text-dark col-12 mb-4">
+						{translate key="user.login.registerNewAccount"}
+					</a>
+				{/if}
+			</div>
+		</div>
+
+	</form>
+
+</div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

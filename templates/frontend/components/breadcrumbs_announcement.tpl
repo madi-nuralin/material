@@ -10,7 +10,7 @@
  * @uses $currentTitle string The title to use for the current page.
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
-{assign var="baseColour2" value=$activeTheme->getOption('baseColour2')}
+{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 <nav class="cmp_breadcrumbs cmp_breadcrumbs_announcement" role="navigation">
 	<ol class="not-prose flex space-x-1 list-none truncate">
@@ -26,7 +26,7 @@
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
-		<li class="current text-{$baseColour2}-500">
+		<li class="current text-{$materialBaseColour}-500">
 			<span aria-current="page">{$currentTitle|escape}</span>
 		</li>
 	</ol>
