@@ -80,25 +80,24 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         ]);
 
 		$request = Application::get()->getRequest();
+
 		$templateManager = TemplateManager::getManager($request);
+		$templateManager->assign('jquery', $this->getJqueryPath($request));
+		$templateManager->assign('jqueryUI', $this->getJqueryUIPath($request));
 
-		$templateManager->unregisterPlugin('block', 'material_button_primary');
-		$templateManager->registerPlugin('block', 'material_button_primary', [$this, 'smartyMaterialButtonPrimary'], false);
+		$plugins = [
+			'material_button_primary' => ['block', 'smartyMaterialButtonPrimary'],
+			'material_label' => ['block', 'smartyMaterialLabel'],
+			'material_select' => ['block', 'smartyMaterialSelect'],
+			'material_input' => ['function', 'smartyMaterialInput'],
+			'material_checkbox' => ['function', 'smartyMaterialCheckbox'],
+			'material_select_date_a11y' => ['function', 'smartyMaterialSelectDateA11y']
+		];
 
-		$templateManager->unregisterPlugin('block', 'material_label');
-		$templateManager->registerPlugin('block', 'material_label', [$this, 'smartyMaterialLabel'], false);
-
-		$templateManager->unregisterPlugin('block', 'material_select');
-		$templateManager->registerPlugin('block', 'material_select', [$this, 'smartyMaterialSelect'], false);
-
-		$templateManager->unregisterPlugin('function', 'material_input');
-		$templateManager->registerPlugin('function', 'material_input', [$this, 'smartyMaterialInput']);
-
-		$templateManager->unregisterPlugin('function', 'material_checkbox');
-		$templateManager->registerPlugin('function', 'material_checkbox', [$this, 'smartyMaterialCheckbox']);
-
-		$templateManager->unregisterPlugin('function', 'material_select_date_a11y');
-		$templateManager->registerPlugin('function', 'material_select_date_a11y', [$this, 'smartyMaterialSelectDateA11y']);
+		foreach ($plugins as $key => $value) {
+			$templateManager->unregisterPlugin($value[0], $key);
+			$templateManager->registerPlugin($value[0], $key, [$this, $value[1]], false);
+		}
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/dist/output.css');
@@ -106,6 +105,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 		// Load alpinejs for this theme
 		$this->addScript('alpinejs', 'js/alpinejs@3.x.x/dist/cdn.min.js');
 		$this->addScript('mainjs', 'js/main.js');
+
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(['primary', 'user']);
 	}
@@ -147,6 +147,26 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 	 */
 	public function getDescription() {
 		return __('plugins.themes.material.description');
+	}
+
+	/**
+	 * Get the jquery path
+	 *
+	 * @return string
+	 */
+	public function getJqueryPath($request) {
+		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+		return $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+	}
+
+	/**
+	 * Get the jqueryUI path
+	 *
+	 * @return string
+	 */
+	public function getJqueryUIPath($request) {
+		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+		return $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
 	}
 
 	public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {

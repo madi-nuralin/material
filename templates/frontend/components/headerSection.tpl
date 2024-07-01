@@ -63,6 +63,7 @@
    text-blue-300
    text-sky-300
    text-orange-300
+   dark:bg-gray-800
    "></div>
 
 
