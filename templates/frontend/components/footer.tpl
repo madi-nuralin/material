@@ -38,10 +38,6 @@
     <div class="w-full flex justify-center items-center text-center">
       <div>
         <p class="copyright">&copy; Platform & Workflow by: <a href="{url page="about" op="aboutThisPublishingSystem"}" class="hover:text-slate-500"> Open Journal Systems</a></p>
-
-        <div class="credits">
-          Designed by <a href="https://github.com/madi-nuralin/material" class="hover:text-slate-500">Material Theme</a>
-        </div>
       </div>
     </div>
   </footer>
