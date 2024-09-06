@@ -22,6 +22,7 @@ Developer: *Madi Nuralin* ([@madi-nuralin](https://github.com/madi-nuralin))
 ## Version compatibility with OJS:
 
 *OJS 3.4.0:*
+* v3_0_2-0
 * v3_0_1-0
 * v3_0_0-0
 * v2_2_1-0
