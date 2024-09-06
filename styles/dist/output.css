@@ -2013,6 +2013,11 @@ input:focus {
   stroke: rgb(100 116 139 / 0.3);
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .p-4 {
   padding: 1rem;
 }
