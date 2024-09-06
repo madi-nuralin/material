@@ -49,6 +49,17 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			],
 			'default' => false,
 		]);
+		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
+            'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.label'),
+            'description' => __('plugins.themes.material.option.useHomepageImageAsHeader.description'),
+            'options' => [
+                [
+                    'value' => true,
+                    'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.option')
+                ],
+            ],
+            'default' => false,
+        ]);
 
 		// Add usage stats display options
         $this->addOption('materialBaseColour', 'FieldOptions', [
@@ -98,6 +109,19 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 			$templateManager->unregisterPlugin($value[0], $key);
 			$templateManager->registerPlugin($value[0], $key, [$this, $value[1]], false);
 		}
+
+		// Get homepage image and use as header background if useAsHeader is true
+        $context = Application::get()->getRequest()->getContext();
+        if ($context) {
+        	if ($this->getOption('useHomepageImageAsHeader')) {
+    			if ($homepageImage = $context->getLocalizedData('homepageImage')) {
+    				$publicFileManager = new PublicFileManager();
+		            $publicFilesDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
+		            $homepageImageUrl = $publicFilesDir . '/' . $homepageImage['uploadName'];
+		            $templateManager->assign('homepageImageUrl', $homepageImageUrl);
+    			}
+    		}	
+        }
 
 		// Load primary stylesheet
 		$this->addStyle('stylesheet', 'styles/dist/output.css');

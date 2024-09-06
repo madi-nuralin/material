@@ -67,18 +67,22 @@
    "></div>
 
 
-<div class="relative overflow-hidden bg-slate-200 dark:bg-slate-900 _dark:-mb-32 _dark:mt-[-4.75rem] _dark:pb-32 _dark:pt-[4.75rem]">
-   <img alt="" fetchpriority="high" decoding="async" data-nimg="1" class="absolute  -mb-56 -mr-72 opacity-50" style="color:transparent" src="https://tailwindui.com/build/assets/beams-components-24fbfee2.png">
+<div class="relative overflow-hidden {if isset($homepageImageUrl)}bg-slate-900{else}bg-slate-200{/if} dark:bg-slate-900 _dark:-mb-32 _dark:mt-[-4.75rem] _dark:pb-32 _dark:pt-[4.75rem]">
+   {if isset($homepageImageUrl)}
+      <img alt="" fetchpriority="high" decoding="async" data-nimg="1" class="absolute  -mb-56 -mr-72 opacity-50" style="color:transparent;width:100%;height:100%" src="{$homepageImageUrl}">
+   {else}   
+      <img alt="" fetchpriority="high" decoding="async" data-nimg="1" class="absolute  -mb-56 -mr-72 opacity-50" style="color:transparent" src="https://tailwindui.com/build/assets/beams-components-24fbfee2.png">
+   {/if}
    <div class="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
       <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
          <div class="relative z-10 md:text-center lg:text-left">
             <!--img alt="" fetchpriority="high" width="530" height="530" decoding="async" data-nimg="1" class="absolute bottom-full right-full -mb-56 -mr-72 opacity-50" style="color:transparent" src="https://tailwindui.com/img/beams-basic-transparent.png"-->
             <div class="relative">
-              <p class="inline font-extrabold text-gray-900 dark:text-white bg-clip-text font-display text-5xl tracking-tight">
+              <p class="inline font-extrabold {if isset($homepageImageUrl)}text-white{else}text-gray-900{/if} dark:text-white bg-clip-text font-display text-5xl tracking-tight">
                 {$displayPageHeaderTitle|escape}
               </p>
               {if $activeTheme->getOption('showDescriptionInJournalIndex')}
-                <div class="mt-3 text-2xl tracking-tight text-slate-400">
+                <div class="mt-3 text-2xl tracking-tight {if isset($homepageImageUrl)}text-slate-200{else}text-slate-400{/if}">
                   {$currentContext->getLocalizedData('description')}
                 </div>
               {/if}
