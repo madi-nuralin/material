@@ -110,17 +110,31 @@
 								{$author->getFullName()|escape}
 							</h4>
 							{if $author->getLocalizedData('affiliation')}
-								<div class="affiliation">
-									{$author->getLocalizedData('affiliation')|escape}
-									{if $author->getData('rorId')}
-										<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-									{/if}
+								<div class="affiliation flex space-x-1 items-center">
+									<svg xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24" class="w-4 h-4" 
+										fill="none" 
+										stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"/><path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"/></svg>
+									<div>
+										{$author->getLocalizedData('affiliation')|escape}
+										{if $author->getData('rorId')}
+											<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
+										{/if}
+									</div>
 								</div>
 							{/if}
 							{assign var=authorUserGroup value=$userGroupsById[$author->getData('userGroupId')]}
 							{if $authorUserGroup->getShowTitle()}
-								<div class="userGroup">
-									{$authorUserGroup->getLocalizedName()|escape}
+								<div class="flex space-x-1 items-center">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor" stroke-width="2"
+										stroke-linecap="round" stroke-linejoin="round">
+										<path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3"/><circle cx="12" cy="10" r="3"/><circle cx="12" cy="12" r="10"/></svg>
+									<div class="userGroup">
+										{$authorUserGroup->getLocalizedName()|escape}
+									</div>
 								</div>
 							{/if}
 							{if $author->getData('orcid')}
