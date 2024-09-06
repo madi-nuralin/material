@@ -53,7 +53,7 @@
 
 		{* Mobile version *}
 		<div {literal}x-data="{ open: false }"{/literal}>
-			<button class="flex h-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 px-3 text-sm dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300 md:hidden" {literal}x-on:click="open = true"{/literal}>
+			<button class="flex h-8 w-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 md:hidden" {literal}x-on:click="open = true"{/literal}>
 				<svg xmlns="http://www.w3.org/2000/svg"
 					class="h-4 w-4 text-slate-400"
 					viewBox="0 0 24 24"
@@ -66,7 +66,13 @@
 					<path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"/>
 				</svg>
 			</button>
-			<div x-show="open">
+			<div x-show="open"
+				x-transition:enter="transition-opacity ease-out duration-300"
+			    x-transition:enter-start="opacity-0"
+			    x-transition:enter-end="opacity-100"
+			    x-transition:leave="transition-opacity ease-in duration-200"
+			    x-transition:leave-start="opacity-100"
+			    x-transition:leave-end="opacity-0">
 				<div class="h-screen fixed inset-0 z-50" id="headlessui-dialog-:Rmdla:" role="dialog" aria-modal="true" data-headlessui-state="open">
 					<div class="h-screen fixed inset-0 bg-slate-900/50 backdrop-blur">
 					</div>

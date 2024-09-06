@@ -20,8 +20,14 @@
 		role="dialog"
 		aria-modal="true"
 		data-headlessui-state="open"
-		x-show="open">
-		<div class="min-h-full w-full max-w-xs bg-white px-4 pb-12 pt-5 sm:px-6 dark:bg-slate-900"
+		x-show="open"
+		x-transition:enter="transition-transform transition-opacity ease-out duration-300" 
+	    x-transition:enter-start="-translate-x-full opacity-0 blur-sm"
+	    x-transition:enter-end="translate-x-0 opacity-100 blur-none"
+	    x-transition:leave="transition-transform transition-opacity ease-in duration-300"
+	    x-transition:leave-start="translate-x-0 opacity-100 blur-none"
+	    x-transition:leave-end="-translate-x-full opacity-0 blur-sm">
+		<div class="min-h-full w-full max-w-xs bg-white px-4 pb-12 pt-5 sm:px-8 dark:bg-slate-900"
 			id="headlessui-dialog-panel-:r3:"
 			data-headlessui-state="open">
 			<div class="flex items-center">
@@ -34,10 +40,13 @@
 						fill="none"
 						stroke-width="2"
 						stroke-linecap="round"
-						class="h-6 w-6 stroke-slate-500">
+						class="h-6 w-6 stroke-slate-500 hover:stroke-slate-600">
 						<path d="M5 5l14 14M19 5l-14 14"></path>
 					</svg>
 				</button>
+				{*<div class="relative flex flex-grow basis-0 items-center ml-6">
+					{include file="frontend/components/local/logo.tpl" small=true}
+				</div>*}
 			</div>
 			<div>
 				<div class="mt-5 lg:hidden">
