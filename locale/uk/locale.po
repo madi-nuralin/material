@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T11:06:18+00:00\n"
+"PO-Revision-Date: 2020-03-03 10:21+0000\n"
+"Last-Translator: Ukrainian <example@example.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ojs/"
+"themes-material/ru/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "plugins.themes.material.name"
+msgstr "Оформлення теми Material"
+
+msgid "plugins.themes.material.description"
+msgstr "Реалізує тему оформлення Material."
+
+msgid "plugins.themes.material.option.typography.label"
+msgstr "Типографія"
+
+msgid "plugins.themes.material.option.typography.description"
+msgstr "Виберіть комбінацію шрифтів, що пасує для цього журналу."
+
+msgid "plugins.themes.material.option.typography.notoSans"
+msgstr "Noto Sans: екранний шрифт, створений Google для широкого спектру мов."
+
+msgid "plugins.themes.material.option.typography.notoSerif"
+msgstr "Noto Serif: антиква, варіант екранного шрифту від Google із засічками."
+
+msgid "plugins.themes.material.option.typography.notoSerif_notoSans"
+msgstr "Noto Serif/Noto Sans: пара, що доповнює один одного, із заголовками антиквою і основним текстом, набраним гротеском."
+
+msgid "plugins.themes.material.option.typography.notoSans_notoSerif"
+msgstr "Noto Sans/Noto Serif: пара, що доповнює один одного, із заголовками гротеском і основним текстом, набраним антиквою."
+
+msgid "plugins.themes.material.option.typography.lato"
+msgstr "Lato: найпопулярніший сучасний гротеск."
+
+msgid "plugins.themes.material.option.typography.lora"
+msgstr "Lora: широкая антиква, удобная для чтения с экрана."
+
+msgid "plugins.themes.material.option.typography.lora_openSans"
+msgstr "Lora/Open Sans: дополняющая друг друга пара с заголовками антиквой и основным текстом, набранным гротеском."
+
+msgid "plugins.themes.material.option.colour.label"
+msgstr "Колір"
+
+msgid "plugins.themes.material.option.colour.description"
+msgstr "Виберіть колір верхнього колонтитулу."
+
+msgid "plugins.themes.material.option.showDescriptionInJournalIndex.option"
+msgstr "Показати резюме журналу на головній сторінці."
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.label"
+msgstr "Фонове зображення верхнього колонтитулу"
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.description"
+msgstr ""
+"Після вивантаження зображення для головної сторінки показувати його як фон "
+"верхнього колонтитулу замість звичної позиції на головній сторінці."
+
+msgid "plugins.themes.material.option.useHomepageImageAsHeader.option"
+msgstr "Показувати зображення головної сторінки як тло верхнього колонтитула."
+
+msgid "plugins.themes.material.makeSubmission"
+msgstr "Надіслати статтю"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr "Вимкнути префікс заголовка статті"
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr "Вимкнути префікс заголовка статті."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr "Вимкнути префікс заголовка статті."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr "Вимкнути підзаголовок статті"
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr "Вимкнути підзаголовок статті."
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr "Вимкнути підзаголовок статті."
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.label"
+msgstr ""
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.description"
+msgstr ""
+
+msgid "plugins.themes.material.option.disablePrefixAndTitle.option"
+msgstr ""
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.label"
+msgstr ""
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.description"
+msgstr ""
+
+msgid "plugins.themes.material.option.disableArticleSubtitle.option"
+msgstr ""
+
+msgid "plugins.themes.material.option.issueArchiveColumns.label"
+msgstr ""
+
+msgid "plugins.themes.material.option.issueArchiveColumns.description"
+msgstr ""
