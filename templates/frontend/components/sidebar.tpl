@@ -1,3 +1,12 @@
+{**
+ * templates/frontend/components/sidebar.tpl
+ *
+ * Copyright (c) 2025 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Sidebars.
+ *}
+
 {* Sidebars *}
 {if empty($isFullWidth)}
   {capture assign="sidebarCode"}

@@ -56,7 +56,10 @@
 					{$primaryMenu}
 				</div>
 				<div class="mt-5">
-					{include file="frontend/components/local/sidebar.tpl"}
+					{include file="frontend/components/sidebar.tpl"}
+				</div>
+				<div class="mt-5">
+					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 				</div>
 			</div>
 		</div>

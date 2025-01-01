@@ -49,7 +49,7 @@
 		{include file="frontend/components/local/sideStack.tpl"}
 
 		<div class="relative flex flex-grow basis-0 items-center">
-			{include file="frontend/components/local/logo.tpl" small=true}
+			{include file="frontend/components/logo.tpl" small=true}
 		</div>
 		<div class="flex items-center space-x-2">
 			{* Search form *}
