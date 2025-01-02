@@ -1,3 +1,12 @@
+{**
+ * templates/frontend/components/logo.tpl
+ *
+ * Copyright (c) 2025 Madi Nuralin
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Common site frontend logo.
+ *}
+
 {if $displayPageHeaderLogo}
 	<a href="{url page="index" router=$smarty.const.ROUTE_PAGE}">
 		<img

@@ -10,7 +10,7 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
 <div>
-	{include file="frontend/components/local/logo.tpl" small=false}
+	{include file="frontend/components/logo.tpl" small=false}
 </div>
 
 <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg dark:bg-gray-700 page page_login space-y-2">

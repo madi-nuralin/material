@@ -19,7 +19,7 @@
       <nav aria-labelledby="on-this-page-title" class="w-56">
         <!--h2 id="on-this-page-title" class="font-display text-sm font-medium text-slate-900 dark:text-white">On this page</h2-->
 
-        {include file="frontend/components/local/sidebar.tpl"}
+        {include file="frontend/components/sidebar.tpl"}
       </nav>
     </div>
   {/if}
