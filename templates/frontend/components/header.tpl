@@ -46,7 +46,20 @@
 		{* Skip to content nav links *}
 		{*include file="frontend/components/skipLinks.tpl"*}
 
-		{include file="frontend/components/local/sideStack.tpl"}
+		{material_sidestack class="flex xl:hidden"}
+			<div class="mt-5 lg:hidden">
+				{capture assign="primaryMenu"}
+					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+				{/capture}
+				{$primaryMenu}
+			</div>
+			<div class="mt-5">
+				{include file="frontend/components/sidebar.tpl"}
+			</div>
+			<div class="mt-5 md:hidden">
+				{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+			</div>
+		{/material_sidestack}
 
 		<div class="relative flex flex-grow basis-0 items-center">
 			{include file="frontend/components/logo.tpl" small=true}
@@ -62,7 +75,7 @@
 			{/if}
 			{*include file="frontend/components/ui/localeSelector.tpl"*}
 			{include file="frontend/components/ui/material_theme_selector.tpl"}
-			{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+			{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user hidden md:flex" liClass="profile"}
 		</div>
 	</header>
 

@@ -1,7 +1,7 @@
 {**
 * templates/frontend/components/navigationMenuPrimary.tpl
 *
-* Copyright (c) 2025 Madi Nuralin
+* Copyright (c) 2025 Madi N.
 * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
 *
 * @brief Primary navigation menu list for OJS
@@ -12,30 +12,28 @@
 * @uses liClass string Class name(s) to assign all <li> elements
 *}
 
-{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
-
-<ul id="{$id|escape}" role="list" class="{$ulClass|escape} space-y-9">
+{material_menu id="{$id|escape}" class="{$ulClass|escape}"}
 	{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 		{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 			{continue}
 		{/if}
-		<li class="{$liClass|escape}">
-			<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="font-display font-medium text-slate-900 dark:text-white">
+		{material_menu_item class="{$liClass|escape}"}
+			{material_menu_link url="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"}
 				{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-			</a>
+			{/material_menu_link}
 			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
-				<ul role="list" class="mt-2 space-y-2 border-l-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200 dark:border-slate-800">
+				{material_submenu}
 					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-							<li class="{$liClass|escape} relative">
-								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$materialBaseColour}-500 before:bg-{$materialBaseColour}-500">
+							{material_submenu_item class="{$liClass|escape}"}
+								{material_submenu_link url="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}"}
 									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-								</a>
-							</li>
+								{/material_submenu_link}
+							{/material_submenu_item}
 						{/if}
 					{/foreach}
-				</ul>
+				{/material_submenu}
 			{/if}
-		</li>
+		{/material_menu_item}
 	{/foreach}
-</ul>
+{/material_menu}

@@ -105,6 +105,13 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             'material_dropdown_trigger' => ['block', 'smartyMaterialDropdownTrigger'],
             'material_dropdown_body' => ['block', 'smartyMaterialDropdownBody'],
             'material_dropdown_item' => ['block', 'smartyMaterialDropdownItem'],
+            'material_menu' => ['block', 'smartyMaterialMenu'],
+            'material_menu_item' => ['block', 'smartyMaterialMenuItem'],
+            'material_menu_link' => ['block', 'smartyMaterialMenuLink'],
+            'material_submenu' => ['block', 'smartyMaterialSubmenu'],
+            'material_submenu_item' => ['block', 'smartyMaterialSubmenuItem'],
+            'material_submenu_link' => ['block', 'smartyMaterialSubmenuLink'],
+            'material_sidestack' => ['block', 'smartyMaterialSidestack'],
             'material_input' => ['function', 'smartyMaterialInput'],
             'material_checkbox' => ['function', 'smartyMaterialCheckbox'],
             'material_select_date_a11y' => ['function', 'smartyMaterialSelectDateA11y']
@@ -379,6 +386,130 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             return <<<HTML
                 <li class="{$params['class']}">
                     <a href="{$params['url']}" class="text-gray-700 dark:text-gray-400 block px-4 py-2 text-sm">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialMenu($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</ul>";
+        } else {
+            return <<<HTML
+                <ul id="{$params['id']}" role="list" class="{$params['class']} space-y-9">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialMenuItem($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</li>";
+        } else {
+            return <<<HTML
+                <li class="{$params['class']}">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialMenuLink($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</a>";
+        } else {
+            return <<<HTML
+                <a href="{$params['url']}" class="font-display font-medium text-slate-900 dark:text-white">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialSubmenu($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</ul>";
+        } else {
+            return <<<HTML
+                <ul role="list" class="mt-2 space-y-2 border-l-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200 dark:border-slate-800">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialSubmenuItem($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</li>";
+        } else {
+            return <<<HTML
+                <li class="{$params['class']} relative">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialSubmenuLink($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return "$content</a>";
+        } else {
+            return <<<HTML
+                <a href="{$params['url']}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$this->getOption('materialBaseColour')}-500 before:bg-{$this->getOption('materialBaseColour')}-500">
+            HTML;
+        }
+    }
+
+    public function smartyMaterialSidestack($params, $content, $smarty, &$repeat) {
+        if (!$repeat) {
+            return <<<HTML
+                                $content
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none">             
+                    </div>
+                </div>
+            HTML;
+        } else {
+            return <<<HTML
+                <div class="mr-6 {$params['class']}" x-data="{ open: false }">
+                    <button type="button"
+                        class="relative"
+                        aria-label="Open navigation"
+                        x-on:click="open = !open" x-show="!open">
+                        <svg aria-hidden="true"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            class="h-6 w-6 stroke-slate-500" x-show="!open">
+                            <path d="M4 7h16M4 12h16M4 17h16"></path>
+                        </svg>
+                    </button>
+
+                    <div class="h-screen fixed inset-0 z-50 flex items-start overflow-y-auto bg-slate-900/50 pr-10 backdrop-blur xl:hidden"
+                        aria-label="Navigation"
+                        id="headlessui-dialog-:R35la:"
+                        role="dialog"
+                        aria-modal="true"
+                        data-headlessui-state="open"
+                        x-show="open"
+                        x-transition:enter="transition-transform transition-opacity ease-out duration-300" 
+                        x-transition:enter-start="-translate-x-full opacity-0 blur-sm"
+                        x-transition:enter-end="translate-x-0 opacity-100 blur-none"
+                        x-transition:leave="transition-transform transition-opacity ease-in duration-300"
+                        x-transition:leave-start="translate-x-0 opacity-100 blur-none"
+                        x-transition:leave-end="-translate-x-full opacity-0 blur-sm">
+                        <div class="min-h-full w-full max-w-xs bg-white px-4 pb-12 pt-5 sm:px-8 dark:bg-slate-900"
+                            id="headlessui-dialog-panel-:r3:"
+                            data-headlessui-state="open">
+                            <div class="flex items-center">
+                                <button type="button"
+                                    class="relative"
+                                    aria-label="Open navigation"
+                                    x-on:click="open = !open" x-show="open">
+                                    <svg aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        class="h-6 w-6 stroke-slate-500 hover:stroke-slate-600">
+                                        <path d="M5 5l14 14M19 5l-14 14"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="pt-5" id="headlessui-dialog-panel-:r4:">
             HTML;
         }
     }
