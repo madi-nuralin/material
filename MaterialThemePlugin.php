@@ -135,6 +135,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             }   
         }
 
+        $templateManager->assign('gradientImageUrl',
+            $request->getBaseUrl() . '/plugins/themes/material/resources/gradient-noise-purple.png');
+
         // Load primary stylesheet
         $this->addStyle('stylesheet', 'styles/dist/output.css');
 
@@ -371,7 +374,13 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             return "$content</ul></div>";
         } else {
             return <<<HTML
-                <div @mouseover="open = true" @mouseleave="open = false" x-show="open" x-transition
+                <div @mouseover="open = true" @mouseleave="open = false" x-show="open"
+                    x-transition:enter="transition ease-out duration-300" 
+                    x-transition:enter-start="opacity-0 transform -translate-y-2" 
+                    x-transition:enter-end="opacity-100 transform translate-y-0" 
+                    x-transition:leave="transition ease-in duration-200" 
+                    x-transition:leave-start="opacity-100 transform translate-y-0" 
+                    x-transition:leave-end="opacity-0 transform -translate-y-2"
                     class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg
                         ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-slate-800">
                     <ul class="py-1" role="list">
@@ -445,7 +454,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             return "$content</a>";
         } else {
             return <<<HTML
-                <a href="{$params['url']}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-{$this->getOption('materialBaseColour')}-500 before:bg-{$this->getOption('materialBaseColour')}-500">
+                <a href="{$params['url']}" class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300">
             HTML;
         }
     }

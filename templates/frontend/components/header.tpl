@@ -21,7 +21,7 @@
 <html lang="{$currentLocale|replace:"_":"-"}"
 	xml:lang="{$currentLocale|replace:"_":"-"}"
 	{literal}
-  		x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system') }" 
+  		x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'light') }" 
   		x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" 
   		x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
   	{/literal}>
@@ -47,17 +47,19 @@
 		{*include file="frontend/components/skipLinks.tpl"*}
 
 		{material_sidestack class="flex xl:hidden"}
-			<div class="mt-5 lg:hidden">
-				{capture assign="primaryMenu"}
-					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
-				{/capture}
-				{$primaryMenu}
-			</div>
-			<div class="mt-5">
-				{include file="frontend/components/sidebar.tpl"}
-			</div>
-			<div class="mt-5 md:hidden">
-				{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+			<div class="space-y-9">
+				<div class="mt-5 lg:hidden">
+					{capture assign="primaryMenu"}
+						{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+					{/capture}
+					{$primaryMenu}
+				</div>
+				<div class="xl:hidden">
+					{include file="frontend/components/sidebar.tpl"}
+				</div>
+				<div class="md:hidden">
+					{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+				</div>
 			</div>
 		{/material_sidestack}
 

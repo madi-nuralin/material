@@ -18,7 +18,7 @@
 
 @layer base {
 	@font-face {
-		font-family: Nunito;
-		src: url('../../fonts/Nunito/Nunito-VariableFont_wght.ttf');
+		font-family: Monaco;
+		src: url('../../fonts/Monaco FB/Monaco.otf');
 	}
 }
