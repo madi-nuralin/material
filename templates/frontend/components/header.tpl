@@ -71,7 +71,7 @@
 			{if $currentContext && $requestedPage !== 'search'}
 				<div class="pkp_navigation_search_wrapper">
 					<a href="{url page="search"}" class="flex h-8 w-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
-						{include file="frontend/components/ui/searchIcon.tpl"}
+						{include file="frontend/components/ui/material_icon_search.tpl"}
 					</a>
 				</div>
 			{/if}

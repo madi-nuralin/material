@@ -51,7 +51,7 @@
 
 				{if !$disableUserReg}
 					{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-					<a href="{$registerUrl}" class="login btn btn-lg btn-light text-dark col-12 mb-4">
+					<a href="{$registerUrl}" class="login inline-block rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400">
 						{translate key="user.login.registerNewAccount"}
 					</a>
 				{/if}

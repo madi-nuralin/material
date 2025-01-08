@@ -91,7 +91,7 @@
 						id="remember"
 						value="1"
 						checked="$remember"}
-					<span class="label ml-2 text-sm text-gray-600">
+					<span class="label ml-2 text-sm text-gray-600 dark:text-gray-400">
 						{translate key="user.login.rememberUsernameAndPassword"}
 					</span>
 				</label>
@@ -116,7 +116,7 @@
 
 				{if !$disableUserReg}
 					{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
-					<a href="{$registerUrl}" class="register">
+					<a href="{$registerUrl}" class="register inline-block rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400">
 						{translate key="user.login.registerNewAccount"}
 					</a>
 				{/if}

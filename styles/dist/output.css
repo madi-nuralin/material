@@ -2055,9 +2055,9 @@ input:focus {
   letter-spacing: -0.025em;
 }
 
-.text-blue-300 {
+.text-blue-400 {
   --tw-text-opacity: 1;
-  color: rgb(147 197 253 / var(--tw-text-opacity));
+  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -2085,9 +2085,9 @@ input:focus {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.text-green-300 {
+.text-green-400 {
   --tw-text-opacity: 1;
-  color: rgb(134 239 172 / var(--tw-text-opacity));
+  color: rgb(74 222 128 / var(--tw-text-opacity));
 }
 
 .text-green-500 {
@@ -2100,9 +2100,9 @@ input:focus {
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 
-.text-indigo-300 {
+.text-indigo-400 {
   --tw-text-opacity: 1;
-  color: rgb(165 180 252 / var(--tw-text-opacity));
+  color: rgb(129 140 248 / var(--tw-text-opacity));
 }
 
 .text-indigo-500 {
@@ -2115,9 +2115,9 @@ input:focus {
   color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 
-.text-orange-300 {
+.text-orange-400 {
   --tw-text-opacity: 1;
-  color: rgb(253 186 116 / var(--tw-text-opacity));
+  color: rgb(251 146 60 / var(--tw-text-opacity));
 }
 
 .text-orange-500 {
@@ -2135,9 +2135,9 @@ input:focus {
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
-.text-sky-300 {
+.text-sky-400 {
   --tw-text-opacity: 1;
-  color: rgb(125 211 252 / var(--tw-text-opacity));
+  color: rgb(56 189 248 / var(--tw-text-opacity));
 }
 
 .text-sky-500 {
@@ -2784,6 +2784,11 @@ input:focus {
 :is(.dark .dark\:hover\:text-slate-300:hover) {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:hover\:text-slate-400:hover) {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:prose-a\:text-blue-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {

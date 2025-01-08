@@ -6,7 +6,7 @@ A theme plugin for [PKP/OJS](https://pkp.sfu.ca/ojs/)
 <a href="https://github.com/madi-nuralin/material/issues?q=is%3Aopen+is%3Aissue" target="_blank">![GitHub issues open](https://img.shields.io/github/issues/madi-nuralin/material.svg)</a>
 <a href="https://github.com/madi-nuralin/material/issues?q=is%3Aissue+is%3Aclosed" target="_blank">![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/madi-nuralin/material.svg)</a>
 
-![Снимок экрана 2024-04-09 170703](https://github.com/madi-nuralin/material/assets/77335604/589baa7a-91d1-49e6-a880-de2343e070bc)
+![Снимок экрана 2025-01-07 014353](https://github.com/user-attachments/assets/bec10f44-548f-4034-85dc-84d430e62d22)
 
 
 ## Description
@@ -22,6 +22,7 @@ Developer: *Madi Nuralin* ([@madi-nuralin](https://github.com/madi-nuralin))
 ## Version compatibility with OJS:
 
 *OJS 3.4.0:*
+* v3_0_3-0
 * v3_0_2-0
 * v3_0_1-0
 * v3_0_0-0

@@ -12,8 +12,10 @@
 	{/material_menu_link}
 
 	{material_submenu}
-		{material_submenu_item url="https://pkp.sfu.ca/ojs/"}
-			{translate key="common.software"}
+		{material_submenu_item}
+			{material_submenu_link url="https://pkp.sfu.ca/ojs/"}
+				{translate key="common.software"}
+			{/material_submenu_link}
 		{/material_submenu_item}
 	{/material_submenu}
 {/material_menu_item}
