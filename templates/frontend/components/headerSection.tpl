@@ -65,12 +65,18 @@
  *  text-blue-400
  *  text-sky-400
  *  text-orange-400
+ *  fill-green-400
+ *  fill-sky-400
+ *  fill-indigo-400
+ *  fill-blue-400
+ *  fill-sky-400
+ *  fill-orange-400
  *  dark:bg-gray-800
  *}
 
 {assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
-<div class="relative overflow-hidden {if isset($homepageImageUrl)}bg-slate-900{else}bg-slate-200{/if} dark:bg-slate-900 _dark:-mb-32 _dark:mt-[-4.75rem] _dark:pb-32 _dark:pt-[4.75rem]">
+<div class="relative overflow-hidden {if isset($homepageImageUrl)}bg-slate-900{else}bg-slate-900{/if} dark:bg-slate-900 _dark:-mb-32 _dark:mt-[-4.75rem] _dark:pb-32 _dark:pt-[4.75rem]">
    {if isset($homepageImageUrl)}
       <img alt="" fetchpriority="high" decoding="async" data-nimg="1" class="absolute  -mb-56 -mr-72 opacity-50" style="color:transparent;width:100%;height:100%" src="{$homepageImageUrl}">
    {else}   
@@ -81,11 +87,11 @@
          <div class="relative z-10 md:text-center lg:text-left">
             <!--img alt=""-->
             <div class="relative">
-              <p class="inline font-extrabold {if isset($homepageImageUrl)}text-white{else}text-gray-900{/if} dark:text-white bg-clip-text font-display text-5xl tracking-tight">
+              <p class="inline font-extrabold {if isset($homepageImageUrl)}text-white{else}text-white{/if} dark:text-white bg-clip-text font-display text-5xl tracking-tight">
                 {$displayPageHeaderTitle|escape}
               </p>
               {if $activeTheme->getOption('showDescriptionInJournalIndex')}
-                <div class="mt-3 text-2xl tracking-tight {if isset($homepageImageUrl)}text-slate-200{else}text-slate-400{/if}">
+                <div class="mt-3 text-2xl tracking-tight {if isset($homepageImageUrl)}text-slate-200{else}text-slate-400 line-clamp-3{/if}">
                   {$currentContext->getLocalizedData('description')}
                 </div>
               {/if}
@@ -101,14 +107,14 @@
          </div>
          {if !isset($homepageImageUrl)}
             <div class="relative lg:static xl:pl-10">
-               <div class="relative">
+               <!--div class="relative">
                   <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg"></div>
                   <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10"></div>
                   <div class="relative rounded-2xl bg-[#0A101F]/80 ring-1 ring-white/10 backdrop-blur">
                      <div class="absolute -top-px left-20 right-11 h-px bg-gradient-to-r from-sky-300/0 via-sky-300/70 to-sky-300/0"></div>
                      <div class="absolute -bottom-px left-11 right-20 h-px bg-gradient-to-r from-blue-400/0 via-blue-400 to-blue-400/0"></div>
                   </div>
-               </div>
+               </div-->
             </div>
          {/if}
       </div>

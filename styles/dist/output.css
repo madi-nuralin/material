@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Monaco, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Comic Sans MS, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -629,10 +629,15 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-@font-face {
-  font-family: Monaco;
+/*@font-face {
+		font-family: Monaco;
+		src: url('../../fonts/Monaco FB/Monaco.otf');
+	}*/
 
-  src: url('../../fonts/Monaco FB/Monaco.otf');
+@font-face {
+  font-family: Comic Sans MS;
+
+  src: url('../../fonts/Comic Sans MS/Comic Sans MS.ttf');
 }
 
 *, ::before, ::after {
@@ -1483,6 +1488,13 @@ input:focus {
   margin-top: 2rem;
 }
 
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .block {
   display: block;
 }
@@ -1651,6 +1663,10 @@ input:focus {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.resize {
+  resize: both;
+}
+
 .list-none {
   list-style-type: none;
 }
@@ -1770,6 +1786,10 @@ input:focus {
   border-radius: 0.375rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1820,11 +1840,6 @@ input:focus {
 .bg-sky-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .bg-slate-50 {
@@ -1912,6 +1927,26 @@ input:focus {
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
+}
+
+.fill-blue-400 {
+  fill: #60a5fa;
+}
+
+.fill-green-400 {
+  fill: #4ade80;
+}
+
+.fill-indigo-400 {
+  fill: #818cf8;
+}
+
+.fill-orange-400 {
+  fill: #fb923c;
+}
+
+.fill-sky-400 {
+  fill: #38bdf8;
 }
 
 .fill-slate-400 {
@@ -2078,11 +2113,6 @@ input:focus {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
-.text-gray-900 {
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .text-green-400 {
@@ -2305,6 +2335,13 @@ input:focus {
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 :is(.dark .dark\:prose-invert) {

@@ -18,7 +18,7 @@
 
 @layer base {
 	@font-face {
-		font-family: Monaco;
-		src: url('../../fonts/Monaco FB/Monaco.otf');
+		font-family: Comic Sans MS;
+		src: url('../../fonts/Comic Sans MS/Comic Sans MS.ttf');
 	}
 }

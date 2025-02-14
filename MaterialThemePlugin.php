@@ -362,7 +362,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         } else {
             return <<<HTML
                 <a @mouseover="open = true" @mouseleave="open = false" href="{$params['url']}"
-                    class="flex h-8 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1
+                    class="flex h-8 items-center text-slate-500 justify-center rounded-xl shadow-md shadow-black/5 ring-1
                         ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 px-3 text-sm
                         dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300">
             HTML;

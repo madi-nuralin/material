@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Monaco', ...defaultTheme.fontFamily.sans],
+        sans: ['Comic Sans MS', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '8xl': '88rem',
@@ -31,6 +31,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('@tailwindcss/forms')
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp')
   ],
 }
