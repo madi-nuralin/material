@@ -15,7 +15,7 @@
 {assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 <nav class="text-slate-500" role="navigation">
-	<ol class="not-prose flex space-x-1 list-none">
+	<ol class="not-prose flex space-x-1 list-none overflow-none">
 		<li>
 			<a class="hover:text-slate-700 dark:hover:text-slate-400" href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
@@ -24,7 +24,7 @@
 				{translate key="navigation.breadcrumbSeparator"}
 			</span>
 		</li>
-		<li class="current text-{$materialBaseColour}-500">
+		<li class="current text-{$materialBaseColour}-500 truncate">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}

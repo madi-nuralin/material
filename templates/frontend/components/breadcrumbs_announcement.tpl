@@ -13,7 +13,7 @@
 {assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 <nav class="cmp_breadcrumbs cmp_breadcrumbs_announcement text-slate-500" role="navigation">
-	<ol class="not-prose flex space-x-1 list-none truncate">
+	<ol class="not-prose flex space-x-1 list-none overflow-none">
 		<li class="flex space-x-1">
 			<a class="hover:text-slate-700 dark:hover:text-slate-400" href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
@@ -26,7 +26,7 @@
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
-		<li class="current text-{$materialBaseColour}-500">
+		<li class="current text-{$materialBaseColour}-500 truncate">
 			<span aria-current="page">{$currentTitle|escape}</span>
 		</li>
 	</ol>

@@ -352,7 +352,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         if (!$repeat) {
             return "$content</div>";
         } else {
-            return "<div x-data=\"{ open: false }\" class=\"relative inline-block text-left\">";
+            return "<div x-data=\"{ open: false }\" class=\"relative text-left\">";
         }
     }
 
