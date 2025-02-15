@@ -18,14 +18,14 @@
 
 <nav class="cmp_breadcrumbs cmp_breadcrumbs_catalog text-slate-500" role="navigation">
 	<ol class="not-prose flex space-x-1 list-none overflow-none">
-		<li class="flex space-x-1">
+		<li class="flex space-x-1 truncate">
 			<a class="hover:text-slate-700 dark:hover:text-slate-400" href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		{if $parent}
-			<li class="flex space-x-1">
+			<li class="flex space-x-1 truncate">
 				<a class="hover:text-slate-700" href="{url op=$type path=$parent->getPath()}">
 					{$parent->getLocalizedTitle()|escape}
 				</a>

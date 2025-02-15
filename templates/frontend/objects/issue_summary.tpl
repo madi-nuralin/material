@@ -23,7 +23,7 @@
     {else}
         <div class="aspect-square w-full rounded-md border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 lg:aspect-auto lg:h-80 flex flex-col justify-center items-center text-center">
             <div class="flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="sm:w-16 sm:h-16 w-24 h-24 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="" fill="none"/>
                     <path d="M8 12h8M12 8v8" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

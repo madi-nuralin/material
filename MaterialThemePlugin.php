@@ -503,7 +503,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
                         <div class="min-h-full w-full max-w-xs bg-white px-4 pb-12 pt-5 sm:px-8 dark:bg-slate-900"
                             id="headlessui-dialog-panel-:r3:"
                             data-headlessui-state="open">
-                            <div class="flex items-center">
+                            <div class="flex items-center flex h-8 w-8 items-center justify-center border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5">
                                 <button type="button"
                                     class="relative"
                                     aria-label="Open navigation"
