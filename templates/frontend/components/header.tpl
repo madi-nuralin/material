@@ -99,7 +99,7 @@
 			</div>
 			<div class="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block">
 			</div>
-			<div class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16">
+			<div class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
 				<nav class="text-base lg:text-sm">
 					{* Primary navigation menu for current application *}
 					{$primaryMenu}

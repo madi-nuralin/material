@@ -15,7 +15,7 @@
 	</main><!-- _pkp_structure_main -->
 
   {if $requestedPage !== 'login' && $requestedPage !== 'user'}
-    <div class="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none overflow-y-auto overflow-x-hidden xl:py-16 xl:pr-6">
+    <div class="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none overflow-y-auto overflow-x-hidden xl:py-16 xl:pr-6 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
       <nav aria-labelledby="on-this-page-title" class="w-56">
         <!--h2 id="on-this-page-title" class="font-display text-sm font-medium text-slate-900 dark:text-white">On this page</h2-->
 
