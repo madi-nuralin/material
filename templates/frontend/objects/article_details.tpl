@@ -310,6 +310,12 @@
 						{foreach from=$primaryGalleys item=galley}
 							<li>
 								{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication galley=$galley purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
+								{* Display download count if available *}
+								{if isset($galleyStats[$galley->getId()])}
+									<span class="text-sm text-gray-500 dark:text-gray-400 ml-2">
+										({translate key="usageStats.downloads"}: {$galleyStats[$galley->getId()]|escape})
+									</span>
+								{/if}
 							</li>
 						{/foreach}
 					</ul>
@@ -324,6 +330,12 @@
 						{foreach from=$supplementaryGalleys item=galley}
 							<li>
 								{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication galley=$galley isSupplementary="1"}
+								{* Display download count if available *}
+								{if isset($galleyStats[$galley->getId()])}
+									<span class="text-sm text-gray-500 dark:text-gray-400 ml-2">
+										({translate key="usageStats.downloads"}: {$galleyStats[$galley->getId()]|escape})
+									</span>
+								{/if}
 							</li>
 						{/foreach}
 					</ul>
@@ -477,5 +489,31 @@
 
 		</div><!-- .entry_details -->
 	</div><!-- .row -->
+
+	{* Full text galleys *}
+	{if $galleys}
+		<div class="item galleys">
+			<h2 class="label">
+				{translate key="article.fullText"}
+			</h2>
+			<ul class="value galleys_links">
+				{foreach from=$galleys item=galley}
+					<li>
+						{include file="frontend/objects/galley_link.tpl" parent=$article purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+						{* Display download count if available *}
+						{if isset($galleyStats[$galley->getId()])}
+							<span class="text-sm text-gray-500 dark:text-gray-400 ml-2">
+								({translate key="usageStats.downloads"}: {$galleyStats[$galley->getId()]|escape})
+							</span>
+						{/if}
+					</li>
+				{/foreach}
+			</ul>
+			{* Article Purchase *}
+			{if $currentJournal->getSetting('purchaseArticleFee') && !$isUserLoggedIn && !$article->isTemporaryAccessible($currentJournal)}
+				{include file="frontend/components/purchaseArticle.tpl"}
+			{/if}
+		</div>
+	{/if}
 
 </article>
