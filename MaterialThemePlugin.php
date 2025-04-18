@@ -18,6 +18,20 @@ use APP\file\PublicFileManager;
 use PKP\config\Config;
 use PKP\session\SessionManager;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPAppearanceForm;
+use PKP\core\HookRegistry;
+use PKP\core\PKPApplication;
+use PKP\facades\Locale;
+use PKP\plugins\Hook;
+use PKP\statistics\PKPUsageStatsService;
+use PKP\cache\CacheManager;
+use PKP\plugins\PluginRegistry;
+use PKP\db\DAORegistry;
+use PKP\core\PKPTemplateManager;
+use PKP\log\PKPLog;
+use PKP\core\Core;
+use APP\template\TemplateManager as AppTemplateManager;
+use Exception;
 
 class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 {
@@ -64,30 +78,71 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         // Add usage stats display options
         $this->addOption('materialBaseColour', 'FieldOptions', [
             'type' => 'radio',
-            'label' => 'Base colour',
+            'label' => __('plugins.themes.material.option.colour.label'),
+            'description' => __('plugins.themes.material.option.colour.description'),
             'options' => [
                 [
                     'value' => 'green',
-                    'label' => 'Green',
-                ],
-                [
-                    'value' => 'indigo',
-                    'label' => 'Indigo',
+                    'label' => __('plugins.themes.material.option.colour.green'),
                 ],
                 [
                     'value' => 'blue',
-                    'label' => 'Blue',
+                    'label' => __('plugins.themes.material.option.colour.blue'),
                 ],
                 [
                     'value' => 'sky',
-                    'label' => 'Sky',
+                    'label' => __('plugins.themes.material.option.colour.sky'),
+                ],
+                [
+                    'value' => 'indigo',
+                    'label' => __('plugins.themes.material.option.colour.indigo'),
                 ],
                 [
                     'value' => 'orange',
-                    'label' => 'Orange',
+                    'label' => __('plugins.themes.material.option.colour.orange'),
                 ],
             ],
             'default' => 'sky',
+        ]);
+
+        // Add font selection option
+        $this->addOption('materialFontFamily', 'FieldOptions', [
+            'type' => 'select',
+            'label' => __('plugins.themes.material.option.font.label'),
+            'description' => __('plugins.themes.material.option.font.description'),
+            'options' => [
+                [
+                    'value' => 'System Default',
+                    'label' => __('plugins.themes.material.option.font.systemDefault'),
+                ],
+                // --- Local Fonts ---
+                [
+                    'value' => 'Comic Sans MS', // Matches directory name in /fonts/
+                    'label' => 'Comic Sans MS (Local)', // Indicate it's local
+                ],
+                [
+                    'value' => 'Monaco FB', // Matches directory name in /fonts/
+                    'label' => 'Monaco FB (Local)', // Indicate it's local
+                ],
+                // --- Google Fonts ---
+                [
+                    'value' => 'Roboto', // Google Font example
+                    'label' => 'Roboto (Google)',
+                ],
+                [
+                    'value' => 'Lato', // Google Font example
+                    'label' => 'Lato (Google)',
+                ],
+                [
+                    'value' => 'Open Sans', // Google Font example
+                    'label' => 'Open Sans (Google)',
+                ],
+                [
+                    'value' => 'Source Sans Pro', // Google Font example
+                    'label' => 'Source Sans Pro (Google)',
+                ],
+            ],
+            'default' => 'System Default',
         ]);
 
         $request = Application::get()->getRequest();
@@ -147,6 +202,16 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
         // Add navigation menu areas for this theme
         $this->addMenuArea(['primary', 'user']);
+
+        // Add hooks
+        Hook::add('TemplateManager::display', [$this, 'addSiteWideData']);
+        Hook::add('Form::config::before', [$this, 'addAppearanceFormFields']);
+
+        // Hook for adding font styles
+        Hook::add('Templates::Common::Header::Includes', [$this, '_addFontStyles']);
+
+        // Hook for adding galley stats
+        Hook::add('ArticleHandler::view::articleData', [$this, '_addGalleyStats']);
     }
 
     /**
@@ -612,7 +677,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         $default .= " dark:text-white";
 
         if (!isset($params['prefix'], $params['legend'], $params['start_year'], $params['end_year'])) {
-            throw new Exception('You must provide a prefix, legend, start_year and end_year when using html_select_date_a11y.');
+            throw new \Exception('You must provide a prefix, legend, start_year and end_year when using html_select_date_a11y.');
         }
         $prefix = $params['prefix'];
         $legend = $params['legend'];
@@ -680,6 +745,195 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         $output .= '</fieldset>';
 
         return $output;
+    }
+
+    /**
+     * Add font styles to the header
+     *
+     * @param string $hookName
+     * @param array $params
+     * @return bool
+     */
+    public function _addFontStyles($hookName, $params)
+    {
+        $templateMgr = $params[0];
+        $selectedFont = $this->getOption('materialFontFamily');
+        $fontStyles = ''; // Initialize CSS string
+
+        if ($selectedFont && $selectedFont !== 'System Default') {
+
+            // Define Google Fonts and their URL parameters
+            $googleFonts = [
+                'Roboto' => 'Roboto:wght@400;700',
+                'Lato' => 'Lato:wght@400;700',
+                'Open Sans' => 'Open+Sans:wght@400;700',
+                'Source Sans Pro' => 'Source+Sans+Pro:wght@400;700',
+            ];
+
+            // Define Local Fonts (Key should match option value and directory name)
+            // Value could be more complex later (e.g., array of file names/weights)
+            $localFonts = [
+                'Comic Sans MS' => 'comicsans', // Base filename assumed (e.g., comicsans.woff2)
+                'Monaco FB' => 'monacofb',     // Base filename assumed (e.g., monacofb.woff2)
+            ];
+
+            $request = Application::get()->getRequest();
+            $baseUrl = $request->getBaseUrl();
+            $pluginPath = $this->getPluginPath();
+            $fontBaseUrl = $baseUrl . '/' . $pluginPath . '/fonts/';
+
+            // Check if selected font is a Google Font
+            if (array_key_exists($selectedFont, $googleFonts)) {
+                $fontParam = $googleFonts[$selectedFont];
+                $templateMgr->addStyleSheet(
+                    'googleFont-' . $selectedFont,
+                    'https://fonts.googleapis.com/css2?family=' . $fontParam . '&display=swap',
+                    ['inline' => false]
+                );
+            // Check if selected font is a Local Font
+            } elseif (array_key_exists($selectedFont, $localFonts)) {
+                $fontDir = $selectedFont; // Directory name matches the option value
+                $fontFileNameBase = $localFonts[$selectedFont]; // Base filename
+
+                // Construct @font-face rule (prioritize woff2, fallback to woff/ttf if needed)
+                // NOTE: Assumes standard file naming like 'comicsans.woff2', 'comicsans.woff', etc.
+                // You might need to adjust this based on your actual font file names.
+                $fontFaceRule = "@font-face {\n";
+                $fontFaceRule .= "  font-family: '" . $selectedFont . "';\n"; // Use the selected name
+                $fontFaceRule .= "  src: ";
+                $sources = [];
+                // Add more formats/weights/styles as needed
+                $sources[] = "url('" . $fontBaseUrl . $fontDir . "/" . $fontFileNameBase . ".woff2') format('woff2')";
+                // Example fallbacks (uncomment/add if you have these files):
+                // $sources[] = "url('" . $fontBaseUrl . $fontDir . "/" . $fontFileNameBase . ".woff') format('woff')";
+                // $sources[] = "url('" . $fontBaseUrl . $fontDir . "/" . $fontFileNameBase . ".ttf') format('truetype')";
+                $fontFaceRule .= implode(",\n       ", $sources) . ";\n";
+                $fontFaceRule .= "  font-weight: normal;\n"; // Adjust if needed
+                $fontFaceRule .= "  font-style: normal;\n";  // Adjust if needed
+                $fontFaceRule .= "  font-display: swap;\n";
+                $fontFaceRule .= "}\n";
+
+                $fontStyles .= $fontFaceRule;
+
+                // Add rules for bold/italic if separate files exist and are needed
+                // Example for bold (assuming 'comicsans_bold.woff2'):
+                /*
+                $fontFaceRuleBold = "@font-face {\n";
+                $fontFaceRuleBold .= "  font-family: '" . $selectedFont . "';\n";
+                $fontFaceRuleBold .= "  src: url('" . $fontBaseUrl . $fontDir . "/" . $fontFileNameBase . "_bold.woff2') format('woff2');\n"; // Adjust filename
+                $fontFaceRuleBold .= "  font-weight: bold;\n";
+                $fontFaceRuleBold .= "  font-style: normal;\n";
+                $fontFaceRuleBold .= "  font-display: swap;\n";
+                $fontFaceRuleBold .= "}\n";
+                $fontStyles .= $fontFaceRuleBold;
+                */
+            }
+
+            // Add inline style to apply the font-family to the body
+            $fontStack = $selectedFont === 'System Default' ?
+                'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' :
+                "'" . $selectedFont . "', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\""; // Ensure the selected font is first
+
+            $fontStyles .= "body { font-family: {$fontStack}; }\n";
+
+            // Add all generated styles (including @font-face and body rule) to header
+            if (!empty($fontStyles)) {
+                $templateMgr->addHeader('materialThemeFontStyles', "<style>\n" . $fontStyles . "</style>");
+            }
+        }
+
+        return false; // Continue processing hooks
+    }
+
+    /**
+     * Add galley download statistics to the article view template (Refactored Version)
+     *
+     * @param string $hookName
+     * @param array $params Hook parameters ($article, $issue, $galley)
+     * @return bool
+     */
+    public function _addGalleyStats($hookName, $params)
+    {
+        $templateMgr = PKPTemplateManager::getManager(); // Or use AppTemplateManager if appropriate
+        $article = $params[0];
+        $galleys = $article->getGalleys();
+        $statsArray = [];
+
+        if (empty($galleys)) {
+            $templateMgr->assign('galleyStats', $statsArray);
+            return false;
+        }
+
+        // --- Dependency Checks ---
+        $usageStatsPlugin = PluginRegistry::getPlugin('generic', 'usageStatsPlugin');
+        if (!$usageStatsPlugin || !$usageStatsPlugin->getEnabled()) {
+            PKPLog::log('Material Theme: Usage Statistics plugin is not enabled. Skipping galley stats.');
+            $templateMgr->assign('galleyStats', $statsArray);
+            return false;
+        }
+        if (!class_exists('\PKP\statistics\PKPUsageStatsService') || !DAORegistry::getDAO('MetricsDAO')) {
+             PKPLog::log('Material Theme: Required statistics classes or DAO not found. Skipping galley stats.');
+             $templateMgr->assign('galleyStats', $statsArray);
+             return false;
+        }
+        // --- End Dependency Checks ---
+
+        $context = PKPApplication::getRequest()->getContext();
+        $contextId = $context ? $context->getId() : Core::CONTEXT_ID_NONE;
+        $articleId = $article->getId();
+
+        // --- Caching Logic ---
+        $cacheManager = CacheManager::getManager();
+        $cache = $cacheManager->getFileCache(); // Or getMemcacheCache(), getAPCCache() if configured
+        $cacheKey = 'material_galley_stats_' . $contextId . '_' . $articleId;
+        $cachedStats = $cache->getCache($cacheKey);
+
+        if ($cachedStats !== null) {
+            $templateMgr->assign('galleyStats', $cachedStats);
+            return false; // Found in cache, no need to query
+        }
+        // --- End Caching Logic ---
+
+        try {
+            $galleyIds = array_map(function($galley) { return $galley->getId(); }, $galleys);
+
+            $metricsDao = DAORegistry::getDAO('MetricsDAO');
+            $metricsResult = $metricsDao->getMetrics(
+                PKPApplication::ASSOC_TYPE_GALLEY,
+                $contextId,
+                $galleyIds,
+                null, // submission_id (not needed when querying by galley IDs)
+                null, // issue_id (not needed)
+                null, // country_id (not needed)
+                null, // file_type (not needed)
+                null, // assoc_object_type (not needed)
+                null, // assoc_object_id (not needed)
+                null, // date_start (null for all time)
+                null, // date_end (null for all time)
+                PKPUsageStatsService::METRIC_TYPE_COUNTER // Standard download metric type
+            );
+
+            // Process results into the desired array format [galleyId => count]
+            foreach ($metricsResult as $row) {
+                $galleyId = (int) $row['assoc_id'];
+                $count = (int) $row['metric'];
+                if (!isset($statsArray[$galleyId])) {
+                    $statsArray[$galleyId] = 0;
+                }
+                $statsArray[$galleyId] += $count;
+            }
+
+            // Store the fetched results in cache for 1 hour (3600 seconds)
+            $cache->setCache($cacheKey, $statsArray, 3600);
+
+        } catch (\Exception $e) {
+            PKPLog::log('Material Theme: Error fetching galley statistics for article ID ' . $articleId . ': ' . $e->getMessage());
+            $statsArray = []; // Ensure an empty array is assigned on error
+        }
+
+        $templateMgr->assign('galleyStats', $statsArray);
+
+        return false; // Continue processing hooks
     }
 }
 
