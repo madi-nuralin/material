@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Comic Sans MS', ...defaultTheme.fontFamily.sans],
+        sans: [...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '8xl': '88rem',
