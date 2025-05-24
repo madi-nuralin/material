@@ -18,16 +18,32 @@
 
 @layer base {
 	@font-face {
-		font-family: Comic Sans MS;
-		src: url('../../fonts/Comic Sans MS/Comic Sans MS.ttf');
+		font-family: 'Comic Sans';
+		src: url('../../fonts/ComicSans-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Comic Neue';
+		src: url('../../fonts/ComicNeue-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Cardo';
+		src: url('../../fonts/Cardo-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Cormorant';
+		src: url('../../fonts/Cormorant-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Old Standard TT';
+		src: url('../../fonts/OldStandardTT-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Roboto Serif';
+		src: url('../../fonts/RobotoSerif-VariableFont.ttf');
 	}
 }
-
-/*@layer utilities {
-  .scrollbar {
-    @apply scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200;
-  }
-  .dark .scrollbar {
-    @apply scrollbar-thumb-gray-600 scrollbar-track-gray-800;
-  }
-}*/

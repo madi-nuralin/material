@@ -40,27 +40,29 @@ msgid "plugins.themes.material.option.useHomepageImageAsHeader.option"
 msgstr "Afficher l'image de la page d'accueil comme arrière-plan de l'en-tête."
 
 msgid "plugins.themes.material.option.displayStats.label"
-msgstr "Opciones de visualización de las estadísticas de uso"
+msgstr "Options d'affichage des statistiques d'utilisation"
 
-msgid "plugins.themes.material.option.displayStats.bar"
+msgid "plugins.themes.material.option.displayStats.none"
 msgstr ""
-"Usar un gráfico de barras para la visualización de las estadísticas de uso."
+"Ne pas afficher aux lecteur·rice·s le tableau des statistiques d'utilisation "
+"des soumissions."
 
 msgid "plugins.themes.material.option.displayStats.line"
 msgstr ""
-"Usar un gráfico de líneas para la visualización de las estadísticas de uso."
-
-msgid "plugins.themes.material.displayStats.downloads"
-msgstr "Descargas"
-
-msgid "plugins.themes.material.displayStats.noStats"
-msgstr "Los datos de descarga todavía no están disponibles."
-
-msgid "plugins.themes.material.option.displayStats.none"
-msgstr "No mostrar el gráfico de estadísticas de envíos a los lectores/as."
+"Utiliser un graphique linéaire pour afficher les statistiques d'utilisation."
 
 msgid "plugins.themes.material.displayStats.monthInitials"
-msgstr "Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic"
+msgstr "Janv. Févr. Mars Avr. Mai Juin Juill. Août Sept. Oct. Nov. Déc."
+
+msgid "plugins.themes.material.displayStats.downloads"
+msgstr "Téléchargements"
+
+msgid "plugins.themes.material.displayStats.noStats"
+msgstr "Les données de téléchargement ne sont pas encore disponibles."
+
+msgid "plugins.themes.material.option.displayStats.bar"
+msgstr ""
+"Utiliser un graphique à barres pour afficher les statistiques d'utilisation."
 
 msgid "plugins.themes.material.makeSubmission"
 msgstr "Envoyer l'article"

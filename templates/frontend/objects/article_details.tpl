@@ -144,7 +144,7 @@
 									{else}
 										{include file="frontend/components/ui/material_icon_orcid.tpl"}
 									{/if}
-									<a href="{$author->getData('orcid')|escape}" target="_blank">
+									<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words">
 										{$author->getData('orcid')|escape}
 									</a>
 								</div>
@@ -165,7 +165,7 @@
 						{translate key="semicolon" label=$translatedDOI}
 					</h2>
 					<span class="value">
-						<a href="{$doiUrl}">
+						<a href="{$doiUrl}" class="break-words">
 							{$doiUrl}
 						</a>
 					</span>
@@ -199,7 +199,7 @@
 			{call_hook name="Templates::Article::Main"}
 
 			{* Usage statistics chart*}
-			{*if $activeTheme->getOption('displayStats') != 'none'}
+			{if $activeTheme->getOption('displayStats') != 'none'}
 				{$activeTheme->displayUsageStatsGraph($article->getId())}
 				<section class="item downloads_chart">
 					<h2 class="label">
@@ -212,7 +212,7 @@
 						</div>
 					</div>
 				</section>
-			{/if*}
+			{/if}
 
 			{* Author biographies *}
 			{assign var="hasBiographies" value=0}

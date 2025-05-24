@@ -5,9 +5,8 @@
  *
  * @brief Svg dark icon
  *}
-{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
-<svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-{$materialBaseColour}-400">
+<svg aria-hidden="true" viewBox="0 0 16 16" class="h-4 w-4 fill-{$activeTheme->getOption('baseColour')}-400">
   <path
     fillRule="evenodd"
     clipRule="evenodd"

@@ -14,7 +14,6 @@
  * @uses $currentTitle string The title to use for the current page.
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
-{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
 
 <nav class="cmp_breadcrumbs cmp_breadcrumbs_catalog text-slate-500" role="navigation">
 	<ol class="not-prose flex space-x-1 list-none overflow-none">
@@ -32,7 +31,7 @@
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current text-{$materialBaseColour}-500 truncate" aria-current="page">
+		<li class="current text-{$activeTheme->getOption('baseColour')}-500 truncate" aria-current="page">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}

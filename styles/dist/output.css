@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Comic Sans MS, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -635,9 +635,39 @@ select {
 }
 
 @font-face {
-  font-family: Comic Sans MS;
+  font-family: 'Comic Sans';
 
-  src: url('../../fonts/Comic Sans MS/Comic Sans MS.ttf');
+  src: url('../../fonts/ComicSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+
+  src: url('../../fonts/ComicNeue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cardo';
+
+  src: url('../../fonts/Cardo-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cormorant';
+
+  src: url('../../fonts/Cormorant-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Old Standard TT';
+
+  src: url('../../fonts/OldStandardTT-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Serif';
+
+  src: url('../../fonts/RobotoSerif-VariableFont.ttf');
 }
 
 *, ::before, ::after {
@@ -1424,6 +1454,11 @@ input:focus {
   margin-right: auto;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .-mb-56 {
   margin-bottom: -14rem;
 }
@@ -1452,6 +1487,10 @@ input:focus {
   margin-left: 0.5rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .mr-4 {
   margin-right: 1rem;
 }
@@ -1466,6 +1505,10 @@ input:focus {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-2\.5 {
+  margin-top: 0.625rem;
 }
 
 .mt-3 {
@@ -1841,8 +1884,16 @@ input:focus {
   white-space: nowrap;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded-2xl {
   border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
 }
 
 .rounded-full {
@@ -1913,9 +1964,19 @@ input:focus {
   background-color: rgb(253 186 116 / var(--tw-bg-opacity));
 }
 
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
 .bg-sky-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+}
+
+.bg-sky-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 249 255 / var(--tw-bg-opacity));
 }
 
 .bg-slate-100 {
@@ -2043,6 +2104,10 @@ input:focus {
   padding: 1rem;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2139,6 +2204,30 @@ input:focus {
 
 .text-end {
   text-align: end;
+}
+
+.font-cardo {
+  font-family: Cardo, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-comic-neue {
+  font-family: Comic Neue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-comic-sans {
+  font-family: Comic Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-cormorant {
+  font-family: Cormorant, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-old-standard-tt {
+  font-family: Old Standard TT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-roboto-serif {
+  font-family: Roboto Serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-2xl {
@@ -2286,6 +2375,16 @@ input:focus {
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+
 .text-sky-400 {
   --tw-text-opacity: 1;
   color: rgb(56 189 248 / var(--tw-text-opacity));
@@ -2299,6 +2398,16 @@ input:focus {
 .text-sky-600 {
   --tw-text-opacity: 1;
   color: rgb(2 132 199 / var(--tw-text-opacity));
+}
+
+.text-sky-800 {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
+
+.text-sky-900 {
+  --tw-text-opacity: 1;
+  color: rgb(12 74 110 / var(--tw-text-opacity));
 }
 
 .text-slate-200 {
@@ -2404,24 +2513,22 @@ input:focus {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.blur-none {
+  --tw-blur: blur(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.blur-sm {
+  --tw-blur: blur(4px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .backdrop-blur {
   --tw-backdrop-blur: blur(8px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
-.backdrop-blur-md {
-  --tw-backdrop-blur: blur(12px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
-.backdrop-blur-none {
-  --tw-backdrop-blur: blur(0);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -2460,10 +2567,6 @@ input:focus {
 
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ease-out {
@@ -2538,14 +2641,21 @@ input:focus {
   --scrollbar-thumb: #9ca3af !important;
 }
 
-/*@layer utilities {
-  .scrollbar {
-    @apply scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200;
-  }
-  .dark .scrollbar {
-    @apply scrollbar-thumb-gray-600 scrollbar-track-gray-800;
-  }
-}*/
+.\[--tw-prose-background\:var\(--color-red-50\)\] {
+  --tw-prose-background: var(--color-red-50);
+}
+
+.\[--tw-prose-background\:var\(--color-sky-50\)\] {
+  --tw-prose-background: var(--color-sky-50);
+}
+
+.\[--tw-prose-underline\:var\(--color-red-400\)\] {
+  --tw-prose-underline: var(--color-red-400);
+}
+
+.\[--tw-prose-underline\:var\(--color-sky-400\)\] {
+  --tw-prose-underline: var(--color-sky-400);
+}
 
 :is(.dark .dark\:prose-invert) {
   --tw-prose-body: var(--tw-prose-invert-body);
@@ -2696,9 +2806,19 @@ input:focus {
   color: rgb(251 146 60 / var(--tw-text-opacity));
 }
 
+.prose-a\:text-red-900 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+
 .prose-a\:text-sky-400 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
   --tw-text-opacity: 1;
   color: rgb(56 189 248 / var(--tw-text-opacity));
+}
+
+.prose-a\:text-sky-900 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(12 74 110 / var(--tw-text-opacity));
 }
 
 .prose-a\:no-underline :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
@@ -2709,6 +2829,16 @@ input:focus {
   --tw-shadow: inset 0 -2px 0 0 var(--tw-prose-background,#fff),inset 0 calc(-1 * (var(--tw-prose-underline-size,4px) + 2px)) 0 0 var(--tw-prose-underline,#7dd3fc);
   --tw-shadow-colored: inset 0 -2px 0 0 var(--tw-shadow-color), inset 0 0 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.prose-code\:text-red-900 :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+
+.prose-code\:text-sky-900 :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  --tw-text-opacity: 1;
+  color: rgb(12 74 110 / var(--tw-text-opacity));
 }
 
 .prose-pre\:rounded-xl :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
@@ -2968,6 +3098,10 @@ input:focus {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-slate-800\/60) {
+  background-color: rgb(30 41 59 / 0.6);
+}
+
 :is(.dark .dark\:bg-slate-900) {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
@@ -2991,6 +3125,21 @@ input:focus {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+:is(.dark .dark\:text-red-500) {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-sky-500) {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:text-slate-300) {
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:text-slate-400) {
   --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
@@ -3007,8 +3156,18 @@ input:focus {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+:is(.dark .dark\:ring-1) {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
 :is(.dark .dark\:ring-inset) {
   --tw-ring-inset: inset;
+}
+
+:is(.dark .dark\:ring-slate-300\/10) {
+  --tw-ring-color: rgb(203 213 225 / 0.1);
 }
 
 :is(.dark .dark\:ring-white\/5) {
@@ -3031,6 +3190,10 @@ input:focus {
 
 :is(.dark .dark\:\[--tw-prose-background\:theme\(colors\.slate\.900\)\]) {
   --tw-prose-background: #0f172a;
+}
+
+:is(.dark .dark\:\[--tw-prose-underline\:var\(--color-sky-700\)\]) {
+  --tw-prose-underline: var(--color-sky-700);
 }
 
 :is(.dark .dark\:before\:bg-slate-700)::before {
@@ -3068,6 +3231,11 @@ input:focus {
   --tw-shadow: inset 0 calc(-1 * var(--tw-prose-underline-size,2px)) 0 0 var(--tw-prose-underline,#075985);
   --tw-shadow-colored: inset 0 0 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+:is(.dark .dark\:prose-code\:text-slate-300 :is(:where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:prose-pre\:bg-slate-800\/60 :is(:where(pre):not(:where([class~="not-prose"],[class~="not-prose"] *)))) {
@@ -3182,6 +3350,11 @@ input:focus {
 
   .md\:text-center {
     text-align: center;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
   }
 }
 

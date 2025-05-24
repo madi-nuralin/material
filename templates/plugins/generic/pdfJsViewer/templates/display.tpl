@@ -8,7 +8,7 @@
  * Embedded viewing of a PDF galley.
  *}
 <!DOCTYPE html>
-<html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
+<html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}" class="h-full">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset={$defaultCharset|escape}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +20,12 @@
 	<script type="text/javascript" src="{$jquery}"></script>
 	<script type="text/javascript" src="{$jqueryUI}"></script>
 </head>
-<body class="pkp_page_{$requestedPage|escape} pkp_op_{$requestedOp|escape}">
+<body class="h-full pkp_page_{$requestedPage|escape} pkp_op_{$requestedOp|escape}">
 
 	{* Header wrapper *}
-	<header class="flex justify-between space-x-4 px-2 py-1 text-sm">
+	<header class="flex justify-between space-x-4 px-2 py-1 md:text-sm text-xs">
 
-		<a href="{$parentUrl}" class="return">
+		<a href="{$parentUrl}" class="return truncate">
 			<span class="pkp_screen_reader">
 				{if $parent instanceOf Issue}
 					{translate key="issue.return"}
@@ -35,11 +35,11 @@
 			</span>
 		</a>
 
-		<a href="{$parentUrl}" class="title">
+		<a href="{$parentUrl}" class="title truncate">
 			{$title|escape}
 		</a>
 
-		<a href="{$pdfUrl}" class="download" download>
+		<a href="{$pdfUrl}" class="download truncate" download>
 			<span class="label">
 				{translate key="common.download"}
 			</span>
@@ -56,7 +56,7 @@
 		{rdelim});
 	</script>
 
-	<div id="pdfCanvasContainer" class="galley_view{if !$isLatestPublication} galley_view_with_notice{/if}">
+	<div id="pdfCanvasContainer" class="h-full galley_view{if !$isLatestPublication} galley_view_with_notice{/if}">
 		{if !$isLatestPublication}
 			<div class="galley_view_notice">
 				<div class="galley_view_notice_message" role="alert">

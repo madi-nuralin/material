@@ -49,6 +49,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             ],
             'default' => false,
         ]);
+
         $this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
             'label' => __('plugins.themes.material.option.useHomepageImageAsHeader.label'),
             'description' => __('plugins.themes.material.option.useHomepageImageAsHeader.description'),
@@ -61,10 +62,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             'default' => false,
         ]);
 
-        // Add usage stats display options
-        $this->addOption('materialBaseColour', 'FieldOptions', [
+        $this->addOption('baseColour', 'FieldOptions', [
             'type' => 'radio',
-            'label' => 'Base colour',
+            'label' => __('plugins.themes.material.option.colour.label'),
             'options' => [
                 [
                     'value' => 'green',
@@ -88,6 +88,59 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
                 ],
             ],
             'default' => 'sky',
+        ]);
+
+        $this->addOption('fontFamily', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.material.option.font.label'),
+            'options' => [
+                [
+                    'value' => 'comic-sans',
+                    'label' => 'Comic Sans',
+                ],
+                [
+                    'value' => 'comic-neue',
+                    'label' => 'Comic Neue',
+                ],
+                [
+                    'value' => 'cardo',
+                    'label' => 'Cardo',
+                ],
+                [
+                    'value' => 'cormorant',
+                    'label' => 'Cormorant',
+                ],
+                [
+                    'value' => 'old-standard-tt',
+                    'label' => 'Old Standard TT',
+                ],
+                [
+                    'value' => 'roboto-serif',
+                    'label' => 'Roboto Serif',
+                ],
+            ],
+            'default' => 'comic-neue',
+        ]);
+
+        // Add usage stats display options
+        $this->addOption('displayStats', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.material.option.displayStats.label'),
+            'options' => [
+                [
+                    'value' => 'none',
+                    'label' => __('plugins.themes.material.option.displayStats.none'),
+                ],
+                [
+                    'value' => 'bar',
+                    'label' => __('plugins.themes.material.option.displayStats.bar'),
+                ],
+                [
+                    'value' => 'line',
+                    'label' => __('plugins.themes.material.option.displayStats.line'),
+                ],
+            ],
+            'default' => 'none',
         ]);
 
         $request = Application::get()->getRequest();
@@ -211,18 +264,18 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {
         $default = "";
         $default .= " rounded-full";
-        $default .= " bg-{$this->getOption('materialBaseColour')}-300";
+        $default .= " bg-{$this->getOption('baseColour')}-300";
         $default .= " py-2";
         $default .= " px-4";
         $default .= " text-sm";
         $default .= " font-semibold";
         $default .= " text-slate-900";
-        $default .= " hover:bg-{$this->getOption('materialBaseColour')}-200";
+        $default .= " hover:bg-{$this->getOption('baseColour')}-200";
         $default .= " focus:outline-none";
         $default .= " focus-visible:outline-2";
         $default .= " focus-visible:outline-offset-2";
-        $default .= " focus-visible:outline-{$this->getOption('materialBaseColour')}-300/50";
-        $default .= " active:bg-{$this->getOption('materialBaseColour')}-500";
+        $default .= " focus-visible:outline-{$this->getOption('baseColour')}-300/50";
+        $default .= " active:bg-{$this->getOption('baseColour')}-500";
 
         $attributes = array();
         array_push($attributes, 'id');
@@ -309,9 +362,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialSelect($params, $content, $smarty, &$repeat) {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
+        $default .= " focus:border-{$this->getOption('baseColour')}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
+        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";
@@ -526,9 +579,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialInput($params, $smarty) {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
+        $default .= " focus:border-{$this->getOption('baseColour')}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
+        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";
@@ -566,11 +619,11 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         $default = "";
         $default .= " rounded-md";
         $default .= " border-gray-300";
-        $default .= " text-{$this->getOption('materialBaseColour')}-600";
+        $default .= " text-{$this->getOption('baseColour')}-600";
         $default .= " shadow-sm";
-        $default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
+        $default .= " focus:border-{$this->getOption('baseColour')}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
+        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " dark:bg-gray-800";
 
@@ -601,9 +654,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('materialBaseColour')}-300";
+        $default .= " focus:border-{$this->getOption('baseColour')}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('materialBaseColour')}-200";
+        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";
