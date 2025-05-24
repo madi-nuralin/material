@@ -18,8 +18,8 @@
 
 @layer base {
 	@font-face {
-		font-family: Comic Sans MS;
-		src: url('../../fonts/Comic Sans MS/Comic Sans MS.ttf');
+		font-family: Cormorant;
+		src: url('../../fonts/Cormorant/static/Cormorant-Bold.ttf');
 	}
 }
 

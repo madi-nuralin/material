@@ -57,89 +57,98 @@
 			</div>
 		{/if}
 	{/if}
-	<ul id="openid-provider-list">
+	<ul id="_openid-provider-list">
 		{if $legacyLogin}
-			<li class="margin-top-30"><strong>{translate key='plugins.generic.openid.select.legacy' journalName=$siteTitle|escape}</strong></li>
+			<li class="my-6">
+				<strong>{translate key='plugins.generic.openid.select.legacy' journalName=$siteTitle|escape}</strong>
+			</li>
 			<li class="page_login">
 				<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}">
 					{csrf}
-					<fieldset class="fields">
+					<fieldset class="space-y-4">
 						<div class="username">
-							<label>
-								<span class="label">
-									{translate key="user.username"}
-									<span class="required" aria-hidden="true">*</span>
-									<span class="pkp_screen_reader">
-										{translate key="common.required"}
-									</span>
-								</span>
-								<input type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required aria-required="true">
-							</label>
+							{material_label for="username"}
+								{translate key="user.username"}
+								<span class="required" aria-hidden="true">*</span>
+							{/material_label}
+
+							{material_input type="text"
+								name="username"
+								id="username"
+								value="{$username|escape}"
+								maxlength="32"
+								required="true"
+								aria-required="true"
+								autocomplete="username"
+								class="mt-1 block w-full"}
 						</div>
 						<div class="password">
-							<label>
-								<span class="label">
-									{translate key="user.password"}
-									<span class="required" aria-hidden="true">*</span>
-									<span class="pkp_screen_reader">
-										{translate key="common.required"}
-									</span>
-								</span>
-								<input type="password" name="password" id="password" value="{$password|escape}" maxlength="32" required aria-required="true">
+							{material_label for="password"}
+								{translate key="user.password"}
+								<span class="required" aria-hidden="true">*</span>
+							{/material_label}
 
-								<a href="{url page="login" op="lostPassword"}">
-									{translate key="user.login.forgotPassword"}
-								</a>
-
-							</label>
+							{material_input type="password"
+								name="password"
+								id="password"
+								value="{$password|escape}"
+								password="true"
+								maxlength="32"
+								required="true"
+								aria-required="true"
+								class="mt-1 block w-full"}
+						</div>
+						<div>
+							<a href="{url page="login" op="lostPassword"}">
+								{translate key="user.login.forgotPassword"}
+							</a>
 						</div>
 						<div class="remember checkbox">
-							<label>
-								<input type="checkbox" name="remember" id="remember" value="1">
-								<span class="label">
+							<label class="flex items-center">
+								{material_checkbox name="remember"
+									id="remember"
+									value="1"
+									checked="$remember"}
+								<span class="label ml-2 text-sm text-gray-600 dark:text-gray-400">
 									{translate key="user.login.rememberUsernameAndPassword"}
 								</span>
 							</label>
 						</div>
 						<div class="buttons">
-							<button class="submit" type="submit">
+							{material_button_primary type="submit"}
 								{translate key="user.login"}
-							</button>
+							{/material_button_primary}
 						</div>
 					</fieldset>
 				</form>
 			</li>
 		{/if}
 		{if $linkList}
-			<li class="margin-top-30"><strong>{translate key='plugins.generic.openid.select.provider.help'}</strong></li>
+			<li class="mt-5"><strong>{translate key='plugins.generic.openid.select.provider.help'}</strong></li>
 			{foreach from=$linkList key=name item=url}
-				{if $name == 'custom'}
-					<li><a id="openid-provider-{$name}" href="{$url}">
-							<div>
+				<li class="mt-4">
+					<a id="openid-provider-{$name}" href="{$url}">
+						<div class="flex items-center flex h-8 items-center text-slate-500 rounded-xl shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5 px-3 text-sm dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300 space-x-2">
+							{if $name == 'custom'}
 								{if $customBtnImg}
 									<img src="{$customBtnImg}" alt="{$name}">
 								{else}
 									<img src="{$openIDImageURL}{$name}-sign-in.png" alt="{$name}">
 								{/if}
 								<span>
-								{if isset($customBtnTxt)}
-									{$customBtnTxt}
-								{else}
-									{{translate key="plugins.generic.openid.select.provider.$name"}}
-								{/if}
-							</span>
-							</div>
-						</a>
-					</li>
-				{else}
-					<li class=""><a id="openid-provider-{$name}" href="{$url}">
-							<div>
-								<img src="{$openIDImageURL}{$name}-sign-in.png" alt="{$name}"/>
-								<span>{{translate key="plugins.generic.openid.select.provider.$name"}}</span>
-							</div>
-						</a>
-					</li>
-				{/if}
+									{if isset($customBtnTxt)}
+										{$customBtnTxt}
+									{else}
+										{{translate key="plugins.generic.openid.select.provider.$name"}}
+									{/if}
+								</span>
+							{else}
+								<img class="w-4 h-4" src="{$openIDImageURL}{$name}-sign-in.png" alt="{$name}"/>
+								<p>{{translate key="plugins.generic.openid.select.provider.$name"}}</p>
+							{/if}
+						</div>
+					</a>
+				</li>
 			{/foreach}
 		{/if}
 	</ul>
