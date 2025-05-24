@@ -64,7 +64,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
         $this->addOption('baseColour', 'FieldOptions', [
             'type' => 'radio',
-            'label' => 'Base colour',
+            'label' => __('plugins.themes.material.option.colour.label'),
             'options' => [
                 [
                     'value' => 'green',
@@ -92,7 +92,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
 
         $this->addOption('fontFamily', 'FieldOptions', [
             'type' => 'radio',
-            'label' => 'Font family',
+            'label' => __('plugins.themes.material.option.font.label'),
             'options' => [
                 [
                     'value' => 'comic-sans',
@@ -120,6 +120,27 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
                 ],
             ],
             'default' => 'comic-neue',
+        ]);
+
+        // Add usage stats display options
+        $this->addOption('displayStats', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.material.option.displayStats.label'),
+            'options' => [
+                [
+                    'value' => 'none',
+                    'label' => __('plugins.themes.material.option.displayStats.none'),
+                ],
+                [
+                    'value' => 'bar',
+                    'label' => __('plugins.themes.material.option.displayStats.bar'),
+                ],
+                [
+                    'value' => 'line',
+                    'label' => __('plugins.themes.material.option.displayStats.line'),
+                ],
+            ],
+            'default' => 'none',
         ]);
 
         $request = Application::get()->getRequest();

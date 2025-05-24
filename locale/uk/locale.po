@@ -21,32 +21,8 @@ msgstr "Оформлення теми Material"
 msgid "plugins.themes.material.description"
 msgstr "Реалізує тему оформлення Material."
 
-msgid "plugins.themes.material.option.typography.label"
-msgstr "Типографія"
-
-msgid "plugins.themes.material.option.typography.description"
-msgstr "Виберіть комбінацію шрифтів, що пасує для цього журналу."
-
-msgid "plugins.themes.material.option.typography.notoSans"
-msgstr "Noto Sans: екранний шрифт, створений Google для широкого спектру мов."
-
-msgid "plugins.themes.material.option.typography.notoSerif"
-msgstr "Noto Serif: антиква, варіант екранного шрифту від Google із засічками."
-
-msgid "plugins.themes.material.option.typography.notoSerif_notoSans"
-msgstr "Noto Serif/Noto Sans: пара, що доповнює один одного, із заголовками антиквою і основним текстом, набраним гротеском."
-
-msgid "plugins.themes.material.option.typography.notoSans_notoSerif"
-msgstr "Noto Sans/Noto Serif: пара, що доповнює один одного, із заголовками гротеском і основним текстом, набраним антиквою."
-
-msgid "plugins.themes.material.option.typography.lato"
-msgstr "Lato: найпопулярніший сучасний гротеск."
-
-msgid "plugins.themes.material.option.typography.lora"
-msgstr "Lora: широкая антиква, удобная для чтения с экрана."
-
-msgid "plugins.themes.material.option.typography.lora_openSans"
-msgstr "Lora/Open Sans: дополняющая друг друга пара с заголовками антиквой и основным текстом, набранным гротеском."
+msgid "plugins.themes.material.option.font.label"
+msgstr "Шрифт"
 
 msgid "plugins.themes.material.option.colour.label"
 msgstr "Колір"
@@ -67,6 +43,31 @@ msgstr ""
 
 msgid "plugins.themes.material.option.useHomepageImageAsHeader.option"
 msgstr "Показувати зображення головної сторінки як тло верхнього колонтитула."
+
+msgid "plugins.themes.material.option.displayStats.none"
+msgstr "Не відображати читачеві графік статистики використання подання."
+
+msgid "plugins.themes.material.displayStats.monthInitials"
+msgstr "Січ Лют Бер Кві Тра Чер Лип Сер Вер Жов Лис Гру"
+
+msgid "plugins.themes.material.displayStats.downloads"
+msgstr "Завантаження"
+
+msgid "plugins.themes.material.displayStats.noStats"
+msgstr "Дані завантажень поки не доступні."
+
+msgid "plugins.themes.material.option.displayStats.label"
+msgstr "Параметри відображення статистики використання"
+
+msgid "plugins.themes.material.option.displayStats.bar"
+msgstr ""
+"Використовувати стовпчиковий тип діаграми для відображення статистики "
+"використання."
+
+msgid "plugins.themes.material.option.displayStats.line"
+msgstr ""
+"Використовувати лінійний тип діаграми для відображення статистики "
+"використання."
 
 msgid "plugins.themes.material.makeSubmission"
 msgstr "Надіслати статтю"

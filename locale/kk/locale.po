@@ -26,44 +26,35 @@ msgstr "Жоғарғы колонтитулдың фондық суреті"
 msgid "plugins.themes.material.option.showDescriptionInJournalIndex.option"
 msgstr "Негізгі бетте журнал туралы қысқаша ақпаратты көрсету."
 
+msgid "plugins.themes.material.option.font.label"
+msgstr "Қаріп"
+
 msgid "plugins.themes.material.option.colour.description"
 msgstr "Жоғарғы колонтитулдың түсін орнату."
 
 msgid "plugins.themes.material.option.colour.label"
 msgstr "Түс"
 
-msgid "plugins.themes.material.option.typography.lora_openSans"
-msgstr ""
-"Lora/Open Sans: антиква тақырыптары мен гротескпен терілген негізгі мәтіннен "
-"тұратын стиль."
+msgid "plugins.themes.material.option.displayStats.label"
+msgstr "Пайдалану статистикасын көрсету опциялары"
 
-msgid "plugins.themes.material.option.typography.lora"
-msgstr "Lora: экраннан оқуға ыңғайлы кең қаріп."
+msgid "plugins.themes.material.option.displayStats.none"
+msgstr "Оқырман үшін жіберуді пайдалану статистикасы диаграммасын көрсетпеңіз."
 
-msgid "plugins.themes.material.option.typography.lato"
-msgstr "Lato: жаңа стильдегі қаріп."
+msgid "plugins.themes.material.option.displayStats.bar"
+msgstr "Пайдалану статистикасын көрсету үшін диаграмманың жолақ түрін пайдаланыңыз."
 
-msgid "plugins.themes.material.option.typography.notoSans_notoSerif"
-msgstr ""
-"Noto Serif/Noto Sans: антиква тақырыбы мен гротескте терілген негізгі мәтіні "
-"бар стиль."
+msgid "plugins.themes.material.option.displayStats.line"
+msgstr "Пайдалану статистикасын көрсету үшін диаграмманың сызық түрін пайдаланыңыз."
 
-msgid "plugins.themes.material.option.typography.notoSerif_notoSans"
-msgstr ""
-"Noto Serif/Noto Sans: антиква тақырыбы мен гротескте терілген негізгі мәтіні "
-"бар стиль."
+msgid "plugins.themes.material.displayStats.monthInitials"
+msgstr "Қаң ақп нау сәу мам мау шіл там қыр қаз қар жел"
 
-msgid "plugins.themes.material.option.typography.notoSerif"
-msgstr "Noto Serif: Google сандық шрифтінің серифтік нұсқасы."
+msgid "plugins.themes.material.displayStats.downloads"
+msgstr "Жүктеулер"
 
-msgid "plugins.themes.material.option.typography.notoSans"
-msgstr "Noto Sans: бірнеше тілдерді қамтитын Google экран шрифті."
-
-msgid "plugins.themes.material.option.typography.description"
-msgstr "Осы журналға сәйкес келетін қаріптерді таңдаңыз."
-
-msgid "plugins.themes.material.option.typography.label"
-msgstr "Типографика"
+msgid "plugins.themes.material.displayStats.noStats"
+msgstr "Жүктеп алу деректері әлі қолжетімді емес."
 
 msgid "plugins.themes.material.makeSubmission"
 msgstr "Мақала жіберу"
