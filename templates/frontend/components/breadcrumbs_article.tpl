@@ -14,7 +14,6 @@
  * @uses $currentTitleKey string Translation key for title of current page.
  * @uses $issue Issue Issue this article was published in.
  *}
-{assign var="materialColour" value=$activeTheme->getOption('materialColour')}
 
 <nav class="cmp_breadcrumbs text-slate-500" role="navigation" aria-label="{translate key="navigation.breadcrumbLabel"}">
 	<ol class="not-prose flex space-x-1 list-none overflow-none">
@@ -38,7 +37,7 @@
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current text-{$materialColour}-500 truncate" aria-current="page">
+		<li class="current text-{$activeTheme->getOption('baseColour')}-500 truncate" aria-current="page">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
