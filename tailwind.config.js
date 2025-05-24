@@ -22,7 +22,12 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Comic Sans MS', ...defaultTheme.fontFamily.sans],
+        'comic-sans': ['Comic Sans', ...defaultTheme.fontFamily.sans],
+        'comic-neue': ['Comic Neue', ...defaultTheme.fontFamily.sans],
+        'cardo': ['Cardo', ...defaultTheme.fontFamily.sans],
+        'cormorant': ['Cormorant', ...defaultTheme.fontFamily.sans],
+        'old-standard-tt': ['Old Standard TT', ...defaultTheme.fontFamily.sans],
+        'roboto-serif': ['Roboto Serif', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '8xl': '88rem',

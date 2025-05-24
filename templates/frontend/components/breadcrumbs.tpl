@@ -12,7 +12,7 @@
  * @uses $currentTitle string The title to use for the current page.
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
-{assign var="materialBaseColour" value=$activeTheme->getOption('materialBaseColour')}
+{assign var="materialColour" value=$activeTheme->getOption('materialColour')}
 
 <nav class="text-slate-500" role="navigation">
 	<ol class="not-prose flex space-x-1 list-none overflow-none">
@@ -24,7 +24,7 @@
 				{translate key="navigation.breadcrumbSeparator"}
 			</span>
 		</li>
-		<li class="current text-{$materialBaseColour}-500 truncate">
+		<li class="current text-{$materialColour}-500 truncate">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}

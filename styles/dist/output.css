@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Cormorant, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -635,9 +635,39 @@ select {
 }
 
 @font-face {
-  font-family: Cormorant;
+  font-family: 'Comic Sans';
 
-  src: url('../../fonts/Cormorant/static/Cormorant-Bold.ttf');
+  src: url('../../fonts/ComicSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+
+  src: url('../../fonts/ComicNeue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cardo';
+
+  src: url('../../fonts/Cardo-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cormorant';
+
+  src: url('../../fonts/Cormorant-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Old Standard TT';
+
+  src: url('../../fonts/OldStandardTT-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto Serif';
+
+  src: url('../../fonts/RobotoSerif-VariableFont.ttf');
 }
 
 *, ::before, ::after {
@@ -2176,6 +2206,30 @@ input:focus {
   text-align: end;
 }
 
+.font-cardo {
+  font-family: Cardo, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-comic-neue {
+  font-family: Comic Neue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-comic-sans {
+  font-family: Comic Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-cormorant {
+  font-family: Cormorant, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-old-standard-tt {
+  font-family: Old Standard TT, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-roboto-serif {
+  font-family: Roboto Serif, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2.5rem;
@@ -2602,15 +2656,6 @@ input:focus {
 .\[--tw-prose-underline\:var\(--color-sky-400\)\] {
   --tw-prose-underline: var(--color-sky-400);
 }
-
-/*@layer utilities {
-  .scrollbar {
-    @apply scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200;
-  }
-  .dark .scrollbar {
-    @apply scrollbar-thumb-gray-600 scrollbar-track-gray-800;
-  }
-}*/
 
 :is(.dark .dark\:prose-invert) {
   --tw-prose-body: var(--tw-prose-invert-body);
