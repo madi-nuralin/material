@@ -12,7 +12,15 @@
 * @uses liClass string Class name(s) to assign all <li> elements
 *}
 
-{material_menu id="{$id|escape}" class="{$ulClass|escape}"}
+{if $activeTheme->getOption('primaryMenu') == 'vertical'}
+	{assign var=vBoxClass value=""}
+	{assign var=hBoxClass value="hidden"}
+{else if $activeTheme->getOption('primaryMenu') == 'horizontal'}
+	{assign var=vBoxClass value="block lg:hidden"}
+	{assign var=hBoxClass value="hidden lg:flex"}
+{/if}
+
+{material_menu id="{$id|escape}" class="{$ulClass|escape} {$vBoxClass}"}
 	{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 		{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 			{continue}
@@ -37,3 +45,29 @@
 		{/material_menu_item}
 	{/foreach}
 {/material_menu}
+
+<ul id="{$id|escape}" role="list" class="{$ulClass|escape} space-x-2 mr-2  {$hBoxClass}">
+	{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+		{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+			{continue}
+		{/if}
+		<li class="{$liClass|escape}">
+			{material_dropdown}
+				{material_dropdown_trigger url="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"}
+					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+				{/material_dropdown_trigger}
+				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+					{material_dropdown_body}
+						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+								{material_dropdown_item url="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}" class="{$liClass|escape}"}
+									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+								{/material_dropdown_item}
+							{/if}
+						{/foreach}
+					{/material_dropdown_body}
+				{/if}
+			{/material_dropdown}
+		</li>
+	{/foreach}
+</ul>

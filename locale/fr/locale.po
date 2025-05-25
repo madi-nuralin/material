@@ -90,3 +90,12 @@ msgstr "Nombre de colonnes dans la page d'archivage des problèmes"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Insérez le nombre de colonnes, la valeur doit être un nombre positif"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Menu principal"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertical"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horizontal"

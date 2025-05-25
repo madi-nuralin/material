@@ -63,6 +63,14 @@
 		<div class="relative flex flex-grow basis-0 items-center">
 			{include file="frontend/components/logo.tpl" small=true}
 		</div>
+
+		{if $activeTheme->getOption('primaryMenu') == 'horizontal'}
+			<div class="hidden lg:block">
+				{* Primary navigation menu for current application *}
+				{$primaryMenu}
+			</div>
+		{/if}
+
 		<div class="flex items-center space-x-2">
 			{* Search form *}
 			{if $currentContext && $requestedPage !== 'search'}
@@ -96,12 +104,14 @@
 			</div>
 			<div class="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block">
 			</div>
-			<div class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
-				<nav class="text-base lg:text-sm">
-					{* Primary navigation menu for current application *}
-					{$primaryMenu}
-				</nav>
-			</div>
+			{if $activeTheme->getOption('primaryMenu') == 'vertical'}
+				<div class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
+					<nav class="text-base lg:text-sm">
+						{* Primary navigation menu for current application *}
+						{$primaryMenu}
+					</nav>
+				</div>
+			{/if}
 		</div>
 
 		{* Wrapper for page content and sidebars *}

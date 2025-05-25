@@ -143,6 +143,22 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
             'default' => 'none',
         ]);
 
+        $this->addOption('primaryMenu', 'FieldOptions', [
+            'type' => 'radio',
+            'label' => __('plugins.themes.material.option.primaryMenu.label'),
+            'options' => [
+                [
+                    'value' => 'vertical',
+                    'label' => __('plugins.themes.material.option.primaryMenu.vertical'),
+                ],
+                [
+                    'value' => 'horizontal',
+                    'label' => __('plugins.themes.material.option.primaryMenu.horizontal'),
+                ],
+            ],
+            'default' => 'horizontal',
+        ]);
+
         $request = Application::get()->getRequest();
 
         $templateManager = TemplateManager::getManager($request);

@@ -90,3 +90,12 @@ msgstr "Anzahl der Spalten auf der Seite „Problemarchiv“."
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Geben Sie die Anzahl der Spalten ein, der Wert sollte eine positive Zahl sein"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Hauptmenü"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertikal"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horizontal"

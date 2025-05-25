@@ -113,3 +113,12 @@ msgstr ""
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr ""
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Первинне меню"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Вертикальний"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Горизонтальний"

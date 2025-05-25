@@ -93,3 +93,12 @@ msgstr "Nombre de columnes a la pàgina Arxiu de problemes"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Inseriu el nombre de columnes, el valor ha de ser un nombre positiu"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Menú principal"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertical"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horitzontal"

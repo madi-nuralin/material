@@ -110,3 +110,12 @@ msgstr "Количество столбцов на странице архива
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Вставьте количество столбцов, значение должно быть положительным числом"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Основное меню"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Вертикальный"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Горизонтальный"

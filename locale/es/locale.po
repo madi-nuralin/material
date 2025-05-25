@@ -91,3 +91,12 @@ msgstr "Número de columnas en la página Archivo de problemas"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Inserte el número de columnas, el valor debe ser un número positivo"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Menú principal"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertical"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horizontal"

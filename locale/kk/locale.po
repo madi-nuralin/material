@@ -88,3 +88,12 @@ msgstr "Мұрағат бетіндегі бағандар саны"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Бағандар санын енгізіңіз, мән оң сан болуы керек"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Негізгі мәзір"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Тік"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Көлденең"
