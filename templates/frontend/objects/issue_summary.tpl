@@ -18,18 +18,8 @@
 <div class="_obj_issue_summary">
     {if $issueCover}
         <a href="{url op="view" path=$issue->getBestIssueId()}">
-            <img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}" class="aspect-square w-full rounded-md bg-slate-100 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" style="margin: 0 !important;">
+            <img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}" class="aspect-square lg:aspect-auto w-full border border-slate-100 dark:border-slate-800" style="margin: 0 !important;">
         </a>
-    {else}
-        <div class="aspect-square w-full rounded-md border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 lg:aspect-auto lg:h-80 flex flex-col justify-center items-center text-center">
-            <div class="flex flex-col items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="sm:w-16 sm:h-16 w-24 h-24 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="" fill="none"/>
-                    <path d="M8 12h8M12 8v8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="text-gray-500 text-sm mt-2">No Cover</span>
-            </div>
-        </div>
     {/if}
     <div class="mt-4 flex justify-between">
         <div>

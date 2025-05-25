@@ -87,3 +87,12 @@ msgstr "عدد الأعمدة في صفحة أرشيف المشاكل"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "أدخل عدد الأعمدة ، يجب أن تكون القيمة رقمًا موجبًا"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "القائمة الأساسية"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "رَأسِيّ"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "أفقي"

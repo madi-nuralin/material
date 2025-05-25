@@ -88,3 +88,12 @@ msgstr "Počet sloupců na stránce Archiv vydání"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Vložte počet sloupců, hodnota by měla být kladné číslo"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Primární menu"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertikální"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horizontální"

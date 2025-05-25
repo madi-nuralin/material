@@ -87,3 +87,12 @@ msgstr "課題アーカイブ ページの列数"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "列数を挿入します。値は正の数でなければなりません"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "メインメニュー"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "垂直"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "水平"

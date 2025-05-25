@@ -85,3 +85,12 @@ msgstr "Number of columns in Issue Archive page"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "Insert number of columns, the value should be positive number"
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "Primary menu"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "Vertical"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "Horizontal"

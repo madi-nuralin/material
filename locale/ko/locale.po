@@ -86,3 +86,12 @@ msgstr "이슈 아카이브 페이지의 열 수"
 
 msgid "plugins.themes.material.option.issueArchiveColumns.description"
 msgstr "열 수 삽입, 값은 양수여야 합니다."
+
+msgid "plugins.themes.material.option.primaryMenu.label"
+msgstr "기본 메뉴"
+
+msgid "plugins.themes.material.option.primaryMenu.vertical"
+msgstr "수직의"
+
+msgid "plugins.themes.material.option.primaryMenu.horizontal"
+msgstr "수평의"
