@@ -66,7 +66,7 @@
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
  {if !$heading}
- 	{assign var="heading" value="h3"}
+	{assign var="heading" value="h3"}
  {/if}
 <article class="obj_article_details">
 
@@ -277,27 +277,29 @@
 
 			{* Article/Issue cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
-    <div class="item cover_image">
-        <div class="sub_item">
-            {if $publication->getLocalizedData('coverImage')}
-                {assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
-                <img
-                    src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
-                    alt="{$coverImage.altText|escape|default:''}"
-                    class="w-full sm:w-48 sm:h-64 h-48 object-cover rounded-lg shadow-md"
-                >
-            {else}
-                <a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-                    <img 
-                        src="{$issue->getLocalizedCoverImageUrl()|escape}" 
-                        alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
-                        class="w-full sm:w-48 sm:h-64 h-48 object-cover rounded-lg shadow-md"
-                    >
-                </a>
-            {/if}
-        </div>
-    </div>
-{/if}
+				<div class="item cover_image">
+					<div class="sub_item">
+						{if $publication->getLocalizedData('coverImage')}
+							{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+							<img
+								src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+								alt="{$coverImage.altText|escape|default:''}"
+								class="w-full sm:w-48 sm:h-64 h-full object-contain"
+								style="margin-top: 0;margin-bottom: 0;"
+							>
+						{else}
+							<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+								<img 
+									src="{$issue->getLocalizedCoverImageUrl()|escape}" 
+									alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
+									class="w-full sm:w-48 sm:h-64 h-full object-contain"
+									style="margin-top: 0;margin-bottom: 0;"
+								>
+							</a>
+						{/if}
+					</div>
+				</div>
+			{/if}
 
 
 			{* Article Galleys *}
