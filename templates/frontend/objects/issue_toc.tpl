@@ -50,7 +50,7 @@
 				{/if}
 				{* Published Date *}
 				{if $issue->getDatePublished()}
-					<p class="text-gray-600 text-sm mt-2">
+					<p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
 						<span class="font-semibold">{translate key="submissions.published"}:</span>
 						{$issue->getDatePublished()|date_format:$dateFormatShort}
 					</p>
@@ -80,11 +80,11 @@
 				{if $section.articles}
 					<div>
 						{if $section.title}
-							<h2 class="text-lg font-semibold text-gray-900">{$section.title|escape}</h2>
+							<h2 class="text-lg font-semibold text-gray-900 dark:text-gray-200">{$section.title|escape}</h2>
 						{/if}
 						<ul role="list" class="divide-y divide-gray-100 dark:divide-gray-800" style="padding: 0;">
 							{foreach from=$section.articles item=article}
-								<li class="flex justify-between gap-x-6 py-5">
+								<li class="flex justify-between gap-x-6 pl-0 py-5">
 									{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
 								</li>
 							{/foreach}
