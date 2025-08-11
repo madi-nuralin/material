@@ -1,6 +1,6 @@
 {* @file /templates/frontend/components/ui/material_icon_search.tpl
  *
- * Copyright (c) 2025 Madi
+ * Copyright (c) 2025 Madi N.
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Svg system icon

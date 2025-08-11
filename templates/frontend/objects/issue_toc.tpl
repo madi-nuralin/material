@@ -34,7 +34,7 @@
 {if !$issue->getPublished()}
 	{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
 {/if}
-	<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6">
+	<div class="not-prose mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6">
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
 			<div class="group relative">
@@ -50,7 +50,7 @@
 				{/if}
 				{* Published Date *}
 				{if $issue->getDatePublished()}
-					<p class="text-gray-600 text-sm mt-2">
+					<p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
 						<span class="font-semibold">{translate key="submissions.published"}:</span>
 						{$issue->getDatePublished()|date_format:$dateFormatShort}
 					</p>
@@ -64,7 +64,7 @@
 		{if $issueGalleys}
 			<div class="mt-6">
 				<h2 class="text-lg font-semibold text-gray-900 dark:text-gray-200">{translate key="issue.fullIssue"}</h2>
-				<ul class="mt-2 space-y-2">
+				<ul class="not-prose space-x-2 list-none">
 					{foreach from=$issueGalleys item=galley}
 						<li>
 							{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}
@@ -80,11 +80,11 @@
 				{if $section.articles}
 					<div>
 						{if $section.title}
-							<h2 class="text-lg font-semibold text-gray-900">{$section.title|escape}</h2>
+							<h2 class="text-lg font-semibold text-gray-900 dark:text-gray-200">{$section.title|escape}</h2>
 						{/if}
 						<ul role="list" class="divide-y divide-gray-100 dark:divide-gray-800" style="padding: 0;">
 							{foreach from=$section.articles item=article}
-								<li class="flex justify-between gap-x-6 py-5">
+								<li class="flex justify-between gap-x-6 pl-0 py-5">
 									{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
 								</li>
 							{/foreach}
