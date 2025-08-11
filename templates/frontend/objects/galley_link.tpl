@@ -57,10 +57,56 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="{if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}"{if $labelledBy} aria-labelledby={$labelledBy}{/if} {if $restricted}style="color: red"{/if}>
+<a class="
+	not-prose inline-flex items-center space-x-1 rounded-full py-2 px-4 text-sm font-semibold
+	{if $restricted}
+		restricted
+		text-white
+		bg-red-800
+		hover:bg-red-700
+		focus:outline-none
+		focus-visible:outline-2
+		focus-visible:outline-offset-2
+		focus-visible:outline-white/50
+		active:text-red-400
+	{else if $isSupplementary}
+		obj_galley_link_supplementary
+		text-white
+		bg-slate-800
+		hover:bg-slate-700
+		focus:outline-none
+		focus-visible:outline-2
+		focus-visible:outline-offset-2
+		focus-visible:outline-white/50
+		active:text-slate-400
+	{else}
+		obj_galley_link 
+		text-slate-900
+		bg-{$activeTheme->getOption('baseColour')}-300
+		hover:bg-{$activeTheme->getOption('baseColour')}-200
+		focus:outline-none
+		focus-visible:outline-2
+		focus-visible:outline-offset-2
+		focus-visible:outline-{$activeTheme->getOption('baseColour')}-300/50
+		active:bg-{$activeTheme->getOption('baseColour')}-500
+	{/if}"
+	href="{url page=$page op="view" path=$path}"
+	{if $labelledBy}
+		aria-labelledby={$labelledBy}
+	{/if}>
+
+	<div>
+		{if $restricted}
+			{include file="frontend/components/ui/material_icon_lock.tpl"}
+		{else if $type == "pdf"}
+			{include file="frontend/components/ui/material_icon_pdf.tpl"}
+		{else}
+			{include file="frontend/components/ui/material_icon_file_text.tpl"}
+		{/if}
+	</div>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
-	{if $restricted}
+	{*if $restricted}
 		<span class="pkp_screen_reader">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
@@ -68,9 +114,11 @@
 				{translate key="reader.subscriptionAccess"}
 			{/if}
 		</span>
-	{/if}
+	{/if*}
 
-	{$galley->getGalleyLabel()|escape}
+	<div>
+		{$galley->getGalleyLabel()|escape}
+	</div>
 
 	{if $restricted && $purchaseFee && $purchaseCurrency}
 		<span class="purchase_cost">

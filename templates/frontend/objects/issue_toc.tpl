@@ -34,7 +34,7 @@
 {if !$issue->getPublished()}
 	{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
 {/if}
-	<div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6">
+	<div class="not-prose mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-6">
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
 			<div class="group relative">
@@ -64,7 +64,7 @@
 		{if $issueGalleys}
 			<div class="mt-6">
 				<h2 class="text-lg font-semibold text-gray-900 dark:text-gray-200">{translate key="issue.fullIssue"}</h2>
-				<ul class="mt-2 space-y-2">
+				<ul class="not-prose space-x-2 list-none">
 					{foreach from=$issueGalleys item=galley}
 						<li>
 							{include file="frontend/objects/galley_link.tpl" parent=$issue labelledBy="issueTocGalleyLabel" purchaseFee=$currentJournal->getData('purchaseIssueFee') purchaseCurrency=$currentJournal->getData('currency')}

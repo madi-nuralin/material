@@ -37,34 +37,51 @@
     {/if}
 
     <div class="flex-1">
-        <{$heading} class="md:text-base text-sm font-semibold text-gray-900" style="margin-top: 0;">
-            <a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="hover:underline">
-                {$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
-                {assign var=localizedSubtitle value=$publication->getLocalizedSubtitle(null, 'html')|strip_unsafe_html}
-                {if $localizedSubtitle}
-                    <span class="block md:text-sm text-xs">{$localizedSubtitle}</span>
-                {/if}
-            </a>
-        </{$heading}>
+        <div class="flex space-x-2">
+            <{$heading} class="text-base font-semibold text-gray-900" style="margin-top: 0;">
+                <a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="hover:underline">
+                    {$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
+                    {assign var=localizedSubtitle value=$publication->getLocalizedSubtitle(null, 'html')|strip_unsafe_html}
+                    {if $localizedSubtitle}
+                        <span class="block text-sm">{$localizedSubtitle}</span>
+                    {/if}
+                </a>
+            </{$heading}>
 
-        {assign var=submissionPages value=$publication->getData('pages')}
-        {assign var=submissionDatePublished value=$publication->getData('datePublished')}
-        {if $showAuthor || $submissionPages || ($submissionDatePublished && $showDatePublished)}
+            {assign var=submissionPages value=$publication->getData('pages')}
+            {assign var=submissionDatePublished value=$publication->getData('datePublished')}
+            {if $submissionPages && ($submissionDatePublished && $showDatePublished)}
+                <div class="w-26 flex-shrink-0 flex flex-col items-end">
+                    {if $submissionPages}
+                        <div class="text-gray-500 dark:text-gray-400">
+                            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset dark:bg-green-500/10 dark:text-green-400 space-x-1">
+                                <div>{$submissionPages|escape}</div>
+                                <div>{include file="frontend/components/ui/material_icon_file.tpl"}</div>
+                            </span>
+                        </div>
+                    {/if}
+                    {if $showDatePublished || $submissionDatePublished}
+                        <div class="text-gray-500 dark:text-gray-400">
+                            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset dark:bg-green-500/10 dark:text-green-400 space-x-2">
+                                <div>{$submissionDatePublished|date_format:$dateFormatShort}</div>
+                                <div>{include file="frontend/components/ui/material_icon_calendar.tpl"}</div>
+                            </span>
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+        </div>
+
+        {if $showAuthor}
             <div class="md:text-sm text-xs text-gray-700 mt-1">
                 {if $showAuthor}
                     <div class="font-medium text-gray-800 dark:text-gray-300">{$publication->getAuthorString($authorUserGroups)|escape}</div>
-                {/if}
-                {if $submissionPages}
-                    <div class="text-gray-500 dark:text-gray-400">{$submissionPages|escape}</div>
-                {/if}
-                {if $showDatePublished && $submissionDatePublished}
-                    <div class="text-gray-500 dark:text-gray-400">{$submissionDatePublished|date_format:$dateFormatShort}</div>
                 {/if}
             </div>
         {/if}
 
         {if !$hideGalleys}
-            <ul class="list-none flex flex-wrap space-x-2 m-0 p-0 text-xs text-blue-600">
+            <ul class="list-none flex flex-wrap justify-end  space-x-2 m-0 p-0 text-xs text-blue-600">
                 {foreach from=$article->getGalleys() item=galley}
                     {if $primaryGenreIds}
                         {assign var="file" value=$galley->getFile()}
@@ -72,7 +89,7 @@
                             {continue}
                         {/if}
                     {/if}
-                    <li class="p-0">
+                    <li>
                         {assign var="hasArticleAccess" value=$hasAccess}
                         {if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
                             {assign var="hasArticleAccess" value=1}
