@@ -50,7 +50,7 @@
 
             {assign var=submissionPages value=$publication->getData('pages')}
             {assign var=submissionDatePublished value=$publication->getData('datePublished')}
-            {if $submissionPages && ($submissionDatePublished && $showDatePublished)}
+            {if $submissionPages || ($submissionDatePublished && $showDatePublished)}
                 <div class="w-26 flex-shrink-0 flex flex-col items-end">
                     {if $submissionPages}
                         <div class="text-gray-500 dark:text-gray-400">
@@ -60,7 +60,7 @@
                             </span>
                         </div>
                     {/if}
-                    {if $showDatePublished || $submissionDatePublished}
+                    {if $showDatePublished && $submissionDatePublished}
                         <div class="text-gray-500 dark:text-gray-400">
                             <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset dark:bg-green-500/10 dark:text-green-400 space-x-2">
                                 <div>{$submissionDatePublished|date_format:$dateFormatShort}</div>
