@@ -16,7 +16,7 @@ namespace APP\plugins\themes\material;
 use APP\core\Application;
 use APP\file\PublicFileManager;
 use PKP\config\Config;
-use PKP\session\SessionManager;
+use PKP\core\PKPSessionGuard;
 use APP\template\TemplateManager;
 
 class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
@@ -25,7 +25,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
      * @copydoc ThemePlugin::isActive()
      */
     public function isActive() {
-        if (SessionManager::isDisabled()) {
+        if (PKPSessionGuard::isSessionDisable()) {
             return true;
         }
         return parent::isActive();
@@ -263,8 +263,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
      * @return string
      */
     public function getJqueryPath($request) {
+        // Load jQuery from a CDN or, if CDNs are disabled, from a local copy.
         $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-        return $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+        return $request->getBaseUrl() . '/js/build/jquery/jquery' . $min . '.js';
     }
 
     /**
@@ -274,7 +275,7 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
      */
     public function getJqueryUIPath($request) {
         $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
-        return $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+        return $request->getBaseUrl() . '/js/build/jquery-ui/jquery-ui' . $min . '.js';
     }
 
     public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {

@@ -123,7 +123,7 @@
 														{$author->getFullName()|escape}
 													</p>
 
-													{if $author->getLocalizedData('affiliation')}
+													{if count($author->getAffiliations()) > 0}
 														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
 															<svg xmlns="http://www.w3.org/2000/svg"
 																viewBox="0 0 24 24" class="w-4 h-4" 
@@ -133,16 +133,19 @@
 																<path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"/>
 															</svg>
 															<div>
-																{$author->getLocalizedData('affiliation')|escape}
-																{if $author->getData('rorId')}
-																	<a href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-																{/if}
+																<span class="affiliation">
+																	{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
+																		<span>{$affiliation->getLocalizedName()|escape}</span>
+																		{if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
+																		{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
+																	{/foreach}
+																</span>
 															</div>
 														</div>
 													{/if}
 													
 													{assign var=authorUserGroup value=$userGroupsById[$author->getData('userGroupId')]}
-													{if $authorUserGroup->getShowTitle()}
+													{if $authorUserGroup->showTitle}
 														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
 															<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"
 																viewBox="0 0 24 24"
@@ -154,20 +157,20 @@
 																<circle cx="12" cy="12" r="10"/>
 															</svg>
 															<div class="userGroup">
-																{$authorUserGroup->getLocalizedName()|escape}
+																{$authorUserGroup->getLocalizedData('name')|escape}
 															</div>
 														</div>
 													{/if}
 													
 													{if $author->getData('orcid')}
 														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
-															{if $author->getData('orcidAccessToken')}
+															{if $author->hasVerifiedOrcid()}
 																{$orcidIcon}
 															{else}
 																{include file="frontend/components/ui/material_icon_orcid.tpl"}
 															{/if}
 															<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words text-{$activeTheme->getOption('baseColour')}-400 ">
-																{$author->getData('orcid')|escape}
+																{$author->getOrcidDisplayValue()|escape}
 															</a>
 														</div>
 													{/if}
@@ -264,10 +267,10 @@
 										{if $author->getLocalizedData('biography')}
 											<li class="sub_item">
 												<div class="label text-sm/6 font-semibold text-slate-900 dark:text-slate-300">
-													{if $author->getLocalizedData('affiliation')}
+													{if $author->getLocalizedAffiliationNamesAsString()}
 														{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
-														{capture assign="authorAffiliation"} {$author->getLocalizedData('affiliation')|escape} {/capture}
-														{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
+														{capture assign="authorAffiliations"} {$author->getLocalizedAffiliationNamesAsString(null, ', ')|escape} {/capture}
+														{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliations}
 													{else}
 														{$author->getFullName()|escape}
 													{/if}
@@ -512,10 +515,10 @@
 							</dd>
 						</div>
 					{/if}
-
-					{call_hook name="Templates::Article::Details"}
-				</dl>
+				</dl>		
 			</div>
+
+			{call_hook name="Templates::Article::Details"}
 
 		</div>
 

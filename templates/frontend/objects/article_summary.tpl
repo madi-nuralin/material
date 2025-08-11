@@ -26,7 +26,7 @@
 	{assign var="showAuthor" value=true}
 {/if}
 
-<div class="flex md:space-x-4">
+<div class="flex md:space-x-4 w-full">
     {if $publication->getLocalizedData('coverImage')}
         <div class="w-32 flex-shrink-0 md:block hidden">
             <a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
@@ -37,7 +37,7 @@
     {/if}
 
     <div class="flex-1">
-        <div class="flex space-x-2">
+        <div class="flex justify-between space-x-2">
             <{$heading} class="text-base font-semibold text-gray-900" style="margin-top: 0;">
                 <a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="hover:underline">
                     {$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
@@ -85,7 +85,7 @@
                 {foreach from=$article->getGalleys() item=galley}
                     {if $primaryGenreIds}
                         {assign var="file" value=$galley->getFile()}
-                        {if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
+                        {if !$galley->getData('urlRemote') && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
                             {continue}
                         {/if}
                     {/if}
