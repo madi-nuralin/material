@@ -293,7 +293,7 @@
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.citations"}
 							</dt>
-							<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
+							<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0 space-y-2">
 								{if $parsedCitations}
 									{foreach from=$parsedCitations item="parsedCitation"}
 										<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
@@ -317,7 +317,7 @@
 									<img
 										src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
 										alt="{$coverImage.altText|escape|default:''}"
-										class="border border-slate-200 dark:border-slate-800 rounded-md object-contain"
+										class="w-72 object-contain"
 										style="margin-top: 0;margin-bottom: 0;"
 									>
 								{else}
@@ -325,7 +325,7 @@
 										<img 
 											src="{$issue->getLocalizedCoverImageUrl()|escape}" 
 											alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
-											class="border border-slate-200 dark:border-slate-800 rounded-md object-contain"
+											class="w-72 object-contain"
 											style="margin-top: 0;margin-bottom: 0;"
 										>
 									</a>
@@ -515,11 +515,12 @@
 							</dd>
 						</div>
 					{/if}
-				</dl>		
+				</dl>
 			</div>
 
-			{call_hook name="Templates::Article::Details"}
-
+			<div class="sm:px-0 px-4 mt-6">
+				{call_hook name="Templates::Article::Details"}
+			</div>
 		</div>
 
 	</div><!-- .row -->
