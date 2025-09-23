@@ -91,7 +91,7 @@
 			{assign var=contextId value=$currentContext->getId()}
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-				{if $userGroup->getPermitSelfRegistration()}
+				{if $userGroup->permitSelfRegistration}
 					{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
 				{/if}
 			{/foreach}
@@ -108,9 +108,9 @@
 					<div class="fields">
 						<div id="reviewerOptinGroup" class="optin">
 							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-								{if $userGroup->getPermitSelfRegistration()}
+								{if $userGroup->permitSelfRegistration}
 									{material_label class="flex"}
-										{assign var="userGroupId" value=$userGroup->getId()}
+										{assign var="userGroupId" value=$userGroup->id}
 										<span>
 											{if in_array($userGroupId, $userGroupIds)} 
 												{material_checkbox
@@ -124,7 +124,7 @@
 											{/if}
 										</span>
 										<span class="ml-2">
-											{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()}
+											{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedData("name")}
 										</span>
 									{/material_label}
 								{/if}
