@@ -25,7 +25,7 @@
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
-		<li class="current text-{$activeTheme->getOption('baseColour')}-500 truncate">
+		<li class="current text-{$activeTheme->getBaseColour()}-500 truncate">
 			<span aria-current="page">{$currentTitle|escape}</span>
 		</li>
 	</ol>

@@ -16,7 +16,7 @@
  * @uses $yearStart Earliest year that can be used in from/to filters
  * @uses $yearEnd Latest year that can be used in from/to filters
  *}
-{assign var="baseColour" value=$activeTheme->getOption('baseColour')}
+{assign var="baseColour" value=$activeTheme->getBaseColour()}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
 {if !$heading}

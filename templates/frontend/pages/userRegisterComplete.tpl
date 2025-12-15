@@ -23,25 +23,25 @@
 	<ul class="registration_complete_actions">
 		{if array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR, \PKP\security\Role::ROLE_ID_ASSISTANT, \PKP\security\Role::ROLE_ID_REVIEWER), (array)$userRoles)}
 			<li class="view_submissions">
-				<a href="{url page="submissions"}" class="text-{$activeTheme->getOption('baseColour')}-500">
+				<a href="{url page="submissions"}" class="text-{$activeTheme->getBaseColour()}-500">
 					{translate key="user.login.registrationComplete.manageSubmissions"}
 				</a>
 			</li>
 		{/if}
 		{if $currentContext}
 			<li class="new_submission">
-				<a href="{url page="submission"}" class="text-{$activeTheme->getOption('baseColour')}-500">
+				<a href="{url page="submission"}" class="text-{$activeTheme->getBaseColour()}-500">
 					{translate key="user.login.registrationComplete.newSubmission"}
 				</a>
 			</li>
 		{/if}
 		<li class="edit_profile">
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="text-{$activeTheme->getOption('baseColour')}-500">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="text-{$activeTheme->getBaseColour()}-500">
 				{translate key="user.editMyProfile"}
 			</a>
 		</li>
 		<li class="browse">
-			<a href="{url page="index"}" class="text-{$activeTheme->getOption('baseColour')}-500">
+			<a href="{url page="index"}" class="text-{$activeTheme->getBaseColour()}-500">
 				{translate key="user.login.registrationComplete.continueBrowsing"}
 			</a>
 		</li>

@@ -100,7 +100,7 @@
                 </div>
               {/if}
               <div class="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <a class="rounded-full bg-{$activeTheme->getOption('baseColour')}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$activeTheme->getOption('baseColour')}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$activeTheme->getOption('baseColour')}-300/50 active:bg-{$activeTheme->getOption('baseColour')}-500" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button">
+                <a class="rounded-full bg-{$activeTheme->getBaseColour()}-300 py-2 px-4 text-sm font-semibold text-slate-900 hover:bg-{$activeTheme->getBaseColour()}-200 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{$activeTheme->getBaseColour()}-300/50 active:bg-{$activeTheme->getBaseColour()}-500" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" role="button">
                   {translate key="plugins.themes.material.makeSubmission"}
                 </a>
                 <a class="rounded-full bg-slate-800 py-2 px-4 text-sm font-medium text-white hover:bg-slate-700 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:text-slate-400" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
