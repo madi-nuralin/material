@@ -27,12 +27,12 @@
 		{if !$journals|@count}
 			{translate key="site.noJournals"}
 		{else}
-			<ul>
+			<ul class="list-none pl-0">
 				{foreach from=$journals item=journal}
 					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
 					{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 					{assign var="description" value=$journal->getLocalizedDescription()}
-					<li{if $thumb} class="has_thumb"{/if}>
+					<li class="{if $thumb}has_thumb{/if} my-8 flex flex-col md:flex-row rounded-3xl p-6 space-x-4 bg-sky-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10">
 						{if $thumb}
 							<div class="thumb">
 								<a href="{$url}">

@@ -106,75 +106,62 @@
 			<div class="mt-6 border-t border-slate-200 dark:border-slate-800">
 				<dl class="divide-y divide-slate-200 dark:divide-slate-800 my-0">
 					{if $publication->getData('authors')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="article.authors"}
 							</dt>
 							<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
 								<ul role="list" class="divide-y divide-slate-200 dark:divide-slate-800">
 									{foreach from=$publication->getData('authors') item=author}
-										<li class="flex justify-between gap-x-6 py-5">
+										<li class="flex justify-between gap-x-6 py-5 first:pt-0">
 											<div class="flex min-w-0 gap-x-4">
-												<svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-12 text-slate-500 sm:block hidden">
+												<!--svg viewBox="0 0 24 24" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-12 text-slate-500 sm:block hidden">
 													<path d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" fill-rule="evenodd"></path>
-												</svg>
-												<div class="flex flex-col justify-center">
-													<p class="text-sm/6 font-semibold text-slate-900 dark:text-slate-300">
+												</svg-->
+												<div class="min-w-0 flex-auto">
+													<p class="text-sm/6 font-semibold text-gray-900 dark:text-gray-200">
 														{$author->getFullName()|escape}
 													</p>
-
 													{if count($author->getAffiliations()) > 0}
-														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
-															<svg xmlns="http://www.w3.org/2000/svg"
-																viewBox="0 0 24 24" class="w-4 h-4" 
-																fill="none" 
-																stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-																<path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9"/>
-																<path d="M9 22V12h6v10M2 10.6L12 2l10 8.6"/>
-															</svg>
-															<div>
-																<span class="affiliation">
-																	{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
-																		<span>{$affiliation->getLocalizedName()|escape}</span>
-																		{if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
-																		{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
-																	{/foreach}
-																</span>
-															</div>
-														</div>
+														<p class="mt-1 text-sm/6 text-gray-500">
+															<span class="affiliation inline-flex text-slate-900 dark:text-slate-400 space-x-1 items-center">
+																{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
+																	<span>{$affiliation->getLocalizedName()|escape}</span>
+																	{if $affiliation->getRor()}
+																		<a href="{$affiliation->getRor()|escape}">
+																			{include file="frontend/components/ui/material_icon_ror.tpl"}
+																		</a>
+																	{/if}
+																	{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
+																{/foreach}
+															</span>
+														</p>
 													{/if}
-													
+													{if $author->getData('orcid')}
+														<p class="mt-1 text-sm/6 text-gray-500">
+															<span class="text-slate-900 dark:text-slate-400 inline-flex space-x-1 items-center">
+																<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words text-{$activeTheme->getBaseColour()}-400">
+																	{$author->getOrcidDisplayValue()|escape}
+																</a>
+																{if $author->hasVerifiedOrcid()}
+																	{$orcidIcon}
+																{else}
+																	{include file="frontend/components/ui/material_icon_orcid.tpl"}
+																{/if}
+															</span>
+														</p>
+													{/if}	
+												</div>
+											</div>
+											<div class="min-w-0 flex-auto text-end">
+												<p class="text-sm/6 text-gray-900">
 													{assign var=authorUserGroup value=$userGroupsById[$author->getData('userGroupId')]}
 													{if $authorUserGroup->showTitle}
-														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
-															<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"
-																viewBox="0 0 24 24"
-																fill="none"
-																stroke="currentColor" stroke-width="1"
-																stroke-linecap="round" stroke-linejoin="round">
-																<path d="M5.52 19c.64-2.2 1.84-3 3.22-3h6.52c1.38 0 2.58.8 3.22 3"/>
-																<circle cx="12" cy="10" r="3"/>
-																<circle cx="12" cy="12" r="10"/>
-															</svg>
-															<div class="userGroup">
-																{$authorUserGroup->getLocalizedData('name')|escape}
-															</div>
-														</div>
+														<span class="userGroup inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset dark:bg-green-500/10 dark:text-green-400 space-x-1">
+															{$authorUserGroup->getLocalizedData('name')|escape}
+														</span>
 													{/if}
-													
-													{if $author->getData('orcid')}
-														<div class="text-sm/6 text-slate-900 dark:text-slate-400 flex space-x-1 items-center">
-															{if $author->hasVerifiedOrcid()}
-																{$orcidIcon}
-															{else}
-																{include file="frontend/components/ui/material_icon_orcid.tpl"}
-															{/if}
-															<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words text-{$activeTheme->getBaseColour()}-400 ">
-																{$author->getOrcidDisplayValue()|escape}
-															</a>
-														</div>
-													{/if}
-												</div>
+												</p>
 											</div>
 										</li>
 									{/foreach}
@@ -187,7 +174,7 @@
 					{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
 					{if $doiObject}
 						{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{capture assign=translatedDOI}{translate key="doi.readerDisplayName"}{/capture}
 								{translate key="semicolon" label=$translatedDOI}
@@ -202,7 +189,7 @@
 
 					{* Keywords *}
 					{if !empty($publication->getLocalizedData('keywords'))}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
 								{translate key="semicolon" label=$translatedKeywords}
@@ -217,7 +204,7 @@
 
 					{* Abstract *}
 					{if $publication->getLocalizedData('abstract')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="article.abstract"}
 							</dt>
@@ -232,7 +219,7 @@
 					{* Usage statistics chart*}
 					{if $activeTheme->getOption('displayStats') != 'none'}
 						{$activeTheme->displayUsageStatsGraph($article->getId())}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="plugins.themes.default.displayStats.downloads"}
 							</dt>
@@ -253,7 +240,7 @@
 						{/if}
 					{/foreach}
 					{if $hasBiographies}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{if $hasBiographies > 1}
 									{translate key="submission.authorBiographies"}
@@ -289,7 +276,7 @@
 
 					{* References *}
 					{if $parsedCitations || $publication->getData('citationsRaw')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.citations"}
 							</dt>
@@ -307,7 +294,7 @@
 
 					{* Article/Issue cover image *}
 					{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								Cover Image
 							</dt>
@@ -336,7 +323,7 @@
 
 					{* Article Galleys *}
 					{if $primaryGalleys}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.downloads"}
 							</dt>
@@ -353,7 +340,7 @@
 					{/if}
 
 					{if $supplementaryGalleys}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.additionalFiles"}
 							</dt>
@@ -370,7 +357,7 @@
 					{/if}
 
 					{if $publication->getData('datePublished')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submissions.published"}
 							</dt>
@@ -386,7 +373,7 @@
 						</div>
 
 						{if count($article->getPublishedPublications()) > 1}
-							<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+							<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 								<dt class="_text-sm/6 font-medium _text-slate-800">
 									{translate key="submission.versions"}
 								</dt>
@@ -412,7 +399,7 @@
 
 					{* Data Availability Statement *}
 					{if $publication->getLocalizedData('dataAvailability')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.dataAvailability"}
 							</dt>
@@ -425,7 +412,7 @@
 					{* Issue article appears in *}
 					{if $issue || $section || $categories}
 						{if $issue}
-							<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+							<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 								<dt class="_text-sm/6 font-medium _text-slate-800">
 									{translate key="issue.issue"}
 								</dt>
@@ -438,7 +425,7 @@
 						{/if}
 
 						{if $section}
-							<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+							<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 								<dt class="_text-sm/6 font-medium _text-slate-800">
 									{translate key="section.section"}
 								</dt>
@@ -449,7 +436,7 @@
 						{/if}
 
 						{if $categories}
-							<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+							<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 								<dt class="_text-sm/6 font-medium _text-slate-800">
 									{translate key="category.category"}
 								</dt>
@@ -471,7 +458,7 @@
 						{/if}
 						{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 						{if $pubId}
-							<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+							<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 								<dt class="_text-sm/6 font-medium _text-slate-800">
 									{$pubIdPlugin->getPubIdDisplayType()|escape}
 								</dt>
@@ -490,7 +477,7 @@
 
 					{* Licensing info *}
 					{if $currentContext->getLocalizedData('licenseTerms') || $publication->getData('licenseUrl')}
-						<div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+						<div class="px-0 py-6 sm:grid sm:grid-cols-3 sm:gap-4">
 							<dt class="_text-sm/6 font-medium _text-slate-800">
 								{translate key="submission.license"}
 							</dt>
@@ -518,7 +505,7 @@
 				</dl>
 			</div>
 
-			<div class="sm:px-0 px-4 mt-6">
+			<div class="my-8 flex rounded-3xl p-6 bg-sky-50 dark:bg-slate-800/60 dark:ring-1 dark:ring-slate-300/10 space-x-2">
 				{call_hook name="Templates::Article::Details"}
 			</div>
 		</div>
