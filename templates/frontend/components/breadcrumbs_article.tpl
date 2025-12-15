@@ -24,14 +24,14 @@
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		<li class="flex space-x-1 truncate">
-			<a class="hover:text-slate-700" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
+			<a class="hover:text-slate-700 dark:hover:text-slate-400" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
 				{translate key="navigation.archives"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		{if $issue}
 			<li class="flex space-x-1 truncate">
-				<a class="hover:text-slate-700" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+				<a class="hover:text-slate-700 dark:hover:text-slate-400" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
 					{$issue->getIssueIdentification()}
 				</a>
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
