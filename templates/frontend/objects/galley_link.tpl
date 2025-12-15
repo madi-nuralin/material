@@ -82,13 +82,13 @@
 	{else}
 		obj_galley_link 
 		text-slate-900
-		bg-{$activeTheme->getOption('baseColour')}-300
-		hover:bg-{$activeTheme->getOption('baseColour')}-200
+		bg-{$activeTheme->getBaseColour()}-300
+		hover:bg-{$activeTheme->getBaseColour()}-200
 		focus:outline-none
 		focus-visible:outline-2
 		focus-visible:outline-offset-2
-		focus-visible:outline-{$activeTheme->getOption('baseColour')}-300/50
-		active:bg-{$activeTheme->getOption('baseColour')}-500
+		focus-visible:outline-{$activeTheme->getBaseColour()}-300/50
+		active:bg-{$activeTheme->getBaseColour()}-500
 	{/if}"
 	href="{url page=$page op="view" path=$path}"
 	{if $labelledBy}

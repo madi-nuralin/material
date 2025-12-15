@@ -1,4 +1,4 @@
-{**
+ {**
  * templates/frontend/components/breadcrumbs.tpl
  *
  * Copyright (c) 2024 Madi Nuralin
@@ -23,7 +23,7 @@
 				{translate key="navigation.breadcrumbSeparator"}
 			</span>
 		</li>
-		<li class="current text-{$activeTheme->getOption('baseColour')}-500 truncate">
+		<li class="current text-{$activeTheme->getBaseColour()}-500 truncate">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}

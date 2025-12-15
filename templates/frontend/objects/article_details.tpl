@@ -169,7 +169,7 @@
 															{else}
 																{include file="frontend/components/ui/material_icon_orcid.tpl"}
 															{/if}
-															<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words text-{$activeTheme->getOption('baseColour')}-400 ">
+															<a href="{$author->getData('orcid')|escape}" target="_blank" class="break-words text-{$activeTheme->getBaseColour()}-400 ">
 																{$author->getOrcidDisplayValue()|escape}
 															</a>
 														</div>
@@ -193,7 +193,7 @@
 								{translate key="semicolon" label=$translatedDOI}
 							</dt>
 							<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
-								<a href="{$doiUrl}" class="text-{$activeTheme->getOption('baseColour')}-400 break-words">
+								<a href="{$doiUrl}" class="text-{$activeTheme->getBaseColour()}-400 break-words">
 									{$doiUrl}
 								</a>
 							</dd>
@@ -398,9 +398,9 @@
 												{if $iPublication->getId() === $publication->getId()}
 													{$name}
 												{elseif $iPublication->getId() === $currentPublication->getId()}
-													<a class="text-{$activeTheme->getOption('baseColour')}-400" href="{url page="article" op="view" path=$article->getBestId()}">{$name}</a>
+													<a class="text-{$activeTheme->getBaseColour()}-400" href="{url page="article" op="view" path=$article->getBestId()}">{$name}</a>
 												{else}
-													<a class="text-{$activeTheme->getOption('baseColour')}-400" href="{url page="article" op="view" path=$article->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
+													<a class="text-{$activeTheme->getBaseColour()}-400" href="{url page="article" op="view" path=$article->getBestId()|to_array:"version":$iPublication->getId()}">{$name}</a>
 												{/if}
 											</li>
 										{/foreach}
@@ -430,7 +430,7 @@
 									{translate key="issue.issue"}
 								</dt>
 								<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
-									<a class="title text-{$activeTheme->getOption('baseColour')}-400" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+									<a class="title text-{$activeTheme->getBaseColour()}-400" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
 										{$issue->getIssueIdentification()}
 									</a>
 								</dd>
@@ -456,7 +456,7 @@
 								<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
 									<ul class="categories">
 										{foreach from=$categories item=category}
-											<li><a class="text-{$activeTheme->getOption('baseColour')}-400" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
+											<li><a class="text-{$activeTheme->getBaseColour()}-400" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
 										{/foreach}
 									</ul>
 								</dd>
@@ -477,7 +477,7 @@
 								</dt>
 								<dd class="mt-1 _text-sm/6 text-slate-400 sm:col-span-2 sm:mt-0">
 									{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-										<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}" class="text-{$activeTheme->getOption('baseColour')}-400">
+										<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}" class="text-{$activeTheme->getBaseColour()}-400">
 											{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 										</a>
 									{else}
@@ -502,7 +502,7 @@
 										{/if}
 										{$ccLicenseBadge}
 									{else}
-										<a href="{$publication->getData('licenseUrl')|escape}" class="copyright text-{$activeTheme->getOption('baseColour')}-400">
+										<a href="{$publication->getData('licenseUrl')|escape}" class="copyright text-{$activeTheme->getBaseColour()}-400">
 											{if $publication->getLocalizedData('copyrightHolder')}
 												{translate key="submission.copyrightStatement" copyrightHolder=$publication->getLocalizedData('copyrightHolder') copyrightYear=$publication->getData('copyrightYear')}
 											{else}

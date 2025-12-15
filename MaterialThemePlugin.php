@@ -258,6 +258,18 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     }
 
     /**
+     * Get the base colour
+     *
+     * @return string
+     */
+    public function getBaseColour() {
+        $baseColour = $this->getOption('baseColour');
+        if (isset(['green' => 1, 'indigo' => 1, 'blue' => 1, 'sky' => 1, 'orange' => 1][$baseColour]))
+            return $baseColour;
+        return 'sky';
+    }
+
+    /**
      * Get the jquery path
      *
      * @return string
@@ -281,18 +293,18 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialButtonPrimary($params, $content, $smarty, &$repeat) {
         $default = "";
         $default .= " rounded-full";
-        $default .= " bg-{$this->getOption('baseColour')}-300";
+        $default .= " bg-{$this->getBaseColour()}-300";
         $default .= " py-2";
         $default .= " px-4";
         $default .= " text-sm";
         $default .= " font-semibold";
         $default .= " text-slate-900";
-        $default .= " hover:bg-{$this->getOption('baseColour')}-200";
+        $default .= " hover:bg-{$this->getBaseColour()}-200";
         $default .= " focus:outline-none";
         $default .= " focus-visible:outline-2";
         $default .= " focus-visible:outline-offset-2";
-        $default .= " focus-visible:outline-{$this->getOption('baseColour')}-300/50";
-        $default .= " active:bg-{$this->getOption('baseColour')}-500";
+        $default .= " focus-visible:outline-{$this->getBaseColour()}-300/50";
+        $default .= " active:bg-{$this->getBaseColour()}-500";
 
         $attributes = array();
         array_push($attributes, 'id');
@@ -379,9 +391,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialSelect($params, $content, $smarty, &$repeat) {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('baseColour')}-300";
+        $default .= " focus:border-{$this->getBaseColour()}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
+        $default .= " focus:ring-{$this->getBaseColour()}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";
@@ -596,9 +608,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     public function smartyMaterialInput($params, $smarty) {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('baseColour')}-300";
+        $default .= " focus:border-{$this->getBaseColour()}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
+        $default .= " focus:ring-{$this->getBaseColour()}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";
@@ -636,11 +648,11 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
         $default = "";
         $default .= " rounded-md";
         $default .= " border-gray-300";
-        $default .= " text-{$this->getOption('baseColour')}-600";
+        $default .= " text-{$this->getBaseColour()}-600";
         $default .= " shadow-sm";
-        $default .= " focus:border-{$this->getOption('baseColour')}-300";
+        $default .= " focus:border-{$this->getBaseColour()}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
+        $default .= " focus:ring-{$this->getBaseColour()}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " dark:bg-gray-800";
 
@@ -671,9 +683,9 @@ class MaterialThemePlugin extends \PKP\plugins\ThemePlugin
     {
         $default = "";
         $default .= " border-gray-300";
-        $default .= " focus:border-{$this->getOption('baseColour')}-300";
+        $default .= " focus:border-{$this->getBaseColour()}-300";
         $default .= " focus:ring";
-        $default .= " focus:ring-{$this->getOption('baseColour')}-200";
+        $default .= " focus:ring-{$this->getBaseColour()}-200";
         $default .= " focus:ring-opacity-50";
         $default .= " rounded-md";
         $default .= " shadow-sm";

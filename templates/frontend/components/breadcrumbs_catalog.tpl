@@ -31,7 +31,7 @@
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current text-{$activeTheme->getOption('baseColour')}-500 truncate" aria-current="page">
+		<li class="current text-{$activeTheme->getBaseColour()}-500 truncate" aria-current="page">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
